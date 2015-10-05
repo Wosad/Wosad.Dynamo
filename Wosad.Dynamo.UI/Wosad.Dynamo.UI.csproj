@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C196CB6-CC64-4356-A4B5-FEE5F8A225C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wosad.Dynamo.UI</RootNamespace>
+    <AssemblyName>Wosad.Dynamo.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="clipper_library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Clipper.6.2.10\lib\net40\clipper_library.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CoreNodeModelsWpf, Version=0.8.2.2427, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\CoreNodeModelsWpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DSCoreNodesUI, Version=0.8.2.2427, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\DSCoreNodesUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DynamoCore, Version=0.8.2.2427, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\DynamoCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DynamoCoreWpf, Version=0.8.2.2427, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\DynamoCoreWpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DynamoServices, Version=0.8.2.2427, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\DynamoServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.1.1.35049, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform">
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ProtoCore, Version=0.8.2.2427, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\ProtoCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\ProtoGeometry.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ProtoInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\ProtoInterface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Wosad.Common, Version=0.0.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.1.3\lib\net45\Wosad.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Loads.0.0.1.1\lib\net45\Wosad.Loads.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseClasses\IUiNodeBase.cs" />
+    <Compile Include="Common\BaseClasses\UiNodeBase.cs" />
+    <Compile Include="Common\BaseClasses\UiNodeBaseViewCustomization.cs" />
+    <Compile Include="Common\Converters\StyleConverter.cs" />
+    <Compile Include="Common\Converters\TreeItemConverter.cs" />
+    <Compile Include="Common\TreeItems\Category.cs" />
+    <Compile Include="Common\TreeItems\XmlTreeHelper.cs" />
+    <Compile Include="Common\TreeItems\XTreeItem.cs" />
+    <Compile Include="Nodes\Loads\ASCE7_10\General\BuildingOccupancyIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Dead\ComponentIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Loads\ASCE7_10\BuildingOccupancyIdView.xaml.cs">
+      <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ClayBrickControl.xaml.cs">
+      <DependentUpon>ClayBrickControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ConcFillOnDeck1_5Control.xaml.cs">
+      <DependentUpon>ConcFillOnDeck1_5Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ConcFillOnDeck2Control.xaml.cs">
+      <DependentUpon>ConcFillOnDeck2Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ConcFillOnDeck3Control.xaml.cs">
+      <DependentUpon>ConcFillOnDeck3Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\CustomComponentControl.xaml.cs">
+      <DependentUpon>CustomComponentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\DeckControl.xaml.cs">
+      <DependentUpon>DeckControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\FullGroutedCMU.xaml.cs">
+      <DependentUpon>FullGroutedCMU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\GFRCPanelControl.xaml.cs">
+      <DependentUpon>GFRCPanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\GroutedCMU.xaml.cs">
+      <DependentUpon>GroutedCMU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\HollowCMU.xaml.cs">
+      <DependentUpon>HollowCMU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\PrecastPanelControl.xaml.cs">
+      <DependentUpon>PrecastPanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\RoofDeckControl.xaml.cs">
+      <DependentUpon>RoofDeckControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\SolidCMU.xaml.cs">
+      <DependentUpon>SolidCMU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ThicknessControl.xaml.cs">
+      <DependentUpon>ThicknessControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\WoodFramingControl.xaml.cs">
+      <DependentUpon>WoodFramingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\ComponentIdView.xaml.cs">
+      <DependentUpon>ComponentIdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7_10\LiveLoadOccupancyIdView.xaml.cs">
+      <DependentUpon>LiveLoadOccupancyIdView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Loads\ASCE7_10\BuildingOccupancyTreeData.xml" />
+    <Resource Include="Views\Loads\ASCE7_10\ComponentDeadWeightTreeData.xml" />
+    <Resource Include="Views\Loads\ASCE7_10\LiveLoadOccupancyIdTreeData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Themes\ExpressionLightTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\BuildingOccupancyIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\BuildingOccupancyIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ClayBrickControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ConcFillOnDeck1_5Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ConcFillOnDeck2Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ConcFillOnDeck3Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\CustomComponentControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\DeckControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\FullGroutedCMU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\GFRCPanelControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\GroutedCMU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\HollowCMU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\PrecastPanelControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\RoofDeckControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\SolidCMU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\ThicknessControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentDeadWeightCases\WoodFramingControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7_10\ComponentIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Views\Loads\ASCE7_10\ComponentDeadWeightIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Views\Loads\ASCE7_10\LiveLoadOccupancyIdIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Views\Loads\ASCE7_10\LiveLoadOccupancyIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="LICENSE" />
+    <None Include="NOTICE" />
+    <None Include="packages.config" />
+    <None Include="Wosad.Dynamo.UI.licenseheader" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
