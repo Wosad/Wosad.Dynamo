@@ -171,6 +171,12 @@
   <ItemGroup>
     <Folder Include="Loads\ASCE7_10\Gravity\Ice\" />
     <Folder Include="Loads\ASCE7_10\Gravity\Snow\" />
+    <Folder Include="Steel\AISC_10\Compression\" />
+    <Folder Include="Steel\AISC_10\Connections\" />
+    <Folder Include="Steel\AISC_10\Flexure\" />
+    <Folder Include="Steel\AISC_10\Shear\" />
+    <Folder Include="Steel\AISC_10\Tension\" />
+    <Folder Include="Steel\General\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" />

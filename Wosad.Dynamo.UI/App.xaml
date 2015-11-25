@@ -3,6 +3,7 @@
 <!--
 	Copyright (C) 2015 Wosad Inc
 -->
+
 <Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <Application.Resources>
         <ResourceDictionary>

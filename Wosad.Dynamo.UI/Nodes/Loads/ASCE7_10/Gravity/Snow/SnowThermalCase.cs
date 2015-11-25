@@ -25,36 +25,35 @@ using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Wosad.Loads.ASCE7.Entities;
-using Wosad.Dynamo.Common.Infra.TreeItems;
 using System.Xml;
+using GalaSoft.MvvmLight.CommandWpf;
 using System.Windows.Input;
 using System.Windows;
+using Wosad.Dynamo.Common.Infra.TreeItems;
 using Wosad.Dynamo.UI.Common.TreeItems;
-using GalaSoft.MvvmLight.Command;
 using Wosad.Dynamo.UI.Views.Loads.ASCE7_10;
 
 
-namespace Wosad.Loads.ASCE7_10.Gravity.Live
+namespace Loads.ASCE7_10.Gravity.Snow
 {
 
     /// <summary>
-    ///Occupancy or use  for selection of uniformly distributed loads - ASCE7-10  
+    ///Thermal condition - ASCE7-10  
     /// </summary>
 
-    [NodeName("Live Load occupancy ID selection")]
-    [NodeCategory("Wosad.Loads.ASCE7_10.Gravity.Live")]
-    [NodeDescription("Occupancy or use  for selection of uniformly distributed loads - ASCE7-10")]
+    [NodeName("Snow thermal case")]
+    [NodeCategory("Wosad.Loads.ASCE7_10.Gravity.Snow")]
+    [NodeDescription("Thermal condition - ASCE7-10")]
     [IsDesignScriptCompatible]
-    public class LiveLoadOccupancyIdSelection : UiNodeBase
+    public class SnowThermalCase : UiNodeBase
     {
 
-        public LiveLoadOccupancyIdSelection()
+        public SnowThermalCase()
         {
             ReportEntry="";
-            LiveLoadOccupancyId = "Office";
-            LiveLoadOccupancyDescription = "Office space";
+            SnowThermalCaseId = "Regular structure";
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("LiveLoadOccupancyId", "description of space for calculation of live loads"));
+            OutPortData.Add(new PortData("SnowThermalCaseDescription", "Snow thermal case description"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;
         }
@@ -71,43 +70,48 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
 
         #region properties
 
-        
+        #region InputProperties
+
+
+
+	    #endregion
 
         #region OutputProperties
 
-		#region LiveLoadOccupancyIdProperty
+		#region SnowThermalCaseProperty
 		
 		/// <summary>
-		/// LiveLoadOccupancyId property
+		/// SnowThermalCase property
 		/// </summary>
-		/// <value>description of space for calculation of live loads</value>
-		public string _LiveLoadOccupancyId;
+		/// <value>Snow thermal case</value>
+		public string _SnowThermalCaseId;
 		
-		public string LiveLoadOccupancyId
+		public string SnowThermalCaseId
 		{
-		    get { return _LiveLoadOccupancyId; }
+		    get { return _SnowThermalCaseId; }
 		    set
 		    {
-		        _LiveLoadOccupancyId = value;
-		        RaisePropertyChanged("LiveLoadOccupancyId");
+		        _SnowThermalCaseId = value;
+		        RaisePropertyChanged("SnowThermalCaseId");
 		        OnNodeModified();
 		    }
 		}
 		#endregion
 
-        
-        #region LiveLoadOccupancyDescription Property
+
+        #region SnowThermalCaseDescription Property
         private string liveLoadOccupancyDescription;
-        public string LiveLoadOccupancyDescription
+        public string SnowThermalCaseDescription
         {
             get { return liveLoadOccupancyDescription; }
             set
             {
                 liveLoadOccupancyDescription = value;
-                RaisePropertyChanged("LiveLoadOccupancyDescription"); 
+                RaisePropertyChanged("SnowThermalCaseDescription");
             }
         }
         #endregion
+
 
         #region ReportEntryProperty
 
@@ -137,7 +141,8 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
         #endregion
         #endregion
 
-        #region Serialization
+
+         #region Serialization
 
         /// <summary>
         ///Saves property values to be retained when opening the node     
@@ -145,22 +150,20 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("LiveLoadOccupancyId", LiveLoadOccupancyId);
+            nodeElement.SetAttribute("SnowThermalCase", SnowThermalCaseId);
         }
 
         /// <summary>
-        ///Retrieves property values when opening the node     
+        ///Retrieved property values when opening the node     
         /// </summary>
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["LiveLoadOccupancyId"];
+            var attrib = nodeElement.Attributes["SnowThermalCase"];
             if (attrib == null)
                 return;
 
-            LiveLoadOccupancyId = attrib.Value;
-            SetOcupancyDescription();
-
+            this.SnowThermalCaseId = attrib.Value;
         }
 
 
@@ -176,20 +179,21 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
             OnSelectedItemChanged(e.NewValue);
         }
 
-        private void SetOcupancyDescription()
+        private void SetCaseDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Loads/ASCE7_10/Live/LiveLoadOccupancyIdTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Loads/ASCE7_10/Snow/SnowThermalCase/SnowThermalCaseTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
-            treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindOccupancyDescription));
+            treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }
 
-        private void FindOccupancyDescription(XmlNode node)
+        private void FindDescription(XmlNode node)
         {
-            if (null != node.Attributes["Id"])
+            //check if attribute "Id" exists
+            if (null != node.Attributes["Tag"])
             {
-                   if (node.Attributes["Id"].Value== LiveLoadOccupancyId)
+                   if (node.Attributes["Tag"].Value== SnowThermalCaseId)
                    {
-                       LiveLoadOccupancyDescription = node.Attributes["Description"].Value;
+                       SnowThermalCaseDescription = node.Attributes["Description"].Value;
                    }
             }
         }
@@ -200,10 +204,78 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
 
         public TreeView TreeViewControl { get; set; }
 
+        private ICommand selectedItemChanged;
+        public ICommand SelectedItemChanged
+        {
+            get
+            {
+
+                if (SnowThermalCaseDescription == null)
+                {
+                    selectedItemChanged = new RelayCommand<object>((i) =>
+                    {
+                        OnSelectedItemChanged(i);
+                    });
+                }
+
+                return selectedItemChanged;
+            }
+
+        }
+
+
+
         public void DisplayComponentUI(XTreeItem selectedComponent)
         {
 
-            //TODO: Add partition allowance here
+            //Example of parsing a string and creating a control from a string
+
+
+            //if (selectedComponent != null && selectedComponent.Tag != "X" && selectedComponent.ResourcePath != null)
+            //{
+            //    Assembly execAssembly = Assembly.GetExecutingAssembly();
+            //    AssemblyName assemblyName = new AssemblyName(execAssembly.FullName);
+            //    string execAssemblyName = assemblyName.Name;
+            //    string typeStr =execAssemblyName +".Views.Loads.ASCE7_10." + selectedComponent.ResourcePath;
+            //    try
+            //    {
+            //        Type subMenuType = execAssembly.GetType(typeStr);
+            //        UserControl subMenu = (UserControl)Activator.CreateInstance(subMenuType);
+            //        AdditionalUI = subMenu;
+
+            //        if (selectedComponent.Id != "X") //parse default values
+            //        {
+            //            int ind1, ind2;
+            //            double numeric;
+
+            //            string DefaultValues = selectedComponent.Id;
+            //            string[] Vals = DefaultValues.Split(',');
+
+            //            if (Vals.Length == 3)
+            //            {
+            //                bool ind1Res = int.TryParse(Vals[0], out ind1); if (ind1Res == true) ComponentOption1 = ind1;
+            //                bool ind2Res = int.TryParse(Vals[1], out ind2); if (ind2Res == true) ComponentOption2 = ind2;
+            //                bool numRes = double.TryParse(Vals[2], out numeric); if (numRes == true) ComponentValue = numeric;
+            //            }
+            //            else
+            //            {
+            //                ComponentOption1 = -1;
+            //                ComponentOption2 = -1;
+            //                ComponentValue = 0;
+            //            }
+            //        }
+
+            //    }
+            //    catch (Exception)
+            //    {
+
+            //        AdditionalUI = null;
+            //    }
+            //}
+            //else
+            //{
+            //    AdditionalUI = null;
+            //}
         }
 
 
@@ -225,26 +297,21 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
             XmlElement item = i as XmlElement;
             XTreeItem xtreeItem = new XTreeItem()
             {
-                Header = item.GetAttribute("Header"),
-                Description = item.GetAttribute("Description"),
-                Id = item.GetAttribute("Id"),
-                ResourcePath = item.GetAttribute("ResourcePath"),
-                Tag = item.GetAttribute("Tag"),
-                TemplateName = item.GetAttribute("TemplateName")
+                // PropertyName = item.GetAttribute("XmlTag"),
             };
 
             if (item != null)
             {
 
-                
-                string id =xtreeItem.Id;
-                if (id != "X")
-                {
-                    LiveLoadOccupancyId = xtreeItem.Id;
-                    LiveLoadOccupancyDescription = xtreeItem.Description;
-                    SelectedItem = xtreeItem;
-                    DisplayComponentUI(xtreeItem);
-                }
+                //Example
+                //string id =xtreeItem.Tag;
+                //if (id != "X")
+                //{
+                    //SnowThermalCaseId = id;
+                    //SnowThermalCaseDescription = xtreeItem.Description;
+                    //SelectedItem = xtreeItem;
+                    //DisplayComponentUI(xtreeItem);
+                //}
             }
         }
 
@@ -273,14 +340,14 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class LiveLoadOccupancyIdViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<LiveLoadOccupancyIdSelection>
+        public class SnowThermalCaseViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<SnowThermalCase>
         {
-            public void CustomizeView(LiveLoadOccupancyIdSelection model, NodeView nodeView)
+            public void CustomizeView(SnowThermalCase model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                LiveLoadOccupancyIdView control = new LiveLoadOccupancyIdView();
+                SnowThermalCaseView control = new SnowThermalCaseView();
                 control.DataContext = model;
                 
                 //remove this part if control does not contain tree
