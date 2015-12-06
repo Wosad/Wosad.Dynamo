@@ -493,6 +493,27 @@
     <Folder Include="Views\Loads\ASCE7_10\Snow\" />
     <Folder Include="Views\Loads\ASCE7_10\Wind\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CHS_Shapes.txt" />
+    <Resource Include="Resources\CShapes.txt" />
+    <Resource Include="Resources\L2_Equal.txt" />
+    <Resource Include="Resources\L2_LLBB.txt" />
+    <Resource Include="Resources\L2_SLBB.txt" />
+    <Resource Include="Resources\LShapes.txt" />
+    <Resource Include="Resources\MCShapes.txt" />
+    <Resource Include="Resources\MShapes.txt" />
+    <Resource Include="Resources\MTShapes.txt" />
+    <Resource Include="Resources\PipeShapes.txt" />
+    <Resource Include="Resources\RHS_Shapes.txt" />
+    <Resource Include="Resources\SectionSpecificProperties.txt" />
+    <Resource Include="Resources\SShapes.txt" />
+    <Resource Include="Resources\STShapes.txt" />
+    <Resource Include="Resources\WShapes.txt" />
+    <Resource Include="Resources\WTShapes.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
