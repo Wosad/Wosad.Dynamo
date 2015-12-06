@@ -23,7 +23,6 @@ namespace Wosad.Dynamo.UI.Views.Steel.Combination
         public CombinationCaseIdView()
         {
             InitializeComponent();
-            this.DataContext = new CombinationCaseIdViewModel();
         }
     }
 }

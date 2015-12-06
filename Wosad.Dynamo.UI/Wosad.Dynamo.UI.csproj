@@ -137,6 +137,16 @@
     <Compile Include="Common\BaseClasses\IUiNodeBase.cs" />
     <Compile Include="Common\BaseClasses\UiNodeBase.cs" />
     <Compile Include="Common\BaseClasses\UiNodeBaseViewCustomization.cs" />
+    <Compile Include="Common\Controls\DataEntryElement.xaml.cs">
+      <DependentUpon>DataEntryElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Controls\EnumControl.xaml.cs">
+      <DependentUpon>EnumControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Controls\EnumDataCollection.cs" />
+    <Compile Include="Common\Controls\EnumDataElement.cs" />
+    <Compile Include="Common\Converters\BooleanToVisibilityInvertedConverter.cs" />
+    <Compile Include="Common\Converters\BooleanToVisibiltyConverter.cs" />
     <Compile Include="Common\Converters\StyleConverter.cs" />
     <Compile Include="Common\Converters\TreeItemConverter.cs" />
     <Compile Include="Common\TreeItems\Category.cs" />
@@ -259,6 +269,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Controls\DataEntryElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Controls\EnumControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Controls\EnumDataTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

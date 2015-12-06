@@ -22,8 +22,6 @@ namespace Wosad.Dynamo.UI.Views.Steel.Flexure
     {
         public SteelShapeGroupFlexureView()
         {
-            InitializeComponent();
-            this.DataContext = new SteelShapeGroupFlexureViewModel();
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Wosad.Dynamo.UI.Views.Steel.Connection
         public WeldLoadTypeIdView()
         {
             InitializeComponent();
-            this.DataContext = new WeldLoadTypeIdViewModel();
         }
     }
 }
