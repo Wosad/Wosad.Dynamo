@@ -200,6 +200,57 @@
     <Compile Include="Views\Loads\ASCE7_10\Live\LiveLoadOccupancyIdView.xaml.cs">
       <DependentUpon>LiveLoadOccupancyIdView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Steel\AISC_10\Combination\CombinationCaseIdView.xaml.cs">
+      <DependentUpon>CombinationCaseIdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BeamCopeCase.xaml.cs">
+      <DependentUpon>BeamCopeCase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltDiameterSelectionView.xaml.cs">
+      <DependentUpon>BoltDiameterSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltFayingSurfaceView.xaml.cs">
+      <DependentUpon>BoltFayingSurfaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltFillerCaseView.xaml.cs">
+      <DependentUpon>BoltFillerCaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltHoleDeformationTypeView.xaml.cs">
+      <DependentUpon>BoltHoleDeformationTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltHoleTypeView.xaml.cs">
+      <DependentUpon>BoltHoleTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltThreadCaseView.xaml.cs">
+      <DependentUpon>BoltThreadCaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltTypeView.xaml.cs">
+      <DependentUpon>BoltTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\StressDistibutionTypeView.xaml.cs">
+      <DependentUpon>StressDistibutionTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\WeldGroupPatternView.xaml.cs">
+      <DependentUpon>WeldGroupPatternView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\WeldLoadTypeIdView.xaml.cs">
+      <DependentUpon>WeldLoadTypeIdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\WeldTypeView.xaml.cs">
+      <DependentUpon>WeldTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Flexure\SteelShapeGroupFlexureView.xaml.cs">
+      <DependentUpon>SteelShapeGroupFlexureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\General\AiscShapeSelectionView.xaml.cs">
+      <DependentUpon>AiscShapeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\General\BendingAxisSelection.xaml.cs">
+      <DependentUpon>BendingAxisSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\General\RecommendedMaterialSelectionView.xaml.cs">
+      <DependentUpon>RecommendedMaterialSelectionView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Loads\ASCE7_10\General\BuildingOccupancyTreeData.xml" />
@@ -284,6 +335,114 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Loads\ASCE7_10\Dead\ComponentIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Combination\CombinationCaseIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BeamCopeCase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BeamCopeCaseIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltDiameterSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltFayingSurfaceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltFillerCaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltHoleDeformationTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltHoleTypeIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltHoleTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltThreadCaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltTypeIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\BoltTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\StressDistibutionTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\WeldGroupPatternIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\WeldGroupPatternView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\WeldLoadTypeIdIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\WeldLoadTypeIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\WeldTypeIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\WeldTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Flexure\SteelShapeGroupFlexureIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Flexure\SteelShapeGroupFlexureView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\General\AiscShapeSelectionIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\General\AiscShapeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\General\BendingAxisSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\General\BendingAxisSelectionIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\General\RecommendedMaterialSelectionIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\General\RecommendedMaterialSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

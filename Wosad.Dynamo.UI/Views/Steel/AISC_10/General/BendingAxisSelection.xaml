@@ -1,0 +1,32 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Wosad.Dynamo.UI.Views.Steel.General.BendingAxisSelectionView"
+    xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
+    xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BendingAxisSelectionIcons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+            <WosadControls:EnumDataCollection x:Key="BendingAxisSource" d:IsDataSource="True">
+                <WosadControls:EnumDataElement    Icon="{StaticResource BendingAxisX}" EnumString="X" Description="X axis" />
+                <WosadControls:EnumDataElement   Icon="{StaticResource BendingAxisY}" EnumString="Y" Description="Y axis"/>
+            </WosadControls:EnumDataCollection>
+            
+                </ResourceDictionary>
+    </UserControl.Resources>
+        <Grid x:Name="LayoutRoot">
+        <WosadControls:EnumControl  HeaderText="Bending axis:" ItemsSource="{StaticResource BendingAxisSource}" 
+					DataPath="BendingAxis"/>
+    </Grid>
+</UserControl>
