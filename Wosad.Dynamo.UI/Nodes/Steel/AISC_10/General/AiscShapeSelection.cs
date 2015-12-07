@@ -1,75 +1,44 @@
-﻿#region Copyright
-/*Copyright (C) 2015 Wosad Inc
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-   */
-#endregion
-
 using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.Wpf;
-using ProtoCore.AST.AssociativeAST;
-using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using System.Xml;
 using System.Windows;
-using Wosad.Dynamo.UI.Views.Steel.General;
 using Wosad.Dynamo.Common.Infra;
 using System.Collections.ObjectModel;
+using System.Windows.Resources;
 using System.IO;
 using System.Linq;
-using System.Windows.Resources;
 
 
-namespace Wosad.Steel.General
+namespace Wosad.Steel.AISC_10.General
 {
 
     /// <summary>
-    ///Selection of steel shape name from AISC shape database  
+    ///Selection of shape type  
     /// </summary>
 
-    [NodeName("AISC shape ID selection")]
-    [NodeCategory("Wosad.Steel.General")]
-    [NodeDescription("Selection of steel shape name from AISC shape database")]
+    [NodeName("AISC shape selection")]
+    [NodeCategory("Wosad.Steel.AISC_10.General")]
+    [NodeDescription("Selection of shape type")]
     [IsDesignScriptCompatible]
     public class AiscShapeSelection : UiNodeBase
     {
 
         public AiscShapeSelection()
         {
-            ReportEntry = "";
+            
+            
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("SteelShapeId", "Steel shape name"));
+            OutPortData.Add(new PortData("SteelShapeId", "Section name from steel shape database"));
             RegisterAllPorts();
             SetDefaultParams();
             //PropertyChanged += NodePropertyChanged;
         }
 
-        //#region BuildingOccupancyDescription Property
-        //private string _BuildingOccupancyDescription;
-        //public string BuildingOccupancyDescription
-        //{
-        //    get { return _BuildingOccupancyDescription; }
-        //    set
-        //    {
-        //        _BuildingOccupancyDescription = value;
-        //        RaisePropertyChanged("BuildingOccupancyDescription");
-        //    }
-        //}
-        //#endregion
+
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -79,56 +48,29 @@ namespace Wosad.Steel.General
             return GetType();
         }
 
+        #region properties
 
+        #region OutputProperties
 
-        private void SetDefaultParams()
-        {
-            RefreshView = false;
-            CatalogShapeType = "Ishape";
-            ShapeTypeSteel = "IShapeRolled";
-            IShapeType = "W";
-            CShapeType = "C";
-            TShapeType = "WT";
-            CHSType = "CHS";
-            LDoubleShapeType = "Equal";
-            RefreshView = true;
-            WShapeGroup = "W18";
-            CatalogShapeId = "W18X35";
-
-
-        }
-
-        bool RefreshView;
-
-        #region Properties
-
-        #region SelectedItem Property
-        private EnumDataElement selectedItem;
-        public EnumDataElement SelectedItem
-        {
-            get { return selectedItem; }
-            set { selectedItem = value; 
-                RaisePropertyChanged("SelectedItem"); }
-        }
-        #endregion
-
-        #region CatalogShapeId Property
-        private string catalogShapeId;
-        public string CatalogShapeId
-        {
-            get { return catalogShapeId; }
-            set
-            {
-                if (value != null)
-                {
-                    catalogShapeId = value;
-                    RaisePropertyChanged("CatalogShapeId");
-                    //UpdateView();
-                }
-            }
-        }
-        #endregion
-
+		#region SteelShapeIdProperty
+		
+		/// <summary>
+		/// SteelShapeId property
+		/// </summary>
+		/// <value>Section name from steel shape database</value>
+		public string _SteelShapeId;
+		
+		public string SteelShapeId
+		{
+		    get { return _SteelShapeId; }
+		    set
+		    {
+		        _SteelShapeId = value;
+		        RaisePropertyChanged("SteelShapeId");
+		        OnNodeModified();
+		    }
+		}
+		#endregion
 
         #region ReportEntryProperty
 
@@ -154,6 +96,40 @@ namespace Wosad.Steel.General
 
 
         #endregion
+
+        #endregion
+        #endregion
+
+
+        #region SelectedItem Property
+        private EnumDataElement selectedItem;
+        public EnumDataElement SelectedItem
+        {
+            get { return selectedItem; }
+            set { selectedItem = value; RaisePropertyChanged("SelectedItem"); }
+        }
+        #endregion
+
+
+        private void SetDefaultParams()
+        {
+            ReportEntry = "";
+            RefreshView = false;
+            CatalogShapeType = "Ishape";
+            ShapeTypeSteel = "IShapeRolled";
+            IShapeType = "W";
+            CShapeType = "C";
+            TShapeType = "WT";
+            CHSType = "CHS";
+            LDoubleShapeType = "Equal";
+            RefreshView = true;
+            WShapeGroup = "W18";
+            SteelShapeId = "W18X35";
+            AnchorRodType = "ThreadedAndNutted";
+
+        }
+
+        bool RefreshView;
 
 
         #region Selection parameters
@@ -190,11 +166,11 @@ namespace Wosad.Steel.General
             {
                 if (AvailableShapes.Count > 5)
                 {
-                    CatalogShapeId = AvailableShapes[4];
+                    SteelShapeId = AvailableShapes[4];
                 }
                 else
                 {
-                    CatalogShapeId = AvailableShapes[AvailableShapes.Count - 1];
+                    SteelShapeId = AvailableShapes[AvailableShapes.Count - 1];
                 }
             }
         }
@@ -592,6 +568,450 @@ namespace Wosad.Steel.General
 
 
 
+
+        #endregion
+
+        #region AnchorRodType
+
+
+        private string _AnchorRodType;
+
+        public string AnchorRodType
+        {
+            get { return _AnchorRodType; }
+            set
+            {
+
+                _AnchorRodType = value;
+                RaisePropertyChanged("AnchorRodType");
+                UpdateView();
+            }
+        }
+
+
+
+        #endregion
+
+        #region Output parameters
+
+
+        //#region A Property
+        //private double _A;
+        //public double A
+        //{
+        //    get { return _A; }
+        //    set
+        //    {
+        //        _A = value;
+        //    }
+        //}
+
+
+        //#endregion
+
+        //#region d Property
+        //private double _d;
+
+        //public double d
+        //{
+        //    get { return _d; }
+        //    set
+        //    {
+        //        _d = value;
+
+
+        //    }
+        //}
+        //#endregion
+
+        //#region Ht Property
+        //private double _Ht;
+
+        //public double Ht
+        //{
+        //    get { return _Ht; }
+        //    set
+        //    {
+        //        _Ht = value;
+
+
+        //    }
+        //}
+        //#endregion
+
+        //#region D Property
+        //private double _D;
+
+        //public double D
+        //{
+        //    get { return _D; }
+        //    set
+        //    {
+        //        _D = value;
+
+
+        //    }
+        //}
+        //#endregion
+
+        //#region bf Property
+        //private double _bf;
+
+        //public double bf
+        //{
+        //    get { return _bf; }
+        //    set
+        //    {
+        //        _bf = value;
+
+        //    }
+        //}
+        //#endregion
+
+        //#region B Property
+        //private double _B;
+
+        //public double B
+        //{
+        //    get { return _B; }
+        //    set
+        //    {
+        //        _B = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region b Property
+        //private double _b;
+
+        //public double b
+        //{
+        //    get { return _b; }
+        //    set
+        //    {
+        //        _b = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region tw Property
+        //private double _tw;
+
+        //public double tw
+        //{
+        //    get { return _tw; }
+        //    set
+        //    {
+        //        _tw = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region tf Property
+        //private double _tf;
+
+        //public double tf
+        //{
+        //    get { return _tf; }
+        //    set
+        //    {
+        //        _tf = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region tnom Property
+        //private double _tnom;
+
+        //public double tnom
+        //{
+        //    get { return _tnom; }
+        //    set
+        //    {
+        //        _tnom = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region t Property
+        //private double _t;
+
+        //public double t
+        //{
+        //    get { return _t; }
+        //    set
+        //    {
+        //        _t = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region x Property
+        //private double _x;
+
+        //public double x
+        //{
+        //    get { return _x; }
+        //    set
+        //    {
+        //        _x = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region y Property
+        //private double _y;
+
+        //public double y
+        //{
+        //    get { return _y; }
+        //    set
+        //    {
+        //        _y = value;
+
+        //    }
+        //}
+        //#endregion
+
+        //#region eo Property
+        //private double _eo;
+
+        //public double eo
+        //{
+        //    get { return _eo; }
+        //    set
+        //    {
+        //        _eo = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region xp Property
+        //private double _xp;
+
+        //public double xp
+        //{
+        //    get { return _xp; }
+        //    set
+        //    {
+        //        _xp = value;
+        //    }
+        //}
+        //#endregion
+
+        //#region yp Property
+        //private double _yp;
+
+        //public double yp
+        //{
+        //    get { return _yp; }
+        //    set
+        //    {
+        //        _yp = value;
+
+        //    }
+        //}
+        //#endregion
+
+        //#region X-axis
+
+        //#region Ix Property
+        //private double _Ix;
+
+        //public double Ix
+        //{
+        //    get { return _Ix; }
+        //    set
+        //    {
+        //        _Ix = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#region Zx Property
+        //private double _Zx;
+
+        //public double Zx
+        //{
+        //    get { return _Zx; }
+        //    set
+        //    {
+        //        _Zx = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#region Sx Property
+        //private double _Sx;
+
+        //public double Sx
+        //{
+        //    get { return _Sx; }
+        //    set
+        //    {
+        //        _Sx = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#region rx Property
+        //private double _rx;
+
+        //public double rx
+        //{
+        //    get { return _rx; }
+        //    set
+        //    {
+        //        _rx = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#endregion
+
+        //#region Y-axis
+
+
+        //#region Iy Property
+        //private double _Iy;
+
+        //public double Iy
+        //{
+        //    get { return _Iy; }
+        //    set
+        //    {
+        //        _Iy = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#region Zy Property
+        //private double _Zy;
+
+        //public double Zy
+        //{
+        //    get { return _Zy; }
+        //    set
+        //    {
+        //        _Zy = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#region Sy Property
+        //private double _Sy;
+
+        //public double Sy
+        //{
+        //    get { return _Sy; }
+        //    set
+        //    {
+        //        _Sy = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#region ry Property
+        //private double _ry;
+
+        //public double ry
+        //{
+        //    get { return _ry; }
+        //    set
+        //    {
+        //        _ry = value;
+        //    }
+        //}
+        //#endregion
+
+        //#endregion
+
+        //#region Z-axis
+
+        //#region Iz Property
+        //private double _Iz;
+
+        //public double Iz
+        //{
+        //    get { return _Iz; }
+        //    set
+        //    {
+        //        _Iz = value;
+
+        //    }
+        //}
+        //#endregion
+
+
+        //#region Sz Property
+        //private double _Sz;
+
+        //public double Sz
+        //{
+        //    get { return _Sz; }
+        //    set
+        //    {
+        //        _Sz = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#region rz Property
+        //private double _rz;
+
+        //public double rz
+        //{
+        //    get { return _rz; }
+        //    set
+        //    {
+        //        _rz = value;
+        //    }
+        //}
+        //#endregion
+
+
+        //#endregion
+
+        //#region Torsional properties
+
+
+        //#region J Property
+        //private double _J;
+
+        //public double J
+        //{
+        //    get { return _J; }
+        //    set
+        //    {
+        //        _J = value;
+
+        //    }
+        //}
+        //#endregion
+
+
+        //#region Cw Property
+        //private double _Cw;
+
+        //public double Cw
+        //{
+        //    get { return _Cw; }
+        //    set
+        //    {
+        //        _Cw = value;
+        //    }
+        //}
+        //#endregion
+
+        //#endregion
 
         #endregion
 
@@ -1189,12 +1609,6 @@ namespace Wosad.Steel.General
 
         #endregion
 
-        
-        
-        
-        #endregion
-
-
         #region Serialization
 
         /// <summary>
@@ -1203,7 +1617,7 @@ namespace Wosad.Steel.General
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("CatalogShapeId", CatalogShapeId);
+            nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
         }
 
         /// <summary>
@@ -1212,18 +1626,14 @@ namespace Wosad.Steel.General
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["CatalogShapeId"];
+            var attrib = nodeElement.Attributes["SteelShapeId"];
             if (attrib == null)
                 return;
-
-            CatalogShapeId = attrib.Value;
+           
+            SteelShapeId = attrib.Value;
 
         }
 
-
-
-
- 
 
 
         #endregion
@@ -1241,7 +1651,8 @@ namespace Wosad.Steel.General
 
                 AiscShapeSelectionView control = new AiscShapeSelectionView();
                 control.DataContext = model;
-
+                
+               
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }

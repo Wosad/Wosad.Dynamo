@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Dynamo.UI.Views.Steel.Connection
+namespace Wosad.Steel.AISC_10.Connection
 {
     /// <summary>
     /// Interaction logic for WeldTypeView.xaml

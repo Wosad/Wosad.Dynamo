@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Dynamo.UI.Views.Steel.General
+namespace Wosad.Steel.AISC_10.General
 {
 	/// <summary>
 	/// Interaction logic for AiscShapeSelection.xaml

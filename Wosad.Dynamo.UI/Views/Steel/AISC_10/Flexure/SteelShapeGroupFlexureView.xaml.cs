@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Dynamo.UI.Views.Steel.Flexure
+namespace Wosad.Steel.AISC_10.Flexure
 {
     /// <summary>
     /// Interaction logic for SteelShapeGroupFlexureView.xaml

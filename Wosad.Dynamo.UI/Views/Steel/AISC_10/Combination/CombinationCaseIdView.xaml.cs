@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Dynamo.UI.Views.Steel.Combination
+namespace Wosad.Steel.AISC_10.Combination
 {
     /// <summary>
     /// Interaction logic for CombinationCaseIdView.xaml

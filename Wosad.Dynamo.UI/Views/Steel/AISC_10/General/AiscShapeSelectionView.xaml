@@ -6,7 +6,7 @@
     xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
     xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
 	mc:Ignorable="d"
-	x:Class="Wosad.Dynamo.UI.Views.Steel.General.AiscShapeSelectionView"
+	x:Class="Wosad.Steel.AISC_10.General.AiscShapeSelectionView"
 	x:Name="UserControl"
 	d:DesignWidth="640" d:DesignHeight="480">
     
@@ -374,7 +374,7 @@
             <StackPanel Margin="0,20,0,0" VerticalAlignment="Top" Background="White" >
                 <TextBlock TextWrapping="Wrap" Text="Available shapes:" FontFamily="Segoe UI Light" FontSize="12" HorizontalAlignment="Center"/>
                 <Grid Height="200">
-                    <ListBox ItemsSource="{Binding AvailableShapes}" SelectedItem="{Binding CatalogShapeId, Mode=TwoWay}" 
+                    <ListBox ItemsSource="{Binding AvailableShapes}" SelectedItem="{Binding SteelShapeId, Mode=TwoWay}" 
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" />
                 </Grid>
 

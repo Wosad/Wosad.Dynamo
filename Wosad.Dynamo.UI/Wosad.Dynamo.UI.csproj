@@ -155,6 +155,11 @@
     <Compile Include="Nodes\Loads\ASCE7_10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Dead\ComponentIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Combination\CombinedForcesMemberTypeSelection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nodes\Steel\AISC_10\General\AiscShapeSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\General\BoltDiameterSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIdView.xaml.cs">
       <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
