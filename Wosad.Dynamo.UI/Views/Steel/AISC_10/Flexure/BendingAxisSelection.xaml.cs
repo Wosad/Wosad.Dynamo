@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC_10.General
+namespace Wosad.Steel.AISC_10.Flexure
 {
 	/// <summary>
 	/// Interaction logic for BendingAxisSelection.xaml

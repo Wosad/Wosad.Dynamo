@@ -7,6 +7,7 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
+using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
 
 
@@ -14,34 +15,33 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
     /// <summary>
-    ///Selection of bolt diameter  
+    ///Bolt thread inclusion selection  
     /// </summary>
 
-    [NodeName("Bolt diameter selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.General")]
-    [NodeDescription("Selection of bolt diameter")]
+    [NodeName("Bolt thread inclusion selection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeDescription("Bolt thread inclusion selection")]
     [IsDesignScriptCompatible]
-    public class BoltDiameterSelection : UiNodeBase
+    public class BoltThreadInclusionSelection : UiNodeBase
     {
 
-        public BoltDiameterSelection()
+        public BoltThreadInclusionSelection()
         {
             
-            InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
+            OutPortData.Add(new PortData("BoltThreadCase", "Identifies whether threads are included or excluded from shear planes"));
             RegisterAllPorts();
-            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
+            SetDefaultParameters();
+
         }
 
         private void SetDefaultParameters()
         {
             ReportEntry = "";
-            d_b = 0.75;
+            BoltThreadCase = "N";
         }
 
-        
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -55,25 +55,27 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region InputProperties
 
+
+
 	    #endregion
 
         #region OutputProperties
 
-		#region d_bProperty
+		#region BoltThreadCaseProperty
 		
 		/// <summary>
-		/// d_b property
+		/// BoltThreadCase property
 		/// </summary>
-		/// <value>Nominal fastener diameter</value>
-		public double _d_b;
+		/// <value>Identifies whether threads are included or excluded from shear planes</value>
+		public string _BoltThreadCase;
 		
-		public double d_b
+		public string BoltThreadCase
 		{
-		    get { return _d_b; }
+		    get { return _BoltThreadCase; }
 		    set
 		    {
-		        _d_b = value;
-		        RaisePropertyChanged("d_b");
+		        _BoltThreadCase = value;
+		        RaisePropertyChanged("BoltThreadCase");
 		        OnNodeModified();
 		    }
 		}
@@ -115,7 +117,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("d_b", d_b.ToString());
+            nodeElement.SetAttribute("BoltThreadCase", BoltThreadCase);
         }
 
         /// <summary>
@@ -124,13 +126,14 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["d_b"];
+            var attrib = nodeElement.Attributes["BoltThreadCase"];
             if (attrib == null)
                 return;
            
-            d_b = double.Parse(attrib.Value);
+            BoltThreadCase = attrib.Value;
 
         }
+
 
         #endregion
 
@@ -139,16 +142,17 @@ namespace Wosad.Steel.AISC_10.Connection
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltDiameterSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltDiameterSelection>
+        public class BoltThreadInclusionSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<BoltThreadInclusionSelection>
         {
-            public void CustomizeView(BoltDiameterSelection model, NodeView nodeView)
+            public void CustomizeView(BoltThreadInclusionSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltDiameterSelectionView control = new BoltDiameterSelectionView();
+                BoltThreadCaseView control = new BoltThreadCaseView();
                 control.DataContext = model;
                 
+                 
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }

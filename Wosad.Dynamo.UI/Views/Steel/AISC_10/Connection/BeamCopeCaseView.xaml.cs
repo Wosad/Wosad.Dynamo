@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Wosad.Steel.AISC_10.Connection
 {
     /// <summary>
-    /// Interaction logic for BoltHoleDeformationTypeView.xaml
+    /// Interaction logic for BeamCopeCase.xaml
     /// </summary>
-    public partial class BoltHoleDeformationTypeView : UserControl
+    public partial class BeamCopeCaseView : UserControl
     {
-        public BoltHoleDeformationTypeView()
+        public BeamCopeCaseView()
         {
             InitializeComponent();
         }

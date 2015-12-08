@@ -7,41 +7,41 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
+using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
 
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Wosad.Steel.AISC_10.Flexure
 {
 
     /// <summary>
-    ///Selection of bolt diameter  
+    ///Bending axis selection  
     /// </summary>
 
-    [NodeName("Bolt diameter selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.General")]
-    [NodeDescription("Selection of bolt diameter")]
+    [NodeName("Bending axis selection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Flexure")]
+    [NodeDescription("Bending axis selection")]
     [IsDesignScriptCompatible]
-    public class BoltDiameterSelection : UiNodeBase
+    public class BendingAxisSelection : UiNodeBase
     {
 
-        public BoltDiameterSelection()
+        public BendingAxisSelection()
         {
+            ReportEntry="";
             
-            InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
+            OutPortData.Add(new PortData("BendingAxis", "Distinguishes between bending with respect to section x-axis vs x-axis"));
             RegisterAllPorts();
-            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
+            SetDefaultParameters();
         }
 
         private void SetDefaultParameters()
         {
             ReportEntry = "";
-            d_b = 0.75;
+            BendingAxis = "X";
         }
 
-        
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -55,29 +55,33 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region InputProperties
 
+
+
 	    #endregion
 
         #region OutputProperties
 
-		#region d_bProperty
+		#region BendingAxisProperty
 		
 		/// <summary>
-		/// d_b property
+		/// BendingAxis property
 		/// </summary>
-		/// <value>Nominal fastener diameter</value>
-		public double _d_b;
+		/// <value>Distinguishes between bending with respect to section x-axis vs x-axis</value>
+		public string _BendingAxis;
 		
-		public double d_b
+		public string BendingAxis
 		{
-		    get { return _d_b; }
+		    get { return _BendingAxis; }
 		    set
 		    {
-		        _d_b = value;
-		        RaisePropertyChanged("d_b");
+		        _BendingAxis = value;
+		        RaisePropertyChanged("BendingAxis");
 		        OnNodeModified();
 		    }
 		}
 		#endregion
+
+
 
         #region ReportEntryProperty
 
@@ -115,7 +119,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("d_b", d_b.ToString());
+            nodeElement.SetAttribute("BendingAxis", BendingAxis);
         }
 
         /// <summary>
@@ -124,13 +128,15 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["d_b"];
+            var attrib = nodeElement.Attributes["BendingAxis"];
             if (attrib == null)
                 return;
            
-            d_b = double.Parse(attrib.Value);
+            BendingAxis = attrib.Value;
 
         }
+
+
 
         #endregion
 
@@ -139,20 +145,20 @@ namespace Wosad.Steel.AISC_10.Connection
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltDiameterSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltDiameterSelection>
+        public class BendingAxisSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<BendingAxisSelection>
         {
-            public void CustomizeView(BoltDiameterSelection model, NodeView nodeView)
+            public void CustomizeView(BendingAxisSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltDiameterSelectionView control = new BoltDiameterSelectionView();
+                BendingAxisSelectionView control = new BendingAxisSelectionView();
                 control.DataContext = model;
                 
+
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }
-
 
         }
     }

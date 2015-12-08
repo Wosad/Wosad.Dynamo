@@ -1,0 +1,14 @@
+A572 Grade 42,0,6
+A572 Grade 50,0,4
+A572 Grade 55,0,2
+A572 Grade 60 ,0,1.25
+A572 Grade 65,0,1.25
+A588 (Fy=42ksi),5.01,8
+A588 (Fy=46ksi),4.01,5
+A588 (Fy=50ksi),0,4
+F1554 Grade 55,0,4
+F1554 Grade 105,0,3
+A36 (Fy=36ksi),0,10
+A354 Grade BD,0,4
+A449,0,3
+A687,0,3

@@ -14,34 +14,33 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
     /// <summary>
-    ///Selection of bolt diameter  
+    ///Weld group pattern selection  
     /// </summary>
 
-    [NodeName("Bolt diameter selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.General")]
-    [NodeDescription("Selection of bolt diameter")]
+    [NodeName("Weld group pattern selection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeDescription("Weld group pattern selection")]
     [IsDesignScriptCompatible]
-    public class BoltDiameterSelection : UiNodeBase
+    public class WeldGroupPatternSelection : UiNodeBase
     {
 
-        public BoltDiameterSelection()
+        public WeldGroupPatternSelection()
         {
+            ReportEntry="";
             
-            InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
+            OutPortData.Add(new PortData("WeldGroupPattern", "Weld group pattern type"));
             RegisterAllPorts();
-            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
+            SetDefaultParameters();
+
         }
 
         private void SetDefaultParameters()
         {
             ReportEntry = "";
-            d_b = 0.75;
+            WeldGroupPattern = "ParallelVertical";
         }
-
-        
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -55,29 +54,33 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region InputProperties
 
+
+
 	    #endregion
 
         #region OutputProperties
 
-		#region d_bProperty
+		#region WeldGroupPatternProperty
 		
 		/// <summary>
-		/// d_b property
+		/// WeldGroupPattern property
 		/// </summary>
-		/// <value>Nominal fastener diameter</value>
-		public double _d_b;
+		/// <value>Weld group pattern type</value>
+		public string _WeldGroupPattern;
 		
-		public double d_b
+		public string WeldGroupPattern
 		{
-		    get { return _d_b; }
+		    get { return _WeldGroupPattern; }
 		    set
 		    {
-		        _d_b = value;
-		        RaisePropertyChanged("d_b");
+		        _WeldGroupPattern = value;
+		        RaisePropertyChanged("WeldGroupPattern");
 		        OnNodeModified();
 		    }
 		}
 		#endregion
+
+
 
         #region ReportEntryProperty
 
@@ -115,7 +118,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("d_b", d_b.ToString());
+            nodeElement.SetAttribute("WeldGroupPattern", WeldGroupPattern);
         }
 
         /// <summary>
@@ -124,35 +127,39 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["d_b"];
+            var attrib = nodeElement.Attributes["WeldGroupPattern"];
             if (attrib == null)
                 return;
            
-            d_b = double.Parse(attrib.Value);
+            WeldGroupPattern = attrib.Value;
+
 
         }
 
+
+
         #endregion
+
+
 
 
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltDiameterSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltDiameterSelection>
+        public class WeldGroupPatternSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<WeldGroupPatternSelection>
         {
-            public void CustomizeView(BoltDiameterSelection model, NodeView nodeView)
+            public void CustomizeView(WeldGroupPatternSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltDiameterSelectionView control = new BoltDiameterSelectionView();
+                WeldGroupPatternView control = new WeldGroupPatternView();
                 control.DataContext = model;
                 
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }
-
 
         }
     }

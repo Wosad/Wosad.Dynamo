@@ -7,6 +7,7 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
+using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
 
 
@@ -14,34 +15,31 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
     /// <summary>
-    ///Selection of bolt diameter  
+    ///Stress distribution selection  
     /// </summary>
 
-    [NodeName("Bolt diameter selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.General")]
-    [NodeDescription("Selection of bolt diameter")]
+    [NodeName("Stress distribution selection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeDescription("Stress distribution selection")]
     [IsDesignScriptCompatible]
-    public class BoltDiameterSelection : UiNodeBase
+    public class StressDistributionSelection : UiNodeBase
     {
 
-        public BoltDiameterSelection()
+        public StressDistributionSelection()
         {
-            
-            InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
+              OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            OutPortData.Add(new PortData("StressDistibutionType", "Type of stress distribution in connected element"));
             RegisterAllPorts();
-            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
+            SetDefaultParameters();
+
         }
 
         private void SetDefaultParameters()
         {
             ReportEntry = "";
-            d_b = 0.75;
+            StressDistibutionType = "Uniform";
         }
-
-        
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -55,29 +53,33 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region InputProperties
 
+
+
 	    #endregion
 
         #region OutputProperties
 
-		#region d_bProperty
+		#region StressDistibutionTypeProperty
 		
 		/// <summary>
-		/// d_b property
+		/// StressDistibutionType property
 		/// </summary>
-		/// <value>Nominal fastener diameter</value>
-		public double _d_b;
+		/// <value>Type of stress distribution in connected element</value>
+		public string _StressDistibutionType;
 		
-		public double d_b
+		public string StressDistibutionType
 		{
-		    get { return _d_b; }
+		    get { return _StressDistibutionType; }
 		    set
 		    {
-		        _d_b = value;
-		        RaisePropertyChanged("d_b");
+		        _StressDistibutionType = value;
+		        RaisePropertyChanged("StressDistibutionType");
 		        OnNodeModified();
 		    }
 		}
 		#endregion
+
+
 
         #region ReportEntryProperty
 
@@ -115,7 +117,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("d_b", d_b.ToString());
+            nodeElement.SetAttribute("StressDistibutionType", StressDistibutionType);
         }
 
         /// <summary>
@@ -124,29 +126,32 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["d_b"];
+            var attrib = nodeElement.Attributes["StressDistibutionType"];
             if (attrib == null)
                 return;
            
-            d_b = double.Parse(attrib.Value);
+           StressDistibutionType = attrib.Value;
 
         }
 
+
         #endregion
+
+
 
 
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltDiameterSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltDiameterSelection>
+        public class StressDistributionSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<StressDistributionSelection>
         {
-            public void CustomizeView(BoltDiameterSelection model, NodeView nodeView)
+            public void CustomizeView(StressDistributionSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltDiameterSelectionView control = new BoltDiameterSelectionView();
+                StressDistibutionTypeView control = new StressDistibutionTypeView();
                 control.DataContext = model;
                 
                 nodeView.inputGrid.Children.Add(control);

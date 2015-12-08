@@ -8,28 +8,27 @@ using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using System.Xml;
+using System.Windows;
 
 
 namespace Wosad.Steel.AISC_10.Connection
 {
 
     /// <summary>
-    ///Selection of bolt diameter  
+    ///Bolt type (bearing vs slip-critical)  
     /// </summary>
 
-    [NodeName("Bolt diameter selection")]
+    [NodeName("Bolt type selection")]
     [NodeCategory("Wosad.Steel.AISC_10.General")]
-    [NodeDescription("Selection of bolt diameter")]
+    [NodeDescription("Bolt type (bearing vs slip-critical)")]
     [IsDesignScriptCompatible]
-    public class BoltDiameterSelection : UiNodeBase
+    public class BoltTypeSelection : UiNodeBase
     {
 
-        public BoltDiameterSelection()
+        public BoltTypeSelection()
         {
-            
-            InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
+            OutPortData.Add(new PortData("BoltType", "Distinguishes between bearing and slip-critical bolts"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
@@ -38,10 +37,10 @@ namespace Wosad.Steel.AISC_10.Connection
         private void SetDefaultParameters()
         {
             ReportEntry = "";
-            d_b = 0.75;
+            BoltType = "Bearing";
         }
 
-        
+
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -55,25 +54,27 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region InputProperties
 
+
+
 	    #endregion
 
         #region OutputProperties
 
-		#region d_bProperty
+		#region BoltTypeProperty
 		
 		/// <summary>
-		/// d_b property
+		/// BoltType property
 		/// </summary>
-		/// <value>Nominal fastener diameter</value>
-		public double _d_b;
+		/// <value>Distinguishes between bearing and slip-critical bolts</value>
+		public string _BoltType;
 		
-		public double d_b
+		public string BoltType
 		{
-		    get { return _d_b; }
+		    get { return _BoltType; }
 		    set
 		    {
-		        _d_b = value;
-		        RaisePropertyChanged("d_b");
+		        _BoltType = value;
+		        RaisePropertyChanged("BoltType");
 		        OnNodeModified();
 		    }
 		}
@@ -115,7 +116,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("d_b", d_b.ToString());
+            nodeElement.SetAttribute("BoltType", BoltType);
         }
 
         /// <summary>
@@ -124,13 +125,14 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["d_b"];
+            var attrib = nodeElement.Attributes["BoltType"];
             if (attrib == null)
                 return;
            
-            d_b = double.Parse(attrib.Value);
+            BoltType = attrib.Value;
 
         }
+
 
         #endregion
 
@@ -139,20 +141,20 @@ namespace Wosad.Steel.AISC_10.Connection
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltDiameterSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltDiameterSelection>
+        public class BoltTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<BoltTypeSelection>
         {
-            public void CustomizeView(BoltDiameterSelection model, NodeView nodeView)
+            public void CustomizeView(BoltTypeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltDiameterSelectionView control = new BoltDiameterSelectionView();
+                BoltTypeView control = new BoltTypeView();
                 control.DataContext = model;
+                
                 
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }
-
 
         }
     }

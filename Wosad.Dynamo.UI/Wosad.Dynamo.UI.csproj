@@ -158,8 +158,22 @@
     <Compile Include="Nodes\Steel\AISC_10\Combination\CombinedForcesMemberTypeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Nodes\Steel\AISC_10\Connection\BeamCopeCaseSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\BoltFayingSurfaceSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\BoltFillerCaseSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\BoltHoleDeformationSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\BoltHoleTypeSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\BoltThreadInclusionSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\LoadTypeAndDirection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\StressDistributionSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\WeldGroupPatternSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\WeldTypeSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Flexure\BendingAxisSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Flexure\FlexuralSectionGroupSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\General\AiscShapeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\General\BoltDiameterSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\General\BoltTypeSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\General\RecommendedMaterialSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIdView.xaml.cs">
       <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
@@ -218,8 +232,8 @@
     <Compile Include="Views\Steel\AISC_10\Combination\CombinationCaseIdView.xaml.cs">
       <DependentUpon>CombinationCaseIdView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Steel\AISC_10\Connection\BeamCopeCase.xaml.cs">
-      <DependentUpon>BeamCopeCase.xaml</DependentUpon>
+    <Compile Include="Views\Steel\AISC_10\Connection\BeamCopeCaseView.xaml.cs">
+      <DependentUpon>BeamCopeCaseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Connection\BoltDiameterSelectionView.xaml.cs">
       <DependentUpon>BoltDiameterSelectionView.xaml</DependentUpon>
@@ -230,8 +244,8 @@
     <Compile Include="Views\Steel\AISC_10\Connection\BoltFillerCaseView.xaml.cs">
       <DependentUpon>BoltFillerCaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Steel\AISC_10\Connection\BoltHoleDeformationTypeView.xaml.cs">
-      <DependentUpon>BoltHoleDeformationTypeView.xaml</DependentUpon>
+    <Compile Include="Views\Steel\AISC_10\Connection\BoltHoleDeformationView.xaml.cs">
+      <DependentUpon>BoltHoleDeformationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Connection\BoltHoleTypeView.xaml.cs">
       <DependentUpon>BoltHoleTypeView.xaml</DependentUpon>
@@ -260,7 +274,7 @@
     <Compile Include="Views\Steel\AISC_10\General\AiscShapeSelectionView.xaml.cs">
       <DependentUpon>AiscShapeSelectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Steel\AISC_10\General\BendingAxisSelection.xaml.cs">
+    <Compile Include="Views\Steel\AISC_10\Flexure\BendingAxisSelection.xaml.cs">
       <DependentUpon>BendingAxisSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\General\RecommendedMaterialSelectionView.xaml.cs">
@@ -369,7 +383,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Steel\AISC_10\Connection\BeamCopeCase.xaml">
+    <Page Include="Views\Steel\AISC_10\Connection\BeamCopeCaseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -389,7 +403,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Steel\AISC_10\Connection\BoltHoleDeformationTypeView.xaml">
+    <Page Include="Views\Steel\AISC_10\Connection\BoltHoleDeformationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -457,11 +471,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Steel\AISC_10\General\BendingAxisSelection.xaml">
+    <Page Include="Views\Steel\AISC_10\Flexure\BendingAxisSelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Steel\AISC_10\General\BendingAxisSelectionIcons.xaml">
+    <Page Include="Views\Steel\AISC_10\Flexure\BendingAxisSelectionIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -518,6 +532,21 @@
     <Resource Include="Resources\STShapes.txt" />
     <Resource Include="Resources\WShapes.txt" />
     <Resource Include="Resources\WTShapes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AiscMaterialFastenerDiameterLimits.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AiscMaterialFastenerMaterial.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AiscMaterialPlateMaterial.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AiscMaterialsAll.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AiscMaterialShapeMaterial.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
