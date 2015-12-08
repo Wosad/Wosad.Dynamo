@@ -1,20 +1,3 @@
-#region Copyright
-   /*Copyright (C) 2015 Wosad Inc
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-   */
-#endregion
- 
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -24,6 +7,7 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
+using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
 
 
@@ -31,34 +15,33 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
     /// <summary>
-    ///Selection of bolt diameter  
+    ///Load type and direction  
     /// </summary>
 
-    [NodeName("Bolt diameter selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.General")]
-    [NodeDescription("Selection of bolt diameter")]
+    [NodeName("Load type and direction")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeDescription("Load type and direction")]
     [IsDesignScriptCompatible]
-    public class BoltDiameterSelection : UiNodeBase
+    public class LoadTypeAndDirection : UiNodeBase
     {
 
-        public BoltDiameterSelection()
+        public LoadTypeAndDirection()
         {
             
-            InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
+            OutPortData.Add(new PortData("WeldLoadTypeId", "Type of load on weld  under consideration"));
             RegisterAllPorts();
-            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
+            SetDefaultParameters();
+
         }
 
         private void SetDefaultParameters()
         {
             ReportEntry = "";
-            d_b = 0.75;
+            WeldLoadTypeId = "WeldShear";
+            CompressionSpliceType = "WeldCompressionSpliceFinishedToBear";
         }
-
-        
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -72,29 +55,34 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region InputProperties
 
+
+
 	    #endregion
 
         #region OutputProperties
 
-		#region d_bProperty
+		#region WeldLoadTypeIdProperty
 		
 		/// <summary>
-		/// d_b property
+		/// WeldLoadTypeId property
 		/// </summary>
-		/// <value>Nominal fastener diameter</value>
-		public double _d_b;
+		/// <value>Type of load on weld  under consideration</value>
+		public string _WeldLoadTypeId;
 		
-		public double d_b
+		public string WeldLoadTypeId
 		{
-		    get { return _d_b; }
+		    get { return _WeldLoadTypeId; }
 		    set
 		    {
-		        _d_b = value;
-		        RaisePropertyChanged("d_b");
+		        _WeldLoadTypeId = value;
+		        RaisePropertyChanged("WeldLoadTypeId");
 		        OnNodeModified();
+                UpdateViewAndValues();
 		    }
 		}
 		#endregion
+
+
 
         #region ReportEntryProperty
 
@@ -132,7 +120,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("d_b", d_b.ToString());
+            nodeElement.SetAttribute("WeldLoadTypeId", WeldLoadTypeId);
         }
 
         /// <summary>
@@ -141,11 +129,65 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["d_b"];
+            var attrib = nodeElement.Attributes["WeldLoadTypeId"];
             if (attrib == null)
                 return;
            
-            d_b = double.Parse(attrib.Value);
+            WeldLoadTypeId = attrib.Value;
+ 
+        }
+
+
+        #endregion
+
+
+        #region Display parameters
+
+
+        #region IsCompressionSplice Property
+        private bool _IsCompressionSplice;
+        public bool IsCompressionSplice
+        {
+            get { return _IsCompressionSplice; }
+            set
+            {
+                _IsCompressionSplice = value;
+                RaisePropertyChanged("IsCompressionSplice");
+            }
+        }
+        #endregion
+
+
+        #region CompressionSpliceType Property
+        private string _CompressionSpliceType;
+        public string CompressionSpliceType
+        {
+            get { return _CompressionSpliceType; }
+            set
+            {
+                _CompressionSpliceType = value;
+                RaisePropertyChanged("CompressionSpliceType");
+            }
+        }
+        #endregion
+
+        private void UpdateViewAndValues()
+        {
+
+            if (WeldLoadTypeId == "WeldCompressionNormal")
+            {
+                IsCompressionSplice = true;
+                WeldLoadTypeId = CompressionSpliceType;
+            }
+            else
+            {
+                if (WeldLoadTypeId != "WeldCompressionSpliceFinishedToBear" &&
+                    WeldLoadTypeId != "WeldCompressionSpliceNotFinishedToBear")
+                {
+                    IsCompressionSplice = false;
+                }
+
+            }
 
         }
 
@@ -153,18 +195,20 @@ namespace Wosad.Steel.AISC_10.Connection
 
 
 
+
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltDiameterSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltDiameterSelection>
+        public class LoadTypeAndDirectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<LoadTypeAndDirection>
         {
-            public void CustomizeView(BoltDiameterSelection model, NodeView nodeView)
+            public void CustomizeView(LoadTypeAndDirection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltDiameterSelectionView control = new BoltDiameterSelectionView();
+                WeldLoadTypeIdView control = new WeldLoadTypeIdView();
                 control.DataContext = model;
+                
                 
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
@@ -172,5 +216,7 @@ namespace Wosad.Steel.AISC_10.Connection
 
 
         }
+
+
     }
 }

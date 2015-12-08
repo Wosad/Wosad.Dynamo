@@ -1,20 +1,3 @@
-#region Copyright
-   /*Copyright (C) 2015 Wosad Inc
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-   */
-#endregion
- 
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -31,34 +14,35 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
     /// <summary>
-    ///Selection of bolt diameter  
+    ///Bolt filler case selection  
     /// </summary>
 
-    [NodeName("Bolt diameter selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.General")]
-    [NodeDescription("Selection of bolt diameter")]
+    [NodeName("Bolt filler case selection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeDescription("Bolt filler case selection")]
     [IsDesignScriptCompatible]
-    public class BoltDiameterSelection : UiNodeBase
+    public class BoltFillerCaseSelection : UiNodeBase
     {
 
-        public BoltDiameterSelection()
+        public BoltFillerCaseSelection()
         {
             
-            InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
+            
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
+            OutPortData.Add(new PortData("BoltFillerCase", "Distinguishes between filler cases for slip-critical bolt capacity calculations"));
             RegisterAllPorts();
+
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
         }
 
         private void SetDefaultParameters()
         {
-            ReportEntry = "";
-            d_b = 0.75;
+            ReportEntry="";
+            BoltFillerCase = "NoFillers";
         }
 
-        
+
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -72,29 +56,33 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region InputProperties
 
+
+
 	    #endregion
 
         #region OutputProperties
 
-		#region d_bProperty
+		#region BoltFillerCaseProperty
 		
 		/// <summary>
-		/// d_b property
+		/// BoltFillerCase property
 		/// </summary>
-		/// <value>Nominal fastener diameter</value>
-		public double _d_b;
+		/// <value>Distinguishes between filler cases for slip-critical bolt capacity calculations</value>
+		public string _BoltFillerCase;
 		
-		public double d_b
+		public string BoltFillerCase
 		{
-		    get { return _d_b; }
+		    get { return _BoltFillerCase; }
 		    set
 		    {
-		        _d_b = value;
-		        RaisePropertyChanged("d_b");
+		        _BoltFillerCase = value;
+		        RaisePropertyChanged("BoltFillerCase");
 		        OnNodeModified();
 		    }
 		}
 		#endregion
+
+
 
         #region ReportEntryProperty
 
@@ -132,7 +120,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("d_b", d_b.ToString());
+            nodeElement.SetAttribute("BoltFillerCase", BoltFillerCase);
         }
 
         /// <summary>
@@ -141,35 +129,35 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["d_b"];
+            var attrib = nodeElement.Attributes["BoltFillerCase"];
             if (attrib == null)
                 return;
            
-            d_b = double.Parse(attrib.Value);
+            BoltFillerCase = attrib.Value;
 
         }
 
-        #endregion
 
+        #endregion
 
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltDiameterSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltDiameterSelection>
+        public class BoltFillerCaseSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<BoltFillerCaseSelection>
         {
-            public void CustomizeView(BoltDiameterSelection model, NodeView nodeView)
+            public void CustomizeView(BoltFillerCaseSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltDiameterSelectionView control = new BoltDiameterSelectionView();
+                BoltFillerCaseView control = new BoltFillerCaseView();
                 control.DataContext = model;
+                
                 
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }
-
 
         }
     }

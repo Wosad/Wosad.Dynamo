@@ -1,0 +1,14 @@
+W,A992,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A242 (Fy=42ksi),A242 (Fy=46ksi),A242 (Fy=50ksi),A588
+M,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=50ksi),A588
+S,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=50ksi),A588
+HP,A572 Grade 50,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=46ksi),A242 (Fy=50ksi),A588
+C,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=50ksi),A588
+MC,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=50ksi),A588
+L,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=46ksi),A242 (Fy=50ksi),A588
+RHS,A500 Grade B (Fy=46ksi),A500 Grade C (Fy=50ksi),A501,A618 Grade Iand II,A618 Grade III,A847
+CHS,A500 Grade B (Fy=42ksi),A500 Grade C (Fy=46ksi),A501,A618 Grade Iand II,A618 Grade III,A847
+Pipe,A53 Grade B
+WT,A992,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A242 (Fy=42ksi),A242 (Fy=46ksi),A242 (Fy=50ksi),A588
+MT,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=50ksi),A588
+ST,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=50ksi),A588
+L2,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60,A572 Grade 65,A913 (Fy=50ksi),A913 (Fy=60ksi),A913 (Fy=65ksi),A913 (Fy=70ksi),A992,A242 (Fy=46ksi),A242 (Fy=50ksi),A588

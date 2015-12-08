@@ -17,9 +17,7 @@
  
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -30,16 +28,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Wosad.Steel.AISC_10.Flexure
 {
-    /// <summary>
-    /// Interaction logic for BoltHoleDeformationTypeView.xaml
-    /// </summary>
-    public partial class BoltHoleDeformationTypeView : UserControl
-    {
-        public BoltHoleDeformationTypeView()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for BendingAxisSelection.xaml
+	/// </summary>
+	public partial class BendingAxisSelectionView : UserControl
+	{
+        public BendingAxisSelectionView()
+		{
+			this.InitializeComponent();
+		}
+	}
 }

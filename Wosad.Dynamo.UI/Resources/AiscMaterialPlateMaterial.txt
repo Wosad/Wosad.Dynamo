@@ -1,0 +1,10 @@
+PL_lessEq0_75,A36 (Fy=36ksi),A529 Grade 50,A529 Grade 55,A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60 ,A572 Grade 65,A242 (Fy=50ksi),A588 (Fy=50ksi),A514 (Fy=100ksi),A852
+PL_0_75less_t_lessEq1_25,A36 (Fy=36ksi),A529 Grade 50,A529 Grade 55,A572 Grade 42,A572 Grade 50,A572 Grade 55,A572 Grade 60 ,A572 Grade 65,A242 (Fy=46ksi),A588 (Fy=50ksi),A514 (Fy=100ksi),A852
+PL_1_25less_t_lessEq1_5,A36 (Fy=36ksi),A529 Grade 50,A529 Grade 55,A572 Grade 42,A572 Grade 50,A572 Grade 55,A242 (Fy=46ksi),A588 (Fy=50ksi),A514 (Fy=100ksi),A852
+PL_1_5less_t_lessEq2_0,A36 (Fy=36ksi),A529 Grade 50,A572 Grade 42,A572 Grade 50,A572 Grade 55,A242 (Fy=42ksi),A588 (Fy=50ksi),A514 (Fy=100ksi),A852
+PL_2less_t_lessEq2_5,A36 (Fy=36ksi),A529 Grade 50,A572 Grade 42,A572 Grade 50,A242 (Fy=42ksi),A588 (Fy=50ksi),A514 (Fy=100ksi),A852
+PL_2_5less_t_lessEq4,A36 (Fy=36ksi),A572 Grade 42,A572 Grade 50,A242 (Fy=42ksi),A588 (Fy=50ksi),A514 (Fy=90ksi),A852
+PL_4less_t_lessEq5,A36 (Fy=36ksi),A572 Grade 42,A588 (Fy=46ksi),A514 (Fy=90ksi)
+PL_6less_t_lessEq6,A36 (Fy=36ksi),A572 Grade 42,A588 (Fy=42ksi),A514 (Fy=90ksi)
+PL_6less_t_lessEq8,A36 (Fy=36ksi),A588 (Fy=42ksi)
+PL_over8,A36 (Fy=32ksi)
