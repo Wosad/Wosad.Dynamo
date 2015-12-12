@@ -24,7 +24,6 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
-using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
 
 

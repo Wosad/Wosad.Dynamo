@@ -164,6 +164,7 @@
     <Compile Include="Nodes\Steel\AISC_10\Connection\BoltHoleDeformationSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\BoltHoleTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\BoltThreadInclusionSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Tension\ShearLagCaseSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\LoadTypeAndDirection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\StressDistributionSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\WeldGroupPatternSelection.cs" />
@@ -255,6 +256,24 @@
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Connection\BoltTypeView.xaml.cs">
       <DependentUpon>BoltTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase2Control.xaml.cs">
+      <DependentUpon>ShearLagCase2Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase4Control.xaml.cs">
+      <DependentUpon>ShearLagCase4Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase5Control.xaml.cs">
+      <DependentUpon>ShearLagCase5Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase6Control.xaml.cs">
+      <DependentUpon>ShearLagCase6Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase7Control.xaml.cs">
+      <DependentUpon>ShearLagCase7Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Tension\ShearLagFactorIdView.xaml.cs">
+      <DependentUpon>ShearLagFactorIdView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Connection\StressDistibutionTypeView.xaml.cs">
       <DependentUpon>StressDistibutionTypeView.xaml</DependentUpon>
@@ -427,6 +446,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase2Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase4Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase5Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase6Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase7Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Tension\ShearLagFactorIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Tension\ShearLagFactorIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Steel\AISC_10\Connection\StressDistibutionTypeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -547,6 +594,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AiscMaterialShapeMaterial.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Steel\AISC_10\Tension\ShearLagFactorIdTreeData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
