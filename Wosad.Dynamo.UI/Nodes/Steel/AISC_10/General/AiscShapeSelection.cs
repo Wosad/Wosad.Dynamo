@@ -28,6 +28,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Resources;
 using System.IO;
 using System.Linq;
+using Dynamo.Nodes;
 
 
 namespace Wosad.Steel.AISC_10.General

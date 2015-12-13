@@ -32,6 +32,7 @@ using System.Windows;
 using Wosad.Dynamo.UI.Common.TreeItems;
 using GalaSoft.MvvmLight.Command;
 using Wosad.Dynamo.UI.Views.Loads.ASCE7_10;
+using Dynamo.Nodes;
 
 
 namespace Wosad.Loads.ASCE7_10.Gravity.Live

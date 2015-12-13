@@ -26,6 +26,7 @@ using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
+using Dynamo.Nodes;
 
 
 namespace Wosad.Steel.AISC_10.Flexure

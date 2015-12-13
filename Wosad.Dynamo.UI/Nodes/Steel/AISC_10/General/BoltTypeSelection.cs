@@ -26,6 +26,7 @@ using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using System.Xml;
 using System.Windows;
+using Dynamo.Nodes;
 
 
 namespace Wosad.Steel.AISC_10.Connection

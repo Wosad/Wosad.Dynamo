@@ -30,6 +30,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Resources;
 using System.IO;
 using System.Windows;
+using Dynamo.Nodes;
 
 
 namespace Wosad.Steel.AISC_10.General

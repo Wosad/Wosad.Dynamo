@@ -25,6 +25,7 @@ using Dynamo.Models;
 using Dynamo.UI.Commands;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
+using Dynamo.Nodes;
 
 
 namespace Wosad.Dynamo.Common
