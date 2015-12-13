@@ -19,6 +19,7 @@
 
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
+using Dynamo.Nodes;
 using System.Collections.Generic;
 using Wosad.Loads.ASCE.ASCE7_10.LiveLoads;
 
@@ -40,11 +41,11 @@ namespace Loads.ASCE7_10.Lateral.Wind
         ///    Calculates Wind gust effect factor (G or G_f) accounting for the dynamic interaction between the building and the structure - ASCE7-10. USC units
         /// </summary>
         /// <param name="WindStructureDynamicResponseType">  type of wind dynamic response (flexible or rigid) /param>
-/// <param name="B">  horizontal dimension of building measured normal to wind direction /param>
-/// <param name="h">  mean roof height of a building or height of other structure /param>
-/// <param name="L">  horizontal dimension of a building measured parallel to the wind direction /param>
-/// <param name="beta">  damping ratio, percent critical for buildings or other structures /param>
-/// <param name="V">  basic wind speed /param>
+        /// <param name="B">  horizontal dimension of building measured normal to wind direction /param>
+        /// <param name="h">  mean roof height of a building or height of other structure /param>
+        /// <param name="L">  horizontal dimension of a building measured parallel to the wind direction /param>
+        /// <param name="beta">  damping ratio, percent critical for buildings or other structures /param>
+        /// <param name="V">  basic wind speed /param>
 
         /// <returns> "Parameter name: G", Parameter description: gust-effect factor </returns>
 

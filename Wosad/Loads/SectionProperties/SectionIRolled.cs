@@ -19,6 +19,7 @@
 
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
+using Dynamo.Nodes;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;

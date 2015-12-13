@@ -19,6 +19,7 @@
 
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
+using Dynamo.Nodes;
 using System.Collections.Generic;
 using Wosad.Loads.ASCE.ASCE7_10.DeadLoads;
 using Wosad.Loads.ASCE.ASCE7_10.LiveLoads;
