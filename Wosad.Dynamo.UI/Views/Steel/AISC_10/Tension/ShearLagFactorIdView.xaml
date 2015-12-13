@@ -57,7 +57,13 @@
                          />
             </Grid>
             <Expander Header="Shear lag case selection" IsExpanded="False" >
-                <TreeView x:Name="selectionTree"
+
+                <StackPanel>
+                    <Grid x:Name="AdditionalUIGrid" Grid.Row="1" HorizontalAlignment="Stretch" Height="Auto">
+                        <ContentControl Visibility="{Binding AdditionalUiVisible}"  
+                                Content="{Binding AdditionalUI}"/>
+                    </Grid>
+                    <TreeView x:Name="selectionTree"
                   SelectedValuePath="Id" 
                   Height="300"
                   HorizontalAlignment="Left"
@@ -67,6 +73,7 @@
                   VirtualizingPanel.VirtualizationMode="Standard" 
                   Background="LightGray" Width="300">
                 </TreeView>
+                </StackPanel>
             </Expander>
         </StackPanel>
     </Grid>

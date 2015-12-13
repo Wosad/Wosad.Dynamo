@@ -28,6 +28,7 @@ using Wosad.Dynamo.Common.Infra.TreeItems;
 using System.Xml;
 using System.Windows;
 using Wosad.Dynamo.UI.Common.TreeItems;
+using System.Reflection;
 
 
 namespace Wosad.Steel.AISC_10.Tension
@@ -50,7 +51,14 @@ namespace Wosad.Steel.AISC_10.Tension
             ShearLagCaseIdDescription ="General case";
             ShearLagCaseId = "Case 2";
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("ShearLagCaseId", "Shear lag case selection"));
+            OutPortData.Add(new PortData("l", "Connection length"));
+            OutPortData.Add(new PortData("x_bar", "Element eccentricity"));
+            OutPortData.Add(new PortData("w", "Width of plate"));
+            OutPortData.Add(new PortData("B", "HSS width"));
+            OutPortData.Add(new PortData("H", "HSS height"));
+            OutPortData.Add(new PortData("b_f","Flange width"));
+            OutPortData.Add(new PortData("d", "Member depth"));
+            OutPortData.Add(new PortData("ShearLagCaseId",  "Case of shear lag condition"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;
         }
@@ -106,6 +114,145 @@ namespace Wosad.Steel.AISC_10.Tension
 		}
 		#endregion
 
+        #region lProperty
+
+        /// <summary>
+        /// l property
+        /// </summary>
+        /// <value>Connection length</value>
+        public double _l;
+
+        public double l
+        {
+            get { return _l; }
+            set
+            {
+                _l = value;
+                RaisePropertyChanged("l");
+                OnNodeModified();
+            }
+        }
+        #endregion
+
+        #region x_barProperty
+
+        /// <summary>
+        /// x_bar property
+        /// </summary>
+        /// <value>Element eccentricity</value>
+        public double _x_bar;
+
+        public double x_bar
+        {
+            get { return _x_bar; }
+            set
+            {
+                _x_bar = value;
+                RaisePropertyChanged("x_bar");
+                OnNodeModified();
+            }
+        }
+        #endregion
+
+        #region wProperty
+
+        /// <summary>
+        /// w property
+        /// </summary>
+        /// <value>Width of plate</value>
+        public double _w;
+
+        public double w
+        {
+            get { return _w; }
+            set
+            {
+                _w = value;
+                RaisePropertyChanged("w");
+                OnNodeModified();
+            }
+        }
+        #endregion
+
+        #region BProperty
+
+        /// <summary>
+        /// B property
+        /// </summary>
+        /// <value>HSS width</value>
+        public double _B;
+
+        public double B
+        {
+            get { return _B; }
+            set
+            {
+                _B = value;
+                RaisePropertyChanged("B");
+                OnNodeModified();
+            }
+        }
+        #endregion
+
+        #region HProperty
+
+        /// <summary>
+        /// H property
+        /// </summary>
+        /// <value>HSS height</value>
+        public double _H;
+
+        public double H
+        {
+            get { return _H; }
+            set
+            {
+                _H = value;
+                RaisePropertyChanged("H");
+                OnNodeModified();
+            }
+        }
+        #endregion
+
+        #region b_fProperty
+
+        /// <summary>
+        /// b_f property
+        /// </summary>
+        /// <value>Flange width</value>
+        public double _b_f;
+
+        public double b_f
+        {
+            get { return _b_f; }
+            set
+            {
+                _b_f = value;
+                RaisePropertyChanged("b_f");
+                OnNodeModified();
+            }
+        }
+        #endregion
+
+        #region dProperty
+
+        /// <summary>
+        /// d property
+        /// </summary>
+        /// <value>Member height</value>
+        public double _d;
+
+        public double d
+        {
+            get { return _d; }
+            set
+            {
+                _d = value;
+                RaisePropertyChanged("d");
+                OnNodeModified();
+            }
+        }
+        #endregion
 
 
         #region ReportEntryProperty
@@ -145,6 +292,15 @@ namespace Wosad.Steel.AISC_10.Tension
         {
             base.SerializeCore(nodeElement, context);
             nodeElement.SetAttribute("ShearLagCaseId", ShearLagCaseId);
+            nodeElement.SetAttribute("l",l.ToString());
+            nodeElement.SetAttribute("x_bar", x_bar.ToString());
+            nodeElement.SetAttribute("w", w.ToString());
+            nodeElement.SetAttribute("B", B.ToString());
+            nodeElement.SetAttribute("H", H.ToString());
+            nodeElement.SetAttribute("b_f", b_f.ToString());
+            nodeElement.SetAttribute("d", d.ToString());
+
+
         }
 
         /// <summary>
@@ -158,6 +314,15 @@ namespace Wosad.Steel.AISC_10.Tension
                 return;
 
             ShearLagCaseId = attrib.Value;
+
+           attrib = nodeElement.Attributes["l"]; if (attrib ==null) return; l           =double.Parse(attrib.Value);
+           attrib = nodeElement.Attributes["x_bar"]; if (attrib ==null) return; x_bar   =double.Parse(attrib.Value);
+           attrib = nodeElement.Attributes["w"]; if (attrib ==null) return; w           =double.Parse(attrib.Value);
+           attrib = nodeElement.Attributes["B"]; if (attrib ==null) return; B           =double.Parse(attrib.Value);
+           attrib = nodeElement.Attributes["H"]; if (attrib ==null) return; H           =double.Parse(attrib.Value);
+           attrib = nodeElement.Attributes["b_f"]; if (attrib ==null) return; b_f       =double.Parse(attrib.Value);
+           attrib = nodeElement.Attributes["d"]; if (attrib == null) return;d           =double.Parse(attrib.Value);
+
             SetCaseDescription();
 
         }
@@ -177,7 +342,7 @@ namespace Wosad.Steel.AISC_10.Tension
 
         private void SetCaseDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Steel/AISC_10/Connection/ShearLagFactorIdTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Steel/AISC_10/Tension/ShearLagFactorIdTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }
@@ -204,8 +369,169 @@ namespace Wosad.Steel.AISC_10.Tension
 
         public void DisplayComponentUI(XTreeItem selectedComponent)
         {
+            if (selectedComponent != null && selectedComponent.Tag != "X" && selectedComponent.Id != null)
+            {
+                Assembly execAssembly = Assembly.GetExecutingAssembly();
+                AssemblyName assemblyName = new AssemblyName(execAssembly.FullName);
+                string execAssemblyName = assemblyName.Name;
+                string UIPath = GetUIControlName(selectedComponent.Id);
+                string typeStr = execAssemblyName + ".Views.Steel.AISC_10." + selectedComponent.ResourcePath;
+                try
+                {
+                    Type subMenuType = execAssembly.GetType(typeStr);
+                    UserControl subMenu = (UserControl)Activator.CreateInstance(subMenuType);
+                    AdditionalUI = subMenu;
 
+                    if (selectedComponent.Id != "X") //set default values
+                    {
+                        SetDefaultValues(selectedComponent.Id);
+                       
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    AdditionalUI = null;
+                }
+            }
+            else
+            {
+                AdditionalUI = null;
+            }
           
+        }
+
+        private void SetDefaultValues(string Id)
+        {
+            switch (Id)
+            {
+                case "Case1":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case2":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case3":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case4":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case5":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case6":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case7a":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case7b":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case8a":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+                case "Case8b":
+                    l = 0;
+                    x_bar = 0;
+                    w = 0;
+                    B = 0;
+                    H = 0;
+                    b_f = 0;
+                    d = 0;
+                    break;
+
+            }
+        }
+
+        private string GetUIControlName(string Id)
+        {
+            string ControlName = null;
+            switch (Id)
+            {
+                case "Case2":
+                    ControlName = "ShearLagCase2Control";
+                    break;
+                case "Case4":
+                    ControlName = "ShearLagCase4Control";
+                    break;
+                case "Case5":
+                    ControlName = "ShearLagCase5Control";
+                    break;
+                case "Case6":
+                    ControlName = "ShearLagCase6Control";
+                    break;
+                case "Case7a":
+                    ControlName = "ShearLagCase7Control";
+                    break;
+                case "Case7b":
+                    ControlName = "ShearLagCase7Control";
+                    break;
+                default:
+                    ControlName = null;
+                    break;
+            }
+            if (ControlName!=null)
+            {
+                ControlName = ControlName + ".xaml";
+            }
+            return ControlName;
         }
 
 
