@@ -31,6 +31,7 @@ using System.Windows.Resources;
 using System.IO;
 using System.Windows;
 using Dynamo.Nodes;
+using System.Reflection;
 
 
 namespace Wosad.Steel.AISC_10.General
@@ -92,9 +93,12 @@ namespace Wosad.Steel.AISC_10.General
 		    get { return _SteelMaterialId; }
 		    set
 		    {
-		        _SteelMaterialId = value;
-		        RaisePropertyChanged("SteelMaterialId");
-		        OnNodeModified();
+                if (value!=null)
+                {
+                    _SteelMaterialId = value;
+                    RaisePropertyChanged("SteelMaterialId");
+                    OnNodeModified(); 
+                }
 		    }
 		}
 		#endregion
@@ -176,6 +180,7 @@ namespace Wosad.Steel.AISC_10.General
             TShapeType = "WT";
             CHSType = "CHS";
             FetchAllAvailableMaterialsList();
+            IsShapeI = true;
 
 
         }
@@ -184,18 +189,7 @@ namespace Wosad.Steel.AISC_10.General
         public ObservableCollection<string> AllMaterials { get; set; }
         private void FetchAllAvailableMaterialsList()
         {
-            string UriString = "pack://application:,,,/Resources/AiscMaterialsAll.txt";
-            StreamResourceInfo sri = Application.GetResourceStream(
-                new Uri(UriString));
-            string line;
-            using (TextReader tr = new StreamReader(sri.Stream))
-            {
-                List<string> AllMaterials = new List<string>();
-                while ((line = tr.ReadLine()) != null)
-                {
-                    AllMaterials.Add(line);
-                }
-            }
+            this.FetchList(null, "AiscMaterialsAll");
         }
 
         #endregion
@@ -644,55 +638,78 @@ namespace Wosad.Steel.AISC_10.General
         {
             AvailableMaterials = null;
 
-            string UriString = string.Format("pack://application:,,,/Resources/{0}.txt", MaterialGroupId);
-            StreamResourceInfo sri = Application.GetResourceStream(
-                new Uri(UriString));
-            string line;
-            using (TextReader tr = new StreamReader(sri.Stream))
-            {
-                List<string> AllMaterialCategories = new List<string>();
-                while ((line = tr.ReadLine()) != null)
-                {
-                    AllMaterialCategories.Add(line);
-                }
+                string resourceName = string.Format("Wosad.Dynamo.UI.Resources.{0}.txt", MaterialGroupId);
+                var assembly = Assembly.GetExecutingAssembly();
 
-                //find row in the data file
-                var FoundItem = AllMaterialCategories.Where(sh =>
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {
-                    string[] subsStr = sh.Split(new string[] { "," }, StringSplitOptions.None);
-                    if (subsStr[0] == ElementTypeId)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                     ).FirstOrDefault();
 
-                //split row into individual materials
-                if (FoundItem != null)
-                {
-                    AvailableMaterials = new ObservableCollection<string>();
-                    string[] Materials = FoundItem.Split(new string[] { "," }, StringSplitOptions.None);
-                    if (Materials.Length > 1)
+                    string line;
+                    using (TextReader tr = new StreamReader(stream))
                     {
-                        for (int i = 1; i < Materials.Length; i++)
+                        List<string> AllMaterialEntries = new List<string>();
+                        while ((line = tr.ReadLine()) != null)
                         {
-                            string MatName = Materials[i];
-                            //modify list if this is anchor bolt to account for diameter
-                            if (IsMaterialAnchorRod == true)
+                            AllMaterialEntries.Add(line);
+                        }
+
+
+                        if (ElementTypeId!=null)
+                        {
+                            parseMaterialsToList(AllMaterialEntries, ElementTypeId);
+                        }
+                        else
+                        {
+                            AllMaterials = new ObservableCollection<string>(AllMaterialEntries);
+                        }
+
+                    }
+                }
+            //set the first item in list as default recommended material
+
+            if (AvailableMaterials != null && AvailableMaterials.Count != 0)
+            {
+                SteelMaterialId = AvailableMaterials[0];
+            }
+        }
+
+
+
+        private void parseMaterialsToList(List<string> AllMaterialEntries, string ElementTypeId)
+        {
+
+            //find row in the data file
+            var FoundItem = AllMaterialEntries.Where(sh =>
+            {
+                string[] subsStr = sh.Split(new string[] { "," }, StringSplitOptions.None);
+                if (subsStr[0] == ElementTypeId)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+                 ).FirstOrDefault();
+
+            //split row into individual materials
+            if (FoundItem != null)
+            {
+                AvailableMaterials = new ObservableCollection<string>();
+                string[] Materials = FoundItem.Split(new string[] { "," }, StringSplitOptions.None);
+                if (Materials.Length > 1)
+                {
+                    for (int i = 1; i < Materials.Length; i++)
+                    {
+                        string MatName = Materials[i];
+                        //modify list if this is anchor bolt to account for diameter
+                        if (IsMaterialAnchorRod == true)
+                        {
+                            if (d_b > 0)
                             {
-                                if (d_b > 0)
-                                {
-                                    bool MaterialAvailable = CheckIfMaterialAvailableForBoltDiameter(MatName, d_b);
-                                    if (MaterialAvailable == true)
-                                    {
-                                        AvailableMaterials.Add(MatName);
-                                    }
-                                }
-                                else
+                                bool MaterialAvailable = CheckIfMaterialAvailableForBoltDiameter(MatName, d_b);
+                                if (MaterialAvailable == true)
                                 {
                                     AvailableMaterials.Add(MatName);
                                 }
@@ -702,17 +719,13 @@ namespace Wosad.Steel.AISC_10.General
                                 AvailableMaterials.Add(MatName);
                             }
                         }
-
+                        else
+                        {
+                            AvailableMaterials.Add(MatName);
+                        }
                     }
+
                 }
-
-
-            }
-            //set the first item in list as default recommended material
-
-            if (AvailableMaterials != null && AvailableMaterials.Count != 0)
-            {
-                SteelMaterialId = AvailableMaterials[0];
             }
         }
 
@@ -724,44 +737,50 @@ namespace Wosad.Steel.AISC_10.General
             {
                 if (fastenerDiameterList == null)
                 {
-                    fastenerDiameterList = GetFastenerLimitList();
+                    fastenerDiameterList = FetchFastenerLimitList();
                 }
                 return fastenerDiameterList;
             }
             set { fastenerDiameterList = value; }
         }
 
-        private List<FastenerLimitEntry> GetFastenerLimitList()
+        private List<FastenerLimitEntry> FetchFastenerLimitList()
         {
             List<FastenerLimitEntry> FastenerLimitEntries = new List<FastenerLimitEntry>();
 
-            string UriString = "pack://application:,,,/Resources/AiscMaterialFastenerDiameterLimits.txt";
-            StreamResourceInfo sri = Application.GetResourceStream(
-                new Uri(UriString));
-            string line;
-            using (TextReader tr = new StreamReader(sri.Stream))
-            {
 
-                while ((line = tr.ReadLine()) != null)
+            string resourceName = "Wosad.Dynamo.UI.Resources.AiscMaterialFastenerDiameterLimits.txt";
+                var assembly = Assembly.GetExecutingAssembly();
+
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {
-                    string[] me = line.Split(new string[] { "," }, StringSplitOptions.None);
-                    if (me.Length == 3)
-                    {
-                        double MinDiam = double.Parse(me[1]);
-                        double MaxDiam = double.Parse(me[2]);
-                        FastenerLimitEntries.Add(new FastenerLimitEntry() { MaterialName = me[0], MinDiameter = MinDiam, MaxDiameter = MaxDiam });
-                    }
 
+                    string line;
+                    using (TextReader tr = new StreamReader(stream))
+                    {
+                        List<string> AllMaterialEntries = new List<string>();
+                        while ((line = tr.ReadLine()) != null)
+                        {
+                            string[] me = line.Split(new string[] { "," }, StringSplitOptions.None);
+                            if (me.Length == 3)
+                            {
+                                double MinDiam = double.Parse(me[1]);
+                                double MaxDiam = double.Parse(me[2]);
+                                FastenerLimitEntries.Add(new FastenerLimitEntry() { MaterialName = me[0], MinDiameter = MinDiam, MaxDiameter = MaxDiam });
+                            }
+
+                        }
+                    }
                 }
-            }
-            if (FastenerLimitEntries.Count > 0)
-            {
-                return FastenerLimitEntries;
-            }
-            else
-            {
-                return null;
-            }
+                if (FastenerLimitEntries.Count > 0)
+                {
+                    return FastenerLimitEntries;
+                }
+                else
+                {
+                    return null;
+                }
+
         }
         private bool CheckIfMaterialAvailableForBoltDiameter(string MatName, double db)
         {
@@ -1025,7 +1044,7 @@ namespace Wosad.Steel.AISC_10.General
                 RecommendedMaterialSelectionView control = new RecommendedMaterialSelectionView();
                 control.DataContext = model;
                 
-                 nodeView.inputGrid.Children.Add(control);
+                nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }
 

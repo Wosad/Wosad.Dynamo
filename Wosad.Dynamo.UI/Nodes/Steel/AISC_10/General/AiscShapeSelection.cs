@@ -17,6 +17,7 @@
  
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.Wpf;
@@ -83,9 +84,13 @@ namespace Wosad.Steel.AISC_10.General
 		    get { return _SteelShapeId; }
 		    set
 		    {
-		        _SteelShapeId = value;
-		        RaisePropertyChanged("SteelShapeId");
-		        OnNodeModified();
+                if (value!=null)
+                {
+                    _SteelShapeId = value;
+                    RaisePropertyChanged("SteelShapeId");
+                    OnNodeModified();  
+                }
+
 		    }
 		}
 		#endregion
@@ -133,7 +138,7 @@ namespace Wosad.Steel.AISC_10.General
         {
             ReportEntry = "";
             RefreshView = false;
-            CatalogShapeType = "Ishape";
+            CatalogShapeType = "IShape";
             ShapeTypeSteel = "IShapeRolled";
             IShapeType = "W";
             CShapeType = "C";
@@ -1042,8 +1047,15 @@ namespace Wosad.Steel.AISC_10.General
             if (FilterCriteriaString != null && ResourceFileName != null)
             {
 
-
-                AvailableShapes = new ObservableCollection<string>();
+                if (AvailableShapes ==null)
+                {
+                    AvailableShapes = new ObservableCollection<string>();
+                }
+                else
+                {
+                    AvailableShapes.Clear();
+                }
+                
 
                 //Replace "_" and "I" in the filter criteria
                 string FilterCriteria1 = FilterCriteriaString.Replace("_", "-");
@@ -1064,51 +1076,110 @@ namespace Wosad.Steel.AISC_10.General
 
 
 
-                string UriString = string.Format("pack://application:,,,/Resources/{0}.txt", ResourceFileName);
-                StreamResourceInfo sri = Application.GetResourceStream(new Uri(UriString));
+                //string UriString = string.Format("pack://application:,,,/Resources/{0}.txt", ResourceFileName);
+                //StreamResourceInfo sri = Application.GetResourceStream(new Uri(UriString));
 
-                string line;
-                using (TextReader tr = new StreamReader(sri.Stream))
+                string resourceName = string.Format("Wosad.Dynamo.UI.Resources.{0}.txt", ResourceFileName);
+                var assembly = Assembly.GetExecutingAssembly();
+   
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {
-                    List<string> AllShapes = new List<string>();
-                    while ((line = tr.ReadLine()) != null)
+                    string line;
+                    //using (TextReader tr = new StreamReader(sri.Stream))
+                    using (TextReader tr = new StreamReader(stream))
                     {
-                        //AvailableShapes.Add(line);
-                        AllShapes.Add(line);
-                    }
-
-                    if (FilterCriteria != null)
-                    {
-                        if (Gap == null) //no shape gap
+                        List<string> AllShapes = new List<string>();
+                        while ((line = tr.ReadLine()) != null)
                         {
-                            if (FilterCriteria.Contains("Pipe"))
+                            //AvailableShapes.Add(line);
+                            AllShapes.Add(line);
+                        }
+
+                        if (FilterCriteria != null)
+                        {
+                            if (Gap == null) //no shape gap
                             {
-                                var FilteredList = AllShapes.Where(sh =>
+                                if (FilterCriteria.Contains("Pipe"))
                                 {
-                                    if (sh.Contains(FilterCriteria))
+                                    var FilteredList = AllShapes.Where(sh =>
                                     {
-                                        return true;
+                                        if (sh.Contains(FilterCriteria))
+                                        {
+                                            return true;
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
                                     }
-                                    else
+                                    ).ToList();
+                                    foreach (var s in FilteredList)
                                     {
-                                        return false;
+                                        AvailableShapes.Add(s);
                                     }
                                 }
-                                ).ToList();
-                                foreach (var s in FilteredList)
+                                else
                                 {
-                                    AvailableShapes.Add(s);
+
+                                    var FilteredList = AllShapes.Where(sh =>
+                                    {
+                                        string[] subsStr = sh.Split(new string[] { "X" }, StringSplitOptions.None);
+                                        if (subsStr[0] == FilterCriteria)
+                                        {
+                                            return true;
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
+                                        //sh.Contains(FilterCriteria)
+                                    }
+                                         ).ToList();
+                                    foreach (var s in FilteredList)
+                                    {
+                                        AvailableShapes.Add(s);
+                                    }
                                 }
                             }
-                            else
+                            else //if gap is defined
                             {
-
-                                var FilteredList = AllShapes.Where(sh =>
+                                var FilteredListWithGap = AllShapes.Where(sh =>
                                 {
                                     string[] subsStr = sh.Split(new string[] { "X" }, StringSplitOptions.None);
                                     if (subsStr[0] == FilterCriteria)
                                     {
-                                        return true;
+                                        if (subsStr.Length == 3) //no gap is defined
+                                        {
+                                            return false;
+                                        }
+                                        else
+                                        {
+                                            if (subsStr.Length == 4)
+                                            {
+                                                string GapStr = "";
+                                                if (subsStr[3].Contains("SLBB") || subsStr[3].Contains("LLBB"))
+                                                {
+                                                    GapStr = subsStr[3].Substring(0, subsStr[3].Length - 4);
+                                                }
+                                                else
+                                                {
+                                                    GapStr = subsStr[3];
+                                                }
+                                                if (GapStr == Gap)
+                                                {
+                                                    return true;
+                                                }
+                                                else
+                                                {
+                                                    return false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
+                                        }
+
                                     }
                                     else
                                     {
@@ -1116,71 +1187,19 @@ namespace Wosad.Steel.AISC_10.General
                                     }
                                     //sh.Contains(FilterCriteria)
                                 }
-                                     ).ToList();
-                                foreach (var s in FilteredList)
+                                ).ToList();
+                                foreach (var s in FilteredListWithGap)
                                 {
                                     AvailableShapes.Add(s);
                                 }
                             }
                         }
-                        else //if gap is defined
+                        else
                         {
-                            var FilteredListWithGap = AllShapes.Where(sh =>
-                            {
-                                string[] subsStr = sh.Split(new string[] { "X" }, StringSplitOptions.None);
-                                if (subsStr[0] == FilterCriteria)
-                                {
-                                    if (subsStr.Length == 3) //no gap is defined
-                                    {
-                                        return false;
-                                    }
-                                    else
-                                    {
-                                        if (subsStr.Length == 4)
-                                        {
-                                            string GapStr = "";
-                                            if (subsStr[3].Contains("SLBB") || subsStr[3].Contains("LLBB"))
-                                            {
-                                                GapStr = subsStr[3].Substring(0, subsStr[3].Length - 4);
-                                            }
-                                            else
-                                            {
-                                                GapStr = subsStr[3];
-                                            }
-                                            if (GapStr == Gap)
-                                            {
-                                                return true;
-                                            }
-                                            else
-                                            {
-                                                return false;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            return false;
-                                        }
-                                    }
-
-                                }
-                                else
-                                {
-                                    return false;
-                                }
-                                //sh.Contains(FilterCriteria)
-                            }
-                            ).ToList();
-                            foreach (var s in FilteredListWithGap)
+                            foreach (var s in AllShapes)
                             {
                                 AvailableShapes.Add(s);
                             }
-                        }
-                    }
-                    else
-                    {
-                        foreach (var s in AllShapes)
-                        {
-                            AvailableShapes.Add(s);
                         }
                     }
                 }

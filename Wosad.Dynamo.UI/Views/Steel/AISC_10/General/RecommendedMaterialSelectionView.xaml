@@ -94,7 +94,8 @@
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" >
-        <StackPanel Height="Auto">
+
+        <StackPanel >
             <WosadControls:EnumControl  HeaderText="Material group:" ItemsSource="{StaticResource MaterialGroupItemsSource}" 
 					DataPath="MaterialGroup"  ParameterPath="MaterialGroup"/>
 

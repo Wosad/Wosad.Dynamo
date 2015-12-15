@@ -118,6 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AiscMaterialFastenerDiameterLimits" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AiscMaterialFastenerDiameterLimits.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AiscMaterialFastenerMaterial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AiscMaterialFastenerMaterial.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AiscMaterialPlateMaterial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AiscMaterialPlateMaterial.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AiscMaterialsAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AiscMaterialsAll.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AiscMaterialShapeMaterial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AiscMaterialShapeMaterial.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="CHS_Shapes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CHS_Shapes.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -165,20 +180,5 @@
   </data>
   <data name="WTShapes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WTShapes.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="AiscMaterialFastenerDiameterLimits" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AiscMaterialFastenerDiameterLimits.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="AiscMaterialFastenerMaterial" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AiscMaterialFastenerMaterial.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="AiscMaterialPlateMaterial" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AiscMaterialPlateMaterial.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="AiscMaterialsAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AiscMaterialsAll.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="AiscMaterialShapeMaterial" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AiscMaterialShapeMaterial.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>
