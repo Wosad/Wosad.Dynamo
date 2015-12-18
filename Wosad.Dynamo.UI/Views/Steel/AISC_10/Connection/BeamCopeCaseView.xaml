@@ -29,6 +29,6 @@
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
         <WosadControls:EnumControl  HeaderText="Beam cope case:" ItemsSource="{StaticResource BeamCopeSource}" 
-					DataPath="BendingAxis"/>
+					DataPath="BeamCopeCase"/>
     </Grid>
 </UserControl>

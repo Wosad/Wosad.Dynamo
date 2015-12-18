@@ -45,12 +45,21 @@ namespace Wosad.Steel.AISC_10.Combination
 
         public CombinedForcesMemberTypeSelection()
         {
-            ReportEntry="";
-            
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("CombinationCaseId", "Defines a type of interaction equation to be used"));
             RegisterAllPorts();
+            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
+        }
+
+        private void SetDefaultParameters()
+        {
+            ReportEntry = "";
+            CombinationCaseId = "H1";
+            MemberForceCase = "FlexureAndAxial";
+            MemberSectionType = "DoublyOrSinglySymmetric";
+            ElementType = "Member";   
+            ConnectionCombinationType = "Elliptical";
         }
 
 
@@ -181,99 +190,6 @@ namespace Wosad.Steel.AISC_10.Combination
             }
         }
         #endregion
-
-
-        #region I-Shapes and Channels
-
-        #region IsShapeIOrChannel Property
-        private bool _IsMajorAxisShapeIOrChannel;
-        public bool IsMajorAxisShapeIOrChannel
-        {
-            get { return _IsMajorAxisShapeIOrChannel; }
-            set
-            {
-                _IsMajorAxisShapeIOrChannel = value;
-                RaisePropertyChanged("IsMajorAxisShapeIOrChannel");
-            }
-
-        }
-        #endregion
-
-        #region IsDoublySymmetric Property
-        private bool _IsDoublySymmetric;
-        public bool IsDoublySymmetric
-        {
-            get { return _IsDoublySymmetric; }
-            set
-            {
-                _IsDoublySymmetric = value;
-                RaisePropertyChanged("IsDoublySymmetric");
-            }
-
-        }
-        #endregion
-
-        #region IsSinglySymmetric Property
-        private bool _IsSinglySymmetric;
-        public bool IsSinglySymmetric
-        {
-            get { return _IsSinglySymmetric; }
-            set
-            {
-                _IsSinglySymmetric = value;
-                RaisePropertyChanged("IsSinglySymmetric");
-            }
-
-        }
-        #endregion
-
-
-
-        #region IsIShapeOrChannel Property
-        private bool _IsIShapeOrChannel;
-        public bool IsIShapeOrChannel
-        {
-            get { return _IsIShapeOrChannel; }
-            set
-            {
-                _IsIShapeOrChannel = value;
-                RaisePropertyChanged("IsIShapeOrChannel");
-            }
-        }
-        #endregion
-
-
-        #region SymmetryType Property
-        private string _SymmetryType;
-        public string SymmetryType
-        {
-            get { return _SymmetryType; }
-            set
-            {
-                _SymmetryType = value;
-                RaisePropertyChanged("SymmetryType");
-                UpdateValuesAndView();
-            }
-        }
-        #endregion
-
-
-
-        #region BendingAxis Property
-        private string _BendingAxis;
-        public string BendingAxis
-        {
-            get { return _BendingAxis; }
-            set
-            {
-                _BendingAxis = value;
-                RaisePropertyChanged("BendingAxis");
-                UpdateValuesAndView();
-            }
-        }
-        #endregion
-        #endregion
-
 
         #region ElementType Property
         private string _ElementType;

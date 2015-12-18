@@ -100,7 +100,6 @@ namespace Wosad.Steel.AISC_10.Flexure
 		        _SteelShapeGroupFlexure = value;
 		        RaisePropertyChanged("SteelShapeGroupFlexure");
 		        OnNodeModified();
-                UpdateValuesAndView();
 		    }
 		}
 		#endregion

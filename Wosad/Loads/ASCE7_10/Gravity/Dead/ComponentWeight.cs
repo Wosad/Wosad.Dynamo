@@ -41,9 +41,9 @@ namespace Loads.ASCE7_10.Gravity.Dead
         /// <summary>
         ///    Calculates Building component weight per surface area of the component (psf) - ASCE7-10. USC units
         /// </summary>
-        /// <param name="ComponentId">  building component id (name) /param>
-        /// <param name="ComponentOption1">  building component subtype (option1) /param>
-        /// <param name="ComponentOption2">  building component subtype (option2) /param>
+        /// <param name="ComponentId">  building component id (name) </param>
+        /// <param name="ComponentOption1">  building component subtype (option1) </param>
+        /// <param name="ComponentOption2">  building component subtype (option2) </param>
         /// <param name="ComponentValue">  building component numerical value /param>
 
         /// <returns> "Parameter name: q_D", Parameter description: Uniformly distributed component dead load </returns>

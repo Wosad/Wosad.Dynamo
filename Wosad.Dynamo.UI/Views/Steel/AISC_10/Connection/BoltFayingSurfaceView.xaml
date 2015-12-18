@@ -27,6 +27,6 @@
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
         <WosadControls:EnumControl  HeaderText="Bolt faying surface:" ItemsSource="{StaticResource BoltFayingSurfaceSource}" 
-					DataPath="BoltFayingSurface"/>
+					DataPath="BoltFayingSurfaceClass"/>
     </Grid>
 </UserControl>

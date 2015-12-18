@@ -39,6 +39,7 @@ namespace Wosad.Steel.AISC_10.Flexure
     {
         public SteelShapeGroupFlexureView()
         {
+            this.InitializeComponent();
         }
     }
 }
