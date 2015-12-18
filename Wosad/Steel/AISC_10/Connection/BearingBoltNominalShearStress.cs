@@ -34,7 +34,6 @@ namespace Wosad.Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
         /// <summary>

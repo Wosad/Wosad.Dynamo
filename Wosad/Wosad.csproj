@@ -187,12 +187,18 @@
     <Compile Include="Reporting\ReportCollector.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingBoltNominalShearStress.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\Bolted.cs" />
-    <Compile Include="Steel\AISC_10\General\Groups\MaterialProperties.cs" />
-    <Compile Include="Steel\AISC_10\General\Groups\StandardShapeProperties.cs" />
+    <Compile Include="Steel\AISC_10\General\Groups\MaterialProperties.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Steel\AISC_10\General\Groups\StandardShapeProperties.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Steel\AISC_10\General\MaterialMechanicalProperties.cs" />
     <Compile Include="Steel\AISC_10\General\ShapeBasicGeometricProperties.cs" />
     <Compile Include="Steel\AISC_10\General\TorsionalProperties.cs" />
-    <Compile Include="Steel\AISC_10\General\XAxisProperties.cs" />
+    <Compile Include="Steel\AISC_10\General\XAxisProperties.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Steel\AISC_10\General\YAxisProperties.cs" />
   </ItemGroup>
   <ItemGroup>

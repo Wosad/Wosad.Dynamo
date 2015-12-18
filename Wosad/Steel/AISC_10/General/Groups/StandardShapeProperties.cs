@@ -1,5 +1,5 @@
-﻿#region Copyright
-/*Copyright (C) 2015 Wosad Inc
+#region Copyright
+   /*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
-
+ 
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -24,22 +24,31 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.General
 {
+
+/// <summary>
+///     AISC shape properties
+///     Category:   Steel.AISC_10.General
+/// </summary>
+/// 
 
 
     [IsDesignScriptCompatible]
-    public partial class Bolted
+    public partial class StandardShapeProperties 
     {
 
-        internal Bolted(string BoltMaterialId, string BoltThreadCase)
+        internal StandardShapeProperties (string SteelShapeId)
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static Bolted ByInputParameters(string BoltMaterialId, string BoltThreadCase)
+        public static StandardShapeProperties  ByInputParameters(string SteelShapeId)
         {
-            return new Bolted(BoltMaterialId, BoltThreadCase);
+            return new StandardShapeProperties(SteelShapeId );
         }
+
     }
 }
+
+
