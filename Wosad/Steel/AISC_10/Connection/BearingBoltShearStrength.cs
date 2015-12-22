@@ -21,40 +21,44 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.Bolted;
+using Wosad.Steel.AISC.Interfaces;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bolt shear strength
+///     Bearing bolt shear strength
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
+
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Bolt shear strength
-/// </summary>
+        /// <summary>
+        ///    Calculates Bearing bolt shear strength
+        /// </summary>
         /// <param name="d_b">  Nominal fastener diameter </param>
-/// <param name="F_nv">  Nominal shear stress </param>
-/// <param name="NumberShearPlanes">  Number of shear planes </param>
-
+        /// <param name="BoltMaterialId">  Bolt material specification </param>
+        /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
+        /// <param name="NumberShearPlanes">  Number of shear planes </param>
         /// <returns name="phiR_nv"> Connection shear strength </returns>
 
         [MultiReturn(new[] { "phiR_nv" })]
-        public static Dictionary<string, object> BearingBoltShearStrength(double d_b,double F_nv,double NumberShearPlanes)
+        public static Dictionary<string, object> BearingBoltShearStrength(double d_b,string BoltMaterialId,string BoltThreadCase,double NumberShearPlanes)
         {
             //Default values
             double phiR_nv = 0;
 
 
             //Calculation logic:
-
+            BoltFactory bf = new BoltFactory(BoltMaterialId);
+            IBoltBearing bolt = bf.GetBearingBolt(d_b, BoltThreadCase);
+            //TODO: add shear strength
 
             return new Dictionary<string, object>
             {
@@ -64,15 +68,6 @@ namespace Wosad.Steel.AISC_10.Connection
         }
 
 
-        //internal Bolted (double d_b,double F_nv,double NumberShearPlanes)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(double d_b,double F_nv,double NumberShearPlanes)
-        //{
-        //    return new Bolted(d_b ,F_nv ,NumberShearPlanes );
-        //}
 
     }
 }

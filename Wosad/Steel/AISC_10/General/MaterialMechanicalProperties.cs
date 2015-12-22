@@ -70,9 +70,9 @@ namespace Steel.AISC_10.General
             return new Dictionary<string, object>
             {
                 { "F_y", F_y }
-,{ "F_u", F_u }
-,{ "E", E }
-,{ "G", G }
+                ,{ "F_u", F_u }
+                ,{ "E", E }
+                ,{ "G", G }
  
             };
         }

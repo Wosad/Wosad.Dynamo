@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.Bolted;
 
 #endregion
 
@@ -37,11 +38,10 @@ namespace Steel.AISC_10.Connection
     public partial class Bolted 
     {
         /// <summary>
-        ///    Calculates Bolt nominal shear stress from AISC Table J3.2
+        ///    Calculates bolt nominal shear stress from AISC Table J3.2
         /// </summary>
         /// <param name="BoltMaterialId">  Bolt material specification </param>
         /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
-
         /// <returns name="F_nv"> Nominal shear stress </returns>
 
         [MultiReturn(new[] { "F_nv" })]
@@ -52,7 +52,9 @@ namespace Steel.AISC_10.Connection
 
 
             //Calculation logic:
-
+            BoltFactory bf = new BoltFactory(BoltMaterialId);
+            IBoltMaterial material = bf.GetBoltMaterial();
+            F_nv = material.GetNominalShearStress(BoltThreadCase);
 
             return new Dictionary<string, object>
             {

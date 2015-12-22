@@ -21,10 +21,12 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.Bolted;
+using Wosad.Steel.AISC.Interfaces;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
@@ -34,26 +36,28 @@ namespace Wosad.Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
+
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Bolt tensile strength
-/// </summary>
+        /// <summary>
+        ///    Calculates Bolt tensile strength
+        /// </summary>
         /// <param name="d_b">  Nominal fastener diameter </param>
-/// <param name="F_nt">  Nominal tensile stress </param>
-
+        /// <param name="BoltMaterialId">  Bolt material specification </param>
+        /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
         /// <returns name="phiR_nt"> Connection tensile strength </returns>
 
         [MultiReturn(new[] { "phiR_nt" })]
-        public static Dictionary<string, object> BoltTensileStrength(double d_b,double F_nt)
+        public static Dictionary<string, object> BoltTensileStrength(double d_b,string BoltMaterialId,string BoltThreadCase)
         {
             //Default values
             double phiR_nt = 0;
 
 
             //Calculation logic:
-
+            BoltFactory bf = new BoltFactory(BoltMaterialId);
+            IBoltBearing bolt = bf.GetBearingBolt(d_b, BoltThreadCase);
+            //TODO: add shear strength
 
             return new Dictionary<string, object>
             {
@@ -63,15 +67,6 @@ namespace Wosad.Steel.AISC_10.Connection
         }
 
 
-        //internal Bolted (double d_b,double F_nt)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(double d_b,double F_nt)
-        //{
-        //    return new Bolted(d_b ,F_nt );
-        //}
 
     }
 }

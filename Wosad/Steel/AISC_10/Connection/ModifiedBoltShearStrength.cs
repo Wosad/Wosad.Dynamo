@@ -21,10 +21,12 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.Bolted;
+using Wosad.Steel.AISC.Interfaces;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
@@ -33,32 +35,35 @@ namespace Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
-
     public partial class Bolted 
     {
         /// <summary>
         ///    Calculates Bearing bolt combined tension and shear
         /// </summary>
         /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+        /// <param name="d_b">  Nominal fastener diameter </param>
+        /// <param name="BoltMaterialId">  Bolt material specification </param>
+        /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
+        /// <param name="NumberShearPlanes">  Number of shear planes </param>
+        /// <returns name="phiR_nt_modified"> Modified shear strength of bolt subjected to tension  </returns>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        [MultiReturn(new[] { "phiR_nt_modified" })]
+        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double d_b,string BoltMaterialId,
+            string BoltThreadCase)
         {
             //Default values
-            
+            double phiR_nt_modified = 0.0;
 
             //Calculation logic:
-
+            BoltFactory bf = new BoltFactory(BoltMaterialId);
+            IBoltBearing bolt = bf.GetBearingBolt(d_b, BoltThreadCase);
+            phiR_nt_modified = bolt.GetAvailableTensileStrength(V_u);
 
             return new Dictionary<string, object>
             {
-                 
+                {"phiR_nt_modified", phiR_nt_modified}  
             };
         }
-
 
 
 

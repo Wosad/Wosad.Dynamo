@@ -142,8 +142,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.1.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.1.3\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.1.4\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -186,8 +186,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\ReportCollector.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingBoltNominalShearStress.cs" />
+    <Compile Include="Steel\AISC_10\Connection\BearingBoltShearStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\BoltNominalTensileStress.cs" />
+    <Compile Include="Steel\AISC_10\Connection\BoltTensileStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\Bolted.cs" />
+    <Compile Include="Steel\AISC_10\Connection\MaximumTensileForceWithEffectsOfPryingAction.cs" />
+    <Compile Include="Steel\AISC_10\Connection\MinimumPlateThicknessEffectsOfPryingAction.cs" />
     <Compile Include="Steel\AISC_10\Connection\ModifiedBoltShearStrength.cs" />
     <Compile Include="Steel\AISC_10\General\Groups\MaterialProperties.cs">
       <SubType>Code</SubType>

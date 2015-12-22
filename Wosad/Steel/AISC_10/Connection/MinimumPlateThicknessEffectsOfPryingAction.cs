@@ -21,44 +21,46 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.J_Connections;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Prying action minimum plate thickness
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
+
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Prying action minimum plate thickness
-/// </summary>
-        /// <param name="T_u">  Required tension force </param>
-/// <param name="b_f">  Width of flange  </param>
-/// <param name="g">  Transverse center-to-center spacing (gage) between fastener gage lines   </param>
-/// <param name="p">  Pitch </param>
-/// <param name="F_u">  Specified minimum tensile strength   </param>
-/// <param name="B_c">  Bolt tensile strength for prying action </param>
-/// <param name="SteelShapeGroupFlexure">  Type of steel shape for flexural calculations </param>
-
+        /// <summary>
+        ///    Calculates Prying action minimum plate thickness
+        /// </summary>
+        /// <param name="d_b">  Nominal fastener diameter </param>
+        /// <param name="d_hole">  Bolt hole diameter (in the direction of prying action) </param>
+        /// <param name="T_bolt">  Bolt tension </param>
+        /// <param name="a_edge">  Distance from edge of flange or leg of tensile element to bolt centerline, for prying action calculation </param>
+        /// <param name="b_stem">  Distance from tensile element to bolt centerline, for prying action calculation taken as distance to face of stem for tee and to centerline of leg for angle </param>
+        /// <param name="p">  Pitch </param>
+        /// <param name="B_bolt">  Design bolt tension using nominal tensile strength of bolt or modified to include effects of shear stress </param>
+        /// <param name="F_u">  Specified minimum tensile strength   </param>
         /// <returns name="t_min"> Minimum thickness of connection material </returns>
 
         [MultiReturn(new[] { "t_min" })]
-        public static Dictionary<string, object> MinimumPlateThicknessEffectsOfPryingAction(double T_u,double b_f,double g,double p,double F_u,double B_c,string SteelShapeGroupFlexure)
+        public static Dictionary<string, object> MinimumPlateThicknessEffectsOfPryingAction(double d_b,double d_hole,double T_bolt,double a_edge,double b_stem,double p,double B_bolt,double F_u)
         {
             //Default values
             double t_min = 0;
 
 
             //Calculation logic:
-
+            PryingActionElement pac = new PryingActionElement(d_b, d_hole, b_stem, a_edge, p, B_bolt, F_u);
+            t_min = pac.GetMaximumThickness(T_bolt);
 
             return new Dictionary<string, object>
             {
@@ -68,15 +70,6 @@ namespace Wosad.Steel.AISC_10.Connection
         }
 
 
-        //internal Bolted (double T_u,double b_f,double g,double p,double F_u,double B_c,string SteelShapeGroupFlexure)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(double T_u,double b_f,double g,double p,double F_u,double B_c,string SteelShapeGroupFlexure)
-        //{
-        //    return new Bolted(T_u ,b_f ,g ,p ,F_u ,B_c ,SteelShapeGroupFlexure );
-        //}
 
     }
 }
