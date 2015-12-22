@@ -15,7 +15,6 @@
 			<StackPanel Margin="8,5" Orientation="Horizontal">
 				<TextBlock TextWrapping="Wrap" Text="Member size" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,2.02"/>
 				<ComboBox Width="80" Height="20" SelectedIndex="{Binding ComponentOption1}" Margin="8,0">
-					<ComboBoxItem Content="2X4" Height="20" Width="70"/>
 					<ComboBoxItem Content="2X6" Height="20" Width="70"/>
 					<ComboBoxItem Content="2X8" Height="20" Width="70"/>
 					<ComboBoxItem Content="2X10" Height="20" Width="70"/>

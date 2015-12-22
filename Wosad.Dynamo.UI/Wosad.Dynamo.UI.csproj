@@ -565,6 +565,8 @@
     <None Include="Wosad.Dynamo.UI.licenseheader" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Nodes\General\" />
+    <Folder Include="Views\General\" />
     <Folder Include="Views\Loads\ASCE7_10\Seismic\" />
     <Folder Include="Views\Loads\ASCE7_10\Snow\" />
     <Folder Include="Views\Loads\ASCE7_10\Wind\" />

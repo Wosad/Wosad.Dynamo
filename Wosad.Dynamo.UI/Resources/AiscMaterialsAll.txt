@@ -1,53 +1,53 @@
-A36 (Fy=36ksi)
-A53 Grade B
-A500 Grade B (Fy=42ksi)
-A500 Grade B (Fy=46ksi)
-A500 Grade C (Fy=46ksi)
-A500 Grade C (Fy=50ksi)
+A36
+A53GradeB
+A500GradeB_42ksi
+A500GradeB_46ksi
+A500GradeC_46ksi
+A500GradeC_50ksi
 A501
-A529 Grade 50
-A529 Grade 55
-A572 Grade 42
-A572 Grade 50
-A572 Grade 55
-A572 Grade 60
-A572 Grade 65
-A618 Grade Iand II
-A618 Grade III
-A913 (Fy=50ksi)
-A913 (Fy=60ksi)
-A913 (Fy=65ksi)
-A913 (Fy=70ksi)
+A529Grade50
+A529Grade55
+A572Grade42
+A572Grade50
+A572Grade55
+A572Grade60
+A572Grade65
+A618GradeIandII
+A618GradeIII
+A913_50ksi
+A913_60ksi
+A913_65ksi
+A913_70ksi
 A992
-A242 (Fy=42ksi)
-A242 (Fy=46ksi)
-A242 (Fy=50ksi)
+A242_42ksi
+A242_46ksi
+A242_50ksi
 A588
 A847
-A36 (Fy=32ksi)
-A36 (Fy=36ksi)
-A529 Grade 50
-A529 Grade 55
-A572 Grade 42
-A572 Grade 50
-A572 Grade 55
-A572 Grade 60 
-A572 Grade 65
-A242 (Fy=42ksi)
-A242 (Fy=46ksi)
-A242 (Fy=50ksi)
-A588 (Fy=42ksi)
-A588 (Fy=46ksi)
-A588 (Fy=50ksi)
-A514 (Fy=90ksi)
-A514 (Fy=100ksi)
+A36_32ksi
+A36_36ksi
+A529Grade50
+A529Grade55
+A572Grade42
+A572Grade50
+A572Grade55
+A572Grade60
+A572Grade65
+A242_42ksi
+A242_46ksi
+A242_50ksi
+A588_42ksi
+A588_46ksi
+A588_50ksi
+A514_90ksi
+A514_100ksi
 A852
 A325
 A490
-A193 Grade B7
+A193GradeB7
 A307
-A354 Grade BD
+A354GradeBD
 A449
 A687
-F1554 Grade 55
-F1554 Grade 105
+F1554Grade55
+F1554Grade105

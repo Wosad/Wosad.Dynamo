@@ -186,7 +186,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\ReportCollector.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingBoltNominalShearStress.cs" />
+    <Compile Include="Steel\AISC_10\Connection\BoltNominalTensileStress.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\Bolted.cs" />
+    <Compile Include="Steel\AISC_10\Connection\ModifiedBoltShearStrength.cs" />
     <Compile Include="Steel\AISC_10\General\Groups\MaterialProperties.cs">
       <SubType>Code</SubType>
     </Compile>

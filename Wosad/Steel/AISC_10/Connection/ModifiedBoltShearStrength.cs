@@ -24,11 +24,11 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Steel.AISC_10.Connection
+namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bolt nominal shear stress
+///     Bearing bolt combined tension and shear
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
@@ -37,29 +37,29 @@ namespace Steel.AISC_10.Connection
     public partial class Bolted 
     {
         /// <summary>
-        ///    Calculates Bolt nominal shear stress from AISC Table J3.2
+        ///    Calculates Bearing bolt combined tension and shear
         /// </summary>
-        /// <param name="BoltMaterialId">  Bolt material specification </param>
-        /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
+        /// <param name="V_u">  Required shear strength </param>
+        /// <param name="F_nv">  Nominal shear stress </param>
+        /// <param name="F_nt">  Nominal tensile stress </param>
 
-        /// <returns name="F_nv"> Nominal shear stress </returns>
-
-        [MultiReturn(new[] { "F_nv" })]
-        public static Dictionary<string, object> BearingBoltNominalShearStress(string BoltMaterialId,string BoltThreadCase)
+        
+        [MultiReturn(new[] {  })]
+        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
         {
             //Default values
-            double F_nv = 0;
-
+            
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                { "F_nv", F_nv }
- 
+                 
             };
         }
+
+
 
 
     }
