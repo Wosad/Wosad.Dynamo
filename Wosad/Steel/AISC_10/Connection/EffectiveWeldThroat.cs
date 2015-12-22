@@ -28,39 +28,50 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Weld throat
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public partial class Welded 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Weld throat
+/// </summary>
+        /// <param name="WeldType">  Weld type </param>
+/// <param name="w_weld">  Size of weld leg </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="t_weld"> Weld throat thickness </returns>
+
+        [MultiReturn(new[] { "t_weld" })]
+        public static Dictionary<string, object> EffectiveWeldThroat(string WeldType,double w_weld)
         {
             //Default values
-            
+            double t_weld = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "t_weld", t_weld }
+ 
             };
         }
 
 
+        //internal Welded (string WeldType,double w_weld)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Welded  ByInputParameters(string WeldType,double w_weld)
+        //{
+        //    return new Welded(WeldType ,w_weld );
+        //}
 
     }
 }

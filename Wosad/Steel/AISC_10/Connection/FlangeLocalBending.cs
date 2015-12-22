@@ -28,39 +28,51 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Concentrated force flange local bending
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public partial class AffectedElements 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Concentrated force flange local bending
+/// </summary>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+/// <param name="t_f">  Thickness of flange   </param>
+/// <param name="l_edge">  Edge distance </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="phiR_n"> Strength of member or connection </returns>
+
+        [MultiReturn(new[] { "phiR_n" })]
+        public static Dictionary<string, object> FlangeLocalBending(double F_y,double t_f,double l_edge)
         {
             //Default values
-            
+            double phiR_n = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "phiR_n", phiR_n }
+ 
             };
         }
 
 
+        //internal AffectedElements (double F_y,double t_f,double l_edge)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static AffectedElements  ByInputParameters(double F_y,double t_f,double l_edge)
+        //{
+        //    return new AffectedElements(F_y ,t_f ,l_edge );
+        //}
 
     }
 }

@@ -28,39 +28,50 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Bolt tensile strength
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
+    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Bolt tensile strength
+/// </summary>
+        /// <param name="d_b">  Nominal fastener diameter </param>
+/// <param name="F_nt">  Nominal tensile stress </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="phiR_nt"> Connection tensile strength </returns>
+
+        [MultiReturn(new[] { "phiR_nt" })]
+        public static Dictionary<string, object> BoltTensileStrength(double d_b,double F_nt)
         {
             //Default values
-            
+            double phiR_nt = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "phiR_nt", phiR_nt }
+ 
             };
         }
 
 
+        //internal Bolted (double d_b,double F_nt)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Bolted  ByInputParameters(double d_b,double F_nt)
+        //{
+        //    return new Bolted(d_b ,F_nt );
+        //}
 
     }
 }

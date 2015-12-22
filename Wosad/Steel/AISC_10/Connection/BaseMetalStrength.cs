@@ -28,39 +28,50 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Base metal strength
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public partial class Welded 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Base metal strength
+/// </summary>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+/// <param name="A_base">  Area of base metal in a welded connection </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="phiR_n"> Strength of member or connection </returns>
+
+        [MultiReturn(new[] { "phiR_n" })]
+        public static Dictionary<string, object> BaseMetalStrength(double F_y,double A_base)
         {
             //Default values
-            
+            double phiR_n = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "phiR_n", phiR_n }
+ 
             };
         }
 
 
+        //internal Welded (double F_y,double A_base)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Welded  ByInputParameters(double F_y,double A_base)
+        //{
+        //    return new Welded(F_y ,A_base );
+        //}
 
     }
 }

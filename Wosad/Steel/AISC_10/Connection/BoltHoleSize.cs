@@ -28,39 +28,49 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Bolt nominal hole dimension
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
+    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Bolt nominal hole dimension
+/// </summary>
+        /// <param name="d_b">  Nominal fastener diameter </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="d_hole"> Bolt hole diameter </returns>
+
+        [MultiReturn(new[] { "d_hole" })]
+        public static Dictionary<string, object> BoltHoleSize(double d_b)
         {
             //Default values
-            
+            double d_hole = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "d_hole", d_hole }
+ 
             };
         }
 
 
+        //internal Bolted (double d_b)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Bolted  ByInputParameters(double d_b)
+        //{
+        //    return new Bolted(d_b );
+        //}
 
     }
 }

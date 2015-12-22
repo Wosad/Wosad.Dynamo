@@ -28,39 +28,49 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Weld minimum size
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public partial class Welded 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Weld minimum size
+/// </summary>
+        /// <param name="WeldType">  Weld type </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="w_weld"> Size of weld leg </returns>
+
+        [MultiReturn(new[] { "w_weld" })]
+        public static Dictionary<string, object> MinimumWeldSize(string WeldType)
         {
             //Default values
-            
+            double w_weld = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "w_weld", w_weld }
+ 
             };
         }
 
 
+        //internal Welded (string WeldType)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Welded  ByInputParameters(string WeldType)
+        //{
+        //    return new Welded(WeldType );
+        //}
 
     }
 }

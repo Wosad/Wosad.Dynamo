@@ -28,39 +28,51 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Eccentrically loaded weld group strength
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public partial class Welded 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Eccentrically loaded weld group strength
+/// </summary>
+        /// <param name="C_WeldGroup">  Coefficient for eccentrically loaded weld group </param>
+/// <param name="w_weld">  Size of weld leg </param>
+/// <param name="F_EXX">  Filler metal classification strength </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="phiR_n"> Strength of member or connection </returns>
+
+        [MultiReturn(new[] { "phiR_n" })]
+        public static Dictionary<string, object> WeldGroupStrength(double C_WeldGroup,double w_weld,double F_EXX)
         {
             //Default values
-            
+            double phiR_n = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "phiR_n", phiR_n }
+ 
             };
         }
 
 
+        //internal Welded (double C_WeldGroup,double w_weld,double F_EXX)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Welded  ByInputParameters(double C_WeldGroup,double w_weld,double F_EXX)
+        //{
+        //    return new Welded(C_WeldGroup ,w_weld ,F_EXX );
+        //}
 
     }
 }

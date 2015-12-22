@@ -28,39 +28,50 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Effective weld area
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public partial class Welded 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Effective weld area
+/// </summary>
+        /// <param name="l">  Length of connection or weld   </param>
+/// <param name="t_weld">  Weld throat thickness </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="A_weld"> Effective area of the weld </returns>
+
+        [MultiReturn(new[] { "A_weld" })]
+        public static Dictionary<string, object> WeldArea(double l,double t_weld)
         {
             //Default values
-            
+            double A_weld = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "A_weld", A_weld }
+ 
             };
         }
 
 
+        //internal Welded (double l,double t_weld)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Welded  ByInputParameters(double l,double t_weld)
+        //{
+        //    return new Welded(l ,t_weld );
+        //}
 
     }
 }

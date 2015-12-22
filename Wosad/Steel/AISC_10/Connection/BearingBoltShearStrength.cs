@@ -28,39 +28,51 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Bolt shear strength
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
+    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Bolt shear strength
+/// </summary>
+        /// <param name="d_b">  Nominal fastener diameter </param>
+/// <param name="F_nv">  Nominal shear stress </param>
+/// <param name="NumberShearPlanes">  Number of shear planes </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="phiR_nv"> Connection shear strength </returns>
+
+        [MultiReturn(new[] { "phiR_nv" })]
+        public static Dictionary<string, object> BearingBoltShearStrength(double d_b,double F_nv,double NumberShearPlanes)
         {
             //Default values
-            
+            double phiR_nv = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "phiR_nv", phiR_nv }
+ 
             };
         }
 
 
+        //internal Bolted (double d_b,double F_nv,double NumberShearPlanes)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Bolted  ByInputParameters(double d_b,double F_nv,double NumberShearPlanes)
+        //{
+        //    return new Bolted(d_b ,F_nv ,NumberShearPlanes );
+        //}
 
     }
 }

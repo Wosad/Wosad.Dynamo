@@ -28,39 +28,49 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Weld effective length
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public partial class Welded 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Weld effective length
+/// </summary>
+        /// <param name="l_weld">  Weld length </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="l_eff"> Effective weld length </returns>
+
+        [MultiReturn(new[] { "l_eff" })]
+        public static Dictionary<string, object> EffectiveWeldLength(double l_weld)
         {
             //Default values
-            
+            double l_eff = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "l_eff", l_eff }
+ 
             };
         }
 
 
+        //internal Welded (double l_weld)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Welded  ByInputParameters(double l_weld)
+        //{
+        //    return new Welded(l_weld );
+        //}
 
     }
 }

@@ -28,39 +28,50 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Eccentrically loaded bolt group strength
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
+    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Eccentrically loaded bolt group strength
+/// </summary>
+        /// <param name="C_BoltGroup">  Coefficient for eccentrically loaded bolt group </param>
+/// <param name="phiR_nv">  Connection shear strength </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="phiR_n"> Strength of member or connection </returns>
+
+        [MultiReturn(new[] { "phiR_n" })]
+        public static Dictionary<string, object> BoltGroupStrength(double C_BoltGroup,double phiR_nv)
         {
             //Default values
-            
+            double phiR_n = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "phiR_n", phiR_n }
+ 
             };
         }
 
 
+        //internal Bolted (double C_BoltGroup,double phiR_nv)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Bolted  ByInputParameters(double C_BoltGroup,double phiR_nv)
+        //{
+        //    return new Bolted(C_BoltGroup ,phiR_nv );
+        //}
 
     }
 }

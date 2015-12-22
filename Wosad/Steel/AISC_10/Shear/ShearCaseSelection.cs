@@ -20,47 +20,58 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
+using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Wosad.Steel.AISC_10.Shear
 {
+    /// <summary>
+    ///     Shear case selection
+    ///     Category:   Wosad.Steel.AISC_10.Shear
+    /// </summary>
+    /// 
 
-/// <summary>
-///     Bearing bolt combined tension and shear
-///     Category:   Wosad.Steel.AISC_10.Connection
-/// </summary>
-/// 
 
-
-    public partial class Bolted 
+    [IsDesignScriptCompatible]
+    public class ShearCaseSelection 
     {
         /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
+        ///    Calculates Member shear case
         /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
-
         
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns> "Parameter name: ShearCase", Parameter description: Shape type for shear </returns>
+
+        /// 
+        [MultiReturn(new[] { "ShearCase" })]
+        public static Dictionary<string, object> Shear Case()
         {
             //Default values
-            
+            string ShearCase = "";
 
-            //Calculation logic:
+
+            //Add calculation logic here:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "ShearCase", ShearCase }
+ 
             };
         }
 
+        string _ShearCaseSelection ;
 
+        internal ShearCaseSelection ()
+        {
 
+        }
+        [IsVisibleInDynamoLibrary(false)]
+        public static ShearCaseSelection  ByInputParameters()
+        {
+            return new ShearCaseSelection();
+        }
 
     }
 }

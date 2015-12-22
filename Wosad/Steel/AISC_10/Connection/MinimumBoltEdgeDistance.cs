@@ -28,39 +28,49 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Bolt minimum edge distance
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
+    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Bolt minimum edge distance
+/// </summary>
+        /// <param name="d_b">  Nominal fastener diameter </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="l_e"> Total effective weld length of groove and fillet welds to rectangular HSS for weld strength calculations   </returns>
+
+        [MultiReturn(new[] { "l_e" })]
+        public static Dictionary<string, object> MinimumBoltEdgeDistance(double d_b)
         {
             //Default values
-            
+            double l_e = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "l_e", l_e }
+ 
             };
         }
 
 
+        //internal Bolted (double d_b)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Bolted  ByInputParameters(double d_b)
+        //{
+        //    return new Bolted(d_b );
+        //}
 
     }
 }

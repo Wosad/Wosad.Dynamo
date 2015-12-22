@@ -28,39 +28,50 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bearing bolt combined tension and shear
+///     Bolt nominal tensile strength
 ///     Category:   Wosad.Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
+    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-        /// <summary>
-        ///    Calculates Bearing bolt combined tension and shear
-        /// </summary>
-        /// <param name="V_u">  Required shear strength </param>
-        /// <param name="F_nv">  Nominal shear stress </param>
-        /// <param name="F_nt">  Nominal tensile stress </param>
+/// <summary>
+///    Calculates Bolt nominal tensile strength
+/// </summary>
+        /// <param name="BoltMaterialId">  Bolt material specification </param>
+/// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
 
-        
-        [MultiReturn(new[] { "V_u", "F_nv","F_nt" })]
-        public static Dictionary<string, object> ModifiedBoltShearStrength(double V_u,double F_nv,double F_nt)
+        /// <returns name="F_nt"> Nominal tensile stress </returns>
+
+        [MultiReturn(new[] { "F_nt" })]
+        public static Dictionary<string, object> BoltNominalTensileStrength(string BoltMaterialId,string BoltThreadCase)
         {
             //Default values
-            
+            double F_nt = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "F_nt", F_nt }
+ 
             };
         }
 
 
+        //internal Bolted (string BoltMaterialId,string BoltThreadCase)
+        //{
 
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Bolted  ByInputParameters(string BoltMaterialId,string BoltThreadCase)
+        //{
+        //    return new Bolted(BoltMaterialId ,BoltThreadCase );
+        //}
 
     }
 }
