@@ -24,7 +24,7 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
@@ -34,17 +34,15 @@ namespace Wosad.Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Eccentrically loaded bolt group coefficient
-/// </summary>
+        /// <summary>
+        ///    Calculates Eccentrically loaded bolt group coefficient
+        /// </summary>
         /// <param name="N_rows">  Number of bolt rows in bolt groups </param>
-/// <param name="N_cols">  Number of bolt columns in bolt groups </param>
-/// <param name="e_group">  Connection bolt or weld group eccentricity </param>
-/// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
-
+        /// <param name="N_cols">  Number of bolt columns in bolt groups </param>
+        /// <param name="e_group">  Connection bolt or weld group eccentricity </param>
+        /// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
         /// <returns name="C_BoltGroup"> Coefficient for eccentrically loaded bolt group </returns>
 
         [MultiReturn(new[] { "C_BoltGroup" })]
@@ -63,17 +61,6 @@ namespace Wosad.Steel.AISC_10.Connection
  
             };
         }
-
-
-        //internal Bolted (double N_rows,double N_cols,double e_group,double theta)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(double N_rows,double N_cols,double e_group,double theta)
-        //{
-        //    return new Bolted(N_rows ,N_cols ,e_group ,theta );
-        //}
 
     }
 }

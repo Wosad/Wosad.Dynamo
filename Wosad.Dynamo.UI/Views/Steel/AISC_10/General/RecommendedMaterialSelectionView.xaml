@@ -134,8 +134,8 @@
 						DataPath="HighStrengthBoltType"  ParameterPath="HighStrengthBoltType"/>
                 </StackPanel>
                 <StackPanel x:Name="AnchorRodStack" Height="Auto" Visibility="{Binding IsMaterialAnchorRod,Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <WosadControls:DataEntryElement Description="Bolt diameter" 
-                                                    DataPath="db"  />
+                    <!--<WosadControls:DataEntryElement Description="Bolt diameter" 
+                                                    DataPath="db"  />-->
                     <WosadControls:EnumControl HeaderText="Anchor rod type:" ItemsSource="{StaticResource AnchorRodTypeItemsSource}" 
 						DataPath="AnchorRodType"  ParameterPath="AnchorRodType"/>
                 </StackPanel>
@@ -143,7 +143,7 @@
             <StackPanel Margin="0,20,0,0" VerticalAlignment="Top" Background="White" >
 
                 <StackPanel Margin="0,20,0,0" VerticalAlignment="Top" Background="White" >
-                    <TextBlock TextWrapping="Wrap" Text="Available shapes:" HorizontalAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" Text="Available material:" HorizontalAlignment="Center"/>
                     <Grid Height="200">
                         <ListBox ItemsSource="{Binding AvailableMaterials}" SelectedItem="{Binding SteelMaterialId, Mode=TwoWay}" 
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" />

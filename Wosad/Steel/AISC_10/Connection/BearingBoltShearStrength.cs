@@ -40,7 +40,7 @@ namespace Steel.AISC_10.Connection
     public partial class Bolted 
     {
         /// <summary>
-        ///    Calculates Bearing bolt shear strength
+        ///    Calculates bearing bolt shear strength
         /// </summary>
         /// <param name="d_b">  Nominal fastener diameter </param>
         /// <param name="BoltMaterialId">  Bolt material specification </param>
@@ -58,7 +58,7 @@ namespace Steel.AISC_10.Connection
             //Calculation logic:
             BoltFactory bf = new BoltFactory(BoltMaterialId);
             IBoltBearing bolt = bf.GetBearingBolt(d_b, BoltThreadCase);
-            //TODO: add shear strength
+            phiR_nv = bolt.GetAvailableShearStrength(NumberShearPlanes);
 
             return new Dictionary<string, object>
             {

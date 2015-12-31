@@ -24,12 +24,12 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Concentrated force flange local bending
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 

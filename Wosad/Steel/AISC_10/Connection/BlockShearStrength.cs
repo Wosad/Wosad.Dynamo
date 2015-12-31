@@ -21,31 +21,31 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC360_10.Connections.AffectedElements;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Block shear strength
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Block shear strength
-/// </summary>
+        /// <summary>
+        ///    Calculates Block shear strength
+        /// </summary>
         /// <param name="A_gv">  Gross area subject to shear </param>
-/// <param name="A_nv">  Net area subject to shear </param>
-/// <param name="A_nt">  Net area subject to tension </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="F_u">  Specified minimum tensile strength   </param>
-/// <param name="StressDistibutionType">  Type of stress distribution in connected element </param>
+        /// <param name="A_nv">  Net area subject to shear </param>
+        /// <param name="A_nt">  Net area subject to tension </param>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+        /// <param name="F_u">  Specified minimum tensile strength   </param>
+        /// <param name="StressDistibutionType">  Type of stress distribution in connected element </param>
 
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
@@ -53,11 +53,16 @@ namespace Wosad.Steel.AISC_10.Connection
         public static Dictionary<string, object> BlockShearStrength(double A_gv,double A_nv,double A_nt,double F_y,double F_u,string StressDistibutionType)
         {
             //Default values
-            double phiR_n = 0;
 
+            bool StressIsUniform=false;
+            if (StressDistibutionType=="Uniform")
+            {
+                StressIsUniform = true;
+            }
 
             //Calculation logic:
-
+            AffectedElement element = new AffectedElement(F_y, F_u);
+            double phiR_n = element.GetBlockShearStrength(A_gv, A_nv, A_nt, StressIsUniform);
 
             return new Dictionary<string, object>
             {
@@ -67,15 +72,6 @@ namespace Wosad.Steel.AISC_10.Connection
         }
 
 
-        //internal AffectedElements (double A_gv,double A_nv,double A_nt,double F_y,double F_u,string StressDistibutionType)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double A_gv,double A_nv,double A_nt,double F_y,double F_u,string StressDistibutionType)
-        //{
-        //    return new AffectedElements(A_gv ,A_nv ,A_nt ,F_y ,F_u ,StressDistibutionType );
-        //}
 
     }
 }

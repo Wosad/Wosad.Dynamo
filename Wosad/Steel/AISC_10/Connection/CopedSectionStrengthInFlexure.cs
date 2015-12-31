@@ -21,15 +21,18 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using System;
+using Wosad.Steel.AISC;
+using a=Wosad.Steel.AISC;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Coped section strength in flexure
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
@@ -40,8 +43,9 @@ namespace Wosad.Steel.AISC_10.Connection
 /// <summary>
 ///    Calculates Coped section strength in flexure
 /// </summary>
-        /// <param name="S_net">  Net-section elastic section modulus </param>
 /// <param name="d">  Full nominal depth of the section    </param>
+        /// <param name="d_c">  Depth of cope    </param>
+        /// <param name="c">  Length of cope    </param>
 /// <param name="t_w">  Thickness of web  </param>
 /// <param name="F_u">  Specified minimum tensile strength   </param>
 /// <param name="BeamCopeCase">  Identifies beam cope condition for stability calculations: single cope vs double cope </param>
@@ -49,14 +53,34 @@ namespace Wosad.Steel.AISC_10.Connection
         /// <returns name="phiM_n"> Moment strength </returns>
 
         [MultiReturn(new[] { "phiM_n" })]
-        public static Dictionary<string, object> CopedSectionStrengthInFlexure(double S_net,double d,double t_w,double F_u,string BeamCopeCase)
+        public static Dictionary<string, object> CopedSectionStrengthInFlexure(double d, double d_cope, double c, double t_w, double F_u, string BeamCopeCase)
         {
             //Default values
             double phiM_n = 0;
 
 
             //Calculation logic:
-
+              BeamCopeCase copeType;
+              bool IsValidStringLoadType = Enum.TryParse(BeamCopeCase, true, out copeType);
+                if (IsValidStringLoadType == true)
+                {
+                    switch (copeType)
+                    {
+                        case a.BeamCopeCase.CopedBothFlanges:
+                            break;
+                        case a.BeamCopeCase.CopedTopFlange:
+                            break;
+                        case a.BeamCopeCase.Uncoped:
+                            break;
+                        default:
+                            break;
+                    }
+                    // logic`
+                }
+                else
+                {
+                    throw new Exception("Weld strength calculation failed. Invalid weld load case (type) designation.");
+                }
 
             return new Dictionary<string, object>
             {

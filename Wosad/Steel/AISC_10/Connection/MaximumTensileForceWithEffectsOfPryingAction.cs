@@ -21,7 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Wosad.Steel.AISC.AISC360_10.J_Connections;
+using Wosad.Steel.AISC.AISC360_10.Connections;
 
 #endregion
 

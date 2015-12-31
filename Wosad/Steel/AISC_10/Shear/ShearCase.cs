@@ -20,38 +20,37 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
-using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 
 #endregion
 
 namespace Wosad.Steel.AISC_10.Shear
 {
-    /// <summary>
-    ///     Shear case selection
-    ///     Category:   Wosad.Steel.AISC_10.Shear
-    /// </summary>
-    /// 
+
+/// <summary>
+///     Shear case selection
+///     Category:   Wosad.Steel.AISC_10.Shear
+/// </summary>
+/// 
 
 
     [IsDesignScriptCompatible]
-    public class ShearCaseSelection 
+    public partial class GeneralParameters 
     {
-        /// <summary>
-        ///    Calculates Member shear case
-        /// </summary>
+/// <summary>
+///    Calculates Member shear case
+/// </summary>
         
-        /// <returns> "Parameter name: ShearCase", Parameter description: Shape type for shear </returns>
+        /// <returns name="ShearCase"> Shape type for shear </returns>
 
-        /// 
         [MultiReturn(new[] { "ShearCase" })]
-        public static Dictionary<string, object> Shear Case()
+        public static Dictionary<string, object> ShearCase()
         {
             //Default values
             string ShearCase = "";
 
 
-            //Add calculation logic here:
+            //Calculation logic:
 
 
             return new Dictionary<string, object>
@@ -61,17 +60,16 @@ namespace Wosad.Steel.AISC_10.Shear
             };
         }
 
-        string _ShearCaseSelection ;
 
-        internal ShearCaseSelection ()
-        {
+        //internal GeneralParameters ()
+        //{
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static ShearCaseSelection  ByInputParameters()
-        {
-            return new ShearCaseSelection();
-        }
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static GeneralParameters  ByInputParameters()
+        //{
+        //    return new GeneralParameters();
+        //}
 
     }
 }

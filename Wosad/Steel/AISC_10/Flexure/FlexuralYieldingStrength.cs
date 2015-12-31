@@ -20,40 +20,39 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
-using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Flexure
+namespace Steel.AISC_10.Flexure
 {
-    /// <summary>
-    ///     Flexural yielding
-    ///     Category:   Wosad.Steel.AISC_10.Flexure
-    /// </summary>
-    /// 
+
+/// <summary>
+///     Flexural yielding
+///     Category:   Steel.AISC_10.Flexure
+/// </summary>
+/// 
 
 
     [IsDesignScriptCompatible]
-    public class FlexuralYielding 
+    public partial class MomentCapacity 
     {
-        /// <summary>
-        ///    Calculates Flexural yielding
-        /// </summary>
-        /// <param name="F_y">  Specified minimum yield stress /param>
-/// <param name="Z">  Plastic section modulus about the axis of bending  /param>
+/// <summary>
+///    Calculates Flexural yielding
+/// </summary>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+/// <param name="Z">  Plastic section modulus about the axis of bending  </param>
 
-        /// <returns> "Parameter name: phiM_n", Parameter description: Moment strength </returns>
+        /// <returns name="phiM_n"> Moment strength </returns>
 
-        /// 
         [MultiReturn(new[] { "phiM_n" })]
-        public static Dictionary<string, object> Flexural yielding strength(double F_y,double Z)
+        public static Dictionary<string, object> FlexuralYieldingStrength(double F_y,double Z)
         {
             //Default values
             double phiM_n = 0;
 
 
-            //Add calculation logic here:
+            //Calculation logic:
 
 
             return new Dictionary<string, object>
@@ -63,17 +62,16 @@ namespace Wosad.Steel.AISC_10.Flexure
             };
         }
 
-        string _FlexuralYielding ;
 
-        internal FlexuralYielding (double F_y,double Z)
-        {
+        //internal MomentCapacity (double F_y,double Z)
+        //{
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static FlexuralYielding  ByInputParameters(double F_y,double Z)
-        {
-            return new FlexuralYielding(double F_y,double Z);
-        }
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static MomentCapacity  ByInputParameters(double F_y,double Z)
+        //{
+        //    return new MomentCapacity(F_y ,Z );
+        //}
 
     }
 }

@@ -21,29 +21,30 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC360_10.Connections.AffectedElements;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Connected element strength in tension 
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
+
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Connected element strength in tension 
-/// </summary>
+        /// <summary>
+        ///    Calculates Connected element strength in tension 
+        /// </summary>
         /// <param name="A_g">  Gross cross-sectional area of member </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="F_u">  Specified minimum tensile strength   </param>
-/// <param name="A_e">  Effective net area </param>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+        /// <param name="F_u">  Specified minimum tensile strength   </param>
+        /// <param name="A_e">  Effective net area </param>
 
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
@@ -55,7 +56,8 @@ namespace Wosad.Steel.AISC_10.Connection
 
 
             //Calculation logic:
-
+            AffectedElementInTension element = new AffectedElementInTension(F_y, F_u);
+            phiR_n = element.GetTensileCapacity(A_g, A_e);
 
             return new Dictionary<string, object>
             {
@@ -64,16 +66,6 @@ namespace Wosad.Steel.AISC_10.Connection
             };
         }
 
-
-        //internal AffectedElements (double A_g,double F_y,double F_u,double A_e)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double A_g,double F_y,double F_u,double A_e)
-        //{
-        //    return new AffectedElements(A_g ,F_y ,F_u ,A_e );
-        //}
 
     }
 }

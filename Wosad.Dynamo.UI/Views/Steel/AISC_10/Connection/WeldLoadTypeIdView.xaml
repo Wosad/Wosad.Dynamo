@@ -14,6 +14,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="WeldLoadTypeIdIcons.xaml"/>
+                <ResourceDictionary Source="WeldTypeIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -33,7 +34,7 @@
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
         <StackPanel>
-        <WosadControls:EnumControl  HeaderText="Weld orientation:" 
+        <WosadControls:EnumControl  HeaderText="Load direction:" 
                                     ItemsSource="{StaticResource WeldDirectionSource}" 
 					DataPath="WeldLoadTypeId"/>
         <WosadControls:EnumControl  HeaderText="Compression connection type:" 

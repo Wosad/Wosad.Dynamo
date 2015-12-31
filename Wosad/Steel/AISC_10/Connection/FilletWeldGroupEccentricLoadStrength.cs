@@ -24,54 +24,42 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Weld throat
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Eccentrically loaded fillet weld group strength
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class Welded 
     {
-/// <summary>
-///    Calculates Weld throat
-/// </summary>
-        /// <param name="WeldType">  Weld type </param>
-/// <param name="w_weld">  Size of weld leg </param>
+        /// <summary>
+        ///    Calculates Eccentrically loaded fillet weld group strength
+        /// </summary>
+        /// <param name="C_WeldGroup">  Coefficient for eccentrically loaded weld group </param>
+        /// <param name="l">  Length of connection or weld   </param>
+        /// <returns name="phiR_n"> Strength of member or connection </returns>
 
-        /// <returns name="t_weld"> Weld throat thickness </returns>
-
-        [MultiReturn(new[] { "t_weld" })]
-        public static Dictionary<string, object> EffectiveWeldThroat(string WeldType,double w_weld)
+        [MultiReturn(new[] { "phiR_n" })]
+        public static Dictionary<string, object> FilletWeldGroupEccentricLoadStrength(double C_WeldGroup,double l)
         {
             //Default values
-            double t_weld = 0;
+            double phiR_n = 0;
 
 
             //Calculation logic:
-
+            phiR_n= C_WeldGroup*l;
 
             return new Dictionary<string, object>
             {
-                { "t_weld", t_weld }
+                { "phiR_n", phiR_n }
  
             };
         }
 
-
-        //internal Welded (string WeldType,double w_weld)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Welded  ByInputParameters(string WeldType,double w_weld)
-        //{
-        //    return new Welded(WeldType ,w_weld );
-        //}
 
     }
 }

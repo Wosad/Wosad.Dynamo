@@ -21,41 +21,56 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections;
+using Wosad.Steel.AISC;
+using System;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Eccentrically loaded weld group coefficient
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class Welded 
     {
 /// <summary>
 ///    Calculates Eccentrically loaded weld group coefficient
 /// </summary>
         /// <param name="WeldGroupPattern">  Weld group pattern type </param>
-/// <param name="l_Weld_horizontal">  Bolt group horizontal dimension  </param>
-/// <param name="l_Weld_vertical">  Bolt group vertical dimension  </param>
+/// <param name="l_Weld_horizontal">  Weld group horizontal dimension  </param>
+/// <param name="l_Weld_vertical">  Weld group vertical dimension  </param>
 /// <param name="e_group">  Connection bolt or weld group eccentricity </param>
 /// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
-
+        /// <param name="w_weld">  Size of weld leg </param>
+        /// <param name="F_EXX">  Filler metal classification strength </param>
         /// <returns name="C_WeldGroup"> Coefficient for eccentrically loaded weld group </returns>
 
         [MultiReturn(new[] { "C_WeldGroup" })]
-        public static Dictionary<string, object> WeldGroupCoefficient(string WeldGroupPattern,double l_Weld_horizontal,double l_Weld_vertical,double e_group,double theta)
+        public static Dictionary<string, object> FilletWeldGroupCoefficient(string WeldGroupPattern,double l_Weld_horizontal,double l_Weld_vertical,double e_group,
+            double theta, double w_weld, double F_EXX)
         {
             //Default values
             double C_WeldGroup = 0;
 
 
             //Calculation logic:
+            WeldGroupPattern pattern;
+            bool IsValidString = Enum.TryParse(WeldGroupPattern, true, out pattern);
+            if (IsValidString == true)
+            {
+                FilletWeldGroup wg = new FilletWeldGroup(pattern, l_Weld_horizontal, l_Weld_vertical, w_weld, F_EXX);
+                C_WeldGroup = wg.GetInstantaneousCenterCoefficient(e_group, theta); ;
+            }
+            else
+            {
+                throw new Exception("Weld group strength calculation failed. Invalid weld group pattern designation.");
+            }
 
 
             return new Dictionary<string, object>
@@ -64,17 +79,6 @@ namespace Wosad.Steel.AISC_10.Connection
  
             };
         }
-
-
-        //internal Welded (string WeldGroupPattern,double l_Weld_horizontal,double l_Weld_vertical,double e_group,double theta)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Welded  ByInputParameters(string WeldGroupPattern,double l_Weld_horizontal,double l_Weld_vertical,double e_group,double theta)
-        //{
-        //    return new Welded(WeldGroupPattern ,l_Weld_horizontal ,l_Weld_vertical ,e_group ,theta );
-        //}
 
     }
 }

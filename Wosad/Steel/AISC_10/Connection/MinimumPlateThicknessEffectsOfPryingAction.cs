@@ -21,7 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Wosad.Steel.AISC.AISC360_10.J_Connections;
+using Wosad.Steel.AISC.AISC360_10.Connections;
 
 #endregion
 
@@ -60,7 +60,7 @@ namespace Steel.AISC_10.Connection
 
             //Calculation logic:
             PryingActionElement pac = new PryingActionElement(d_b, d_hole, b_stem, a_edge, p, B_bolt, F_u);
-            t_min = pac.GetMaximumThickness(T_bolt);
+            t_min = pac.GetMinimumThickness(T_bolt);
 
             return new Dictionary<string, object>
             {

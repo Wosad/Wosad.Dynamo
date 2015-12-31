@@ -24,35 +24,34 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Steel.AISC_10.Connection
+namespace Steel.AISC_10.Flexure
 {
 
 /// <summary>
-///     Connected element strength in compression 
-///     Category:   Steel.AISC_10.Connection
+///     Limiting length for flexural inelastic buckling
+///     Category:   Steel.AISC_10.Flexure
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class AffectedElements 
+    public partial class LimitingLength 
     {
 /// <summary>
-///    Calculates Connected element strength in compression 
+///    Calculates Limiting length for flexural yielding
 /// </summary>
-        /// <param name="A_g">  Gross cross-sectional area of member </param>
+        /// <param name="E">  Modulus of elasticity of steel </param>
 /// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="K">  Effective length factor </param>
-/// <param name="L">  Length of member length of span or unbraced length of member    </param>
-/// <param name="r">  Radius of gyration   </param>
+/// <param name="r_y">  Radius of gyration about y-axis  </param>
+/// <param name="SteelShapeGroupFlexure">  Type of steel shape for flexural calculations </param>
 
-        /// <returns name="phiR_n"> Strength of member or connection </returns>
+        /// <returns name="L_p"> Limiting laterally unbraced length for the limit state of yielding  </returns>
 
-        [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> ConnectedElementStrengthInCompression(double A_g,double F_y,double K,double L,double r)
+        [MultiReturn(new[] { "L_p" })]
+        public static Dictionary<string, object> LimitingLengthForFlexuralYielding(double E,double F_y,double r_y,string SteelShapeGroupFlexure)
         {
             //Default values
-            double phiR_n = 0;
+            double L_p = 0;
 
 
             //Calculation logic:
@@ -60,20 +59,20 @@ namespace Steel.AISC_10.Connection
 
             return new Dictionary<string, object>
             {
-                { "phiR_n", phiR_n }
+                { "L_p", L_p }
  
             };
         }
 
 
-        //internal AffectedElements (double A_g,double F_y,double K,double L,double r)
+        //internal LimitingLength (double E,double F_y,double r_y,string SteelShapeGroupFlexure)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double A_g,double F_y,double K,double L,double r)
+        //public static LimitingLength  ByInputParameters(double E,double F_y,double r_y,string SteelShapeGroupFlexure)
         //{
-        //    return new AffectedElements(A_g ,F_y ,K ,L ,r );
+        //    return new LimitingLength(E ,F_y ,r_y ,SteelShapeGroupFlexure );
         //}
 
     }

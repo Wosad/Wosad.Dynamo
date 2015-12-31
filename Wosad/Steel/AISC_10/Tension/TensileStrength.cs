@@ -20,42 +20,41 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
-using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Tension
+namespace Steel.AISC_10.Tension
 {
-    /// <summary>
-    ///     Tensile strength 
-    ///     Category:   Wosad.Steel.AISC_10.Tension
-    /// </summary>
-    /// 
+
+/// <summary>
+///     Tensile strength 
+///     Category:   Steel.AISC_10.Tension
+/// </summary>
+/// 
 
 
     [IsDesignScriptCompatible]
-    public class TensileStrength 
+    public partial class Strength 
     {
-        /// <summary>
-        ///    Calculates Member tensile strength 
-        /// </summary>
-        /// <param name="F_y">  Specified minimum yield stress /param>
-/// <param name="F_u">  Specified minimum tensile strength   /param>
-/// <param name="A_e">  Effective net area /param>
-/// <param name="A_g">  Gross cross-sectional area of member /param>
+/// <summary>
+///    Calculates Member tensile strength 
+/// </summary>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+/// <param name="F_u">  Specified minimum tensile strength   </param>
+/// <param name="A_e">  Effective net area </param>
+/// <param name="A_g">  Gross cross-sectional area of member </param>
 
-        /// <returns> "Parameter name: phiP_n", Parameter description: Compressive strength </returns>
+        /// <returns name="phiP_n"> Compressive strength </returns>
 
-        /// 
         [MultiReturn(new[] { "phiP_n" })]
-        public static Dictionary<string, object> phiP_n(double F_y,double F_u,double A_e,double A_g)
+        public static Dictionary<string, object> TensileStrength(double F_y,double F_u,double A_e,double A_g)
         {
             //Default values
             double phiP_n = 0;
 
 
-            //Add calculation logic here:
+            //Calculation logic:
 
 
             return new Dictionary<string, object>
@@ -65,17 +64,16 @@ namespace Wosad.Steel.AISC_10.Tension
             };
         }
 
-        string _TensileStrength ;
 
-        internal TensileStrength (double F_y,double F_u,double A_e,double A_g)
-        {
+        //internal Strength (double F_y,double F_u,double A_e,double A_g)
+        //{
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static TensileStrength  ByInputParameters(double F_y,double F_u,double A_e,double A_g)
-        {
-            return new TensileStrength(double F_y,double F_u,double A_e,double A_g);
-        }
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Strength  ByInputParameters(double F_y,double F_u,double A_e,double A_g)
+        //{
+        //    return new Strength(F_y ,F_u ,A_e ,A_g );
+        //}
 
     }
 }

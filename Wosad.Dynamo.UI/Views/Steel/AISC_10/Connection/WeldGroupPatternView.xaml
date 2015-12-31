@@ -23,7 +23,7 @@
 
             <WosadControls:EnumDataCollection x:Key="WeldTypeSource" d:IsDataSource="True">
                 <WosadControls:EnumDataElement Icon="{StaticResource WeldParallelVertical}" EnumString="ParallelVertical"       Description="Parallel vertical lines" />
-                <WosadControls:EnumDataElement Icon="{StaticResource WeldParallelHorizontal}" EnumString="WeldParallelHorizontal"       Description="Parallel horizontal lines" />
+                <WosadControls:EnumDataElement Icon="{StaticResource WeldParallelHorizontal}" EnumString="ParallelHorizontal"       Description="Parallel horizontal lines" />
                 <WosadControls:EnumDataElement Icon="{StaticResource WeldRect}" EnumString="Rectangle"       Description="Closed rectangle" />
                 <WosadControls:EnumDataElement Icon="{StaticResource WeldC}" EnumString="C"       Description="C-shape" />
                 <WosadControls:EnumDataElement Icon="{StaticResource WeldL}" EnumString="L"       Description="L-shape" />

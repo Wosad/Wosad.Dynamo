@@ -21,12 +21,12 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="BoltHoleTypeSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleStandard}"  EnumString="Standard" Description="Standard" />
-                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleShortSlotPerpendicular}"  EnumString="ShortSlottedPerpendicular" Description="Short slot perpendicular to direction of load"/>
-                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleShortSlotParallel}"  EnumString="ShortSlottedParallel" Description="Short slot parallel to direction of load" />
-                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleOversized}"  EnumString="Oversized" Description="Oversized"/>
-                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleLongSlotPerpendicular}"  EnumString="LongSlottedPerpendicular" Description="Long slot perpendicular to direction of load" />
-                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleLongSlotParallel}"  EnumString="LongSlottedParallel" Description="Long slot parallel to direction of load"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleStandard}"                    EnumString="STD"                Description="Standard" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleShortSlotPerpendicular}"      EnumString="SSL_Perpendicular"  Description="Short slot perpendicular to direction of load"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleShortSlotParallel}"           EnumString="SSL_Parallel"       Description="Short slot parallel to direction of load" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleOversized}"                   EnumString="OVS"                Description="Oversized"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleLongSlotPerpendicular}"       EnumString="LSL_Perpendicular"  Description="Long slot perpendicular to direction of load" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource BoltHoleLongSlotParallel}"            EnumString="LSL_Parallel"       Description="Long slot parallel to direction of load"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

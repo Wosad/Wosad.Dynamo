@@ -20,41 +20,45 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
-using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Tension
+namespace Steel.AISC_10.Tension
 {
-    /// <summary>
-    ///     Effective net area 
-    ///     Category:   Wosad.Steel.AISC_10.Tension
-    /// </summary>
-    /// 
+
+/// <summary>
+///     Effective net area 
+///     Category:   Steel.AISC_10.Tension
+/// </summary>
+/// 
 
 
     [IsDesignScriptCompatible]
-    public class EffectiveNetArea 
+    public partial class EffectiveArea 
     {
-        /// <summary>
-        ///    Calculates Effective area for tensile strength
-        /// </summary>
-        /// <param name="A_g">  Gross cross-sectional area of member /param>
-/// <param name="ShearLagCaseId">  Defines the type of tension element for shear lag calculation /param>
-/// <param name="A_nTransverse">  Area of elements  connected only by transverse welds (applicable only if no longitudinal welds are used) /param>
+/// <summary>
+///    Calculates Effective area for tensile strength
+/// </summary>
+        /// <param name="ShearLagCaseId">  Defines the type of tension element for shear lag calculation </param>
+/// <param name="A_n">  Net area of member   </param>
+/// <param name="A_connected">  Area of directly connected elements (to be used for Case 3 from AISC Table D3.1) </param>
+/// <param name="t_p">  Thickness of plate   </param>
+/// <param name="l">  Length of connection or weld   </param>
+/// <param name="B">  Overall width of rectangular steel section along face transferring load or overall width of rectangular HSS member  </param>
+/// <param name="H">  Flexural constant or overall height of rectangular HSS member measured in the plane of the connection  </param>
+/// <param name="IsBoltedSplice">  Identifies whether member is spliced using bolted plates </param>
 
-        /// <returns> "Parameter name: A_e", Parameter description: Effective net area </returns>
+        /// <returns name="A_e"> Effective net area </returns>
 
-        /// 
         [MultiReturn(new[] { "A_e" })]
-        public static Dictionary<string, object> Effective Net Area (double A_g,string ShearLagCaseId,double A_nTransverse)
+        public static Dictionary<string, object> EffectiveNetArea(string ShearLagCaseId,double A_n, A_connected,double t_p,double l,double B,double H,bool IsBoltedSplice)
         {
             //Default values
             double A_e = 0;
 
 
-            //Add calculation logic here:
+            //Calculation logic:
 
 
             return new Dictionary<string, object>
@@ -64,17 +68,16 @@ namespace Wosad.Steel.AISC_10.Tension
             };
         }
 
-        string _EffectiveNetArea ;
 
-        internal EffectiveNetArea (double A_g,string ShearLagCaseId,double A_nTransverse)
-        {
+        //internal EffectiveArea (string ShearLagCaseId,double A_n, A_connected,double t_p,double l,double B,double H,bool IsBoltedSplice)
+        //{
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static EffectiveNetArea  ByInputParameters(double A_g,string ShearLagCaseId,double A_nTransverse)
-        {
-            return new EffectiveNetArea(double A_g,string ShearLagCaseId,double A_nTransverse);
-        }
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static EffectiveArea  ByInputParameters(string ShearLagCaseId,double A_n, A_connected,double t_p,double l,double B,double H,bool IsBoltedSplice)
+        //{
+        //    return new EffectiveArea(ShearLagCaseId ,A_n ,A_connected ,t_p ,l ,B ,H ,IsBoltedSplice );
+        //}
 
     }
 }

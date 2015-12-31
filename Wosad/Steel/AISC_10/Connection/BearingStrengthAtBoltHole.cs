@@ -21,15 +21,19 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC360_10.Connections.AffectedElements;
+using System;
+using Wosad.Steel.AISC.SteelEntities.Bolts;
+using Wosad.Steel.AISC;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Bearing strength at bolt hole
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
@@ -37,17 +41,17 @@ namespace Wosad.Steel.AISC_10.Connection
     [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Bearing strength at bolt hole
-/// </summary>
+        /// <summary>
+        ///    Calculates Bearing strength at bolt hole
+        /// </summary>
         /// <param name="BoltHoleType">  Type of bolt hole </param>
-/// <param name="l_c">  Clear distance in the direction of the force between the edge of the hole and the edge of the adjacent hole or edge of the material  </param>
-/// <param name="F_u">  Specified minimum tensile strength   </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="d_b">  Nominal fastener diameter </param>
-/// <param name="t">  Thickness of element plate or element wall  </param>
-/// <param name="BoltHoleDeformationType">  Identifies of bolt deformation is a design consideration </param>
-/// <param name="IsUnstiffenedHollowSection">  Distinguishes between connections made using bolts that pass completely through an unstiffened box member or HSS and all other cases </param>
+        /// <param name="l_c">  Clear distance in the direction of the force between the edge of the hole and the edge of the adjacent hole or edge of the material  </param>
+        /// <param name="F_u">  Specified minimum tensile strength   </param>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+        /// <param name="d_b">  Nominal fastener diameter </param>
+        /// <param name="t">  Thickness of element plate or element wall  </param>
+        /// <param name="BoltHoleDeformationType">  Identifies of bolt deformation is a design consideration </param>
+        /// <param name="IsUnstiffenedHollowSection">  Distinguishes between connections made using bolts that pass completely through an unstiffened box member or HSS and all other cases </param>
 
         /// <returns name="phiR_nv"> Connection shear strength </returns>
 
@@ -56,9 +60,27 @@ namespace Wosad.Steel.AISC_10.Connection
         {
             //Default values
             double phiR_nv = 0;
+            BoltHoleType holeType;
+            bool IsValidString =Enum.TryParse(BoltHoleType, true, out holeType);
+            if (IsValidString ==true)
+            {
+                BoltHoleDeformationType deformationType;
+                bool IsValidDeformationType = Enum.TryParse(BoltHoleType, true, out deformationType);
+                if (IsValidDeformationType==true)
+	                {
+                        AffectedElementWithHoles element = new AffectedElementWithHoles();
+                        phiR_nv = element.GetBearingStrengthAtBoltHole(l_c, d_b, t, F_y, F_u, holeType, deformationType, IsUnstiffenedHollowSection);
+	                }
+                else
+                {
+                    throw new Exception("Invalid Bolt Hole Deformation Type string");
+                }
+            }
+            else
+            {
+                throw new Exception("Invalid bolt hole type string");
+            }
 
-
-            //Calculation logic:
 
 
             return new Dictionary<string, object>
@@ -69,15 +91,6 @@ namespace Wosad.Steel.AISC_10.Connection
         }
 
 
-        //internal Bolted (string BoltHoleType,double l_c,double F_u,double F_y,double d_b,double t,string BoltHoleDeformationType,bool IsUnstiffenedHollowSection)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(string BoltHoleType,double l_c,double F_u,double F_y,double d_b,double t,string BoltHoleDeformationType,bool IsUnstiffenedHollowSection)
-        //{
-        //    return new Bolted(BoltHoleType ,l_c ,F_u ,F_y ,d_b ,t ,BoltHoleDeformationType ,IsUnstiffenedHollowSection );
-        //}
 
     }
 }

@@ -24,32 +24,34 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Compression
 {
 
 /// <summary>
-///     Effective weld area
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Compression elastic buckling stress
+///     Category:   Steel.AISC_10.Compression
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class Welded 
+    public partial class CriticalStress 
     {
 /// <summary>
-///    Calculates Effective weld area
+///    Calculates Elastic buckling stress
 /// </summary>
-        /// <param name="l">  Length of connection or weld   </param>
-/// <param name="t_weld">  Weld throat thickness </param>
+        /// <param name="K">  Effective length factor </param>
+/// <param name="L">  Length of member length of span or unbraced length of member    </param>
+/// <param name="r">  Radius of gyration   </param>
+/// <param name="E">  Modulus of elasticity of steel </param>
 
-        /// <returns name="A_weld"> Effective area of the weld </returns>
+        /// <returns name="F_e"> Elastic buckling stress </returns>
 
-        [MultiReturn(new[] { "A_weld" })]
-        public static Dictionary<string, object> WeldArea(double l,double t_weld)
+        [MultiReturn(new[] { "F_e" })]
+        public static Dictionary<string, object> ElasticBucklingStress(double K,double L,double r,double E)
         {
             //Default values
-            double A_weld = 0;
+            double F_e = 0;
 
 
             //Calculation logic:
@@ -57,20 +59,20 @@ namespace Wosad.Steel.AISC_10.Connection
 
             return new Dictionary<string, object>
             {
-                { "A_weld", A_weld }
+                { "F_e", F_e }
  
             };
         }
 
 
-        //internal Welded (double l,double t_weld)
+        //internal CriticalStress (double K,double L,double r,double E)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static Welded  ByInputParameters(double l,double t_weld)
+        //public static CriticalStress  ByInputParameters(double K,double L,double r,double E)
         //{
-        //    return new Welded(l ,t_weld );
+        //    return new CriticalStress(K ,L ,r ,E );
         //}
 
     }

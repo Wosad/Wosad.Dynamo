@@ -21,38 +21,48 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using b = Wosad.Steel.Tests.AISC.AISC360_10.Connections.Bolt;
+using Wosad.Steel.AISC.SteelEntities.Bolts;
+using System;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Bolt nominal hole dimension
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Bolt nominal hole dimension
-/// </summary>
+        /// <summary>
+        ///    Calculates Bolt nominal hole dimension
+        /// </summary>
         /// <param name="d_b">  Nominal fastener diameter </param>
+        /// <param name="BoltHoleType">  Type of bolt hole </param>
 
         /// <returns name="d_hole"> Bolt hole diameter </returns>
 
         [MultiReturn(new[] { "d_hole" })]
-        public static Dictionary<string, object> BoltHoleSize(double d_b)
+        public static Dictionary<string, object> BoltHoleSize(double d_b,string BoltHoleType)
         {
             //Default values
             double d_hole = 0;
-
-
-            //Calculation logic:
-
+            BoltHoleType holeType;
+            bool IsValidString =Enum.TryParse(BoltHoleType, true, out holeType);
+            if (IsValidString == true)
+            {
+                b.BoltGeneral b = new b.BoltGeneral(d_b, 0, 0);
+                d_hole = b.GetBoltHoleWidth(holeType, true);
+            }
+            else
+            {
+                throw new Exception("Bolt hole calculation failed. Invalid hole type designation.");
+            }
 
             return new Dictionary<string, object>
             {
@@ -61,16 +71,6 @@ namespace Wosad.Steel.AISC_10.Connection
             };
         }
 
-
-        //internal Bolted (double d_b)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(double d_b)
-        //{
-        //    return new Bolted(d_b );
-        //}
 
     }
 }

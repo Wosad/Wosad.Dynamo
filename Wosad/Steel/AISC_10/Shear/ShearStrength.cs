@@ -20,42 +20,41 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
-using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 
 #endregion
 
 namespace Wosad.Steel.AISC_10.Shear
 {
-    /// <summary>
-    ///     Shear strength
-    ///     Category:   Wosad.Steel.AISC_10.Shear
-    /// </summary>
-    /// 
+
+/// <summary>
+///     Shear strength
+///     Category:   Wosad.Steel.AISC_10.Shear
+/// </summary>
+/// 
 
 
     [IsDesignScriptCompatible]
-    public class ShearStrength 
+    public partial class Strength 
     {
-        /// <summary>
-        ///    Calculates Member shear strength
-        /// </summary>
-        /// <param name="F_y">  Specified minimum yield stress /param>
-/// <param name="t_w">  Thickness of web  /param>
-/// <param name="h">  Width of stiffened  element  /param>
-/// <param name="E">  Modulus of elasticity of steel /param>
+/// <summary>
+///    Calculates Member shear strength
+/// </summary>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+/// <param name="t_w">  Thickness of web  </param>
+/// <param name="h">  Width of stiffened  element  </param>
+/// <param name="E">  Modulus of elasticity of steel </param>
 
-        /// <returns> "Parameter name: phiV_n", Parameter description: Shear strength </returns>
+        /// <returns name="phiV_n"> Shear strength </returns>
 
-        /// 
         [MultiReturn(new[] { "phiV_n" })]
-        public static Dictionary<string, object> Shear strength(double F_y,double t_w,double h,double E)
+        public static Dictionary<string, object> ShearStrength(double F_y,double t_w,double h,double E)
         {
             //Default values
             double phiV_n = 0;
 
 
-            //Add calculation logic here:
+            //Calculation logic:
 
 
             return new Dictionary<string, object>
@@ -65,17 +64,16 @@ namespace Wosad.Steel.AISC_10.Shear
             };
         }
 
-        string _ShearStrength ;
 
-        internal ShearStrength (double F_y,double t_w,double h,double E)
-        {
+        //internal Strength (double F_y,double t_w,double h,double E)
+        //{
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static ShearStrength  ByInputParameters(double F_y,double t_w,double h,double E)
-        {
-            return new ShearStrength(double F_y,double t_w,double h,double E);
-        }
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Strength  ByInputParameters(double F_y,double t_w,double h,double E)
+        //{
+        //    return new Strength(F_y ,t_w ,h ,E );
+        //}
 
     }
 }

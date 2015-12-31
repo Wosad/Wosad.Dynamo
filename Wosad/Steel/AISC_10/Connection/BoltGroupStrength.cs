@@ -24,24 +24,23 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
 ///     Eccentrically loaded bolt group strength
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Eccentrically loaded bolt group strength
-/// </summary>
+        /// <summary>
+        ///    Calculates Eccentrically loaded bolt group strength
+        /// </summary>
         /// <param name="C_BoltGroup">  Coefficient for eccentrically loaded bolt group </param>
-/// <param name="phiR_nv">  Connection shear strength </param>
+        /// <param name="phiR_nv">  Connection shear strength </param>
 
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
@@ -53,7 +52,7 @@ namespace Wosad.Steel.AISC_10.Connection
 
 
             //Calculation logic:
-
+            phiR_n = C_BoltGroup * phiR_nv;
 
             return new Dictionary<string, object>
             {
@@ -63,15 +62,7 @@ namespace Wosad.Steel.AISC_10.Connection
         }
 
 
-        //internal Bolted (double C_BoltGroup,double phiR_nv)
-        //{
 
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(double C_BoltGroup,double phiR_nv)
-        //{
-        //    return new Bolted(C_BoltGroup ,phiR_nv );
-        //}
 
     }
 }

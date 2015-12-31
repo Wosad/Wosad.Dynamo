@@ -24,32 +24,34 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Compression
 {
 
 /// <summary>
-///     Bolt nominal tensile strength
-///     Category:   Wosad.Steel.AISC_10.Connection
+///     Compression net reduction factor for slender stiffened elements
+///     Category:   Steel.AISC_10.Compression
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class Bolted 
+    public partial class SlenderElementReduction 
     {
 /// <summary>
-///    Calculates Bolt nominal tensile strength
+///    Calculates Net reduction factor for slender stiffened elements
 /// </summary>
-        /// <param name="BoltMaterialId">  Bolt material specification </param>
-/// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
+        /// <param name="b">  Width of stiffened or unstiffened compression element </param>
+/// <param name="t">  Thickness of element plate or element wall  </param>
+/// <param name="f">  Design axial stress </param>
+/// <param name="E">  Modulus of elasticity of steel </param>
 
-        /// <returns name="F_nt"> Nominal tensile stress </returns>
+        /// <returns name="Q_a"> Reduction factor for slender stiffened elements </returns>
 
-        [MultiReturn(new[] { "F_nt" })]
-        public static Dictionary<string, object> BoltNominalTensileStrength(string BoltMaterialId,string BoltThreadCase)
+        [MultiReturn(new[] { "Q_a" })]
+        public static Dictionary<string, object> NetReductionFactor_Stiffened(double b,double t,double f,double E)
         {
             //Default values
-            double F_nt = 0;
+            double Q_a = 0;
 
 
             //Calculation logic:
@@ -57,20 +59,20 @@ namespace Wosad.Steel.AISC_10.Connection
 
             return new Dictionary<string, object>
             {
-                { "F_nt", F_nt }
+                { "Q_a", Q_a }
  
             };
         }
 
 
-        //internal Bolted (string BoltMaterialId,string BoltThreadCase)
+        //internal SlenderElementReduction (double b,double t,double f,double E)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(string BoltMaterialId,string BoltThreadCase)
+        //public static SlenderElementReduction  ByInputParameters(double b,double t,double f,double E)
         //{
-        //    return new Bolted(BoltMaterialId ,BoltThreadCase );
+        //    return new SlenderElementReduction(b ,t ,f ,E );
         //}
 
     }
