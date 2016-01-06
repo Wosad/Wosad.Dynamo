@@ -130,6 +130,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="Wosad.Analysis, Version=0.0.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Analysis.0.0.1.4\lib\net45\Wosad.Analysis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Wosad.Common, Version=0.0.1.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Wosad.Common.0.0.1.5\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
@@ -142,8 +146,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.1.9, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.1.9\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.1.11, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.1.11\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -152,6 +156,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\Beam\Flexure\BeamDeflections.cs" />
+    <Compile Include="Analysis\Beam\Flexure\BeamForces.cs" />
+    <Compile Include="Analysis\Beam\Groups\BeamAnalysis.cs" />
+    <Compile Include="Analysis\Section\Stress\Groups\ElasticStress.cs" />
+    <Compile Include="Analysis\Section\Stress\Groups\TorsionalStress.cs" />
+    <Compile Include="Analysis\Section\Stress\NormalStressDueToWarping.cs" />
+    <Compile Include="Analysis\Section\Stress\PureTorsionStress.cs" />
+    <Compile Include="Analysis\Section\Stress\ShearStressDueToWarping.cs" />
+    <Compile Include="Analysis\Beam\Torsion\TorsionalFunctionValues.cs" />
+    <Compile Include="Analysis\Section\Stress\NormalStressDueToAxialLoad.cs" />
+    <Compile Include="Analysis\Section\Stress\NormalStressDueToBending.cs" />
+    <Compile Include="Analysis\Section\Stress\ShearStressDueToAppliedShear.cs" />
     <Compile Include="Loads\ASCE7_10\General\RiskCategory.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Dead\ComponentWeight.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Live\UniformLiveLoad.cs" />
@@ -199,6 +215,7 @@
     <Compile Include="Steel\AISC_10\Connection\CopedSectionStrengthInFlexure.cs" />
     <Compile Include="Steel\AISC_10\Connection\FilletWeldGroupConcentricLoadStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\FilletWeldGroupEccentricLoadStrength.cs" />
+    <Compile Include="Steel\AISC_10\Connection\FlangeLocalBending.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\AffectedElements.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\Bolted.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\Welded.cs" />
@@ -206,7 +223,13 @@
     <Compile Include="Steel\AISC_10\Connection\MinimumPlateThicknessEffectsOfPryingAction.cs" />
     <Compile Include="Steel\AISC_10\Connection\ModifiedBoltShearStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\FilletWeldGroupCoefficient.cs" />
-    <Compile Include="Steel\AISC_10\Connection\WeldMaterialStrength.cs" />
+    <Compile Include="Steel\AISC_10\Connection\Slip-CriticalBoltShearStrength.cs" />
+    <Compile Include="Steel\AISC_10\Connection\WebCompressionBuckling.cs" />
+    <Compile Include="Steel\AISC_10\Connection\WebLocalCrippling.cs" />
+    <Compile Include="Steel\AISC_10\Connection\WebLocalYielding.cs" />
+    <Compile Include="Steel\AISC_10\Connection\WebPanelZoneShear.cs" />
+    <Compile Include="Steel\AISC_10\Connection\WebSideswayBuckling.cs" />
+    <Compile Include="Steel\AISC_10\Connection\WeldStrength.cs" />
     <Compile Include="Steel\AISC_10\General\Groups\MaterialProperties.cs">
       <SubType>Code</SubType>
     </Compile>

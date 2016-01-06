@@ -28,18 +28,18 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 
-    [IsDesignScriptCompatible]
-    public partial class Bolted
-    {
+    //[IsDesignScriptCompatible]
+    //public partial class Bolted
+    //{
 
-        internal Bolted(string BoltMaterialId, string BoltThreadCase)
-        {
+    //    //internal Bolted(string BoltMaterialId, string BoltThreadCase)
+    //    //{
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static Bolted ByInputParameters(string BoltMaterialId, string BoltThreadCase)
-        {
-            return new Bolted(BoltMaterialId, BoltThreadCase);
-        }
-    }
+    //    //}
+    //    //[IsVisibleInDynamoLibrary(false)]
+    //    //public static Bolted ByInputParameters(string BoltMaterialId, string BoltThreadCase)
+    //    //{
+    //    //    return new Bolted(BoltMaterialId, BoltThreadCase);
+    //    //}
+    //}
 }

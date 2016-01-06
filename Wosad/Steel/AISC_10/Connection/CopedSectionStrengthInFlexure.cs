@@ -75,11 +75,11 @@ namespace Steel.AISC_10.Connection
                         default:
                             break;
                     }
-                    // logic`
+                    // logic
                 }
                 else
                 {
-                    throw new Exception("Weld strength calculation failed. Invalid weld load case (type) designation.");
+                    throw new Exception("Coped beam calculation failed. Beam cope case (type) designation.");
                 }
 
             return new Dictionary<string, object>

@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
 
 #endregion
 
@@ -34,27 +35,25 @@ namespace Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Concentrated force flange local bending
-/// </summary>
-        /// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="t_f">  Thickness of flange   </param>
-/// <param name="l_edge">  Edge distance </param>
-
+        /// <summary>
+        ///    Calculates Concentrated force flange local bending
+        /// </summary>
+        /// <param name="F_yf">  Specified minimum yield stress </param>
+        /// <param name="t_f">  Thickness of flange   </param>
+        /// <param name="l_edge">  Edge distance </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> FlangeLocalBending(double F_y,double t_f,double l_edge)
+        public static Dictionary<string, object> FlangeLocalBending(double F_yf,double t_f,double l_edge)
         {
             //Default values
             double phiR_n = 0;
 
 
             //Calculation logic:
-
+            phiR_n = FlangeOrWebWithConcentratedForces.GetFlangeLocalBendingStrength(F_yf, t_f, l_edge);
 
             return new Dictionary<string, object>
             {
@@ -64,15 +63,6 @@ namespace Steel.AISC_10.Connection
         }
 
 
-        //internal AffectedElements (double F_y,double t_f,double l_edge)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double F_y,double t_f,double l_edge)
-        //{
-        //    return new AffectedElements(F_y ,t_f ,l_edge );
-        //}
 
     }
 }

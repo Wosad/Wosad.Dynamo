@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
 
 #endregion
 
@@ -34,23 +35,21 @@ namespace Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Concentrated force web compression buckling
-/// </summary>
+        /// <summary>
+        ///    Calculates Concentrated force web compression buckling
+        /// </summary>
         /// <param name="t_w">  Thickness of web  </param>
-/// <param name="h_web">  Clear distance between flanges less the fillet or corner radius for rolled shapes </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="E">  Modulus of elasticity of steel </param>
-/// <param name="d">  Full nominal depth of the section    </param>
-/// <param name="l_edge">  Edge distance </param>
-
+        /// <param name="h_web">  Clear distance between flanges less the fillet or corner radius for rolled shapes </param>
+        /// <param name="F_yw">  Specified minimum yield stress of the web material  </param>
+        /// <param name="E">  Modulus of elasticity of steel </param>
+        /// <param name="d">  Full nominal depth of the section    </param>
+        /// <param name="l_edge">  Edge distance </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> WebCompressionBuckling(double t_w,double h_web,double F_y,double E,double d,double l_edge)
+        public static Dictionary<string, object> WebCompressionBuckling(double t_w,double h_web,double F_yw,double E,double d,double l_edge)
         {
             //Default values
             double phiR_n = 0;
@@ -58,7 +57,7 @@ namespace Steel.AISC_10.Connection
 
             //Calculation logic:
 
-
+            phiR_n = FlangeOrWebWithConcentratedForces.GetWebCompressionBucklingStrength(t_w, h_web, d, l_edge, F_yw);
             return new Dictionary<string, object>
             {
                 { "phiR_n", phiR_n }
@@ -66,16 +65,6 @@ namespace Steel.AISC_10.Connection
             };
         }
 
-
-        //internal AffectedElements (double t_w,double h_web,double F_y,double E,double d,double l_edge)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double t_w,double h_web,double F_y,double E,double d,double l_edge)
-        //{
-        //    return new AffectedElements(t_w ,h_web ,F_y ,E ,d ,l_edge );
-        //}
 
     }
 }

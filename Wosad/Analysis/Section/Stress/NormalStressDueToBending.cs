@@ -21,46 +21,49 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Analysis.Section;
 
 #endregion
 
-namespace Steel.AISC_10.Connection
+namespace Analysis.Section
 {
 
 /// <summary>
-///     Slip-critical bolt shear strength
-///     Category:   Steel.AISC_10.Connection
+///     Normal stress due to bending
+///     Category:   Analysis.Section
 /// </summary>
 /// 
 
 
-    public partial class Bolted 
+    public partial class ElasticStress 
     {
         /// <summary>
-        ///    Calculates Slip-critical bolt shear strength
+        ///    Calculates Normal stress due to bending
         /// </summary>
-        /// <param name="d_b">  Nominal fastener diameter </param>
-        /// <param name="BoltMaterialId">  Bolt material specification </param>
-        /// <param name="BoltFillerCase">  Distinguishes between filler cases for slip-critical bolt capacity calculations </param>
-        /// <param name="NumberShearPlanes">  Number of shear planes </param>
-        /// <returns name="phiR_n"> Strength of member or connection </returns>
+        /// <param name="M">  Concentrated moment </param>
+        /// <param name="y">  Vertical distance from horizontal neutral axis to section point under consideration </param>
+        /// <param name="I">  Moment of inertia (I_x or I_y where applicable) </param>
+        /// <returns name="sigma_b"> Normal stress due to bending about either the x or y </returns>
 
-        [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> SlipCriticalBoltShearStrength(double d_b,string BoltMaterialId,string BoltFillerCase,double NumberShearPlanes)
+        [MultiReturn(new[] { "sigma_b" })]
+        public static Dictionary<string, object> NormalStressDueToBending(double M,double y,double I)
         {
             //Default values
-            double phiR_n = 0;
+            double sigma_b = 0;
 
 
             //Calculation logic:
+            SectionStressAnalysis analysis = new SectionStressAnalysis();
+            sigma_b = analysis.GetNormalStressDueToBending(M, y, I);
 
 
             return new Dictionary<string, object>
             {
-                { "phiR_n", phiR_n }
+                { "sigma_b", sigma_b }
  
             };
         }
+
 
 
     }

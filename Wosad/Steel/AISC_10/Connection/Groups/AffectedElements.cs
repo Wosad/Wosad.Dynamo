@@ -28,18 +28,18 @@ namespace Wosad.Steel.AISC_10.Connection
 {
 
 
-    [IsDesignScriptCompatible]
-    public partial class AffectedElements
-    {
+    //[IsDesignScriptCompatible]
+    //public partial class AffectedElements
+    //{
 
-        internal AffectedElements(double A_gv, double A_nv, double A_nt, double F_y, double F_u, string StressDistibutionType)
-        {
+    //    //internal AffectedElements(double A_gv, double A_nv, double A_nt, double F_y, double F_u, string StressDistibutionType)
+    //    //{
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static AffectedElements ByInputParameters(double A_gv, double A_nv, double A_nt, double F_y, double F_u, string StressDistibutionType)
-        {
-            return new AffectedElements(A_gv, A_nv, A_nt, F_y, F_u, StressDistibutionType);
-        }
-    }
+    //    //}
+    //    //[IsVisibleInDynamoLibrary(false)]
+    //    //public static AffectedElements ByInputParameters(double A_gv, double A_nv, double A_nt, double F_y, double F_u, string StressDistibutionType)
+    //    //{
+    //    //    return new AffectedElements(A_gv, A_nv, A_nt, F_y, F_u, StressDistibutionType);
+    //    //}
+    //}
 }

@@ -1,5 +1,5 @@
-﻿#region Copyright
-/*Copyright (C) 2015 Wosad Inc
+#region Copyright
+   /*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
-
+ 
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -24,23 +24,27 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Analysis.Beam
 {
 
 
-    //[IsDesignScriptCompatible]
-    //public partial class Welded
-    //{
+
+    [IsDesignScriptCompatible]
+    public partial class TorsionalStress 
+    {
 
 
-    //    internal Welded(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
-    //    {
+        //internal TorsionalStress (double t,double theta_1der)
+        //{
 
-    //    }
-    //    [IsVisibleInDynamoLibrary(false)]
-    //    public static Welded ByInputParameters(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
-    //    {
-    //        return new Welded(WeldGroupPattern, l_transv, l_longit, w_weld, F_EXX);
-    //    }
-    //}
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static TorsionalStress  ByInputParameters(double t,double theta_1der)
+        //{
+        //    return new TorsionalStress(t ,theta_1der );
+        //}
+
+    }
 }
+
+

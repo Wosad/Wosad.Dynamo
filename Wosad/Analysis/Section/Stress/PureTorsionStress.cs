@@ -21,47 +21,47 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Analysis.Section;
 
 #endregion
 
-namespace Steel.AISC_10.Connection
+namespace Analysis.Beam
 {
 
 /// <summary>
-///     Slip-critical bolt shear strength
-///     Category:   Steel.AISC_10.Connection
+///     Pure torsion stress in open cross section
+///     Category:   Analysis.Beam
 /// </summary>
 /// 
 
-
-    public partial class Bolted 
+    public partial class TorsionalStress 
     {
         /// <summary>
-        ///    Calculates Slip-critical bolt shear strength
+        ///    Calculates Pure torsion stress in open cross section
         /// </summary>
-        /// <param name="d_b">  Nominal fastener diameter </param>
-        /// <param name="BoltMaterialId">  Bolt material specification </param>
-        /// <param name="BoltFillerCase">  Distinguishes between filler cases for slip-critical bolt capacity calculations </param>
-        /// <param name="NumberShearPlanes">  Number of shear planes </param>
-        /// <returns name="phiR_n"> Strength of member or connection </returns>
+        ///  ///<param name="G">  Shear modulus of elasticity </param>
+        /// <param name="t_el">  Thickness of element </param>
+        /// <param name="theta_1der">  First derivative of angle of rotation with respect to z </param>
+        /// <returns name="tau_t"> Pure torsional shear stress </returns>
 
-        [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> SlipCriticalBoltShearStrength(double d_b,string BoltMaterialId,string BoltFillerCase,double NumberShearPlanes)
+        [MultiReturn(new[] { "tau_t" })]
+        public static Dictionary<string, object> PureTorsionStress(double G, double t_el, double theta_1der)
         {
             //Default values
-            double phiR_n = 0;
+            double tau_t = 0;
 
 
             //Calculation logic:
-
+            SectionStressAnalysis analysis = new SectionStressAnalysis();
+            tau_t = analysis.GetPureTorsionStressOpenSection(G, t_el, theta_1der);
 
             return new Dictionary<string, object>
             {
-                { "phiR_n", phiR_n }
+                { "tau_t", tau_t }
  
             };
-        }
 
+        }
 
     }
 }

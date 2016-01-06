@@ -65,7 +65,7 @@ namespace Steel.AISC_10.Connection
             if (IsValidString ==true)
             {
                 BoltHoleDeformationType deformationType;
-                bool IsValidDeformationType = Enum.TryParse(BoltHoleType, true, out deformationType);
+                bool IsValidDeformationType = Enum.TryParse(BoltHoleDeformationType, true, out deformationType);
                 if (IsValidDeformationType==true)
 	                {
                         AffectedElementWithHoles element = new AffectedElementWithHoles();

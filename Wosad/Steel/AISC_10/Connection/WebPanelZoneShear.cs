@@ -21,6 +21,8 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
+using System;
 
 #endregion
 
@@ -34,29 +36,32 @@ namespace Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
+
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Concentrated force web panel zone shear
-/// </summary>
-        /// <param name="t_w">  Thickness of web  </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="d">  Full nominal depth of the section    </param>
-/// <param name="P_u">  Required axial strength </param>
-/// <param name="A_g">  Gross cross-sectional area of member </param>
-
-        /// <returns name="phiR_n"> Strength of member or connection </returns>
+            /// <summary>
+            ///    Calculates Concentrated force web panel zone shear
+            /// </summary>
+            /// <param name="t_w">  Thickness of web  </param>
+            /// <param name="t_cf">  Thickness of column flange   </param>
+            /// <param name="b_cf">  Width of column flange  </param>
+            /// <param name="d_b">  Nominal fastener diameter </param>
+            /// <param name="d_c">  Depth of column  </param>
+            /// <param name="F_y">  Specified minimum yield stress </param>
+            /// <param name="P_u">  Required axial strength </param>
+            /// <param name="A_g">  Gross cross-sectional area of member </param>
+            /// <param name="PanelDeformationConsideredInAnalysis">  Identifies whether the effect of panel-zone deformation on frame stability is  considered in the analysis </param>
+            /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> WebPanelZoneShear(double t_w,double F_y,double d,double P_u,double A_g)
+        public static Dictionary<string, object> WebPanelZoneShear(double t_w,double t_cf,double b_cf,double d_b,double d_c,double F_y,double P_u,double A_g,bool PanelDeformationConsideredInAnalysis)
         {
             //Default values
             double phiR_n = 0;
 
 
             //Calculation logic:
-
+            throw new NotImplementedException();
 
             return new Dictionary<string, object>
             {
@@ -64,17 +69,6 @@ namespace Steel.AISC_10.Connection
  
             };
         }
-
-
-        //internal AffectedElements (double t_w,double F_y,double d,double P_u,double A_g)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double t_w,double F_y,double d,double P_u,double A_g)
-        //{
-        //    return new AffectedElements(t_w ,F_y ,d ,P_u ,A_g );
-        //}
 
     }
 }

@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
 
 #endregion
 
@@ -34,30 +35,30 @@ namespace Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Concentrated force web sidesway buckling 
-/// </summary>
+        /// <summary>
+        ///    Calculates Concentrated force web sidesway buckling 
+        /// </summary>
         /// <param name="M_u">  Required flexural strength </param>
-/// <param name="M_y">  Moment at yielding of the extreme fiber  </param>
-/// <param name="b_f">  Width of flange  </param>
-/// <param name="t_f">  Thickness of flange   </param>
-/// <param name="t_w">  Thickness of web  </param>
-/// <param name="L_b_flange">  Largest laterally unbraced lengthalong either flange at the point of load </param>
-/// <param name="h_web">  Clear distance between flanges less the fillet or corner radius for rolled shapes </param>
-
+        /// <param name="M_y">  Moment at yielding of the extreme fiber  </param>
+        /// <param name="b_f">  Width of flange  </param>
+        /// <param name="t_f">  Thickness of flange   </param>
+        /// <param name="t_w">  Thickness of web  </param>
+        /// <param name="L_b_flange">  Largest laterally unbraced lengthalong either flange at the point of load </param>
+        /// <param name="h_web">  Clear distance between flanges less the fillet or corner radius for rolled shapes </param>
+        /// <param name="CompressionFlangeRestrained">Identifies whether comression flange is restrained</param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> WebSideswayBuckling(double M_u,double M_y,double b_f,double t_f,double t_w,double L_b_flange,double h_web)
+        public static Dictionary<string, object> WebSideswayBuckling(double M_u,double M_y,double b_f,double t_f,
+            double t_w,double L_b_flange,double h_web,bool CompressionFlangeRestrained)
         {
             //Default values
             double phiR_n = 0;
 
-
             //Calculation logic:
+            phiR_n = FlangeOrWebWithConcentratedForces.GetWebSideswayBucklingStrength(t_w, t_f, h_web, L_b_flange, b_f, CompressionFlangeRestrained, M_u, M_y);
 
 
             return new Dictionary<string, object>

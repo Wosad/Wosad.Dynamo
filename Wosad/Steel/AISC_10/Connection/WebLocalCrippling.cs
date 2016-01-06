@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
 
 #endregion
 
@@ -34,30 +35,29 @@ namespace Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Concentrated force web local crippling 
-/// </summary>
+        /// <summary>
+        ///    Calculates Concentrated force web local crippling 
+        /// </summary>
         /// <param name="t_w">  Thickness of web  </param>
-/// <param name="t_f">  Thickness of flange   </param>
-/// <param name="l_b">  Length of bearing   </param>
-/// <param name="d">  Full nominal depth of the section    </param>
-/// <param name="F_u">  Specified minimum tensile strength   </param>
-/// <param name="E">  Modulus of elasticity of steel </param>
-
+        /// <param name="t_f">  Thickness of flange   </param>
+        /// <param name="l_b">  Length of bearing   </param>
+        /// <param name="d">  Full nominal depth of the section    </param>
+        /// <param name="F_yw">  Specified minimum yield stress of the web material  </param>
+        /// /// <param name="l_edge">  Edge distance </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> WebLocalCrippling(double t_w,double t_f,double l_b,double d,double F_u,double E)
+        public static Dictionary<string, object> WebLocalCrippling(double t_w,double t_f,double l_b,double d,
+            double F_yw,double l_edge)
         {
             //Default values
             double phiR_n = 0;
 
 
             //Calculation logic:
-
+            phiR_n = FlangeOrWebWithConcentratedForces.GetWebLocalCripplingStrength(t_w, t_f, d, l_b, l_edge, F_yw);
 
             return new Dictionary<string, object>
             {
@@ -66,16 +66,6 @@ namespace Steel.AISC_10.Connection
             };
         }
 
-
-        //internal AffectedElements (double t_w,double t_f,double l_b,double d,double F_u,double E)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double t_w,double t_f,double l_b,double d,double F_u,double E)
-        //{
-        //    return new AffectedElements(t_w ,t_f ,l_b ,d ,F_u ,E );
-        //}
 
     }
 }

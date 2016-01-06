@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
 
 #endregion
 
@@ -34,30 +35,28 @@ namespace Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Concentrated force web local yielding
-/// </summary>
+        /// <summary>
+        ///    Calculates Concentrated force web local yielding
+        /// </summary>
         /// <param name="t_w">  Thickness of web  </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="k">  Distance from outer face of flange to the web toe of fillet  </param>
-/// <param name="l_b">  Length of bearing   </param>
-/// <param name="d">  Full nominal depth of the section    </param>
-/// <param name="l_edge">  Edge distance </param>
-
+        /// <param name="F_yw">  Specified minimum yield stress of the web material </param>
+        /// <param name="k">  Distance from outer face of flange to the web toe of fillet  </param>
+        /// <param name="l_b">  Length of bearing   </param>
+        /// <param name="d">  Full nominal depth of the section    </param>
+        /// <param name="l_edge">  Edge distance </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> WebLocalYielding(double t_w,double F_y,double k,double l_b,double d,double l_edge)
+        public static Dictionary<string, object> WebLocalYielding(double t_w,double F_yw,double k,double l_b,double d,double l_edge)
         {
             //Default values
             double phiR_n = 0;
 
 
             //Calculation logic:
-
+            phiR_n = FlangeOrWebWithConcentratedForces.GetWebLocalYieldingStrength(d, t_w, l_edge, F_yw, k, l_b);
 
             return new Dictionary<string, object>
             {
@@ -66,16 +65,6 @@ namespace Steel.AISC_10.Connection
             };
         }
 
-
-        //internal AffectedElements (double t_w,double F_y,double k,double l_b,double d,double l_edge)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double t_w,double F_y,double k,double l_b,double d,double l_edge)
-        //{
-        //    return new AffectedElements(t_w ,F_y ,k ,l_b ,d ,l_edge );
-        //}
 
     }
 }

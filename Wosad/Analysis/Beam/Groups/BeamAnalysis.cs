@@ -1,5 +1,5 @@
-﻿#region Copyright
-/*Copyright (C) 2015 Wosad Inc
+#region Copyright
+   /*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
-
+ 
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -24,23 +24,26 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Analysis.Beam.Flexure
 {
 
 
-    //[IsDesignScriptCompatible]
-    //public partial class Welded
-    //{
+    [IsDesignScriptCompatible]
+    public partial class BeamAnalysis 
+    {
 
 
-    //    internal Welded(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
-    //    {
+        //internal BeamForces (double L,double X,double P,double M,double w,double a_load,double b_load,double c_load,double P1,double P2,double M1,double M2)
+        //{
 
-    //    }
-    //    [IsVisibleInDynamoLibrary(false)]
-    //    public static Welded ByInputParameters(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
-    //    {
-    //        return new Welded(WeldGroupPattern, l_transv, l_longit, w_weld, F_EXX);
-    //    }
-    //}
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static BeamForces  ByInputParameters(double L,double X,double P,double M,double w,double a_load,double b_load,double c_load,double P1,double P2,double M1,double M2)
+        //{
+        //    return new BeamForces(L ,X ,P ,M ,w ,a_load ,b_load ,c_load ,P1 ,P2 ,M1 ,M2 );
+        //}
+
+    }
 }
+
+
