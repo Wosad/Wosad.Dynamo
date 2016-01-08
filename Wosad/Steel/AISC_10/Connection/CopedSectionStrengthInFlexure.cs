@@ -45,9 +45,9 @@ namespace Steel.AISC_10.Connection
         ///    Calculates Coped section strength in flexure
         /// </summary>
         /// <param name="d">  Full nominal depth of the section    </param>
-        /// /// <returns name="b_f"> Width of flange  </returns>
-        /// <returns name="t_f"> Thickness of flange   </returns>
-        /// <param name="d_c">  Depth of cope    </param>
+        /// <param name="b_f"> Width of flange  </param>
+        /// <param name="t_f"> Thickness of flange   </param>
+        /// <param name="d_cope">  Depth of cope    </param>
         /// <param name="c">  Length of cope    </param>
         /// <param name="t_w">  Thickness of web  </param>
         /// <param name="F_y">  Specified minimum yield stress </param>

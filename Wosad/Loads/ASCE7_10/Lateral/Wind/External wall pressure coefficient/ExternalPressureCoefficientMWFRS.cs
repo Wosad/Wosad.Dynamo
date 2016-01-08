@@ -40,11 +40,9 @@ namespace Loads.ASCE7_10.Lateral.Wind.ExternalWallPressureCoefficient
         /// <summary>
         ///    Calculates External pressure coefficient (C_p) used in calculation of wind loads on Main Wind-Force Resisting System (MWFRS) elements - ASCE7-10. USC units
         /// </summary>
-        /// <param name="B">  horizontal dimension of building measured normal to wind direction /param>
-
+        /// <param name="B">  horizontal dimension of building measured normal to wind direction</param>
         /// <returns> "Parameter name: C_p", Parameter description: external pressure coefficient to be used in determination of wind loads for buildings </returns>
-
-        /// 
+        
         [MultiReturn(new[] { "C_p" })]
         public static Dictionary<string, object> ExternalPressureCoefficientMWFRS_C_p(double B)
         {

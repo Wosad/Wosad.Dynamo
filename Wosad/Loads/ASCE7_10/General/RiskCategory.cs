@@ -39,11 +39,9 @@ namespace Loads.ASCE7_10.General
         /// <summary>
         ///    Calculates Selection of Building risk category - ASCE7-10
         /// </summary>
-        /// <param name="BuildingOccupancy">  Occupancy description /param>
-
+        /// <param name="BuildingOccupancyId">  Occupancy description</param>
         /// <returns> "Parameter name: BuildingRiskCategory", Parameter description: Building risk category </returns>
 
-        /// 
         [MultiReturn(new[] { "BuildingRiskCategory" })]
         public static Dictionary<string, object> BuildingRiskCategory(string BuildingOccupancyId)
         {

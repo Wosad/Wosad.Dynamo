@@ -44,7 +44,6 @@ namespace Steel.AISC_10.Connection
         /// <param name="F_y">  Specified minimum yield stress </param>
         /// <param name="F_u">  Specified minimum tensile strength   </param>
         /// <param name="A_nv">  Net area subject to shear </param>
-
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]

@@ -40,14 +40,12 @@ namespace Loads.ASCE7_10.Lateral.Wind
         /// <summary>
         ///    Calculates Velocity pressure exposure coefficient ( K_z or K_h) accounting for the wind pressure variation as a function of  height - ASCE7-10. USC units
         /// </summary>
-        /// <param name="z">  height above ground level /param>
-/// <param name="z_g">  nominal height of the atmospheric boundary layer used in this standard /param>
-/// <param name="alpha">  3-sec gust-speed power law exponent /param>
-/// <param name="WindVelocityLocation">  Location type for wind velocity used in pressure calculations /param>
-
+        /// <param name="z">  height above ground level</param>
+/// <param name="z_g">  nominal height of the atmospheric boundary layer used in this standard</param>
+/// <param name="alpha">  3-sec gust-speed power law exponent</param>
+/// <param name="WindVelocityLocation">  Location type for wind velocity used in pressure calculations</param>
         /// <returns> "Parameter name: K_z", Parameter description: velocity pressure exposure coefficient evaluated at height z=h </returns>
 
-        /// 
         [MultiReturn(new[] { "K_z" })]
         public static Dictionary<string, object> WindVelocityPressureExposureCoefficient_K_z(double z,double z_g,double alpha,string WindVelocityLocation)
         {

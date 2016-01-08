@@ -47,6 +47,7 @@ namespace Steel.AISC_10.Connection
         /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
         /// <param name="NumberShearPlanes">  Number of shear planes </param>
         /// <returns name="phiR_nv"> Connection shear strength </returns>
+        /// 
 
         [MultiReturn(new[] { "phiR_nv" })]
         public static Dictionary<string, object> BearingBoltShearStrength(double d_b,string BoltMaterialId,string BoltThreadCase,double NumberShearPlanes)

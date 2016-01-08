@@ -43,6 +43,7 @@ namespace Steel.AISC_10.Connection
         /// <param name="BoltMaterialId">  Bolt material specification </param>
         /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
         /// <returns name="F_nv"> Nominal shear stress </returns>
+        /// 
 
         [MultiReturn(new[] { "F_nv" })]
         public static Dictionary<string, object> BearingBoltNominalShearStress(string BoltMaterialId,string BoltThreadCase)

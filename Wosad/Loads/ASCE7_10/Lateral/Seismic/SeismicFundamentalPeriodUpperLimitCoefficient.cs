@@ -40,11 +40,9 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Coefficient  (C_u) for upper limit on  calculated period  - ASCE7-10
         /// </summary>
-        /// <param name="S_D1">  design, 5 percent damped, spectral response acceleration parameter at a period of 1 s /param>
-
+        /// <param name="S_D1">  design, 5 percent damped, spectral response acceleration parameter at a period of 1 s</param>
         /// <returns> "Parameter name: C_u", Parameter description: Coefficient for upper limit on  calculated period </returns>
 
-        /// 
         [MultiReturn(new[] { "C_u" })]
         public static Dictionary<string, object> SeismicFundamentalPeriodUpperLimitCoefficient_C_u(double S_D1)
         {

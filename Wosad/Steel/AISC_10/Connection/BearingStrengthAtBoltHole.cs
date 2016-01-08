@@ -52,9 +52,8 @@ namespace Steel.AISC_10.Connection
         /// <param name="t">  Thickness of element plate or element wall  </param>
         /// <param name="BoltHoleDeformationType">  Identifies of bolt deformation is a design consideration </param>
         /// <param name="IsUnstiffenedHollowSection">  Distinguishes between connections made using bolts that pass completely through an unstiffened box member or HSS and all other cases </param>
-
         /// <returns name="phiR_nv"> Connection shear strength </returns>
-
+        
         [MultiReturn(new[] { "phiR_nv" })]
         public static Dictionary<string, object> BearingStrengthAtBoltHole(string BoltHoleType,double l_c,double F_u,double F_y,double d_b,double t,string BoltHoleDeformationType,bool IsUnstiffenedHollowSection)
         {

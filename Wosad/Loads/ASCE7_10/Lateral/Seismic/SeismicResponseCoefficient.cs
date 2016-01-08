@@ -40,17 +40,15 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Seismic response coefficient which multiplied by the building seismic weight, gives the building seismic base shear (lateral pseudo-acceleration, expressed in units of gravity) - ASCE7-10
         /// </summary>
-        /// <param name="T">  fundamental period of the building /param>
-/// <param name="S_DS">  design, 5 percent damped, spectral response acceleration parameter at short periods /param>
-/// <param name="S_D1">  design, 5 percent damped, spectral response acceleration parameter at a period of 1 s /param>
-/// <param name="T_L">  long-period transition period /param>
-/// <param name="R">  resonant response factor /param>
-/// <param name="I_e">  seismic importance factor  /param>
-/// <param name="S_1">  mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s /param>
-
+        /// <param name="T">  fundamental period of the building</param>
+/// <param name="S_DS">  design, 5 percent damped, spectral response acceleration parameter at short periods</param>
+/// <param name="S_D1">  design, 5 percent damped, spectral response acceleration parameter at a period of 1 s</param>
+/// <param name="T_L">  long-period transition period</param>
+/// <param name="R">  resonant response factor</param>
+/// <param name="I_e">  seismic importance factor </param>
+/// <param name="S_1">  mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s</param>
         /// <returns> "Parameter name: C_s", Parameter description: seismic response coefficient which multiplied by the building seismic weight, gives the building seismic base shear (lateral pseudo-acceleration, expressed in units of gravity) </returns>
 
-        /// 
         [MultiReturn(new[] { "C_s" })]
         public static Dictionary<string, object> SeismicResponseCoefficient_C_s(double T,double S_DS,double S_D1,double T_L,double R,double I_e,double S_1)
         {

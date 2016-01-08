@@ -40,13 +40,11 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Selection of lateral system and Design Coefficients and Factors for Seismic Force-Resisting System (R, C_d and Omega_0) - ASCE7-10
         /// </summary>
-        /// <param name="LateralSystemId">  Id of the lateral system from ASCE7-10 Table 12.2-1 /param>
-
+        /// <param name="LateralSystemId">  Id of the lateral system from ASCE7-10 Table 12.2-1</param>
         /// <returns> "Parameter name: R", Parameter description: resonant response factor </returns>
 /// <returns> "Parameter name: C_d", Parameter description: deflection amplification factor </returns>
 /// <returns> "Parameter name: Omega_0", Parameter description: overstrength factor </returns>
 
-        /// 
         [MultiReturn(new[] { "R","C_d","Omega_0" })]
         public static Dictionary<string, object> LateralSystemDesignCoefficientsAndFactors(string LateralSystemId)
         {

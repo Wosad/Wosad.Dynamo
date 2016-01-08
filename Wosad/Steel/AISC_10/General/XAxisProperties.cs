@@ -48,6 +48,7 @@ namespace Steel.AISC_10.General
 /// <returns name="Z_x"> Plastic section modulus about the x-axis  </returns>
 /// <returns name="S_x"> Elastic section modulus taken about the x-axis  </returns>
 /// <returns name="r_x"> Radius of gyration about the x-axis  </returns>
+/// 
 
         [MultiReturn(new[] { "x_e","x_p","I_x","Z_x","S_x","r_x" })]
         public static Dictionary<string, object> XAxisProperties(string SteelShapeId)

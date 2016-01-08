@@ -41,7 +41,6 @@ namespace Steel.AISC_10.Connection
         /// </summary>
         /// <param name="C_BoltGroup">  Coefficient for eccentrically loaded bolt group </param>
         /// <param name="phiR_nv">  Connection shear strength </param>
-
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]

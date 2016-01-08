@@ -40,16 +40,14 @@ namespace Loads.ASCE7_10.Lateral.Wind
         /// <summary>
         ///    Calculates Wind topographic factor (K_zt) accounting for the effects of wind speed-up over hills, ridges, and escarpments - ASCE7-10. USC units
         /// </summary>
-        /// <param name="x">  distance upwind or downwind of crest /param>
-/// <param name="z">  height above ground level /param>
-/// <param name="H">  height of hill or escarpment /param>
-/// <param name="L_h">  distance upwind of crest of hill or escarpment to where the difference in ground elevation is half the height of the hill or escarpment /param>
-/// <param name="TopographicLocation">  Location on the topographic feature (upwind of crest, downwind of crest) /param>
-/// <param name="TopographyType">  type of topographic feature (two-dimensional ridge,two-dimensional ecarpment or 3-dimensional axisymmetric hill) /param>
+        /// <param name="x">  distance upwind or downwind of crest</param>
+/// <param name="z">  height above ground level</param>
+/// <param name="H">  height of hill or escarpment</param>
+/// <param name="L_h">  distance upwind of crest of hill or escarpment to where the difference in ground elevation is half the height of the hill or escarpment</param>
+/// <param name="TopographicLocation">  Location on the topographic feature (upwind of crest, downwind of crest)</param>
+/// <param name="TopographyType">  type of topographic feature (two-dimensional ridge,two-dimensional ecarpment or 3-dimensional axisymmetric hill)</param>
+        /// <returns> topographic factor </returns>
 
-        /// <returns> "Parameter name: K_zt", Parameter description: topographic factor </returns>
-
-        /// 
         [MultiReturn(new[] { "K_zt" })]
         public static Dictionary<string, object> WindTopographicFactor_K_zt(double x,double z,double H,double L_h,string TopographicLocation,string TopographyType)
         {

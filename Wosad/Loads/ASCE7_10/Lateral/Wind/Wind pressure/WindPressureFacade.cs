@@ -38,17 +38,15 @@ namespace Loads.ASCE7_10.Lateral.Wind.WindPressure
     public class WindPressureFacade 
     {
         /// <summary>
-        ///    Calculates Wind pressure on Components and Cladding (C&C) - ASCE7-10. USC units
+        ///    Calculates Wind pressure on Components and Cladding   - ASCE7-10. USC units
         /// </summary>
-        /// <param name="q">  velocity pressure /param>
-/// <param name="GC_p_Pos">  product of positive external pressure coefficient and gust-effect factor to be used in determination of wind loads /param>
-/// <param name="GC_p_Neg">  product of negative external pressure coefficient and gust-effect factor to be used in determination of wind loads /param>
-/// <param name="GC_pi">  product of internal pressure coefficient and gust-effect factor to be used in determination of wind loads for buildings /param>
-/// <param name="h">  mean roof height of a building or height of other structure /param>
-
+        /// <param name="q">  velocity pressure</param>
+/// <param name="GC_p_Pos">  product of positive external pressure coefficient and gust-effect factor to be used in determination of wind loads</param>
+/// <param name="GC_p_Neg">  product of negative external pressure coefficient and gust-effect factor to be used in determination of wind loads</param>
+/// <param name="GC_pi">  product of internal pressure coefficient and gust-effect factor to be used in determination of wind loads for buildings</param>
+/// <param name="h">  mean roof height of a building or height of other structure</param>
         /// <returns> "Parameter name: p", Parameter description: design pressure to be used in determination of wind loads for buildings </returns>
 
-        /// 
         [MultiReturn(new[] { "p" })]
         public static Dictionary<string, object> WindPressureFacade_p(double q,double GC_p_Pos,double GC_p_Neg,double GC_pi,double h)
         {

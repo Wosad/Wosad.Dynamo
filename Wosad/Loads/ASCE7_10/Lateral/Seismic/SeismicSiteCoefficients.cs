@@ -40,14 +40,12 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Seismic site coefficients (F_a and F_v) accounting for short-period  and long-period soil amplification of base accelerations - ASCE7-10
         /// </summary>
-        /// <param name="S_S">  mapped MCER, 5 percent damped, spectral response acceleration parameter at short periods /param>
-/// <param name="S_1">  mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s /param>
-/// <param name="SiteClass">  Seismic site class (as a function of soil type) /param>
-
-        /// <returns> "Parameter name: F_a", Parameter description: short-period site coefficient (at 0.2 s-period) </returns>
-/// <returns> "Parameter name: F_v", Parameter description: long-period site coefficient (at 1.0 s-period) </returns>
-
-        /// 
+        /// <param name="S_S">  mapped MCER, 5 percent damped, spectral response acceleration parameter at short periods</param>
+        /// <param name="S_1">  mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
+        /// <param name="SiteClass">  Seismic site class (as a function of soil type) </param>
+        /// <returns>  Parameter description: short-period site coefficient (at 0.2 s-period) </returns>
+/// <returns>  Parameter description: long-period site coefficient (at 1.0 s-period) </returns>
+ 
         [MultiReturn(new[] { "F_a","F_v" })]
         public static Dictionary<string, object> SiteCoefficients(double S_S,double S_1,string SiteClass)
         {

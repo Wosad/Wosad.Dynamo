@@ -42,11 +42,12 @@ namespace Steel.AISC_10.General
         ///    Calculates yield and ultimate stress for slected steel material as well as modulus of elasticity and shear modulus
         /// </summary>
         /// <param name="SteelMaterialId">  Steel material </param>
-        /// <param name="SteelMaterialId">  Bolt diameter (if applicable) </param>
+        /// <param name="d_b">  Bolt diameter (if applicable) </param>
         /// <returns name="F_y"> Specified minimum yield stress </returns>
         /// <returns name="F_u"> Specified minimum tensile strength   </returns>
         /// <returns name="E"> Modulus of elasticity of steel </returns>
         /// <returns name="G"> Shear modulus of elasticity of steel </returns>
+        /// 
 
         [MultiReturn(new[] { "F_y","F_u","E","G" })]
         public static Dictionary<string, object> MaterialMechanicalProperties(string SteelMaterialId, double d_b)

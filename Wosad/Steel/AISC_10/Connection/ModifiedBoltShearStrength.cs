@@ -44,7 +44,6 @@ namespace Steel.AISC_10.Connection
         /// <param name="d_b">  Nominal fastener diameter </param>
         /// <param name="BoltMaterialId">  Bolt material specification </param>
         /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
-        /// <param name="NumberShearPlanes">  Number of shear planes </param>
         /// <returns name="phiR_nt_modified"> Modified shear strength of bolt subjected to tension  </returns>
 
         [MultiReturn(new[] { "phiR_nt_modified" })]

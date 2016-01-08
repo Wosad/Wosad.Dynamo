@@ -40,11 +40,9 @@ namespace Loads.ASCE7_10.Lateral.Seismic.BuildingFundamentalPeriod
         /// <summary>
         ///    Calculates Approximate fundamental period of the building used to account for building dynamic response to base accelerations (s). Procedure applicable to low-rise moment frames - ASCE7-10
         /// </summary>
-        /// <param name="N">  number of stories above the base  /param>
-
+        /// <param name="N">  number of stories above the base </param>
         /// <returns> "Parameter name: T_a", Parameter description: approximate fundamental period of the building </returns>
 
-        /// 
         [MultiReturn(new[] { "T_a" })]
         public static Dictionary<string, object> SeismicFundamentalPeriodMFProcedure_T_a(double N)
         {

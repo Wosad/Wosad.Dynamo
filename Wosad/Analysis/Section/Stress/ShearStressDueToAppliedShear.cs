@@ -42,7 +42,7 @@ namespace Analysis.Section
         /// </summary>
         /// <param name="V">  Internal shear force </param>
         /// <param name="Q">  Statical moment for the point in question </param>
-        /// <param name="I">  Moment of inertia (I_x or I_y where applicable) </par
+        /// <param name="I">  Moment of inertia (I_x or I_y where applicable) </param>
         /// <returns name="tau_b"> Shear stress due to applied shear </returns>
 
         [MultiReturn(new[] { "tau_b" })]

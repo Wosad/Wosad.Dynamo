@@ -40,10 +40,8 @@ namespace Loads.ASCE7_10.Lateral.Wind.ExternalWallPressureCoefficient
         /// <summary>
         ///    Calculates Selection of a zone of the façade for wind pressure calculation - ASCE7-10
         /// </summary>
-        
         /// <returns> "Parameter name: WindWallCladdingZone", Parameter description: zone of the façade for wind pressure calculation </returns>
 
-        /// 
         [MultiReturn(new[] { "WindWallCladdingZone" })]
         public static Dictionary<string, object> WindWallCladdingZone()
         {

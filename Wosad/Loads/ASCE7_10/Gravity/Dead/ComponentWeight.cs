@@ -44,7 +44,7 @@ namespace Loads.ASCE7_10.Gravity.Dead
         /// <param name="ComponentId">  building component id (name) </param>
         /// <param name="ComponentOption1">  building component subtype (option1) </param>
         /// <param name="ComponentOption2">  building component subtype (option2) </param>
-        /// <param name="ComponentValue">  building component numerical value /param>
+        /// <param name="ComponentValue">  building component numerical value</param>
         /// <returns> "Parameter name: q_D", Parameter description: Uniformly distributed component dead load </returns>
         /// 
         [MultiReturn(new[] { "q_D" })]

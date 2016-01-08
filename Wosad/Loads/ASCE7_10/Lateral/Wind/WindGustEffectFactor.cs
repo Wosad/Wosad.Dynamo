@@ -40,16 +40,14 @@ namespace Loads.ASCE7_10.Lateral.Wind
         /// <summary>
         ///    Calculates Wind gust effect factor (G or G_f) accounting for the dynamic interaction between the building and the structure - ASCE7-10. USC units
         /// </summary>
-        /// <param name="WindStructureDynamicResponseType">  type of wind dynamic response (flexible or rigid) /param>
-        /// <param name="B">  horizontal dimension of building measured normal to wind direction /param>
-        /// <param name="h">  mean roof height of a building or height of other structure /param>
-        /// <param name="L">  horizontal dimension of a building measured parallel to the wind direction /param>
-        /// <param name="beta">  damping ratio, percent critical for buildings or other structures /param>
-        /// <param name="V">  basic wind speed /param>
-
+        /// <param name="WindStructureDynamicResponseType">  type of wind dynamic response (flexible or rigid)</param>
+        /// <param name="B">  horizontal dimension of building measured normal to wind direction</param>
+        /// <param name="h">  mean roof height of a building or height of other structure</param>
+        /// <param name="L">  horizontal dimension of a building measured parallel to the wind direction</param>
+        /// <param name="beta">  damping ratio, percent critical for buildings or other structures</param>
+        /// <param name="V">  basic wind speed</param>
         /// <returns> "Parameter name: G", Parameter description: gust-effect factor </returns>
 
-        /// 
         [MultiReturn(new[] { "G" })]
         public static Dictionary<string, object> WindGustEffectFactor_G(string WindStructureDynamicResponseType,double B,double h,double L,double beta,double V)
         {

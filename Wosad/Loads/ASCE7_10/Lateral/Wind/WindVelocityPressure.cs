@@ -40,12 +40,10 @@ namespace Loads.ASCE7_10.Lateral.Wind
         /// <summary>
         ///    Calculates Velocity pressure (q_z), evaluated at height z accounting for the basic wind pressure prior to adjustment by the building –specific aerodynamic and dynamic factors - ASCE7-10. USC units
         /// </summary>
-        /// <param name="V">  basic wind speed /param>
-/// <param name="WindVelocityLocation">  Location type for wind velocity used in pressure calculations /param>
-
+        /// <param name="V">  basic wind speed</param>
+/// <param name="WindVelocityLocation">  Location type for wind velocity used in pressure calculations</param>
         /// <returns> "Parameter name: q_z", Parameter description: velocity pressure evaluated at height z above ground </returns>
 
-        /// 
         [MultiReturn(new[] { "q_z" })]
         public static Dictionary<string, object> WindVelocityPressure_q_z(double V,string WindVelocityLocation)
         {

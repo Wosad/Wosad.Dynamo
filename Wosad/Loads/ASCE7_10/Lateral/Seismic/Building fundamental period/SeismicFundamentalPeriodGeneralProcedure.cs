@@ -40,11 +40,9 @@ namespace Loads.ASCE7_10.Lateral.Seismic.BuildingFundamentalPeriod
         /// <summary>
         ///    Calculates Approximate fundamental period of the building used to account for building dynamic response to base accelerations (s). Procedure applicable to any building structure - ASCE7-10. USC units
         /// </summary>
-        /// <param name="h_n">  structural height defined as  the vertical distance  from the base to the highest level of the seismic force-resisting system of the structure.   /param>
-
-        /// <returns> "Parameter name: T_a", Parameter description: approximate fundamental period of the building </returns>
-
-        /// 
+        /// <param name="h_n">  structural height defined as  the vertical distance  from the base to the highest level of the seismic force-resisting system of the structure.  </param>
+       /// <returns> "Parameter name: T_a", Parameter description: approximate fundamental period of the building </returns>
+ 
         [MultiReturn(new[] { "T_a" })]
         public static Dictionary<string, object> SeismicFundamentalPeriodGeneralProcedure_T_a(double h_n)
         {

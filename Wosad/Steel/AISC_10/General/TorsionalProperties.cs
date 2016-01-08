@@ -51,6 +51,7 @@ namespace Steel.AISC_10.General
         /// <returns name="S_w3"> Warping statical moment at point 3 on cross section </returns>
         /// <returns name="Q_fl"> Statical moment for a point in the flange directly above the vertical edge of the web </returns>
         /// <returns name="Q_w"> Statical moment for a point at mid-depth of the cross section </returns>
+        /// 
 
         [MultiReturn(new[] { "J","C","C_w","W_no","S_w1","S_w2","S_w3","Q_fl","Q_w" })]
         public static Dictionary<string, object> TorsionalProperties(string SteelShapeId)

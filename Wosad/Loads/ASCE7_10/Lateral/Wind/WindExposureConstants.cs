@@ -40,7 +40,6 @@ namespace Loads.ASCE7_10.Lateral.Wind
         /// <summary>
         ///    Calculates Terrain exposure constants, as a function of Exposure Category - ASCE7-10. USC units
         /// </summary>
-        
         /// <returns> "Parameter name: alpha", Parameter description: 3-sec gust-speed power law exponent </returns>
 /// <returns> "Parameter name: z_g", Parameter description: nominal height of the atmospheric boundary layer used in this standard </returns>
 /// <returns> "Parameter name: alpha_", Parameter description: mean hourly wind-speed power law exponent </returns>
@@ -50,7 +49,6 @@ namespace Loads.ASCE7_10.Lateral.Wind
 /// <returns> "Parameter name: epsilon_", Parameter description: integral length scale power law exponent </returns>
 /// <returns> "Parameter name: z_min", Parameter description: exposure constant </returns>
 
-        /// 
         [MultiReturn(new[] { "alpha","z_g","alpha_","b_","c","l","epsilon_","z_min" })]
         public static Dictionary<string, object> WiindExposureConsatnts()
         {

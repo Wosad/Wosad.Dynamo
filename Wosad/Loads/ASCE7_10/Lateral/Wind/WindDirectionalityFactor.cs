@@ -40,11 +40,9 @@ namespace Loads.ASCE7_10.Lateral.Wind
         /// <summary>
         ///    Calculates Wind directionality factor (K_d)  - ASCE7-10
         /// </summary>
-        /// <param name="WindStructureDescriptionForExposure">  Description of the structure for exposure category determination /param>
-
+        /// <param name="WindStructureDescriptionForExposure">  Description of the structure for exposure category determination</param>
         /// <returns> "Parameter name: K_d", Parameter description: wind directionality factor </returns>
 
-        /// 
         [MultiReturn(new[] { "K_d" })]
         public static Dictionary<string, object> WindDirectionalityFactor_K_d(string WindStructureDescriptionForExposure)
         {

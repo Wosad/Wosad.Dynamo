@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
+<!--
+	Copyright (C) 2015 Wosad Inc
+-->
+
 <Root>
   <XTreeItem Header="SIMPLY SUPPORTED" Description="Simply supported" Id="X" ResourcePath="BC1SimplySupported" Tag="X" TemplateName="Category" TreePath="SIMPLY SUPPORTED">
     <XTreeItem Header="CONCENTRATED LOAD" Description="Concentrated load" Id="X" ResourcePath="LoadAConcentrated" Tag="X" TemplateName="Category" TreePath="SIMPLY SUPPORTED\CONCENTRATED LOAD">

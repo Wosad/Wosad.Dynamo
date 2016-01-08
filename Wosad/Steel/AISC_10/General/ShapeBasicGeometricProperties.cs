@@ -50,8 +50,10 @@ namespace Steel.AISC_10.General
 /// <returns name="H_t"> Overall depth of square or rectangular HSS </returns>
 /// <returns name="t"> Thickness of element plate or element wall  </returns>
 /// <returns name="t_nom"> HSS and pipe nominal wall thickness </returns>
+///  <returns name="A"> Cross-sectional area </returns>
+///  
 
-        [MultiReturn(new[] { "d","b_f","t_f","t_w","D","B","H_t","t","t_nom" })]
+        [MultiReturn(new[] { "d","b_f","t_f","t_w","D","B","H_t","t","t_nom","A" })]
         public static Dictionary<string, object> ShapeBasicGeometricProperties(string SteelShapeId)
         {
             //Default values
@@ -64,7 +66,7 @@ double B = 0;
 double H_t = 0;
 double t = 0;
 double t_nom = 0;
-
+double A = 0;
 
 //Calculation logic
 CalcLog cl = new CalcLog();
@@ -78,6 +80,7 @@ B = shape.B;
 H_t = shape.Ht;
 t = shape.t;
 t_nom = shape.tnom;
+A = shape.A;
 
             return new Dictionary<string, object>
             {
@@ -90,7 +93,7 @@ t_nom = shape.tnom;
 ,{ "H_t", H_t }
 ,{ "t", t }
 ,{ "t_nom", t_nom }
- 
+ ,{ "A", A }
             };
         }
 

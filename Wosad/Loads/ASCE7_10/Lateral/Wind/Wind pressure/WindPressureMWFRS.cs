@@ -40,15 +40,13 @@ namespace Loads.ASCE7_10.Lateral.Wind.WindPressure
         /// <summary>
         ///    Calculates Wind pressure on Main Wind-Force Resisting System (MWFRS) elements (psf) - ASCE7-10. USC units
         /// </summary>
-        /// <param name="q">  velocity pressure /param>
-/// <param name="G">  gust-effect factor /param>
-/// <param name="C_p">  external pressure coefficient to be used in determination of wind loads for buildings /param>
-/// <param name="q_i">  velocity pressure for internal pressure determination /param>
-/// <param name="GC_pi">  product of internal pressure coefficient and gust-effect factor to be used in determination of wind loads for buildings /param>
-
+        /// <param name="q">  velocity pressure</param>
+/// <param name="G">  gust-effect factor</param>
+/// <param name="C_p">  external pressure coefficient to be used in determination of wind loads for buildings</param>
+/// <param name="q_i">  velocity pressure for internal pressure determination</param>
+/// <param name="GC_pi">  product of internal pressure coefficient and gust-effect factor to be used in determination of wind loads for buildings</param>
         /// <returns> "Parameter name: p", Parameter description: design pressure to be used in determination of wind loads for buildings </returns>
 
-        /// 
         [MultiReturn(new[] { "p" })]
         public static Dictionary<string, object> WindPressureMWFRS_p(double q,double G,double C_p,double q_i,double GC_pi)
         {

@@ -40,12 +40,10 @@ namespace Loads.ASCE7_10.Lateral.Wind
         /// <summary>
         ///    Calculates Basic wind speed (V) as a function of building location. (mph) - ASCE7-10
         /// </summary>
-        /// <param name="Latitude">  Location latitude /param>
-/// <param name="Longitude">  Location longitude /param>
-
+        /// <param name="Latitude">  Location latitude</param>
+/// <param name="Longitude">  Location longitude</param>
         /// <returns> "Parameter name: V", Parameter description: basic wind speed </returns>
 
-        /// 
         [MultiReturn(new[] { "V" })]
         public static Dictionary<string, object> WindSpeed_V(double Latitude,double Longitude)
         {

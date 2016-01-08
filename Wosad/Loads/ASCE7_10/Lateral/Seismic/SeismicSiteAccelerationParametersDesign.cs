@@ -40,14 +40,13 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Adjusted spectral response acceleration parameters (S_DS and S_D1) used in design - ASCE7-10
         /// </summary>
-        /// <param name="S_S">  mapped MCER, 5 percent damped, spectral response acceleration parameter at short periods /param>
-/// <param name="S_1">  mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s /param>
-/// <param name="T_L">  long-period transition period /param>
+        /// <param name="S_S">  mapped MCER, 5 percent damped, spectral response acceleration parameter at short periods</param>
+/// <param name="S_1">  mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s</param>
+/// <param name="T_L">  long-period transition period</param>
+        /// <returns> design, 5 percent damped, spectral response acceleration parameter at short periods </returns>
+/// <returns>  design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </returns>
 
-        /// <returns> "Parameter name: S_DS", Parameter description: design, 5 percent damped, spectral response acceleration parameter at short periods </returns>
-/// <returns> "Parameter name: S_D1", Parameter description: design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </returns>
 
-        /// 
         [MultiReturn(new[] { "S_DS","S_D1" })]
         public static Dictionary<string, object> SeismicSiteCoefficients(double S_S,double S_1,double T_L)
         {

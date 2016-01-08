@@ -38,17 +38,15 @@ namespace Loads.ASCE7_10.Lateral.Wind.ExternalWallPressureCoefficient
     public class ExternalPressureCoefficientFacade 
     {
         /// <summary>
-        ///    Calculates External pressure coefficient (GC_p) used in calculation of wind loads on Components and Cladding (C&C) - ASCE7-10. USC units
+        ///    Calculates External pressure coefficient (GC_p) used in calculation of wind loads on Components and Cladding   - ASCE7-10. USC units
         /// </summary>
-        /// <param name="WindWallCladdingZone">  zone of the façade for wind pressure calculation /param>
-/// <param name="theta">  angle of plane of roof from horizontal /param>
-/// <param name="B">  horizontal dimension of building measured normal to wind direction /param>
-/// <param name="L">  horizontal dimension of a building measured parallel to the wind direction /param>
-/// <param name="h">  mean roof height of a building or height of other structure /param>
-
+        /// <param name="WindWallCladdingZone">  zone of the façade for wind pressure calculation</param>
+/// <param name="theta">  angle of plane of roof from horizontal</param>
+/// <param name="B">  horizontal dimension of building measured normal to wind direction</param>
+/// <param name="L">  horizontal dimension of a building measured parallel to the wind direction</param>
+/// <param name="h">  mean roof height of a building or height of other structure</param>
         /// <returns> "Parameter name: GC_p", Parameter description: product of external pressure coefficient and gust-effect factor to be used in determination of wind loads for buildings </returns>
 
-        /// 
         [MultiReturn(new[] { "GC_p" })]
         public static Dictionary<string, object> ExternalPressureCoefficientFacade_GC_p(string WindWallCladdingZone,double theta,double B,double L,double h)
         {

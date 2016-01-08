@@ -40,10 +40,8 @@ namespace Loads.ASCE7_10.Lateral.Seismic.BuildingFundamentalPeriod
         /// <summary>
         ///    Calculates Approximate fundamental period of the building used to account for building dynamic response to base accelerations (s). Procedure applicable to  concrete and masonry shear wall buildings - ASCE7-10. USC units
         /// </summary>
-        
         /// <returns> "Parameter name: T_a", Parameter description: approximate fundamental period of the building </returns>
 
-        /// 
         [MultiReturn(new[] { "T_a" })]
         public static Dictionary<string, object> SeismicFundamentalPeriodShearWallProcedure_T_a()
         {

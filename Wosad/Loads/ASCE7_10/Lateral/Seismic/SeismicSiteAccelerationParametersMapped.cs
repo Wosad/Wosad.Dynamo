@@ -40,14 +40,13 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Mapped spectral response acceleration parameters (S_S and S_1) and long-period transition period (T_L) for Maximum Considered Earthquake, 5 percent damped structure) - ASCE7-10
         /// </summary>
-        /// <param name="Latitude">  Location latitude /param>
-/// <param name="Longitude">  Location longitude /param>
-
+        /// <param name="Latitude">  Location latitude</param>
+/// <param name="Longitude">  Location longitude</param>
         /// <returns> "Parameter name: S_S", Parameter description: mapped MCER, 5 percent damped, spectral response acceleration parameter at short periods </returns>
 /// <returns> "Parameter name: S_1", Parameter description: mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s </returns>
 /// <returns> "Parameter name: T_L", Parameter description: long-period transition period </returns>
 
-        /// 
+ 
         [MultiReturn(new[] { "S_S","S_1","T_L" })]
         public static Dictionary<string, object> SiteAccelerationParametersMapped(double Latitude,double Longitude)
         {

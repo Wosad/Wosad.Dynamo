@@ -40,11 +40,9 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Importance factor (I_e) for seismic loads - ASCE7-10
         /// </summary>
-        /// <param name="BuildingRiskCategory">  Building risk category /param>
-
+        /// <param name="BuildingRiskCategory">  Building risk category</param>
         /// <returns> "Parameter name: I_e", Parameter description: seismic importance factor  </returns>
 
-        /// 
         [MultiReturn(new[] { "I_e" })]
         public static Dictionary<string, object> SeismicImportanceFactor_I_e(string BuildingRiskCategory)
         {

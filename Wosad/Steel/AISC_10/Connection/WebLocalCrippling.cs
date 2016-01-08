@@ -45,7 +45,7 @@ namespace Steel.AISC_10.Connection
         /// <param name="l_b">  Length of bearing   </param>
         /// <param name="d">  Full nominal depth of the section    </param>
         /// <param name="F_yw">  Specified minimum yield stress of the web material  </param>
-        /// /// <param name="l_edge">  Edge distance </param>
+        /// <param name="l_edge">  Edge distance </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]

@@ -40,11 +40,9 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         /// <summary>
         ///    Calculates Fundamental period of the building  (T) used to account for building dynamic response to base accelerations (s) - ASCE7-10
         /// </summary>
-        /// <param name="C_u">  Coefficient for upper limit on  calculated period /param>
-
+        /// <param name="C_u">  Coefficient for upper limit on  calculated period</param>
         /// <returns> "Parameter name: T", Parameter description: fundamental period of the building </returns>
 
-        /// 
         [MultiReturn(new[] { "T" })]
         public static Dictionary<string, object> ApproximateBuildingFundamentalPeriodSeismic_T(double C_u)
         {

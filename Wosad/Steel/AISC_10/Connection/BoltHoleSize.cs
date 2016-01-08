@@ -44,7 +44,6 @@ namespace Steel.AISC_10.Connection
         /// </summary>
         /// <param name="d_b">  Nominal fastener diameter </param>
         /// <param name="BoltHoleType">  Type of bolt hole </param>
-
         /// <returns name="d_hole"> Bolt hole diameter </returns>
 
         [MultiReturn(new[] { "d_hole" })]
