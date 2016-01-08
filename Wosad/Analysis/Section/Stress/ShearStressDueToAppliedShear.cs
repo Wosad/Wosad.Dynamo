@@ -29,39 +29,41 @@ namespace Analysis.Section
 {
 
 /// <summary>
-///     Pure torsion stress in open cross section
-///     Category:   Analysis.Beam
+///     Shear stress due to applied shear
+///     Category:   Analysis.Section
 /// </summary>
 /// 
 
-    public partial class TorsionalStress 
+
+    public partial class ElasticStress 
     {
         /// <summary>
-        ///    Calculates Pure torsion stress in open cross section
+        ///    Calculates Shear stress due to applied shear
         /// </summary>
-        ///  ///<param name="G">  Shear modulus of elasticity </param>
-        /// <param name="t_el">  Thickness of element </param>
-        /// <param name="theta_1der">  First derivative of angle of rotation with respect to z </param>
-        /// <returns name="tau_t"> Pure torsional shear stress </returns>
+        /// <param name="V">  Internal shear force </param>
+        /// <param name="Q">  Statical moment for the point in question </param>
+        /// <param name="I">  Moment of inertia (I_x or I_y where applicable) </par
+        /// <returns name="tau_b"> Shear stress due to applied shear </returns>
 
-        [MultiReturn(new[] { "tau_t" })]
-        public static Dictionary<string, object> PureTorsionStress(double G, double t_el, double theta_1der)
+        [MultiReturn(new[] { "tau_b" })]
+        public static Dictionary<string, object> ShearStressDueToAppliedShear(double V,double Q,double I)
         {
             //Default values
-            double tau_t = 0;
+            double tau_b = 0;
 
 
             //Calculation logic:
             SectionStressAnalysis analysis = new SectionStressAnalysis();
-            tau_t = analysis.GetPureTorsionStressOpenSection(G, t_el, theta_1der);
+            tau_b = analysis.GetShearStressDueToAppliedShear(V, Q, I);
 
             return new Dictionary<string, object>
             {
-                { "tau_t", tau_t }
+                { "tau_b", tau_b }
  
             };
-
         }
+
+
 
     }
 }

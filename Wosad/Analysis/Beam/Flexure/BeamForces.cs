@@ -25,7 +25,7 @@ using Wosad.Analysis;
 
 #endregion
 
-namespace Analysis.Beam.Flexure
+namespace Analysis.Beam
 {
 
 /// <summary>
@@ -35,7 +35,7 @@ namespace Analysis.Beam.Flexure
 /// 
 
 
-    public partial class BeamAnalysis 
+    public partial class Flexure 
     {
         /// <summary>
         ///    Calculates Calculation of beam forces

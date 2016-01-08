@@ -36,6 +36,7 @@ namespace Steel.AISC_10.General
     [IsDesignScriptCompatible]
     public partial class MaterialProperties
     {
+        [IsVisibleInDynamoLibrary(false)]
         internal MaterialProperties (string SteelMaterialId)
         {
 

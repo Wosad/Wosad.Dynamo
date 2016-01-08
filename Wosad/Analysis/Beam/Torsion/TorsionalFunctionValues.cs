@@ -22,10 +22,11 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Analysis.Torsion;
+using System;
 
 #endregion
 
-namespace Analysis.Beam.Torsion
+namespace Analysis.Beam
 {
 
 /// <summary>
@@ -35,7 +36,7 @@ namespace Analysis.Beam.Torsion
 /// 
 
 
-    public partial class BeamAnalysis 
+    public partial class Torsion 
     {
             /// <summary>
             ///    Calculates Evaluation of torsional functions 
@@ -66,11 +67,17 @@ namespace Analysis.Beam.Torsion
 
 
             //Calculation logic:
+            TorsionalFunctionCase TCase = (TorsionalFunctionCase)Enum.Parse(typeof(TorsionalFunctionCase),TorsionalFunctionCaseId);
             TorsionalFunctionFactory tf = new TorsionalFunctionFactory();
-            ITorsionalFunction function = tf.GetTorsionalFunction(TorsionalFunctionCase.Case3, E, G, J, L, z, T, C_w, t, alpha);
+            if (TCase==null)
+            {
+                throw new Exception("Torsional case is not recognized. Check input string.");
+            }
+            ITorsionalFunction function = tf.GetTorsionalFunction(TCase, E, G, J, L, z, T, C_w, t, alpha);
+            theta = function.Get_theta();
             theta_1der = function.Get_theta_1();
-            theta_2der = function.Get_theta_1();
-            theta_3der = function.Get_theta_1();
+            theta_2der = function.Get_theta_2();
+            theta_3der = function.Get_theta_3();
 
             return new Dictionary<string, object>
             {

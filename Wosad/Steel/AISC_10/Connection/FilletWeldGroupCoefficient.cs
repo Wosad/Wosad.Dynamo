@@ -39,17 +39,17 @@ namespace Steel.AISC_10.Connection
 
     public partial class Welded 
     {
-/// <summary>
-///    Calculates Eccentrically loaded weld group coefficient
-/// </summary>
-        /// <param name="WeldGroupPattern">  Weld group pattern type </param>
-/// <param name="l_Weld_horizontal">  Weld group horizontal dimension  </param>
-/// <param name="l_Weld_vertical">  Weld group vertical dimension  </param>
-/// <param name="e_group">  Connection bolt or weld group eccentricity </param>
-/// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
-        /// <param name="w_weld">  Size of weld leg </param>
-        /// <param name="F_EXX">  Filler metal classification strength </param>
-        /// <returns name="C_WeldGroup"> Coefficient for eccentrically loaded weld group </returns>
+            /// <summary>
+            ///    Calculates Eccentrically loaded weld group coefficient
+            /// </summary>
+            /// <param name="WeldGroupPattern">  Weld group pattern type </param>
+            /// <param name="l_Weld_horizontal">  Weld group horizontal dimension  </param>
+            /// <param name="l_Weld_vertical">  Weld group vertical dimension  </param>
+            /// <param name="e_group">  Connection bolt or weld group eccentricity </param>
+            /// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
+            /// <param name="w_weld">  Size of weld leg </param>
+            /// <param name="F_EXX">  Filler metal classification strength </param>
+            /// <returns name="C_WeldGroup"> Coefficient for eccentrically loaded weld group </returns>
 
         [MultiReturn(new[] { "C_WeldGroup" })]
         public static Dictionary<string, object> FilletWeldGroupCoefficient(string WeldGroupPattern,double l_Weld_horizontal,double l_Weld_vertical,double e_group,

@@ -24,22 +24,21 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 
-    //[IsDesignScriptCompatible]
-    //public partial class Bolted
-    //{
+    public partial class Bolted
+    {
+        [IsVisibleInDynamoLibrary(false)]
+        internal Bolted(string BoltMaterialId, string BoltThreadCase)
+        {
 
-    //    //internal Bolted(string BoltMaterialId, string BoltThreadCase)
-    //    //{
-
-    //    //}
-    //    //[IsVisibleInDynamoLibrary(false)]
-    //    //public static Bolted ByInputParameters(string BoltMaterialId, string BoltThreadCase)
-    //    //{
-    //    //    return new Bolted(BoltMaterialId, BoltThreadCase);
-    //    //}
-    //}
+        }
+        [IsVisibleInDynamoLibrary(false)]
+        public static Bolted ByInputParameters(string BoltMaterialId, string BoltThreadCase)
+        {
+            return new Bolted(BoltMaterialId, BoltThreadCase);
+        }
+    }
 }

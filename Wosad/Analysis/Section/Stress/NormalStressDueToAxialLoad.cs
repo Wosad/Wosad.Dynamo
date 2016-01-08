@@ -29,39 +29,39 @@ namespace Analysis.Section
 {
 
 /// <summary>
-///     Pure torsion stress in open cross section
-///     Category:   Analysis.Beam
+///     Normal stress due to axial load
+///     Category:   Analysis.Section
 /// </summary>
 /// 
 
-    public partial class TorsionalStress 
+
+    public partial class ElasticStress 
     {
         /// <summary>
-        ///    Calculates Pure torsion stress in open cross section
+        ///    Calculates Normal stress due to axial load
         /// </summary>
-        ///  ///<param name="G">  Shear modulus of elasticity </param>
-        /// <param name="t_el">  Thickness of element </param>
-        /// <param name="theta_1der">  First derivative of angle of rotation with respect to z </param>
-        /// <returns name="tau_t"> Pure torsional shear stress </returns>
+        /// <param name="P">  Concentrated load in beam, or axial load in compression member </param>
+        /// <param name="A">  Area of cross section </param>
+        /// <returns name="sigma_a"> Normal stress due to axial load </returns>
 
-        [MultiReturn(new[] { "tau_t" })]
-        public static Dictionary<string, object> PureTorsionStress(double G, double t_el, double theta_1der)
+        [MultiReturn(new[] { "sigma_a" })]
+        public static Dictionary<string, object> NormalStressDueToAxialLoad(double P,double A)
         {
             //Default values
-            double tau_t = 0;
+            double sigma_a = 0;
 
 
             //Calculation logic:
             SectionStressAnalysis analysis = new SectionStressAnalysis();
-            tau_t = analysis.GetPureTorsionStressOpenSection(G, t_el, theta_1der);
+            sigma_a = analysis.GetNormalStressDueToAxialLoad(P, A);
 
             return new Dictionary<string, object>
             {
-                { "tau_t", tau_t }
+                { "sigma_a", sigma_a }
  
             };
-
         }
+
 
     }
 }

@@ -24,28 +24,24 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Steel.AISC_10.General
+namespace Analysis.Section
 {
-
-/// <summary>
-///     AISC shape properties
-///     Category:   Steel.AISC_10.General
-/// </summary>
-/// 
 
 
     [IsDesignScriptCompatible]
-    public partial class StandardShapeProperties 
+    public partial class ElasticStress 
     {
+
+
         [IsVisibleInDynamoLibrary(false)]
-        internal StandardShapeProperties (string SteelShapeId)
+        internal ElasticStress(double P, double A)
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static StandardShapeProperties  ByInputParameters(string SteelShapeId)
+        public static ElasticStress ByInputParameters(double P, double A)
         {
-            return new StandardShapeProperties(SteelShapeId );
+            return new ElasticStress(P, A);
         }
 
     }

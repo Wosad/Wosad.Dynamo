@@ -21,8 +21,8 @@
 
             <WosadControls:EnumDataCollection x:Key="BeamCopeSource" d:IsDataSource="True">
                 <WosadControls:EnumDataElement   Icon="{StaticResource Uncoped}" EnumString="Uncoped" Description="Uncoped" />
-                <WosadControls:EnumDataElement   Icon="{StaticResource CopeSingle}" EnumString="Single" Description="Single cope"/>
-                <WosadControls:EnumDataElement   Icon="{StaticResource CopeDouble}" EnumString="Double" Description="Double cope"/>
+                <WosadControls:EnumDataElement   Icon="{StaticResource CopeSingle}" EnumString="CopedTopFlange" Description="Single cope"/>
+                <WosadControls:EnumDataElement   Icon="{StaticResource CopeDouble}" EnumString="CopedBothFlanges" Description="Double cope"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

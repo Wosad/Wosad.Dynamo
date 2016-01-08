@@ -42,7 +42,6 @@ namespace Loads.ASCE7_10.Gravity.Live
         /// </summary>
         /// <param name="SpaceOccupancy">  description of space for calculation of live loads /param>
         /// <returns> "Parameter name: q_L", Parameter description: Uniformly distributed live load </returns>
-
         /// 
         [MultiReturn(new[] { "q_L" })]
         public static Dictionary<string, object> UniformLiveLoad_q_L(string SpaceOccupancyId)

@@ -158,16 +158,33 @@
   <ItemGroup>
     <Compile Include="Analysis\Beam\Flexure\BeamDeflections.cs" />
     <Compile Include="Analysis\Beam\Flexure\BeamForces.cs" />
-    <Compile Include="Analysis\Beam\Groups\BeamAnalysis.cs" />
-    <Compile Include="Analysis\Section\Stress\Groups\ElasticStress.cs" />
-    <Compile Include="Analysis\Section\Stress\Groups\TorsionalStress.cs" />
-    <Compile Include="Analysis\Section\Stress\NormalStressDueToWarping.cs" />
-    <Compile Include="Analysis\Section\Stress\PureTorsionStress.cs" />
-    <Compile Include="Analysis\Section\Stress\ShearStressDueToWarping.cs" />
+    <Compile Include="Analysis\Beam\Groups\BeamAnalysisTorsion.cs" />
+    <Compile Include="Analysis\Beam\Groups\BeamAnalysisFlexure.cs" />
     <Compile Include="Analysis\Beam\Torsion\TorsionalFunctionValues.cs" />
-    <Compile Include="Analysis\Section\Stress\NormalStressDueToAxialLoad.cs" />
-    <Compile Include="Analysis\Section\Stress\NormalStressDueToBending.cs" />
-    <Compile Include="Analysis\Section\Stress\ShearStressDueToAppliedShear.cs" />
+    <Compile Include="Analysis\Section\Stress\Groups\ElasticStress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Section\Stress\Groups\TorsionalStress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Section\Stress\NormalStressDueToAxialLoad.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Section\Stress\NormalStressDueToBending.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Section\Stress\NormalStressDueToWarping.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Section\Stress\PureTorsionStress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Section\Stress\ShearStressDueToAppliedShear.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Section\Stress\ShearStressDueToWarping.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Loads\ASCE7_10\General\RiskCategory.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Dead\ComponentWeight.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Live\UniformLiveLoad.cs" />

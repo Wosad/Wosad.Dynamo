@@ -25,7 +25,7 @@ using Wosad.Analysis.Section;
 
 #endregion
 
-namespace Analysis.Beam
+namespace Analysis.Section
 {
 
 /// <summary>

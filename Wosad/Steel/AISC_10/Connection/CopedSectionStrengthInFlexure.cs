@@ -24,6 +24,7 @@ using Dynamo.Nodes;
 using System;
 using Wosad.Steel.AISC;
 using a=Wosad.Steel.AISC;
+using Wosad.Steel.AISC.AISC360_10.Connections;
 
 #endregion
 
@@ -40,20 +41,22 @@ namespace Steel.AISC_10.Connection
     [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Coped section strength in flexure
-/// </summary>
-/// <param name="d">  Full nominal depth of the section    </param>
+        /// <summary>
+        ///    Calculates Coped section strength in flexure
+        /// </summary>
+        /// <param name="d">  Full nominal depth of the section    </param>
+        /// /// <returns name="b_f"> Width of flange  </returns>
+        /// <returns name="t_f"> Thickness of flange   </returns>
         /// <param name="d_c">  Depth of cope    </param>
         /// <param name="c">  Length of cope    </param>
-/// <param name="t_w">  Thickness of web  </param>
-/// <param name="F_u">  Specified minimum tensile strength   </param>
-/// <param name="BeamCopeCase">  Identifies beam cope condition for stability calculations: single cope vs double cope </param>
-
+        /// <param name="t_w">  Thickness of web  </param>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+        /// <param name="F_u">  Specified minimum tensile strength   </param>
+        /// <param name="BeamCopeCase">  Identifies beam cope condition for stability calculations: single cope vs double cope </param>
         /// <returns name="phiM_n"> Moment strength </returns>
 
         [MultiReturn(new[] { "phiM_n" })]
-        public static Dictionary<string, object> CopedSectionStrengthInFlexure(double d, double d_cope, double c, double t_w, double F_u, string BeamCopeCase)
+        public static Dictionary<string, object> CopedSectionStrengthInFlexure(double d, double b_f, double t_f, double d_cope, double c, double t_w, double F_y, double F_u, string BeamCopeCase)
         {
             //Default values
             double phiM_n = 0;
@@ -64,18 +67,9 @@ namespace Steel.AISC_10.Connection
               bool IsValidStringLoadType = Enum.TryParse(BeamCopeCase, true, out copeType);
                 if (IsValidStringLoadType == true)
                 {
-                    switch (copeType)
-                    {
-                        case a.BeamCopeCase.CopedBothFlanges:
-                            break;
-                        case a.BeamCopeCase.CopedTopFlange:
-                            break;
-                        case a.BeamCopeCase.Uncoped:
-                            break;
-                        default:
-                            break;
-                    }
-                    // logic
+                    BeamCopeFactory factory = new BeamCopeFactory();
+                    IBeamCope copedBeam = factory.GetCope(copeType, d, b_f, t_f, t_w, d_cope, c, F_y, F_u);
+                    phiM_n = copedBeam.GetFlexuralStrength();
                 }
                 else
                 {

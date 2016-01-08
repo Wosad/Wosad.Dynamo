@@ -24,23 +24,22 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Steel.AISC_10.Connection
 {
 
 
-    //[IsDesignScriptCompatible]
-    //public partial class Welded
-    //{
+    public partial class Welded
+    {
 
+        [IsVisibleInDynamoLibrary(false)]
+        internal Welded(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
+        {
 
-    //    internal Welded(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
-    //    {
-
-    //    }
-    //    [IsVisibleInDynamoLibrary(false)]
-    //    public static Welded ByInputParameters(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
-    //    {
-    //        return new Welded(WeldGroupPattern, l_transv, l_longit, w_weld, F_EXX);
-    //    }
-    //}
+        }
+        [IsVisibleInDynamoLibrary(false)]
+        public static Welded ByInputParameters(string WeldGroupPattern, double l_transv, double l_longit, double w_weld, double F_EXX)
+        {
+            return new Welded(WeldGroupPattern, l_transv, l_longit, w_weld, F_EXX);
+        }
+    }
 }

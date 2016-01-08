@@ -28,31 +28,31 @@ using Wosad.Reporting.ResultBuilder;
 
 namespace Report
 {
-    public static class Report
-    {
-        public static string ReportCollector(List<string> ReportParts, string filename)
-        {
-            try
-            {
-                var reportsCollection = new List<ICalcLog>();
-                foreach (var report in ReportParts)
-                {
-                    ICalcLog objectReport = JsonConvert.DeserializeObject<CalcLog>(report);
-                    reportsCollection.Add(objectReport);
-                }
+    //public static class Report
+    //{
+    //    public static string ReportCollector(List<string> ReportParts, string filename)
+    //    {
+    //        try
+    //        {
+    //            var reportsCollection = new List<ICalcLog>();
+    //            foreach (var report in ReportParts)
+    //            {
+    //                ICalcLog objectReport = JsonConvert.DeserializeObject<CalcLog>(report);
+    //                reportsCollection.Add(objectReport);
+    //            }
 
-                ResultBuilder buidler = new ResultBuilder();
-                var result = buidler.BuildResultStream(reportsCollection, CalculatorOutputType.Word);
+    //            ResultBuilder buidler = new ResultBuilder();
+    //            var result = buidler.BuildResultStream(reportsCollection, CalculatorOutputType.Word);
 
-                File.WriteAllBytes(filename, result);
+    //            File.WriteAllBytes(filename, result);
 
-                return "File was saved successfully!";
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-                //return "Wrong input data!";
-            }
-        }
-    }
+    //            return "File was saved successfully!";
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            return ex.Message;
+    //            //return "Wrong input data!";
+    //        }
+    //    }
+    //}
 }

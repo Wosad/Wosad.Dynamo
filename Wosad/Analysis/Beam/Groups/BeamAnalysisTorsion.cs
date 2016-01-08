@@ -24,24 +24,24 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Analysis.Beam.Flexure
+namespace Analysis.Beam
 {
 
 
     [IsDesignScriptCompatible]
-    public partial class BeamAnalysis 
+    public partial class Torsion 
     {
 
+         [IsVisibleInDynamoLibrary(false)]
+        internal Torsion(double L, double X, double P, double M, double w, double a_load, double b_load, double c_load, double P1, double P2, double M1, double M2)
+        {
 
-        //internal BeamForces (double L,double X,double P,double M,double w,double a_load,double b_load,double c_load,double P1,double P2,double M1,double M2)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static BeamForces  ByInputParameters(double L,double X,double P,double M,double w,double a_load,double b_load,double c_load,double P1,double P2,double M1,double M2)
-        //{
-        //    return new BeamForces(L ,X ,P ,M ,w ,a_load ,b_load ,c_load ,P1 ,P2 ,M1 ,M2 );
-        //}
+        }
+        [IsVisibleInDynamoLibrary(false)]
+         public static Torsion ByInputParameters(double L, double X, double P, double M, double w, double a_load, double b_load, double c_load, double P1, double P2, double M1, double M2)
+        {
+            return new Torsion(L, X, P, M, w, a_load, b_load, c_load, P1, P2, M1, M2);
+        }
 
     }
 }

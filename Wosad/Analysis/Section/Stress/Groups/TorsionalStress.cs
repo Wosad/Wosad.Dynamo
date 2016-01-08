@@ -24,25 +24,24 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Analysis.Beam
+namespace Analysis.Section
 {
-
 
 
     [IsDesignScriptCompatible]
     public partial class TorsionalStress 
     {
 
+        [IsVisibleInDynamoLibrary(false)]
+        internal TorsionalStress()
+        {
 
-        //internal TorsionalStress (double t,double theta_1der)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static TorsionalStress  ByInputParameters(double t,double theta_1der)
-        //{
-        //    return new TorsionalStress(t ,theta_1der );
-        //}
+        }
+        [IsVisibleInDynamoLibrary(false)]
+        public static TorsionalStress ByInputParameters()
+        {
+            return new TorsionalStress();
+        }
 
     }
 }
