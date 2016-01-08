@@ -29,18 +29,18 @@ namespace Analysis.Beam
 
 
     [IsDesignScriptCompatible]
-    public partial class Torsion 
+    public partial class Flexure 
     {
 
          //[IsVisibleInDynamoLibrary(false)]
-        internal Torsion(double L, double X, double P, double M, double w, double a_load, double b_load, double c_load, double P1, double P2, double M1, double M2)
+        internal Flexure(double L, double X, double P, double M, double w, double a_load, double b_load, double c_load, double P1, double P2, double M1, double M2)
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-         public static Torsion ByInputParameters(double L, double X, double P, double M, double w, double a_load, double b_load, double c_load, double P1, double P2, double M1, double M2)
+         public static Flexure ByInputParameters(double L, double X, double P, double M, double w, double a_load, double b_load, double c_load, double P1, double P2, double M1, double M2)
         {
-            return new Torsion(L, X, P, M, w, a_load, b_load, c_load, P1, P2, M1, M2);
+            return new Flexure(L, X, P, M, w, a_load, b_load, c_load, P1, P2, M1, M2);
         }
 
     }

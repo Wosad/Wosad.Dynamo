@@ -134,8 +134,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Wosad.Common, Version=0.0.1.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.1.5\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.1.9\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -162,6 +162,7 @@
     <Compile Include="Common\TreeItems\Category.cs" />
     <Compile Include="Common\TreeItems\XmlTreeHelper.cs" />
     <Compile Include="Common\TreeItems\XTreeItem.cs" />
+    <Compile Include="Nodes\Analysis\Beam\Flexure\BeamForceCaseSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Dead\ComponentIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
@@ -186,6 +187,9 @@
     <Compile Include="Nodes\Steel\AISC_10\General\BoltTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\General\RecommendedMaterialSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Analysis\Beam\Flexure\BeamForceCaseView.xaml.cs">
+      <DependentUpon>BeamForceCaseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIdView.xaml.cs">
       <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
     </Compile>
@@ -333,6 +337,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Common\Themes\ExpressionLightTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Views\Analysis\Beam\Flexure\BeamForceCaseIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Page Include="Views\Analysis\Beam\Flexure\BeamForceCaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -681,6 +693,9 @@
     <EmbeddedResource Include="Resources\WTShapes.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Analysis\Beam\Flexure\BeamForceCaseTreeData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

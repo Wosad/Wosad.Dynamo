@@ -22,6 +22,7 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Analysis;
+using wa = Wosad.Analysis;
 
 #endregion
 
@@ -40,6 +41,7 @@ namespace Analysis.Beam
         /// <summary>
         ///    Calculates Calculation of beam forces
         /// </summary>
+        /// <param name="BeamForcesCaseId">  Case ID used in calculation of the beam forces </param>
         /// <param name="L">  member span length </param>
         /// <param name="X">  Distance from left support </param>
         /// <param name="P">  Concentrated load in beam, or axial load in compression member </param>
@@ -59,7 +61,7 @@ namespace Analysis.Beam
         /// <returns name="V_x"> Shear at loaction X </returns>
 
         [MultiReturn(new[] { "M_max","M_min","V_max","M_x","V_x" })]
-        public static Dictionary<string, object> BeamForces(double L,double X,double P,double M,double w,double a_load,double b_load,double c_load,double P1,double P2,double M1,double M2)
+        public static Dictionary<string, object> BeamForces(string BeamForcesCaseId, double L,double X=0,double P=0,double M=0,double w=0,double a_load=0,double b_load=0,double c_load=0,double P1=0,double P2=0,double M1=0,double M2=0)
         {
             //Default values
             double M_max = 0;
@@ -69,24 +71,22 @@ namespace Analysis.Beam
             double V_x = 0;
 
 
-            ////Calculation logic:
-            ////select beam load factory: general, overhang and cantilever cases
-            //BeamLoadFactoryLocator loc = new BeamLoadFactoryLocator(this);
-            //IBeamLoadFactory loadFactory = loc.GetLoadFactory(BeamCaseId);
-            //LoadBeam load = loadFactory.GetLoad(BeamCaseId);
-            //if (load != null)
-            //{
-            //    loads.Add(load);
-            //}
-            //BeamInstanceFactory beamFactory = new BeamInstanceFactory(this);
-            //Wosad.Analysis.Beam bm = beamFactory.CreateBeamInstance(BeamCaseId, loads, this.CalculationLog);
+            //Calculation logic:
 
 
-            //M_x = bm.GetMoment(X);
-            //V_x = bm.GetShear(X);
-            //M_max = bm.GetMomentMaximum();
-            //M_min = bm.GetMomentMinimum();
-            //V_max = bm.GetShearMaximumValue();
+            BeamFactoryData dat = new BeamFactoryData(L,P,M,w,a_load,b_load,c_load,P1,P2,M1,M2);
+            BeamLoadFactoryLocator loc = new BeamLoadFactoryLocator();
+            IBeamLoadFactory loadFactory = loc.GetLoadFactory(BeamForcesCaseId, dat);
+            LoadBeam load = loadFactory.GetLoad(BeamForcesCaseId);
+            BeamInstanceFactory beamFactory = new BeamInstanceFactory(dat);
+            wa.Beam bm = beamFactory.CreateBeamInstance(BeamForcesCaseId, load, null);
+
+
+            M_x = bm.GetMoment(X);
+            V_x = bm.GetShear(X);
+            M_max = bm.GetMomentMaximum().Value;
+            M_min = bm.GetMomentMinimum().Value;
+            V_max = bm.GetShearMaximumValue().Value;
 
             return new Dictionary<string, object>
             {
