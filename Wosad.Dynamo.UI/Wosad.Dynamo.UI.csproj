@@ -162,6 +162,7 @@
     <Compile Include="Common\TreeItems\Category.cs" />
     <Compile Include="Common\TreeItems\XmlTreeHelper.cs" />
     <Compile Include="Common\TreeItems\XTreeItem.cs" />
+    <Compile Include="Nodes\Analysis\Beam\Flexure\BeamDeflectionCaseSelection.cs" />
     <Compile Include="Nodes\Analysis\Beam\Flexure\BeamForceCaseSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Dead\ComponentIdSelection.cs" />
@@ -187,6 +188,9 @@
     <Compile Include="Nodes\Steel\AISC_10\General\BoltTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\General\RecommendedMaterialSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Analysis\Beam\Flexure\BeamDeflectionCaseView.xaml.cs">
+      <DependentUpon>BeamDeflectionCaseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Analysis\Beam\Flexure\BeamForceCaseView.xaml.cs">
       <DependentUpon>BeamForceCaseView.xaml</DependentUpon>
     </Compile>
@@ -344,6 +348,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>
+    <Page Include="Views\Analysis\Beam\Flexure\BeamDeflectionCaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Analysis\Beam\Flexure\BeamForceCaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -696,6 +704,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Analysis\Beam\Flexure\BeamForceCaseTreeData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Analysis\Beam\Flexure\BeamDeflectionCaseTreeData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -79,7 +79,7 @@ namespace Analysis.Beam
             IBeamLoadFactory loadFactory = loc.GetLoadFactory(BeamForcesCaseId, dat);
             LoadBeam load = loadFactory.GetLoad(BeamForcesCaseId);
             BeamInstanceFactory beamFactory = new BeamInstanceFactory(dat);
-            wa.Beam bm = beamFactory.CreateBeamInstance(BeamForcesCaseId, load, null);
+            IAnalysisBeam bm = beamFactory.CreateBeamInstance(BeamForcesCaseId, load, null);
 
 
             M_x = bm.GetMoment(X);

@@ -41,7 +41,7 @@ namespace Loads.ASCE7_10.Lateral.Seismic
         ///    Calculates Seismic base shear (V_b)  - ASCE7-10. USC units
         /// </summary>
         /// <param name="W_e">  effective seismic weight of the building</param>
-/// <param name="C_s">  seismic response coefficient which multiplied by the building seismic weight, gives the building seismic base shear (lateral pseudo-acceleration, expressed in units of gravity)</param>
+        /// <param name="C_s">  seismic response coefficient which multiplied by the building seismic weight, gives the building seismic base shear (lateral pseudo-acceleration, expressed in units of gravity)</param>
         /// <returns> "Parameter name: V_b", Parameter description: Seismic base shear </returns>
 
         [MultiReturn(new[] { "V_b" })]
