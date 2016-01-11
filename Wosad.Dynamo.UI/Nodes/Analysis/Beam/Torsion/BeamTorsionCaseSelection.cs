@@ -34,30 +34,32 @@ using GalaSoft.MvvmLight.CommandWpf;
 using Wosad.Dynamo.UI.Common.TreeItems;
 
 
-namespace Wosad.Analysis.Beam.Flexure
+
+namespace Wosad.Analysis.Beam.Torsion
 {
 
     /// <summary>
-    ///Selection of beam load and boundary condition case for deflection  calculation  
+    ///Selection of beam load and boundary condition case for torsional analysis  
     /// </summary>
 
-    [NodeName("Beam deflection case selection")]
-    [NodeCategory("Wosad.Analysis.Beam.Flexure")]
-    [NodeDescription("Selection of beam load and boundary condition case for deflection  calculation")]
+    [NodeName("Torsion case selection")]
+    [NodeCategory("Wosad.Analysis.Beam.Torsion")]
+    [NodeDescription("Selection of beam load and boundary condition case for torsional analysis")]
     [IsDesignScriptCompatible]
-    public class BeamDeflectionCaseSelection : UiNodeBase
+    public class BeamTorsionCaseSelection : UiNodeBase
     {
 
-        public BeamDeflectionCaseSelection()
+        public BeamTorsionCaseSelection()
         {
             ReportEntry = "";
-            BeamDeflectionCaseId = "C1B_1";
-            BeamForcesCaseDescription = "Simply supported. Uniform load on full span. Uniformly distributed load";
+            BeamTorsionCaseDescription="Uniformly distributed torque";
+            BeamTorsionCaseId = "Case4";
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("BeamDeflectionCaseId", "Case ID used in calculation of the beam deflection"));
+            OutPortData.Add(new PortData("BeamTorsionCaseId", "Case ID used in calculation of the values of torsional functions (per AISC design guide 9)"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;
         }
+
 
 
 
@@ -79,36 +81,36 @@ namespace Wosad.Analysis.Beam.Flexure
 
         #region OutputProperties
 
-		#region BeamDeflectionCaseIdProperty
+		#region BeamTorsionCaseIdProperty
 		
 		/// <summary>
-		/// BeamDeflectionCaseId property
+		/// BeamTorsionCaseId property
 		/// </summary>
 		/// <value>Case ID used in calculation of the beam forces</value>
-		public string _BeamDeflectionCaseId;
+		public string _BeamTorsionCaseId;
 		
-		public string BeamDeflectionCaseId
+		public string BeamTorsionCaseId
 		{
-		    get { return _BeamDeflectionCaseId; }
+		    get { return _BeamTorsionCaseId; }
 		    set
 		    {
-		        _BeamDeflectionCaseId = value;
-		        RaisePropertyChanged("BeamDeflectionCaseId");
+		        _BeamTorsionCaseId = value;
+		        RaisePropertyChanged("BeamTorsionCaseId");
 		        OnNodeModified();
 		    }
 		}
 		#endregion
 
 
-        #region BeamForcesCaseDescription Property
-        private string _BeamForcesCaseDescription;
-        public string BeamForcesCaseDescription
+        #region BeamTorsionCaseDescription Property
+        private string _BeamTorsionCaseDescription;
+        public string BeamTorsionCaseDescription
         {
-            get { return _BeamForcesCaseDescription; }
+            get { return _BeamTorsionCaseDescription; }
             set
             {
-                _BeamForcesCaseDescription = value;
-                RaisePropertyChanged("BeamForcesCaseDescription");
+                _BeamTorsionCaseDescription = value;
+                RaisePropertyChanged("BeamTorsionCaseDescription");
             }
         }
         #endregion
@@ -150,7 +152,7 @@ namespace Wosad.Analysis.Beam.Flexure
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("BeamDeflectionCaseId", BeamDeflectionCaseId);
+            nodeElement.SetAttribute("BeamFTorsionCaseId", BeamTorsionCaseId);
         }
 
         /// <summary>
@@ -159,17 +161,17 @@ namespace Wosad.Analysis.Beam.Flexure
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["BeamDeflectionCaseId"];
+            var attrib = nodeElement.Attributes["BeamTorsionCaseId"];
             if (attrib == null)
                 return;
 
-            BeamDeflectionCaseId = attrib.Value;
+            BeamTorsionCaseId = attrib.Value;
             SetCaseDescription();
         }
 
         private void SetCaseDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Analysis/Beam/Flexure/BeamForceCaseTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Analysis/Beam/Torsion/BeamTorsionCaseTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindCaseDescription));
         }
@@ -180,9 +182,9 @@ namespace Wosad.Analysis.Beam.Flexure
         {
             if (null != node.Attributes["Id"])
             {
-                if (node.Attributes["Id"].Value == BeamDeflectionCaseId)
+                if (node.Attributes["Id"].Value == BeamTorsionCaseId)
                 {
-                    BeamForcesCaseDescription = node.Attributes["Description"].Value;
+                    BeamTorsionCaseDescription = node.Attributes["Description"].Value;
                 }
             }
         }
@@ -267,9 +269,9 @@ namespace Wosad.Analysis.Beam.Flexure
                 string id = xtreeItem.Id;
                 if (id != "X")
                 {
-                    BeamDeflectionCaseId = xtreeItem.Id;
+                    BeamTorsionCaseId = xtreeItem.Id;
                     SelectedItem = xtreeItem;
-                    BeamForcesCaseDescription = xtreeItem.Description;
+                    BeamTorsionCaseDescription = xtreeItem.Description;
                 }
             }
         }
@@ -281,14 +283,14 @@ namespace Wosad.Analysis.Beam.Flexure
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BeamDeflectionCaseSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BeamDeflectionCaseSelection>
+        public class BeamTorsionCaseSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<BeamTorsionCaseSelection>
         {
-            public void CustomizeView(BeamDeflectionCaseSelection model, NodeView nodeView)
+            public void CustomizeView(BeamTorsionCaseSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BeamDeflectionCaseView control = new BeamDeflectionCaseView();
+                BeamTorsionCaseView control = new BeamTorsionCaseView();
                 control.DataContext = model;
                 
                 //remove this part if control does not contain tree

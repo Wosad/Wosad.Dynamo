@@ -164,6 +164,9 @@
     <Compile Include="Common\TreeItems\XTreeItem.cs" />
     <Compile Include="Nodes\Analysis\Beam\Flexure\BeamDeflectionCaseSelection.cs" />
     <Compile Include="Nodes\Analysis\Beam\Flexure\BeamForceCaseSelection.cs" />
+    <Compile Include="Nodes\Analysis\Beam\Torsion\BeamTorsionCaseSelection.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Nodes\Loads\ASCE7_10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Dead\ComponentIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
@@ -193,6 +196,9 @@
     </Compile>
     <Compile Include="Views\Analysis\Beam\Flexure\BeamForceCaseView.xaml.cs">
       <DependentUpon>BeamForceCaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseView.xaml.cs">
+      <DependentUpon>BeamTorsionCaseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIdView.xaml.cs">
       <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
@@ -355,6 +361,14 @@
     <Page Include="Views\Analysis\Beam\Flexure\BeamForceCaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -707,6 +721,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Analysis\Beam\Flexure\BeamDeflectionCaseTreeData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseTreeData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

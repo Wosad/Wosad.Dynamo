@@ -1,7 +1,7 @@
 ﻿<!--
 	Copyright (C) 2015 Wosad Inc
 -->
-<UserControl x:Class="Wosad.Dynamo.UI.Views.Analysis.Beam.Flexure.BeamForceCaseView"
+<UserControl x:Class="Wosad.Dynamo.UI.Views.Analysis.Beam.Flexure.BeamTorsionCaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,18 +15,18 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="BeamForceCaseIcons.xaml"/>
+                <ResourceDictionary Source="BeamTorsionCaseIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converters:StyleConverter x:Key="IconStyleConverter">
                 <converters:StyleConverter.ResourceDictionary>
-                    <ResourceDictionary Source="BeamForceCaseIcons.xaml"/>
+                    <ResourceDictionary Source="BeamTorsionCaseIcons.xaml"/>
                 </converters:StyleConverter.ResourceDictionary>
             </converters:StyleConverter>
             <converters:TreeItemConverter x:Key="TreeItemConverter"/>
 
             <XmlDataProvider x:Key="xmldata"
-                         Source="BeamForceCaseTreeData.xml"
+                         Source="BeamTorsionCaseTreeData.xml"
                          XPath="/Root" />
             <HierarchicalDataTemplate DataType="XTreeItem"
                                   ItemsSource="{Binding XPath=./*}">
@@ -51,7 +51,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Beam case" VerticalAlignment="Center"  Margin="0"/>
                 <TextBox HorizontalAlignment="Stretch" Margin="10,5,5,5" Grid.Column="1" Height="45" 
-                         Text="{Binding BeamForcesCaseDescription, Mode=TwoWay }" TextWrapping="Wrap" 
+                         Text="{Binding BeamTorsionCaseDescription, Mode=TwoWay }" TextWrapping="Wrap" 
                          />
             </Grid>
             <Expander Header="Boundary conditions and load type selection" IsExpanded="False" >
