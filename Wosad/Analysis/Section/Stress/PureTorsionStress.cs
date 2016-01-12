@@ -32,14 +32,14 @@ namespace Analysis.Section
 ///     Pure torsion stress in open cross section
 ///     Category:   Analysis.Beam
 /// </summary>
-/// 
+
 
     public partial class TorsionalStress 
     {
         /// <summary>
-        ///    Calculates Pure torsion stress in open cross section
+        /// Calculates Pure torsion stress in open cross section
         /// </summary>
-        ///  ///<param name="G">  Shear modulus of elasticity </param>
+        /// <param name="G">  Shear modulus of elasticity </param>
         /// <param name="t_el">  Thickness of element </param>
         /// <param name="theta_1der">  First derivative of angle of rotation with respect to z </param>
         /// <returns name="tau_t"> Pure torsional shear stress </returns>

@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
+<!--
+	Copyright (C) 2015 Wosad Inc
+-->
+
 <Root>
   <XTreeItem Header="FREE ENDS" Description="Free ends" Id="X" ResourcePath="TorsionFree" Tag="X" TemplateName="Category" TreePath="FREE ENDS">
     <XTreeItem Header="Pair of concentrated torques" Description="Free ends.Pair of concentrated torques. " Id="Case1" ResourcePath="PairOfT" Tag="X" TemplateName="Block" TreePath="FREE ENDS\Pair of concentrated torques" />
