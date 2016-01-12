@@ -45,7 +45,6 @@ namespace Wosad.Dynamo.Common
         public void CustomizeView(IUiNodeBase model, NodeView nodeView)
         {
 
-            //this.viewModel = model;
             //// The view variable is a reference to the node's view.
             //// In the middle of the node is a grid called the InputGrid.
             //// We reccommend putting your custom UI in this grid, as it has
@@ -53,78 +52,68 @@ namespace Wosad.Dynamo.Common
 
             //// Create an instance of our custom UI class (defined in xaml),
             //// and put it into the input grid.
-            //UserControl control = this.GetUserControl();
-            //if (control!=null)
-            //{
-            //    //control.DataContext = this.viewModel;
-            //    nodeView.inputGrid.Children.Add(control);
-            //}
            
 
-            var dm = nodeView.ViewModel.DynamoViewModel.Model;
-            //this.viewModel.Calculate();
+            //var dm = nodeView.ViewModel.DynamoViewModel.Model;
 
-            model.RequestOutputChange += delegate
-            {
-                model.DispatchOnUIThread(delegate
-                {
-                    if (model.InPorts.Any(x => x.Connectors.Count == 0)) return;
-                    for (int i = 0; i < model.InPorts.Count(); i++)
-                    {
-                        var thisNode = model.InPorts[i].Connectors[0].Start.Owner;
-                        var thisNodeIndex = model.InPorts[i].Connectors[0].Start.Index;
-                        var thisNodeId = thisNode.GetAstIdentifierForOutputIndex(thisNodeIndex).Name;
-                        var thisElementMirror = dm.EngineController.GetMirror(thisNodeId);
+            //model.RequestOutputChange += delegate
+            //{
+            //    model.DispatchOnUIThread(delegate
+            //    {
+            //        if (model.InPorts.Any(x => x.Connectors.Count == 0)) return;
+            //        for (int i = 0; i < model.InPorts.Count(); i++)
+            //        {
+            //            var thisNode = model.InPorts[i].Connectors[0].Start.Owner;
+            //            var thisNodeIndex = model.InPorts[i].Connectors[0].Start.Index;
+            //            var thisNodeId = thisNode.GetAstIdentifierForOutputIndex(thisNodeIndex).Name;
+            //            var thisElementMirror = dm.EngineController.GetMirror(thisNodeId);
                         
-                        object objectVal = null;
+            //            object objectVal = null;
 
-                        if (thisElementMirror == null)
-                        {
-                            objectVal = 0;
-                        }
-                        else
-                        {
-                            if (thisElementMirror.GetData().IsCollection)
-                            {
-                                objectVal = thisElementMirror.GetData().GetElements().
-                                    Select(x => x.Data).FirstOrDefault();
-                            }
-                            else
-                            {
-                                objectVal = thisElementMirror.GetData().Data;
-                            }
-                        }
-                        if (objectVal!=null)
-                        {
-                            var props = model.GetType().GetProperties();
-                            var i1 = i;
-                            var outProp = props.FirstOrDefault(p => p.Name == model.InPorts[i1].PortName);
-                            if (outProp != null && outProp.PropertyType == typeof(Double))
-                            {
-                                outProp.SetValue(model, Double.Parse(objectVal.ToString()));
-                                model. OnNodeModified(false);
-                            }
-                            else if (outProp != null && outProp.PropertyType == typeof(String))
-                            {
-                                outProp.SetValue(model, objectVal.ToString());
-                                model.OnNodeModified(false);
-                            }
-                            else if (outProp != null && outProp.PropertyType == typeof(bool))
-                            {
-                                outProp.SetValue(model, Boolean.Parse(objectVal.ToString()));
-                                model.OnNodeModified(false);
-                            }
+            //            if (thisElementMirror == null)
+            //            {
+            //                objectVal = 0;
+            //            }
+            //            else
+            //            {
+            //                if (thisElementMirror.GetData().IsCollection)
+            //                {
+            //                    objectVal = thisElementMirror.GetData().GetElements().
+            //                        Select(x => x.Data).FirstOrDefault();
+            //                }
+            //                else
+            //                {
+            //                    objectVal = thisElementMirror.GetData().Data;
+            //                }
+            //            }
+            //            if (objectVal!=null)
+            //            {
+            //                var props = model.GetType().GetProperties();
+            //                var i1 = i;
+            //                var outProp = props.FirstOrDefault(p => p.Name == model.InPorts[i1].PortName);
+            //                if (outProp != null && outProp.PropertyType == typeof(Double))
+            //                {
+            //                    outProp.SetValue(model, Double.Parse(objectVal.ToString()));
+            //                    model. OnNodeModified(false);
+            //                }
+            //                else if (outProp != null && outProp.PropertyType == typeof(String))
+            //                {
+            //                    outProp.SetValue(model, objectVal.ToString());
+            //                    model.OnNodeModified(false);
+            //                }
+            //                else if (outProp != null && outProp.PropertyType == typeof(bool))
+            //                {
+            //                    outProp.SetValue(model, Boolean.Parse(objectVal.ToString()));
+            //                    model.OnNodeModified(false);
+            //                }
                             
-                        }
-                    }
+            //            }
+            //        }
 
-                    //this.viewModel.Calculate();
-                });
-            };
+            //    });
+            //};
            
         }
-
-        //protected abstract UserControl GetUserControl();
 
         /// <summary>
         /// Here you can do any cleanup you require if you've assigned callbacks for particular 

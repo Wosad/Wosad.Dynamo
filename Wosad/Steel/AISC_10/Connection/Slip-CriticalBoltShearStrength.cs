@@ -21,6 +21,11 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.Bolted;
+using Wosad.Steel.AISC;
+using Wosad.Steel.AISC.Interfaces;
+using b = Wosad.Steel.AISC.SteelEntities.Bolts;
+using System;
 
 #endregion
 
@@ -41,18 +46,29 @@ namespace Steel.AISC_10.Connection
         /// </summary>
         /// <param name="d_b">  Nominal fastener diameter </param>
         /// <param name="BoltMaterialId">  Bolt material specification </param>
+        /// <param name="BoltHoleType">  Type of bolt hole </param>
         /// <param name="BoltFillerCase">  Distinguishes between filler cases for slip-critical bolt capacity calculations </param>
+        /// <param name="BoltFayingSurfaceClass">  Identifies the type of faying surface for a slip critical bolt </param>
         /// <param name="NumberShearPlanes">  Number of shear planes </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> SlipCriticalBoltShearStrength(double d_b,string BoltMaterialId,string BoltFillerCase,double NumberShearPlanes)
+        public static Dictionary<string, object> SlipCriticalBoltShearStrength(double d_b,string BoltMaterialId, string BoltHoleType, string BoltFillerCase="One", string BoltFayingSurfaceClass="ClassA", double NumberShearPlanes=1)
         {
             //Default values
             double phiR_n = 0;
 
+            BoltFayingSurfaceClass SurfaceClass = ParseSurfaceClass(BoltFayingSurfaceClass);
+            BoltFillerCase FillerCase = ParseFillerCase(BoltFillerCase);
+            b.BoltHoleType HoleType = ParseBoltHoleType(BoltHoleType);
+            //BoltHoleType
+            //BoltFillerCase
+
 
             //Calculation logic:
+            BoltFactory bf = new BoltFactory(BoltMaterialId);
+            IBoltSlipCritical bolt = bf.GetSlipCriticalBolt(d_b, BoltThreadCase.Included, SurfaceClass, HoleType, FillerCase, NumberShearPlanes);
+            phiR_n = bolt.GetSlipResistance();
 
 
             return new Dictionary<string, object>
@@ -61,6 +77,64 @@ namespace Steel.AISC_10.Connection
  
             };
         }
+
+        private static b.BoltHoleType ParseBoltHoleType(string BoltHoleType)
+        {
+            b.BoltHoleType holeType;
+            bool IsValidString = Enum.TryParse(BoltHoleType, true, out holeType);
+            if (IsValidString == true)
+            {
+                return holeType;
+            }
+            else
+            {
+                throw new Exception("Bolt strength calculation failed. Invalid hole type designation.");
+            }
+        }
+
+        private static BoltFillerCase ParseFillerCase(string BoltFillerCase)
+        {
+            BoltFillerCase fillerCase;
+            bool IsValidString = Enum.TryParse(BoltFillerCase, true, out fillerCase);
+            if (IsValidString == true)
+            {
+                return fillerCase;
+            }
+            else
+            {
+                throw new Exception("Bolt strength calculation failed. Invalid filler case specification.");
+            }
+        }
+
+        private static BoltFayingSurfaceClass ParseSurfaceClass(string BoltFayingSurfaceClass)
+        {
+            BoltFayingSurfaceClass surfaceClass;
+
+            if (BoltFayingSurfaceClass =="A")
+            {
+                surfaceClass = Wosad.Steel.AISC.BoltFayingSurfaceClass.ClassA;
+            }
+            else if (BoltFayingSurfaceClass == "B")
+            {
+                surfaceClass = Wosad.Steel.AISC.BoltFayingSurfaceClass.ClassB;
+            }
+            else
+            {
+
+                bool IsValidString = Enum.TryParse(BoltFayingSurfaceClass, true, out surfaceClass);
+                if (IsValidString == true)
+                {
+                    return surfaceClass;
+                }
+                else
+                {
+                    throw new Exception("Bolt strength calculation failed. Invalid faying surface class.");
+                }
+            }
+
+            return surfaceClass;
+        }
+
 
 
     }
