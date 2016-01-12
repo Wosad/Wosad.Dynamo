@@ -61,8 +61,7 @@ namespace Steel.AISC_10.Connection
             BoltFayingSurfaceClass SurfaceClass = ParseSurfaceClass(BoltFayingSurfaceClass);
             BoltFillerCase FillerCase = ParseFillerCase(BoltFillerCase);
             b.BoltHoleType HoleType = ParseBoltHoleType(BoltHoleType);
-            //BoltHoleType
-            //BoltFillerCase
+
 
 
             //Calculation logic:

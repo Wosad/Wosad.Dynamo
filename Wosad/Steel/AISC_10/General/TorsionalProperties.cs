@@ -61,7 +61,6 @@ namespace Steel.AISC_10.General
                 double C = 0;
                 double C_w = 0;
                 double W_no = 0;
-                double S_wo = 0;
                 double S_w1 = 0;
                 double S_w2 = 0;
                 double S_w3 = 0;

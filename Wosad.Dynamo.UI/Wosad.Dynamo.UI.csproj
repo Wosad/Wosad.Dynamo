@@ -188,6 +188,8 @@
     <Compile Include="Nodes\Steel\AISC_10\Connection\BoltHoleDeformationSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\BoltHoleTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\BoltThreadInclusionSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\GroupShearAreaPatternSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Connection\GussetConfigurationSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Tension\ShearLagCaseSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\WeldLoadTypeAndDirection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\StressDistributionSelection.cs" />
@@ -289,6 +291,12 @@
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Connection\BoltTypeView.xaml.cs">
       <DependentUpon>BoltTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\GroupShearAreaPatternView.xaml.cs">
+      <DependentUpon>GroupShearAreaPatternView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Connection\GussetConfigurationView.xaml.cs">
+      <DependentUpon>GussetConfigurationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase2Control.xaml.cs">
       <DependentUpon>ShearLagCase2Control.xaml</DependentUpon>
@@ -496,6 +504,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Steel\AISC_10\Connection\BoltTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\GroupAreaPatternIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\GroupShearAreaPatternView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\GussetConfigurationIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Connection\GussetConfigurationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

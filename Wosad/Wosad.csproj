@@ -232,7 +232,11 @@
     <Compile Include="Steel\AISC_10\Connection\BearingBoltShearStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingStrengthAtBoltHole.cs" />
     <Compile Include="Steel\AISC_10\Connection\BlockShearStrength.cs" />
+    <Compile Include="Steel\AISC_10\Connection\BoltGroupBearingStrength.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Steel\AISC_10\Connection\BoltGroupCoefficient.cs" />
+    <Compile Include="Steel\AISC_10\Connection\BoltGroupShearAndTensionAreas.cs" />
     <Compile Include="Steel\AISC_10\Connection\BoltGroupStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\BoltHoleSize.cs" />
     <Compile Include="Steel\AISC_10\Connection\BoltNominalTensileStress.cs" />
@@ -246,6 +250,7 @@
     <Compile Include="Steel\AISC_10\Connection\Groups\AffectedElements.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\Bolted.cs" />
     <Compile Include="Steel\AISC_10\Connection\Groups\Welded.cs" />
+    <Compile Include="Steel\AISC_10\Connection\GussetPlateEffectiveCompressionLength.cs" />
     <Compile Include="Steel\AISC_10\Connection\MaximumTensileForceWithEffectsOfPryingAction.cs" />
     <Compile Include="Steel\AISC_10\Connection\MinimumPlateThicknessEffectsOfPryingAction.cs" />
     <Compile Include="Steel\AISC_10\Connection\ModifiedBoltShearStrength.cs" />
@@ -259,6 +264,7 @@
     <Compile Include="Steel\AISC_10\Connection\WeldStrength.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Steel\AISC_10\Connection\WhitmoreSectionWidth.cs" />
     <Compile Include="Steel\AISC_10\General\Groups\MaterialProperties.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -29,7 +29,7 @@ namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Bolt group bearing strength
+///     Whitmore section width
 ///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
@@ -38,27 +38,26 @@ namespace Steel.AISC_10.Connection
     public partial class AffectedElements 
     {
         /// <summary>
-        ///    Calculates Strength of bolt group for the bearing on base material limit state
+        ///    Calculates Width of Whitmore section
         /// </summary>
-        /// <param name="N_BoltRowParallel">  Number of bolt rows parallel  to direction of load </param>
-        /// <param name="N_BoltRowPerpendicular">  Number of bolt columns perpendicular to direction of load </param>
-        /// <param name="phiR_nFirstRow">  Bolt bearing strength for first row of bolts </param>
-        /// <param name="phiR_nInnerRow">  Bolt bearing strength for inner row of bolts </param>
-        /// <returns name="phiR_n"> Strength of member or connection </returns>
+        /// <param name="l">  Length of connection or weld   </param>
+        /// <param name="b_con">  Connection width </param>
+        /// <returns name="b_Whitmore"> Whitmore section width </returns>
 
-        [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> BoltGroupBearingStrength(double N_BoltRowParallel,double N_BoltRowPerpendicular,double phiR_nFirstRow,double phiR_nInnerRow)
+        [MultiReturn(new[] { "b_Whitmore" })]
+        public static Dictionary<string, object> WhitmoreSectionWidth(double l,double b_con)
         {
             //Default values
-            double phiR_n = 0;
+            double b_Whitmore = 0;
 
 
             //Calculation logic:
-            AffectedElementWithHoles el = new AffectedElementWithHoles();
-            phiR_n = el.GetBoltGroupBearingStrength(N_BoltRowParallel, N_BoltRowPerpendicular, phiR_nFirstRow, phiR_nInnerRow);
+            AffectedElement el = new AffectedElement();
+            b_Whitmore = el.GetWhitmoreSectionWidth(l, b_con);
+
             return new Dictionary<string, object>
             {
-                { "phiR_n", phiR_n }
+                { "b_Whitmore", b_Whitmore }
  
             };
         }

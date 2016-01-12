@@ -38,23 +38,24 @@ namespace Analysis.Beam
 
     public partial class Flexure 
     {
-            /// <summary>
-            ///    Calculates Calculation of beam deflections
-            /// </summary>
-            /// <param name="L">  member span length </param>
-            /// <param name="P">  Concentrated load in beam, or axial load in compression member </param>
-            /// <param name="M">  Concentrated moment </param>
-            /// <param name="w">  Uniformly distributed load </param>
-            /// <param name="E">  Modulus of elasticity of steel </param>
-            /// <param name="I">  Moment of inertia (I_x or I_y where applicable) </param>
-            /// <param name="a_load">  Load offset dimension </param>
-            /// <param name="b_load">  Load offset dimension </param>
-            /// <param name="c_load">  Load offset dimension </param>
-            /// <param name="P1">  Concentrated load 1, when multiple point loads are present </param>
-            /// <param name="P2">  Concentrated load 2, when multiple point loads are present </param>
-            /// <param name="M1">  Concentrated moment 1, when multiple point moments are applied </param>
-            /// <param name="M2">  Concentrated moment 2, when multiple point moments are applied </param>
-            /// <returns name="Delta_max"> Maximum deflection </returns>
+        /// <summary>
+        ///    Calculates Calculation of beam deflections
+        /// </summary>
+        ///  <param name="BeamDeflectionCaseId"> Case ID used in calculation of the beam deflection</param>
+        /// <param name="L">  member span length </param>
+        /// <param name="P">  Concentrated load in beam, or axial load in compression member </param>
+        /// <param name="M">  Concentrated moment </param>
+        /// <param name="w">  Uniformly distributed load </param>
+        /// <param name="E">  Modulus of elasticity of steel </param>
+        /// <param name="I">  Moment of inertia (I_x or I_y where applicable) </param>
+        /// <param name="a_load">  Load offset dimension </param>
+        /// <param name="b_load">  Load offset dimension </param>
+        /// <param name="c_load">  Load offset dimension </param>
+        /// <param name="P1">  Concentrated load 1, when multiple point loads are present </param>
+        /// <param name="P2">  Concentrated load 2, when multiple point loads are present </param>
+        /// <param name="M1">  Concentrated moment 1, when multiple point moments are applied </param>
+        /// <param name="M2">  Concentrated moment 2, when multiple point moments are applied </param>
+        /// <returns name="Delta_max"> Maximum deflection </returns>
 
         [MultiReturn(new[] { "Delta_max" })]
         public static Dictionary<string, object> BeamDeflections(string BeamDeflectionCaseId,double L,  double P, double M, double w, double E, double I, double a_load = 0, double b_load = 0, double c_load = 0, double P1 = 0, double P2 = 0, double M1 = 0, double M2 = 0)
