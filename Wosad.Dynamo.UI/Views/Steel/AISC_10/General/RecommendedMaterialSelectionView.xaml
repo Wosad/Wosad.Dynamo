@@ -134,8 +134,8 @@
 						DataPath="HighStrengthBoltType"  ParameterPath="HighStrengthBoltType"/>
                 </StackPanel>
                 <StackPanel x:Name="AnchorRodStack" Height="Auto" Visibility="{Binding IsMaterialAnchorRod,Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <!--<WosadControls:DataEntryElement Description="Bolt diameter" 
-                                                    DataPath="db"  />-->
+                    <WosadControls:DataEntryElement Description="Bolt diameter" 
+                                                    DataPath="d_b"  />
                     <WosadControls:EnumControl HeaderText="Anchor rod type:" ItemsSource="{StaticResource AnchorRodTypeItemsSource}" 
 						DataPath="AnchorRodType"  ParameterPath="AnchorRodType"/>
                 </StackPanel>

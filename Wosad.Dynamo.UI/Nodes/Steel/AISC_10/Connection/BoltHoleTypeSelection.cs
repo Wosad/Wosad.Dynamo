@@ -57,7 +57,7 @@ namespace Wosad.Steel.AISC_10.Connection
         private void SetDefaultParameters()
         {
             ReportEntry = "";
-            BoltHoleType = "Standard";
+            BoltHoleType = "STD";
         }
 
 

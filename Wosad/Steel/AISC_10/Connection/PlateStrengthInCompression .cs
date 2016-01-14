@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC360_10.Connections.AffectedElements;
 
 #endregion
 
@@ -28,35 +29,33 @@ namespace Steel.AISC_10.Connection
 {
 
 /// <summary>
-///     Connected element strength in compression 
+///     Plate strength in compression 
 ///     Category:   Steel.AISC_10.Connection
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
     public partial class AffectedElements 
     {
-/// <summary>
-///    Calculates Connected element strength in compression 
-/// </summary>
-        /// <param name="A_g">  Gross cross-sectional area of member </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="K">  Effective length factor </param>
-/// <param name="L">  Length of member length of span or unbraced length of member    </param>
-/// <param name="r">  Radius of gyration   </param>
-
+        /// <summary>
+        ///    Calculates Connected element strength in compression 
+        /// </summary>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+        /// <param name="KL">  Effective length of element in compression </param>
+        /// <param name="b">  Width of stiffened or unstiffened compression element </param>
+        /// <param name="t">  Thickness of element plate or element wall  </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> ConnectedElementStrengthInCompression(double A_g,double F_y,double K,double L,double r)
+        public static Dictionary<string, object> PlateStrengthInCompression (double F_y,double KL,double b,double t)
         {
             //Default values
             double phiR_n = 0;
 
 
             //Calculation logic:
-
+            AffectedElementInCompression compMember = new AffectedElementInCompression(F_y, b, t);
+            phiR_n = compMember.GetCompressionCapacity(1.0, KL);
 
             return new Dictionary<string, object>
             {
@@ -65,16 +64,6 @@ namespace Steel.AISC_10.Connection
             };
         }
 
-
-        //internal AffectedElements (double A_g,double F_y,double K,double L,double r)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static AffectedElements  ByInputParameters(double A_g,double F_y,double K,double L,double r)
-        //{
-        //    return new AffectedElements(A_g ,F_y ,K ,L ,r );
-        //}
 
     }
 }

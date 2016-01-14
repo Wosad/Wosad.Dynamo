@@ -21,6 +21,10 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360_10.Connections.Bolted;
+using Wosad.Steel.AISC.Interfaces;
+using Wosad.Steel.AISC;
+using b = Wosad.Steel.AISC.SteelEntities.Bolts;
 
 #endregion
 
@@ -34,28 +38,28 @@ namespace Steel.AISC_10.Connection
 /// 
 
 
-    [IsDesignScriptCompatible]
+
     public partial class Bolted 
     {
-/// <summary>
-///    Calculates Slip-critical bolt Combined Tension and Shear 
-/// </summary>
-        /// <param name="phiR_n">  Strength of member or connection </param>
-/// <param name="d_b">  Nominal fastener diameter </param>
-/// <param name="T_u">  Required tension force </param>
-/// <param name="BoltMaterialId">  Bolt material specification </param>
-
+        /// <summary>
+        ///    Calculates Modified shear strength slip-critical bolt combined tension and shear 
+        /// </summary>
+        /// <param name="d_b">  Nominal fastener diameter </param>
+        /// <param name="T_u">  Required tension force </param>
+        /// <param name="BoltMaterialId">  Bolt material specification </param>
         /// <returns name="phiR_nModified"> Modified shear strength of bolt subjected to tension </returns>
 
         [MultiReturn(new[] { "phiR_nModified" })]
-        public static Dictionary<string, object> Slip-CriticalBoltCombinedTensionAndShear(double phiR_n,double d_b,double T_u,string BoltMaterialId)
+        public static Dictionary<string, object> SlipCriticalBoltCombinedTensionAndShear(double d_b,double T_u,string BoltMaterialId)
         {
             //Default values
             double phiR_nModified = 0;
 
 
             //Calculation logic:
-
+            BoltFactory bf = new BoltFactory(BoltMaterialId);
+            IBoltSlipCritical bolt = bf.GetSlipCriticalBolt(d_b, BoltThreadCase.Included, BoltFayingSurfaceClass.ClassA, b.BoltHoleType.STD, BoltFillerCase.NoFillers, 1);
+            phiR_nModified = bolt.GetReducedSlipResistance(T_u);
 
             return new Dictionary<string, object>
             {

@@ -50,12 +50,13 @@ namespace Wosad.Steel.AISC_10.General
 
         public RecommendedMaterialSelection()
         {
-            
-            
+            int a = 1;
+            //InPortData.Add(new PortData("d_b", "Bolt diameter required for recommended material filtering"));
             OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("SteelMaterialId", "Steel material"));
             RegisterAllPorts();
             SetDefaultParameters();
+
             //PropertyChanged += NodePropertyChanged;
         }
 
@@ -74,9 +75,6 @@ namespace Wosad.Steel.AISC_10.General
 
         #region InputProperties
 
-
-
-	    #endregion
 
         #region OutputProperties
 
@@ -179,10 +177,11 @@ namespace Wosad.Steel.AISC_10.General
             CShapeType = "C";
             TShapeType = "WT";
             CHSType = "CHS";
-            FetchAllAvailableMaterialsList();
+            d_b = 0.75;
             IsShapeI = true;
-
-
+            IsMaterialAnchorRod = false;
+            FetchAllAvailableMaterialsList();
+            UpdateView();
         }
 
         #region All materials
@@ -229,6 +228,7 @@ namespace Wosad.Steel.AISC_10.General
             {
                 _db = value;
                 RaisePropertyChanged("d_b");
+                FetchAllAvailableMaterialsList();
                 UpdateView();
             }
         }
@@ -856,7 +856,6 @@ namespace Wosad.Steel.AISC_10.General
         void UpdateView()
         {
             ClearAllIsShapeProperties();
-            //ShowOrHideParameterInParameterViewer("db", true);
             switch (MaterialGroup)
             {
                 case "Shape":
@@ -1027,9 +1026,9 @@ namespace Wosad.Steel.AISC_10.General
             public double MinDiameter { get; set; }
             public double MaxDiameter { get; set; }
 
-        } 
-        
+        }
 
+        #endregion
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      

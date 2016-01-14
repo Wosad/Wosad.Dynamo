@@ -19,8 +19,8 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="WeldTypeSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement Icon="{StaticResource GussetCompact}" EnumString="CompactCorner"       Description="Compact corner" />
-                <WosadControls:EnumDataElement Icon="{StaticResource GussetNonCompact}" EnumString="NoncompactCorner"       Description="Noncompact corner" />
+                <!--<WosadControls:EnumDataElement Icon="{StaticResource GussetCompact}" EnumString="CompactCorner"       Description="Compact corner" />-->
+                <WosadControls:EnumDataElement Icon="{StaticResource GussetNonCompact}" EnumString="Corner"       Description="Corner" />
                 <WosadControls:EnumDataElement Icon="{StaticResource GussetExtended}" EnumString="ExtendedCorner"       Description="Extended corner" />
                 <WosadControls:EnumDataElement Icon="{StaticResource GussetSingle}" EnumString="SingleBrace"       Description="Single brace" />
                 <WosadControls:EnumDataElement Icon="{StaticResource GussetChevron}" EnumString="Chevron"       Description="Chevron" />
@@ -29,7 +29,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <WosadControls:EnumControl  HeaderText="Weld type:" 
+        <WosadControls:EnumControl  HeaderText="Gusset configuration:" 
                                     ItemsSource="{StaticResource WeldTypeSource}" 
 					DataPath="GussetPlateConfigurationId"/>
     </Grid>

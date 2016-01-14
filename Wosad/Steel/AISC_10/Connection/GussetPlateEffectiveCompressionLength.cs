@@ -45,10 +45,11 @@ namespace Steel.AISC_10.Connection
         /// <param name="GussetPlateConfigurationId">  Type of gusset plate configuration for calculation of effective length </param>
         /// <param name="l_1">  Gusset plate distance from beam to nearest row of bolts </param>
         /// <param name="l_2">  Gusset plate distance from column to nearest row of bolts </param>
+        /// <param name="IsGussetCompactConfiguration">  Indicates whether gusset plate configuration is compact (per Design Guide 29 Appendix C) </param>
         /// <returns name="KL_gusset"> Effective length of gusset plate </returns>
 
         [MultiReturn(new[] { "KL_gusset" })]
-        public static Dictionary<string, object> GussetPlateEffectiveCompressionLength(string GussetPlateConfigurationId,double l_1,double l_2)
+        public static Dictionary<string, object> GussetPlateEffectiveCompressionLength(string GussetPlateConfigurationId, double l_1, double l_2, bool IsGussetCompactConfiguration=false)
         {
             //Default values
             double KL_gusset = 0;
@@ -56,7 +57,7 @@ namespace Steel.AISC_10.Connection
 
             //Calculation logic:
             AffectedElement el = new AffectedElement();
-            GussetPlateConfiguration conf = ParseGussetConfiguration(GussetPlateConfigurationId);
+            GussetPlateConfiguration conf = ParseGussetConfiguration(GussetPlateConfigurationId, IsGussetCompactConfiguration);
             KL_gusset = el.GetGussetPlateEffectiveCompressionLength(conf, l_1, l_2);
 
             return new Dictionary<string, object>
@@ -66,17 +67,31 @@ namespace Steel.AISC_10.Connection
             };
         }
 
-        private static GussetPlateConfiguration ParseGussetConfiguration(string GussetPlateConfigurationId)
+        private static GussetPlateConfiguration ParseGussetConfiguration(string GussetPlateConfigurationId, bool IsGussetCompactConfiguration)
         {
             GussetPlateConfiguration plateConfiguration;
-            bool IsValidString = Enum.TryParse(GussetPlateConfigurationId, true, out plateConfiguration);
-            if (IsValidString == true)
+            if (GussetPlateConfigurationId=="Corner")
             {
-                return plateConfiguration;
+                if (IsGussetCompactConfiguration == true)
+                {
+                    return GussetPlateConfiguration.CompactCorner;
+                }
+                else
+                {
+                    return GussetPlateConfiguration.NoncompactCorner;
+                }
             }
             else
             {
-                throw new Exception("Gusset effective length calculation failed. Invalid configuration case designation.");
+                bool IsValidString = Enum.TryParse(GussetPlateConfigurationId, true, out plateConfiguration);
+                if (IsValidString == true)
+                {
+                    return plateConfiguration;
+                }
+                else
+                {
+                    throw new Exception("Gusset effective length calculation failed. Invalid configuration case designation.");
+                }
             }
         }
 

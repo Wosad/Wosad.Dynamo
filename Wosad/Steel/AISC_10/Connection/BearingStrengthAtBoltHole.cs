@@ -55,7 +55,8 @@ namespace Steel.AISC_10.Connection
         /// <returns name="phiR_nv"> Connection shear strength </returns>
         
         [MultiReturn(new[] { "phiR_nv" })]
-        public static Dictionary<string, object> BearingStrengthAtBoltHole(string BoltHoleType,double l_c,double F_u,double F_y,double d_b,double t,string BoltHoleDeformationType,bool IsUnstiffenedHollowSection)
+        public static Dictionary<string, object> BearingStrengthAtBoltHole(string BoltHoleType,double l_c,double F_u,double F_y,double d_b,double t,
+            string BoltHoleDeformationType="ConsideredUnderServiceLoad",bool IsUnstiffenedHollowSection=false)
         {
             //Default values
             double phiR_nv = 0;
