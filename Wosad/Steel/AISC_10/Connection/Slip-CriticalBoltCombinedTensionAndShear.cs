@@ -47,18 +47,26 @@ namespace Steel.AISC_10.Connection
         /// <param name="d_b">  Nominal fastener diameter </param>
         /// <param name="T_u">  Required tension force </param>
         /// <param name="BoltMaterialId">  Bolt material specification </param>
+        /// <param name="BoltHoleType">  Type of bolt hole </param>
+        /// <param name="BoltFillerCase">  Distinguishes between filler cases for slip-critical bolt capacity calculations </param>
+        /// <param name="BoltFayingSurfaceClass">  Identifies the type of faying surface for a slip critical bolt </param>
+        /// <param name="NumberShearPlanes">  Number of shear planes </param>
         /// <returns name="phiR_nModified"> Modified shear strength of bolt subjected to tension </returns>
 
         [MultiReturn(new[] { "phiR_nModified" })]
-        public static Dictionary<string, object> SlipCriticalBoltCombinedTensionAndShear(double d_b,double T_u,string BoltMaterialId)
+        public static Dictionary<string, object> SlipCriticalBoltCombinedTensionAndShear(double d_b, double T_u, string BoltMaterialId, string BoltHoleType, string BoltFillerCase = "One", string BoltFayingSurfaceClass = "ClassA", double NumberShearPlanes = 1)
         {
             //Default values
             double phiR_nModified = 0;
 
+            BoltFayingSurfaceClass SurfaceClass = ParseSurfaceClass(BoltFayingSurfaceClass);
+            BoltFillerCase FillerCase = ParseFillerCase(BoltFillerCase);
+            b.BoltHoleType HoleType = ParseBoltHoleType(BoltHoleType); 
 
             //Calculation logic:
             BoltFactory bf = new BoltFactory(BoltMaterialId);
-            IBoltSlipCritical bolt = bf.GetSlipCriticalBolt(d_b, BoltThreadCase.Included, BoltFayingSurfaceClass.ClassA, b.BoltHoleType.STD, BoltFillerCase.NoFillers, 1);
+            IBoltSlipCritical bolt = bf.GetSlipCriticalBolt(d_b, BoltThreadCase.Included, SurfaceClass, HoleType, FillerCase, NumberShearPlanes);
+
             phiR_nModified = bolt.GetReducedSlipResistance(T_u);
 
             return new Dictionary<string, object>
@@ -68,16 +76,6 @@ namespace Steel.AISC_10.Connection
             };
         }
 
-
-        //internal Bolted (double phiR_n,double d_b,double T_u,string BoltMaterialId)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Bolted  ByInputParameters(double phiR_n,double d_b,double T_u,string BoltMaterialId)
-        //{
-        //    return new Bolted(phiR_n ,d_b ,T_u ,BoltMaterialId );
-        //}
 
     }
 }

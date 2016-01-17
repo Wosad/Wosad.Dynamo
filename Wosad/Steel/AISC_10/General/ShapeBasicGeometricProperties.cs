@@ -37,50 +37,50 @@ namespace Steel.AISC_10.General
 
     public partial class StandardShapeProperties 
     {
-/// <summary>
-///    Calculates AISC shape geometric properties
-/// </summary>
+        /// <summary>
+        ///    Calculates AISC shape geometric properties
+        /// </summary>
         /// <param name="SteelShapeId">  Section name from steel shape database </param>
         /// <returns name="d"> Full nominal depth of the section    </returns>
-/// <returns name="b_f"> Width of flange  </returns>
-/// <returns name="t_f"> Thickness of flange   </returns>
-/// <returns name="t_w"> Thickness of web  </returns>
-/// <returns name="D"> Outside diameter of round HSS  </returns>
-/// <returns name="B"> Overall width of rectangular steel section along face transferring load or overall width of rectangular HSS member  </returns>
-/// <returns name="H_t"> Overall depth of square or rectangular HSS </returns>
-/// <returns name="t"> Thickness of element plate or element wall  </returns>
-/// <returns name="t_nom"> HSS and pipe nominal wall thickness </returns>
-///  <returns name="A"> Cross-sectional area </returns>
-///  
+        /// <returns name="b_f"> Width of flange  </returns>
+        /// <returns name="t_f"> Thickness of flange   </returns>
+        /// <returns name="t_w"> Thickness of web  </returns>
+        /// <returns name="D"> Outside diameter of round HSS  </returns>
+        /// <returns name="B"> Overall width of rectangular steel section along face transferring load or overall width of rectangular HSS member  </returns>
+        /// <returns name="H_t"> Overall depth of square or rectangular HSS </returns>
+        /// <returns name="t"> Thickness of element plate or element wall  </returns>
+        /// <returns name="t_nom"> HSS and pipe nominal wall thickness </returns>
+        ///  <returns name="A"> Cross-sectional area </returns>
+        ///  
 
         [MultiReturn(new[] { "d","b_f","t_f","t_w","D","B","H_t","t","t_nom","A" })]
         public static Dictionary<string, object> ShapeBasicGeometricProperties(string SteelShapeId)
         {
             //Default values
             double d = 0;
-double b_f = 0;
-double t_f = 0;
-double t_w = 0;
-double D = 0;
-double B = 0;
-double H_t = 0;
-double t = 0;
-double t_nom = 0;
-double A = 0;
+            double b_f = 0;
+            double t_f = 0;
+            double t_w = 0;
+            double D = 0;
+            double B = 0;
+            double H_t = 0;
+            double t = 0;
+            double t_nom = 0;
+            double A = 0;
 
-//Calculation logic
-CalcLog cl = new CalcLog();
-AiscCatalogShape shape = new AiscCatalogShape(SteelShapeId, cl);
-d = shape.d;
-b_f = shape.bf;
-t_f = shape.tf;
-t_w = shape.tw;
-D = shape.OD;
-B = shape.B;
-H_t = shape.Ht;
-t = shape.t;
-t_nom = shape.tnom;
-A = shape.A;
+            //Calculation logic
+            CalcLog cl = new CalcLog();
+            AiscCatalogShape shape = new AiscCatalogShape(SteelShapeId, cl);
+            d = shape.d;
+            b_f = shape.bf;
+            t_f = shape.tf;
+            t_w = shape.tw;
+            D = shape.OD;
+            B = shape.B;
+            H_t = shape.Ht;
+            t = shape.t;
+            t_nom = shape.tnom;
+            A = shape.A;
 
             return new Dictionary<string, object>
             {

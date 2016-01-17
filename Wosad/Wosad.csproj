@@ -171,6 +171,17 @@
     </Compile>
     <Compile Include="Analysis\Beam\Groups\BeamAnalysisTorsion.cs" />
     <Compile Include="Analysis\Beam\Torsion\TorsionalFunctionValues.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionAngle.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionBox.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionChannel.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionChannelRolled.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionDoubleAngle.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionI.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionIRolled.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionPipe.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionRound.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionTee.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionTube.cs" />
     <Compile Include="Analysis\Section\Stress\Groups\ElasticStress.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -195,6 +206,9 @@
     <Compile Include="Analysis\Section\Stress\ShearStressDueToWarping.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Analysis\Section\SectionTypes\CustomProfile.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\CustomProfileProperties.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionRectangular.cs" />
     <Compile Include="Loads\ASCE7_10\General\RiskCategory.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Dead\ComponentWeight.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Live\UniformLiveLoad.cs" />
