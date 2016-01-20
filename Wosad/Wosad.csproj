@@ -142,8 +142,8 @@
       <HintPath>..\packages\Wosad.Analysis.0.0.1.7\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Common, Version=0.0.1.9, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.1.9\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.2.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.2.5\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -154,8 +154,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.2.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.2.1\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.2.2\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -215,6 +215,12 @@
     <Compile Include="Examples\SectionProperties\SectionIRolled.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\ReportCollector.cs" />
+    <Compile Include="Steel\AISC_10\Composite\BeamEffectiveSlabWidth.cs" />
+    <Compile Include="Steel\AISC_10\Composite\DesignSumOfAnchorStrengths.cs" />
+    <Compile Include="Steel\AISC_10\Composite\Groups\Anchor.cs" />
+    <Compile Include="Steel\AISC_10\Composite\Groups\Flexure.cs" />
+    <Compile Include="Steel\AISC_10\Composite\HeadedAnchorPositionAndGroupFactors.cs" />
+    <Compile Include="Steel\AISC_10\Composite\ShearStrengthOfHeadedAnchor.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingBoltNominalShearStress.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingBoltShearStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingStrengthAtBoltHole.cs" />

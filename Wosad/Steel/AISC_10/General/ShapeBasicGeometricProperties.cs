@@ -51,7 +51,6 @@ namespace Steel.AISC_10.General
         /// <returns name="t"> Thickness of element plate or element wall  </returns>
         /// <returns name="t_nom"> HSS and pipe nominal wall thickness </returns>
         ///  <returns name="A"> Cross-sectional area </returns>
-        ///  
 
         [MultiReturn(new[] { "d","b_f","t_f","t_w","D","B","H_t","t","t_nom","A" })]
         public static Dictionary<string, object> ShapeBasicGeometricProperties(string SteelShapeId)
