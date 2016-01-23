@@ -25,7 +25,7 @@ using Wosad.Steel.AISC.AISC360_10.Composite;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Composite
+namespace Steel.AISC_10.Composite
 {
 
 /// <summary>
@@ -49,7 +49,7 @@ namespace Wosad.Steel.AISC_10.Composite
         /// <returns name="Q_n"> Nominal strength of one steel headed stud or steel channel anchor  </returns>
         /// <returns name="phiQ_n"> Strength of one steel headed stud or steel channel anchor   </returns>
 
-        [MultiReturn(new[] { "Q_n" })]
+        [MultiReturn(new[] { "Q_n", "phiQ_n" })]
         public static Dictionary<string, object> ShearStrengthOfHeadedAnchor(double d_sa,double R_g,double R_p,double fc_prime, double w_c, double F_u=65)
         {
             //Default values
@@ -70,15 +70,6 @@ namespace Wosad.Steel.AISC_10.Composite
         }
 
 
-        //internal Anchor (double d_sa,double R_g,double R_p,double fc_prime,double F_u)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Anchor  ByInputParameters(double d_sa,double R_g,double R_p,double fc_prime,double F_u)
-        //{
-        //    return new Anchor(d_sa ,R_g ,R_p ,fc_prime ,F_u );
-        //}
 
     }
 }

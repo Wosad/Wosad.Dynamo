@@ -27,7 +27,7 @@ using System;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Composite
+namespace Steel.AISC_10.Composite
 {
 
 /// <summary>

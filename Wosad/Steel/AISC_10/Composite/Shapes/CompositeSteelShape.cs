@@ -1,5 +1,5 @@
-#region Copyright
-   /*Copyright (C) 2015 Wosad Inc
+﻿#region Copyright
+/*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,43 +14,39 @@
    limitations under the License.
    */
 #endregion
- 
+
 #region
 
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Common.Section.Interfaces;
+using ds = Wosad.Common.Section.SectionTypes;
+using dm =Wosad.Common.Mathematics;
 
 #endregion
 
 namespace Steel.AISC_10.Composite
 {
 
-/// <summary>
-///     Beam effective slab width
-///     Category:   Wosad.Steel.AISC_10.Composite
-/// </summary>
-/// 
 
-
-    [IsDesignScriptCompatible]
-    public partial class Flexure 
+    public partial class CompositeSteelShape
     {
- 
-
-
-        internal Flexure()
-        {
-
-        }
         [IsVisibleInDynamoLibrary(false)]
-        public static Flexure ByInputParameters()
+        protected CompositeSteelShape()
         {
-            return new Flexure();
+
         }
 
+
+        private ISliceableSection section;
+
+        [IsVisibleInDynamoLibrary(false)]
+        public ISliceableSection Section
+        {
+            get { return section; }
+            set { section = value; }
+        }
     }
 }
-
-

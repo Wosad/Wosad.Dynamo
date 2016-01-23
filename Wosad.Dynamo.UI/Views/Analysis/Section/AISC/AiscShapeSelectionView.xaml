@@ -9,7 +9,7 @@
     xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
     xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
 	mc:Ignorable="d"
-	x:Class="Wosad.Steel.AISC_10.General.AiscShapeSelectionView"
+	x:Class="Wosad.Analysis.Section.AISC.AiscShapeSelectionView"
 	x:Name="UserControl"
 	d:DesignWidth="640" d:DesignHeight="480">
     

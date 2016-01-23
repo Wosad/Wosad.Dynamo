@@ -143,8 +143,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Wosad.Common, Version=0.0.2.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.2.5\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.2.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.2.6\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -199,7 +199,7 @@
     <Compile Include="Nodes\Steel\AISC_10\Connection\WeldTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Flexure\BendingAxisSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Flexure\FlexuralSectionGroupSelection.cs" />
-    <Compile Include="Nodes\Steel\AISC_10\General\AiscShapeSelection.cs" />
+    <Compile Include="Nodes\Analysis\Section\AISC\AiscShapeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\General\BoltDiameterSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\General\BoltTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\General\RecommendedMaterialSelection.cs" />
@@ -339,7 +339,7 @@
     <Compile Include="Views\Steel\AISC_10\Flexure\SteelShapeGroupFlexureView.xaml.cs">
       <DependentUpon>SteelShapeGroupFlexureView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Steel\AISC_10\General\AiscShapeSelectionView.xaml.cs">
+    <Compile Include="Views\Analysis\Section\AISC\AiscShapeSelectionView.xaml.cs">
       <DependentUpon>AiscShapeSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Flexure\BendingAxisSelection.xaml.cs">
@@ -603,11 +603,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Steel\AISC_10\General\AiscShapeSelectionIcons.xaml">
+    <Resource Include="Views\Analysis\Section\AISC\AiscShapeSelectionIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Steel\AISC_10\General\AiscShapeSelectionView.xaml">
+    </Resource>
+    <Page Include="Views\Analysis\Section\AISC\AiscShapeSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -24,7 +24,7 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Steel.AISC_10.General
+namespace Analysis.Section.AISC
 {
 
 /// <summary>

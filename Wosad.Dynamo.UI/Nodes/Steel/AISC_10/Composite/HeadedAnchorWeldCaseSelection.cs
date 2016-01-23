@@ -45,16 +45,17 @@ namespace Wosad.Steel.AISC_10.Composite
         public HeadedAnchorWeldCaseSelection()
         {
             
-            SetDefaultPrameters();
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("HeadedAnchorWeldCase", "Identifies the type of welding between the anchor and shape (through deck or not)"));
             RegisterAllPorts();
+            SetDefaultPrameters();
             //PropertyChanged += NodePropertyChanged;
         }
 
         private void SetDefaultPrameters()
         {
-            ReportEntry="";
+            //ReportEntry="";
             HeadedAnchorWeldCase = "WeldedThroughDeck";
         }
 
@@ -136,7 +137,7 @@ namespace Wosad.Steel.AISC_10.Composite
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("Headed anchor weld case selection", HeadedAnchorWeldCase);
+            nodeElement.SetAttribute("HeadedAnchorWeldCase", HeadedAnchorWeldCase);
         }
 
         /// <summary>
@@ -145,7 +146,7 @@ namespace Wosad.Steel.AISC_10.Composite
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["Headed anchor weld case selection"];
+            var attrib = nodeElement.Attributes["HeadedAnchorWeldCase"];
             if (attrib == null)
                 return;
 

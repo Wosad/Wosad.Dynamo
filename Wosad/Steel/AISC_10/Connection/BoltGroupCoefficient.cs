@@ -47,13 +47,14 @@ namespace Steel.AISC_10.Connection
         /// <param name="e_group">  Connection bolt or weld group eccentricity </param>
         /// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
         /// <returns name="C_BoltGroup"> Coefficient for eccentrically loaded bolt group </returns>
-
+        /// <returns name="C_prime"> Coefficient for bolt group subjected to pure moment </returns>
+        
         [MultiReturn(new[] { "C_BoltGroup" })]
         public static Dictionary<string, object> BoltGroupCoefficient(double N_rows,double N_cols, double p_h, double p_v, double e_group,double theta)
         {
             //Default values
             double C_BoltGroup = 0;
-
+            double C_prime = 0;
 
             //Calculation logic:
             int N_r = (int) N_rows;
@@ -61,11 +62,12 @@ namespace Steel.AISC_10.Connection
 
             BoltGroup bg = new BoltGroup(N_r, N_c, p_h, p_v);
             C_BoltGroup = bg.GetInstantaneousCenterCoefficient(e_group, theta);
+            C_prime = bg.GetPureMomentCoefficient();
 
             return new Dictionary<string, object>
             {
-                { "C_BoltGroup", C_BoltGroup }
- 
+                { "C_BoltGroup", C_BoltGroup },
+                { "C_prime", C_prime }
             };
         }
 

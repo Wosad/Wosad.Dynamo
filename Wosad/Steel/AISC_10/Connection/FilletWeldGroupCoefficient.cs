@@ -49,11 +49,12 @@ namespace Steel.AISC_10.Connection
             /// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
             /// <param name="w_weld">  Size of weld leg </param>
             /// <param name="F_EXX">  Filler metal classification strength </param>
+            /// <param name="IsLoadOutOfPlane">  Indicates whether the load on bolt group is not in the plane of welds. In such case eccentricity is measured normal to the plane of welds. </param>
             /// <returns name="C_WeldGroup"> Coefficient for eccentrically loaded weld group </returns>
 
         [MultiReturn(new[] { "C_WeldGroup" })]
         public static Dictionary<string, object> FilletWeldGroupCoefficient(string WeldGroupPattern,double l_Weld_horizontal,double l_Weld_vertical,double e_group,
-            double theta, double w_weld, double F_EXX)
+            double theta, double w_weld, double F_EXX, bool IsLoadOutOfPlane=false)
         {
             //Default values
             double C_WeldGroup = 0;
@@ -64,7 +65,7 @@ namespace Steel.AISC_10.Connection
             bool IsValidString = Enum.TryParse(WeldGroupPattern, true, out pattern);
             if (IsValidString == true)
             {
-                FilletWeldGroup wg = new FilletWeldGroup(pattern, l_Weld_horizontal, l_Weld_vertical, w_weld, F_EXX);
+                FilletWeldGroup wg = new FilletWeldGroup(pattern, l_Weld_horizontal, l_Weld_vertical, w_weld, F_EXX, IsLoadOutOfPlane);
                 C_WeldGroup = wg.GetInstantaneousCenterCoefficient(e_group, theta); ;
             }
             else

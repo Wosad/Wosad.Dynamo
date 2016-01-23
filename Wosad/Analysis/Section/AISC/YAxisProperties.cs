@@ -26,11 +26,11 @@ using Wosad.Common.Section.Predefined;
 
 #endregion
 
-namespace Steel.AISC_10.General
+namespace Analysis.Section.AISC
 {
 
 /// <summary>
-///     AISC shape properties about X axis
+///     AISC shape properties about Y axis
 ///     Category:   Steel.AISC_10.General
 /// </summary>
 /// 
@@ -38,50 +38,50 @@ namespace Steel.AISC_10.General
 
     public partial class StandardShapeProperties 
     {
-/// <summary>
-///    Calculates AISC shape properties about X axis
-/// </summary>
+        /// <summary>
+        ///    Calculates AISC shape properties about Y axis
+        /// </summary>
         /// <param name="SteelShapeId">  Section name from steel shape database </param>
-        /// <returns name="x_e"> Horizontal distance from designated member edge to member elastic centroidal axis </returns>
-/// <returns name="x_p"> Horizontal distance from designated member edge  to member plastic neutral axis </returns>
-/// <returns name="I_x"> Moment of inertia about the principal x-axis </returns>
-/// <returns name="Z_x"> Plastic section modulus about the x-axis  </returns>
-/// <returns name="S_x"> Elastic section modulus taken about the x-axis  </returns>
-/// <returns name="r_x"> Radius of gyration about the x-axis  </returns>
-/// 
+        /// <returns name="y_e"> Vertical distance from designated member edge to member elastic centroidal axis </returns>
+        /// <returns name="y_p"> Vertical distance from designated member edge to member plastic neutral axis </returns>
+        /// <returns name="I_y"> Moment of inertia about the principal y-axis  </returns>
+        /// <returns name="Z_y"> Plastic section modulus about the y-axis  </returns>
+        /// <returns name="S_y"> Elastic section modulus taken about the y-axis. For a channel the minimum section modulus  </returns>
+        /// <returns name="r_y"> Radius of gyration about y-axis  </returns>
+        /// 
 
-        [MultiReturn(new[] { "x_e","x_p","I_x","Z_x","S_x","r_x" })]
-        public static Dictionary<string, object> XAxisProperties(string SteelShapeId)
+        [MultiReturn(new[] { "y_e","y_p","I_y","Z_y","S_y","r_y" })]
+        public static Dictionary<string, object> YAxisProperties(string SteelShapeId)
         {
             //Default values
-            double x_e = 0;
-double x_p = 0;
-double I_x = 0;
-double Z_x = 0;
-double S_x = 0;
-double r_x = 0;
+            double y_e = 0;
+double y_p = 0;
+double I_y = 0;
+double Z_y = 0;
+double S_y = 0;
+double r_y = 0;
 
 
             //Calculation logic:
-
 CalcLog cl = new CalcLog();
 AiscCatalogShape shape = new AiscCatalogShape(SteelShapeId, cl);
 
-x_e = shape.x;
-x_p = shape.xp;
-I_x = shape.Ix;
-Z_x = shape.Zx;
-S_x = shape.Sx;
-r_x = shape.rx;
+y_e = shape.y;
+y_p = shape.yp;
+I_y = shape.Iy;
+Z_y = shape.Zy;
+S_y = shape.Sy;
+r_y = shape.ry;
+
 
             return new Dictionary<string, object>
             {
-                { "x_e", x_e }
-,{ "x_p", x_p }
-,{ "I_x", I_x }
-,{ "Z_x", Z_x }
-,{ "S_x", S_x }
-,{ "r_x", r_x }
+                { "y_e", y_e }
+,{ "y_p", y_p }
+,{ "I_y", I_y }
+,{ "Z_y", Z_y }
+,{ "S_y", S_y }
+,{ "r_y", r_y }
  
             };
         }

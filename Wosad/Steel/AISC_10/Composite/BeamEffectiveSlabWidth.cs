@@ -25,7 +25,7 @@ using Wosad.Steel.AISC.AISC360_10.Composite;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Composite
+namespace Steel.AISC_10.Composite
 {
 
 /// <summary>

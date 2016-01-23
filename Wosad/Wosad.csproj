@@ -142,8 +142,8 @@
       <HintPath>..\packages\Wosad.Analysis.0.0.1.7\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Common, Version=0.0.2.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.2.5\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.2.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.2.6\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -154,8 +154,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.2.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.2.2\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.2.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.2.3\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Analysis\Beam\Groups\BeamAnalysisTorsion.cs" />
     <Compile Include="Analysis\Beam\Torsion\TorsionalFunctionValues.cs" />
+    <Compile Include="Analysis\Section\AISC\CatalogSectionI.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionAngle.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionBox.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionChannel.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Analysis\Section\SectionTypes\SectionI.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionIRolled.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionPipe.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionOfPlateWithHoles.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionRound.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionTee.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionTube.cs" />
@@ -220,6 +222,10 @@
     <Compile Include="Steel\AISC_10\Composite\Groups\Anchor.cs" />
     <Compile Include="Steel\AISC_10\Composite\Groups\Flexure.cs" />
     <Compile Include="Steel\AISC_10\Composite\HeadedAnchorPositionAndGroupFactors.cs" />
+    <Compile Include="Steel\AISC_10\Composite\LowerBoundMomentOfInertia.cs" />
+    <Compile Include="Steel\AISC_10\Composite\PositiveMomentFlexuralStrength.cs" />
+    <Compile Include="Steel\AISC_10\Composite\Shapes\CompositeSteelShape.cs" />
+    <Compile Include="Steel\AISC_10\Composite\Shapes\CompositeSectionI.cs" />
     <Compile Include="Steel\AISC_10\Composite\ShearStrengthOfHeadedAnchor.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingBoltNominalShearStress.cs" />
     <Compile Include="Steel\AISC_10\Connection\BearingBoltShearStrength.cs" />
@@ -265,16 +271,16 @@
     <Compile Include="Steel\AISC_10\General\Groups\MaterialProperties.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Steel\AISC_10\General\Groups\StandardShapeProperties.cs">
+    <Compile Include="Analysis\Section\AISC\StandardShapeProperties.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Steel\AISC_10\General\MaterialMechanicalProperties.cs" />
-    <Compile Include="Steel\AISC_10\General\ShapeBasicGeometricProperties.cs" />
-    <Compile Include="Steel\AISC_10\General\TorsionalProperties.cs" />
-    <Compile Include="Steel\AISC_10\General\XAxisProperties.cs">
+    <Compile Include="Analysis\Section\AISC\ShapeBasicGeometricProperties.cs" />
+    <Compile Include="Analysis\Section\AISC\TorsionalProperties.cs" />
+    <Compile Include="Analysis\Section\AISC\XAxisProperties.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Steel\AISC_10\General\YAxisProperties.cs" />
+    <Compile Include="Analysis\Section\AISC\YAxisProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Loads\ASCE7_10\Gravity\Ice\" />

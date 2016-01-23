@@ -26,7 +26,7 @@ using Wosad.Common.Section.Predefined;
 
 #endregion
 
-namespace Steel.AISC_10.General
+namespace Analysis.Section.AISC
 {
 
 /// <summary>

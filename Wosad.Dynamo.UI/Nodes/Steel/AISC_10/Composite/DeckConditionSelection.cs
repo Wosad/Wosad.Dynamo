@@ -44,16 +44,17 @@ namespace Wosad.Steel.AISC_10.Composite
 
         public DeckConditionSelection()
         {
-            SetDefaultParameters();
+
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("HeadedAnchorDeckCondition", "Identifies whether deck runs parallel or perpendicular to beam or there is no deck"));
             RegisterAllPorts();
+            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
         }
 
         private void SetDefaultParameters()
         {
-            ReportEntry="";
+            //ReportEntry="";
             HeadedAnchorDeckCondition = "Perpendicular";
         }
 
@@ -134,7 +135,7 @@ namespace Wosad.Steel.AISC_10.Composite
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("Deck condition selection", HeadedAnchorDeckCondition);
+            nodeElement.SetAttribute("HeadedAnchorDeckCondition", HeadedAnchorDeckCondition);
         }
 
         /// <summary>
@@ -143,7 +144,7 @@ namespace Wosad.Steel.AISC_10.Composite
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["Deck condition selection"];
+            var attrib = nodeElement.Attributes["HeadedAnchorDeckCondition"];
             if (attrib == null)
                 return;
 

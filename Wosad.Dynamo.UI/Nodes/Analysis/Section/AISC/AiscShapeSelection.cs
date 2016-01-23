@@ -32,7 +32,7 @@ using System.Linq;
 using Dynamo.Nodes;
 
 
-namespace Wosad.Steel.AISC_10.General
+namespace Wosad.Analysis.Section.AISC
 {
 
     /// <summary>
@@ -40,7 +40,7 @@ namespace Wosad.Steel.AISC_10.General
     /// </summary>
 
     [NodeName("AISC shape selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.General")]
+    [NodeCategory("Wosad.Analysis.Section.AISC")]
     [NodeDescription("Selection of shape type")]
     [IsDesignScriptCompatible]
     public class AiscShapeSelection : UiNodeBase
