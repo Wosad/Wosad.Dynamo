@@ -259,6 +259,12 @@
     <Compile Include="Steel\AISC_10\Connection\PlateStrengthInCompression .cs" />
     <Compile Include="Steel\AISC_10\Connection\Slip-CriticalBoltCombinedTensionAndShear.cs" />
     <Compile Include="Steel\AISC_10\Connection\Slip-CriticalBoltShearStrength.cs" />
+    <Compile Include="Steel\AISC_10\Connection\SpecialCase\Groups\ExtendedSingle.cs" />
+    <Compile Include="Steel\AISC_10\Connection\SpecialCase\SinglePlate\ExtendedSinglePlateFlexuralBucklingStrength.cs" />
+    <Compile Include="Steel\AISC_10\Connection\SpecialCase\SinglePlate\ExtendedSinglePlateMaxPlateThickness.cs" />
+    <Compile Include="Steel\AISC_10\Connection\SpecialCase\SinglePlate\ExtendedSinglePlateShearStrengthWithoutStabilizer.cs" />
+    <Compile Include="Steel\AISC_10\Connection\SpecialCase\SinglePlate\StabilizedExtendedSinglePlateTorsionalMoment.cs" />
+    <Compile Include="Steel\AISC_10\Connection\SpecialCase\SinglePlate\StabilizedExtendedSinglePlateTorsionalStrength.cs" />
     <Compile Include="Steel\AISC_10\Connection\WebCompressionBuckling.cs" />
     <Compile Include="Steel\AISC_10\Connection\WebLocalCrippling.cs" />
     <Compile Include="Steel\AISC_10\Connection\WebLocalYielding.cs" />
