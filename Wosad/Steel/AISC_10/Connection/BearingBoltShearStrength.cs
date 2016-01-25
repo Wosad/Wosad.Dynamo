@@ -61,7 +61,7 @@ namespace Steel.AISC_10.Connection
             //Calculation logic:
             BoltFactory bf = new BoltFactory(BoltMaterialId);
             IBoltBearing bolt = bf.GetBearingBolt(d_b, BoltThreadCase);
-            phiR_nv = bolt.GetAvailableShearStrength(NumberShearPlanes);
+            phiR_nv = bolt.GetAvailableShearStrength(NumberShearPlanes, IsEndLoadedConnectionWithLengthEfect);
 
             return new Dictionary<string, object>
             {

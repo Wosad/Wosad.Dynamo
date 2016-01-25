@@ -54,7 +54,7 @@ namespace Steel.AISC_10.Connection.SpecialCase
 
             //Calculation logic:
             conx.ExtendedSinglePlate sp = new conx.ExtendedSinglePlate();
-            M_tu = sp.StabilizedExtendedSinglePlateDesignMoment(R_u, t_p, t_w);
+            M_tu = sp.StabilizedExtendedSinglePlateTorsionalMoment(R_u, t_p, t_w);
 
             return new Dictionary<string, object>
             {

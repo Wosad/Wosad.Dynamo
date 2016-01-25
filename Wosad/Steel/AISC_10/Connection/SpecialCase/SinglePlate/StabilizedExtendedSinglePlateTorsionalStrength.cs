@@ -59,7 +59,7 @@ namespace Steel.AISC_10.Connection.SpecialCase
 
             //Calculation logic:
             conx.ExtendedSinglePlate sp = new conx.ExtendedSinglePlate();
-            phiM_n = sp.StabilizedExtendedSinglePlateFlexuralStrength(b_f, F_ybm, L_bm, R_u, t_w, d_pl, t_p, F_yp);
+            phiM_n = sp.StabilizedExtendedSinglePlateTorsionalStrength(b_f, F_ybm, L_bm, R_u, t_w, d_pl, t_p, F_yp);
 
             return new Dictionary<string, object>
             {
