@@ -47,7 +47,7 @@ namespace Wosad.Steel.AISC_10.Connection
         {
             ReportEntry="";
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BoltHoleDeformationType", "Identifies of bolt deformation is a design consideration"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

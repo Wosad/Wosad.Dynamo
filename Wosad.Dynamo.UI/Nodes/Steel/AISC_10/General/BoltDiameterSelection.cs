@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         {
             
             InPortData.Add(new PortData("BoltMaterialId", "Bolt material specification"));
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("d_b", "Nominal fastener diameter"));
             RegisterAllPorts();
             SetDefaultParameters();

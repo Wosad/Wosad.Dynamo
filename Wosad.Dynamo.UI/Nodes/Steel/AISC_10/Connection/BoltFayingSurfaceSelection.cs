@@ -45,7 +45,7 @@ namespace Wosad.Steel.AISC_10.Connection
         public BoltFayingSurfaceSelection()
         {
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BoltFayingSurfaceClass", "Identifies the type of faying surface for slip critical bolts"));
             RegisterAllPorts();
             SetDefaultParameters();

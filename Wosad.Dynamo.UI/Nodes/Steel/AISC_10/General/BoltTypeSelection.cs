@@ -45,7 +45,7 @@ namespace Wosad.Steel.AISC_10.Connection
 
         public BoltTypeSelection()
         {
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BoltType", "Distinguishes between bearing and slip-critical bolts"));
             RegisterAllPorts();
             SetDefaultParameters();

@@ -45,7 +45,7 @@ namespace Wosad.Steel.AISC_10.Combination
 
         public CombinedForcesMemberTypeSelection()
         {
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("CombinationCaseId", "Defines a type of interaction equation to be used"));
             RegisterAllPorts();
             SetDefaultParameters();
@@ -58,8 +58,8 @@ namespace Wosad.Steel.AISC_10.Combination
             CombinationCaseId = "H1";
             MemberForceCase = "FlexureAndAxial";
             MemberSectionType = "DoublyOrSinglySymmetric";
-            ElementType = "Member";   
-            ConnectionCombinationType = "Elliptical";
+            ElementType = "Member";
+            ConnectionCombinationType = "Plastic";
         }
 
 

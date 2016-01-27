@@ -45,7 +45,7 @@ namespace Wosad.Steel.AISC_10.Connection
 
         public StressDistributionSelection()
         {
-              OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+              //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("StressDistibutionType", "Type of stress distribution in connected element"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

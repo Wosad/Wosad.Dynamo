@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         {
             
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BeamCopeCase", "Identifies beam cope condition for stability calculations: single cope vs double cope"));
             RegisterAllPorts();
             SetDefaultParameters();

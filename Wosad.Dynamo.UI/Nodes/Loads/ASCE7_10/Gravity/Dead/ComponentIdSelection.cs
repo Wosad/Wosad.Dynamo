@@ -59,7 +59,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
             ComponentOption1 = 1;
             ComponentOption2 = 0;
             ComponentValue = 0;
-            OutPortData.Add(new PortData("ReportEntry", "calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("ComponentId", "building component id (name)"));
             OutPortData.Add(new PortData("ComponentOption1", "building component subtype (option1)"));
             OutPortData.Add(new PortData("ComponentOption2", "building component subtype (option2)"));

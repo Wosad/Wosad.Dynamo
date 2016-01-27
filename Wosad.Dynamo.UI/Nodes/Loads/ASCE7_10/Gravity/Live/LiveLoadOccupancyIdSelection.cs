@@ -54,7 +54,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
             ReportEntry="";
             LiveLoadOccupancyId = "Office";
             LiveLoadOccupancyDescription = "Office space";
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("LiveLoadOccupancyId", "description of space for calculation of live loads"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

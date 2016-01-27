@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         {
             ReportEntry="";
             GussetPlateConfigurationId = "ExtendedCorner";
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("GussetPlateConfigurationId", "Type of gusset plate configuration for calculation of effective length"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

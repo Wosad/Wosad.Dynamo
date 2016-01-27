@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         {
             
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BoltFillerCase", "Distinguishes between filler cases for slip-critical bolt capacity calculations"));
             RegisterAllPorts();
 

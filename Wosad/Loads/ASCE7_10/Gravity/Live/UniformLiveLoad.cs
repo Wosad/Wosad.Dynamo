@@ -25,7 +25,7 @@ using Wosad.Loads.ASCE.ASCE7_10.LiveLoads;
 
 #endregion
 
-namespace Loads.ASCE7_10.Gravity.Live
+namespace Loads.ASCE7_10.Gravity
 {
     /// <summary>
     ///     Uniform live load 
@@ -34,11 +34,11 @@ namespace Loads.ASCE7_10.Gravity.Live
     /// 
 
 
-    [IsDesignScriptCompatible]
-    public class UniformLiveLoad 
+
+    public partial class Live 
     {
         /// <summary>
-        ///    Calculates Minimum uniformly distributed live load (psf) - ASCE7-10. USC units
+        ///    Calculates Minimum uniformly distributed live load (psf) - ASCE7-10.
         /// </summary>
         /// <param name="SpaceOccupancyId">  description of space for calculation of live loads</param>
         /// <returns>  Uniformly distributed live load </returns>
@@ -63,14 +63,14 @@ namespace Loads.ASCE7_10.Gravity.Live
 
         string _UniformLiveLoad ;
 
-        internal UniformLiveLoad(string LiveLoadOccupancyId)
+        internal Live(string LiveLoadOccupancyId)
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static UniformLiveLoad  ByInputParameters(string LiveLoadOccupancyId)
+        public static Live  ByInputParameters(string LiveLoadOccupancyId)
         {
-            return new UniformLiveLoad(LiveLoadOccupancyId);
+            return new Live(LiveLoadOccupancyId);
         }
 
     }

@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         public LoadTypeAndDirection()
         {
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("WeldLoadTypeId", "Type of load on weld  under consideration"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

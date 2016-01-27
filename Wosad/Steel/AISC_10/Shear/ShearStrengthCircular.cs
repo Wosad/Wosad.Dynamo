@@ -24,30 +24,33 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.Shear
+namespace Steel.AISC_10.Shear
 {
 
 /// <summary>
-///     Shear case selection
-///     Category:   Wosad.Steel.AISC_10.Shear
+///     Shear strength circular member
+///     Category:   Steel.AISC_10.Shear
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
-    public partial class GeneralParameters 
+    public partial class Strength 
     {
-/// <summary>
-///    Calculates Member shear case
-/// </summary>
-        
-        /// <returns name="ShearCase"> Shape type for shear </returns>
+        /// <summary>
+        ///     Shear strength circular member
+        /// </summary>
+        /// <param name="D">  Outside diameter of round HSS  </param>
+        /// <param name="t_nom">  HSS and pipe nominal wall thickness </param>
+        /// <param name="Is_SAW_member">  Indicates whether HSS is a ERW or SAW </param>
+        /// <param name="L_v">  Distance from maximum to zero shear force   </param>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+        /// <returns name="phiV_n"> Shear strength </returns>
 
-        [MultiReturn(new[] { "ShearCase" })]
-        public static Dictionary<string, object> ShearCase()
+        [MultiReturn(new[] { "phiV_n" })]
+        public static Dictionary<string, object> ShearStrengthCircular(double D,double t_nom,bool Is_SAW_member,double L_v,double F_y)
         {
             //Default values
-            string ShearCase = "";
+            double phiV_n = 0;
 
 
             //Calculation logic:
@@ -55,21 +58,12 @@ namespace Wosad.Steel.AISC_10.Shear
 
             return new Dictionary<string, object>
             {
-                { "ShearCase", ShearCase }
+                { "phiV_n", phiV_n }
  
             };
         }
 
 
-        //internal GeneralParameters ()
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static GeneralParameters  ByInputParameters()
-        //{
-        //    return new GeneralParameters();
-        //}
 
     }
 }

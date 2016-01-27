@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         public WeldTypeSelection()
         {
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("WeldType", "Weld type"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

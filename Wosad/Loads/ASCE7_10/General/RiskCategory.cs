@@ -19,13 +19,14 @@
 
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
+using Dynamo.Nodes;
 using System.Collections.Generic;
 using Wosad.Loads.ASCE.ASCE7_10.General;
 using Wosad.Loads.ASCE.ASCE7_10.LiveLoads;
 
 #endregion
 
-namespace Loads.ASCE7_10.General
+namespace Loads.ASCE7_10
 {
     /// <summary>
     ///     Building risk category
@@ -33,8 +34,7 @@ namespace Loads.ASCE7_10.General
     /// </summary>
     /// 
 
-
-    public class RiskCategory 
+    public partial class General 
     {
         /// <summary>
         ///    Calculates Selection of Building risk category - ASCE7-10
@@ -47,7 +47,7 @@ namespace Loads.ASCE7_10.General
         {
             //Default values
             string BuildingRiskCategory = "";
-
+            string buildingOccupancy;
 
             Structure st = new Structure();
             BuildingRiskCategory = st.GetRiskCategory(BuildingOccupancyId).ToString();
@@ -58,18 +58,6 @@ namespace Loads.ASCE7_10.General
                 { "BuildingRiskCategory", BuildingRiskCategory }
  
             };
-        }
-
-        string buildingOccupancy;
-
-        internal RiskCategory(string BuildingOccupancy)
-        {
-
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static RiskCategory ByOccupancy(string BuildingOccupancy)
-        {
-            return new RiskCategory(BuildingOccupancy);
         }
 
 

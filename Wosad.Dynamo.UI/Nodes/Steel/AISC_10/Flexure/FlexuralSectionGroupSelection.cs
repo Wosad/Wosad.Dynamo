@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Flexure
         public FlexuralSectionGroupSelection()
         {
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("SteelShapeGroupFlexure", "Type of steel shape for flexural calculations"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

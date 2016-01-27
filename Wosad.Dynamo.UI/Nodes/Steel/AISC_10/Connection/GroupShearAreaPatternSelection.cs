@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         {
             ReportEntry="";
             ShearAreaCaseId = "TBlock";
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("ShearAreaCaseId", "Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).Values are: StraightLine,TBlock,UBlock,Lblock"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

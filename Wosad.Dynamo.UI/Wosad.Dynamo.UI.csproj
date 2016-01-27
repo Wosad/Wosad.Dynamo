@@ -192,6 +192,7 @@
     <Compile Include="Nodes\Steel\AISC_10\Connection\BoltThreadInclusionSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\GroupShearAreaPatternSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\GussetConfigurationSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC_10\Shear\ShearCaseNonCircularSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Tension\ShearLagCaseSelection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\WeldLoadTypeAndDirection.cs" />
     <Compile Include="Nodes\Steel\AISC_10\Connection\StressDistributionSelection.cs" />
@@ -305,6 +306,9 @@
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Connection\GussetConfigurationView.xaml.cs">
       <DependentUpon>GussetConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC_10\Shear\ShearNonCircularCaseView.xaml.cs">
+      <DependentUpon>ShearNonCircularCaseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase2Control.xaml.cs">
       <DependentUpon>ShearLagCase2Control.xaml</DependentUpon>
@@ -538,6 +542,14 @@
     <Page Include="Views\Steel\AISC_10\Connection\GussetConfigurationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Shear\ShearNonCircularCaseIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Steel\AISC_10\Shear\ShearNonCircularCaseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Steel\AISC_10\Tension\ShearLagCases\ShearLagCase2Control.xaml">
       <Generator>MSBuild:Compile</Generator>

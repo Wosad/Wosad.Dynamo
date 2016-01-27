@@ -52,7 +52,7 @@ namespace Wosad.Loads.ASCE7_10.General
             ReportEntry="";
             BuildingOccupancyDescription ="Commercial building";
             BuildingOccupancyId = "Commercial building";
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BuildingOccupancyId", "Occupancy description"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

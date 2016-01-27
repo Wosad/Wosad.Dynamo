@@ -35,7 +35,8 @@
             </WosadControls:EnumDataCollection>
 
             <WosadControls:EnumDataCollection x:Key="ConnectionCombinationTypeSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement  EnumString="Linear"       Description="Member" />
+                <WosadControls:EnumDataElement  EnumString="Linear"       Description="Linear" />
+                <WosadControls:EnumDataElement  EnumString="Elliptical"       Description="Parabolic" />
                 <WosadControls:EnumDataElement  EnumString="Plastic"  Description="Plastic"/>
             </WosadControls:EnumDataCollection>
 
@@ -52,7 +53,7 @@
 					                DataPath="MemberForceCase"/>
         <WosadControls:EnumControl  HeaderText="Member section type:" 
                                     ItemsSource="{StaticResource MemberSectionTypeSource}" 
-                                    Visibility="{Binding IsAxialAndFlexureMember,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                    Visibility="{Binding IsMember,Converter={StaticResource BooleanToVisibilityConverter}}"
 					                DataPath="MemberSectionType"/>
         <WosadControls:EnumControl  HeaderText="Combination type:" 
                                     ItemsSource="{StaticResource ConnectionCombinationTypeSource}" 

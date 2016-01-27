@@ -54,7 +54,7 @@ namespace Wosad.Analysis.Beam.Torsion
             ReportEntry = "";
             BeamTorsionCaseDescription="Uniformly distributed torque";
             BeamTorsionCaseId = "Case4";
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BeamTorsionCaseId", "Case ID used in calculation of the values of torsional functions (per AISC design guide 9)"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

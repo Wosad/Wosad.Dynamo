@@ -53,7 +53,7 @@ namespace Wosad.Analysis.Beam.Flexure
             ReportEntry="";
             BeamForcesCaseId = "C1B_1";
             BeamForcesCaseDescription = "Simply supported. Uniform load on full span. Uniformly distributed load";
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BeamForcesCaseId", "Case ID used in calculation of the beam forces"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

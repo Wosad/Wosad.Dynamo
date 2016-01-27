@@ -47,7 +47,7 @@ namespace Wosad.Steel.AISC_10.Flexure
         {
             ReportEntry="";
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BendingAxis", "Distinguishes between bending with respect to section x-axis vs x-axis"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

@@ -46,7 +46,7 @@ namespace Wosad.Steel.AISC_10.Connection
         public BoltThreadInclusionSelection()
         {
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("BoltThreadCase", "Identifies whether threads are included or excluded from shear planes"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;

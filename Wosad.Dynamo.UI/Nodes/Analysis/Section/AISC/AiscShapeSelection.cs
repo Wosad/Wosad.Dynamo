@@ -50,7 +50,7 @@ namespace Wosad.Analysis.Section.AISC
         {
             
             
-            OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
+            //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("SteelShapeId", "Section name from steel shape database"));
             RegisterAllPorts();
             SetDefaultParams();

@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -24,42 +24,40 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
-using System.Xml;
 using Dynamo.Nodes;
+using Wosad.Dynamo.UI.Views.Steel.AISC_10.Shear;
+using System.Xml;
 
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Wosad.Steel.AISC_10.Shear
 {
 
     /// <summary>
-    ///Bolt hole type  
+    ///Shear case noncircular  
     /// </summary>
 
-    [NodeName("Bolt hole type selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
-    [NodeDescription("Bolt hole type")]
+    [NodeName("Shear case selection for noncircular member")]
+    [NodeCategory("Wosad.Steel.AISC_10.Shear")]
+    [NodeDescription("Shear case noncircular")]
     [IsDesignScriptCompatible]
-    public class BoltHoleTypeSelection : UiNodeBase
+    public class NonCircularShearCaseSelection : UiNodeBase
     {
 
-        public BoltHoleTypeSelection()
+        public NonCircularShearCaseSelection()
         {
-            ReportEntry="";
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("BoltHoleType", "Type of bolt hole"));
+            OutPortData.Add(new PortData("NonCircularShearCase", "Case type for shear checks"));
             RegisterAllPorts();
-            //PropertyChanged += NodePropertyChanged;
             SetDefaultParameters();
-
+            //PropertyChanged += NodePropertyChanged;
         }
 
         private void SetDefaultParameters()
         {
-            ReportEntry = "";
-            BoltHoleType = "STD";
+            //ReportEntry="";
+            NonCircularShearCase = "MemberWithoutStiffeners";
         }
-
 
 
         /// <summary>
@@ -70,7 +68,7 @@ namespace Wosad.Steel.AISC_10.Connection
             return GetType();
         }
 
-        #region properties
+        #region Properties
 
         #region InputProperties
 
@@ -80,21 +78,21 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #region OutputProperties
 
-		#region BoltHoleTypeProperty
+		#region NonCircularShearCaseProperty
 		
 		/// <summary>
-		/// BoltHoleType property
+		/// NonCircularShearCase property
 		/// </summary>
-		/// <value>Type of bolt hole</value>
-		public string _BoltHoleType;
+		/// <value>Shape type for shear</value>
+		public string _NonCircularShearCase;
 		
-		public string BoltHoleType
+		public string NonCircularShearCase
 		{
-		    get { return _BoltHoleType; }
+		    get { return _NonCircularShearCase; }
 		    set
 		    {
-		        _BoltHoleType = value;
-		        RaisePropertyChanged("BoltHoleType");
+		        _NonCircularShearCase = value;
+		        RaisePropertyChanged("NonCircularShearCase");
 		        OnNodeModified();
 		    }
 		}
@@ -129,7 +127,8 @@ namespace Wosad.Steel.AISC_10.Connection
 
         #endregion
         #endregion
-            #region Serialization
+
+        #region Serialization
 
         /// <summary>
         ///Saves property values to be retained when opening the node     
@@ -137,7 +136,7 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("BoltHoleType", BoltHoleType);
+            nodeElement.SetAttribute("NonCircularShearCase", NonCircularShearCase);
         }
 
         /// <summary>
@@ -146,11 +145,11 @@ namespace Wosad.Steel.AISC_10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["BoltHoleType"];
+            var attrib = nodeElement.Attributes["NonCircularShearCase"];
             if (attrib == null)
                 return;
            
-            BoltHoleType = attrib.Value;
+            NonCircularShearCase = attrib.Value;
 
         }
 
@@ -163,16 +162,15 @@ namespace Wosad.Steel.AISC_10.Connection
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BoltHoleTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BoltHoleTypeSelection>
+        public class NonCircularShearCaseSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<NonCircularShearCaseSelection>
         {
-            public void CustomizeView(BoltHoleTypeSelection model, NodeView nodeView)
+            public void CustomizeView(NonCircularShearCaseSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BoltHoleTypeView control = new BoltHoleTypeView();
+                ShearNonCircularCaseView control = new ShearNonCircularCaseView();
                 control.DataContext = model;
-                
                 
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);

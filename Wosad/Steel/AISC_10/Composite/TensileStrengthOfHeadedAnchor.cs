@@ -19,48 +19,57 @@
 
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
-using Dynamo.Nodes;
 using System.Collections.Generic;
-using Wosad.Loads.ASCE.ASCE7_10.LiveLoads;
+using Dynamo.Nodes;
 
 #endregion
 
-namespace Loads.ASCE7_10.Lateral.Seismic
+namespace Steel.AISC_10.Composite
 {
-    /// <summary>
-    ///     Seismic importance factor
-    ///     Category:   Wosad.Loads.ASCE7-10.Lateral.Seismic
-    /// </summary>
-    /// 
+
+/// <summary>
+///     Tensile strength of headed anchor
+///     Category:   Wosad.Steel.AISC_10.Composite
+/// </summary>
+/// 
 
 
     [IsDesignScriptCompatible]
-    public class SeismicImportanceFactor 
+    public partial class Anchor 
     {
-        /// <summary>
-        ///    Calculates Importance factor (I_e) for seismic loads - ASCE7-10
-        /// </summary>
-        /// <param name="BuildingRiskCategory">  Building risk category</param>
-        /// <returns> "Parameter name: I_e", Parameter description: seismic importance factor  </returns>
+/// <summary>
+///    Calculates Tensile strength of headed  anchor
+/// </summary>
+        
+        /// <returns name="Q_n"> Nominal strength of one steel headed stud or steel channel anchor  </returns>
 
-        [MultiReturn(new[] { "I_e" })]
-        public static Dictionary<string, object> SeismicImportanceFactor_I_e(string BuildingRiskCategory)
+        [MultiReturn(new[] { "Q_n" })]
+        public static Dictionary<string, object> TensileStrengthOfHeadedAnchor()
         {
             //Default values
-            double I_e = 0;
+            double Q_n = 0;
 
 
-            //Add calculation logic here:
+            //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                { "I_e", I_e }
+                { "Q_n", Q_n }
  
             };
         }
 
 
+        //internal Anchor ()
+        //{
+
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static Anchor  ByInputParameters()
+        //{
+        //    return new Anchor();
+        //}
 
     }
 }

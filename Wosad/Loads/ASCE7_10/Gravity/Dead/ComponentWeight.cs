@@ -26,7 +26,7 @@ using Wosad.Loads.ASCE.ASCE7_10.LiveLoads;
 
 #endregion
 
-namespace Loads.ASCE7_10.Gravity.Dead
+namespace Loads.ASCE7_10.Gravity
 {
     /// <summary>
     ///     Component weight
@@ -35,18 +35,17 @@ namespace Loads.ASCE7_10.Gravity.Dead
     /// 
 
 
-    [IsDesignScriptCompatible]
-    public class ComponentWeight
+    public partial class Dead
     {
         /// <summary>
-        ///    Calculates Building component weight per surface area of the component (psf) - ASCE7-10. USC units
+        ///    Calculates Building component weight per surface area of the component (psf) - ASCE7-10.
         /// </summary>
         /// <param name="ComponentId">  building component id (name) </param>
         /// <param name="ComponentOption1">  building component subtype (option1) </param>
         /// <param name="ComponentOption2">  building component subtype (option2) </param>
         /// <param name="ComponentValue">  building component numerical value</param>
         /// <returns> "Parameter name: q_D", Parameter description: Uniformly distributed component dead load </returns>
-        /// 
+        
         [MultiReturn(new[] { "q_D" })]
         public static Dictionary<string, object> ComponentWeight_q_D(string ComponentId,
             double ComponentOption1, double ComponentOption2, double ComponentValue)
@@ -77,15 +76,6 @@ namespace Loads.ASCE7_10.Gravity.Dead
 
         string _ComponentWeight;
 
-        internal ComponentWeight(string ComponentId, int ComponentOption1, int ComponentOption2, double ComponentValue)
-        {
-
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static ComponentWeight ByInputParameters(string ComponentId, int ComponentOption1, int ComponentOption2, double ComponentValue)
-        {
-            return new ComponentWeight(ComponentId, ComponentOption1, ComponentOption2, ComponentValue);
-        }
 
     }
 }
