@@ -44,10 +44,12 @@ namespace Steel.AISC_10.Connection
         /// </summary>
         /// <param name="d_b">  Nominal fastener diameter </param>
         /// <param name="BoltHoleType">  Type of bolt hole </param>
+        /// <param name="IsTensionOrShear">  Identifies whether limit state involves tension or shear (for bolt dimension calculations)</param>
         /// <returns name="d_hole"> Bolt hole diameter </returns>
 
+
         [MultiReturn(new[] { "d_hole" })]
-        public static Dictionary<string, object> BoltHoleSize(double d_b,string BoltHoleType)
+        public static Dictionary<string, object> BoltHoleSize(double d_b, string BoltHoleType, bool IsTensionOrShear = true)
         {
             //Default values
             double d_hole = 0;
@@ -56,7 +58,7 @@ namespace Steel.AISC_10.Connection
             if (IsValidString == true)
             {
                 b.BoltGeneral b = new b.BoltGeneral(d_b, 0, 0);
-                d_hole = b.GetBoltHoleWidth(holeType, true);
+                d_hole = b.GetBoltHoleWidth(holeType,  IsTensionOrShear);
             }
             else
             {

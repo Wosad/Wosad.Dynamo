@@ -154,8 +154,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.2.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.2.5\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.2.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.2.6\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -220,6 +220,10 @@
     <Compile Include="Examples\SectionProperties\SectionIRolled.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\ReportCollector.cs" />
+    <Compile Include="Steel\AISC_10\Combination\Groups\Combination.cs" />
+    <Compile Include="Steel\AISC_10\Combination\InteractionRatio.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Steel\AISC_10\Composite\BeamEffectiveSlabWidth.cs" />
     <Compile Include="Steel\AISC_10\Composite\DesignSumOfAnchorStrengths.cs" />
     <Compile Include="Steel\AISC_10\Composite\Groups\Anchor.cs" />
@@ -244,6 +248,7 @@
     <Compile Include="Steel\AISC_10\Connection\BoltHoleSize.cs" />
     <Compile Include="Steel\AISC_10\Connection\BoltNominalTensileStress.cs" />
     <Compile Include="Steel\AISC_10\Connection\BoltTensileStrength.cs" />
+    <Compile Include="Steel\AISC_10\Connection\ConnectedElementStrengthInFlexure.cs" />
     <Compile Include="Steel\AISC_10\Connection\ConnectedElementStrengthInShear.cs" />
     <Compile Include="Steel\AISC_10\Connection\ConnectedElementStrengthInTension.cs" />
     <Compile Include="Steel\AISC_10\Connection\CopedSectionStrengthInFlexure.cs" />

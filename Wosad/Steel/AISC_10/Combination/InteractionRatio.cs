@@ -20,69 +20,74 @@
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
-using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
+using aisc = Wosad.Steel.AISC;
+using combo = Wosad.Steel.AISC.AISC360_10.Combination;
+using System;
 
 #endregion
 
-namespace Wosad.Steel.AISC_10.CombinedForces
+namespace Steel.AISC_10.Combination
 {
-    /// <summary>
-    ///     Interaction ratio
-    ///     Category:   Wosad.Steel.AISC_10.CombinedForces
-    /// </summary>
-    /// 
+
+/// <summary>
+///     Interaction ratio
+///     Category:   Steel.AISC_10.Combination
+/// </summary>
+/// 
 
 
-    [IsDesignScriptCompatible]
-    public class InteractionRatio 
+    public partial class Combination 
     {
         /// <summary>
-        ///    Calculates Interaction ratio for the combination of forces
+        ///     Interaction ratio for the combination of forces
         /// </summary>
-        /// <param name="CombinationCaseId">  Defines a type of interaction equation to be used /param>
-/// <param name="P_u">  Required axial strength /param>
-/// <param name="M_ux">  Required flexural strength with respect to x-axis /param>
-/// <param name="M_uy">  Required flexural strength with respect to x-axis /param>
-/// <param name="V_ux">  Required shear strength with respect to x-axis /param>
-/// <param name="V_uy">  Required shear strength with respect to x-axis /param>
-/// <param name="phiP_n">  Compressive strength /param>
-/// <param name="phiM_nx">  Moment strength with respect to section x-axis /param>
-/// <param name="phiM_ny">  Moment strength with respect to section y-axis /param>
-/// <param name="phiV_nx">  Shear strength with respect to section y-axis /param>
-/// <param name="phiV_ny">  Shear strength with respect to section x-axis /param>
+        /// <param name="CombinationCaseId">  Defines a type of interaction equation to be used </param>
+        /// <param name="N_u">  Required axial strength </param>
+        /// <param name="T_u">  Required torsional strength </param>
+        /// <param name="M_ux">  Required flexural strength with respect to x-axis </param>
+        /// <param name="M_uy">  Required flexural strength with respect to x-axis </param>
+        /// <param name="V_ur">  Required shear strength resultant </param>
+        /// <param name="phiN_n">  Compressive strength </param>
+        /// <param name="phiT_n">  Torsional strength </param>
+        /// <param name="phiM_nx">  Moment strength with respect to section x-axis </param>
+        /// <param name="phiM_ny">  Moment strength with respect to section y-axis </param>
+        /// <param name="phiV_r">  Shear strength resultant </param>
+        /// <returns name="InteractionRatio"> Interaction ratio </returns>
 
-        /// <returns> "Parameter name: PMM_Ratio", Parameter description: Interaction ratio </returns>
-
-        /// 
-        [MultiReturn(new[] { "PMM_Ratio" })]
-        public static Dictionary<string, object> PMM(string CombinationCaseId,double P_u,double M_ux,double M_uy,double V_ux,double V_uy,double phiP_n,double phiM_nx,double phiM_ny,double phiV_nx,double phiV_ny)
+        [MultiReturn(new[] { "InteractionRatio" })]
+        public static Dictionary<string, object> InteractionRatio(string CombinationCaseId,double N_u=0, double T_uTorsion=0, double M_ux=0,double M_uy=0,double V_ur=0,double V_uy=0,double phiN_n=0, double phiT_n =0, double phiM_nx=0,double phiM_ny=0,double phiV_nr=0)
         {
             //Default values
-            double PMM_Ratio = 0;
+            double InteractionRatio = 0;
 
 
-            //Add calculation logic here:
+            //Calculation logic:
+            
 
+              aisc.CombinationCaseId comboCase;
+              bool IsValidStringComboType = Enum.TryParse(CombinationCaseId, true, out comboCase);
+                if (IsValidStringComboType == true)
+                {
+                    combo.Combination combo = new combo.Combination();
+                    InteractionRatio = combo.GetInteractionRatio(comboCase,
+                        N_u,T_uTorsion,M_ux,M_uy,V_ur,phiN_n,phiT_n,phiM_nx,phiM_ny,phiV_nr);
+
+                    
+                }
+                else
+                {
+                    throw new Exception("Invalid combination case string.");
+                }
 
             return new Dictionary<string, object>
             {
-                { "PMM_Ratio", PMM_Ratio }
+                { "InteractionRatio", InteractionRatio }
  
             };
         }
 
-        string _InteractionRatio ;
 
-        internal InteractionRatio (string CombinationCaseId,double P_u,double M_ux,double M_uy,double V_ux,double V_uy,double phiP_n,double phiM_nx,double phiM_ny,double phiV_nx,double phiV_ny)
-        {
-
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static InteractionRatio  ByInputParameters(string CombinationCaseId,double P_u,double M_ux,double M_uy,double V_ux,double V_uy,double phiP_n,double phiM_nx,double phiM_ny,double phiV_nx,double phiV_ny)
-        {
-            return new InteractionRatio(string CombinationCaseId,double P_u,double M_ux,double M_uy,double V_ux,double V_uy,double phiP_n,double phiM_nx,double phiM_ny,double phiV_nx,double phiV_ny);
-        }
 
     }
 }

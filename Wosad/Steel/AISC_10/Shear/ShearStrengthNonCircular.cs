@@ -60,11 +60,11 @@ namespace Steel.AISC_10.Shear
             //Calculation logic:
             ShearMemberFactory factory = new ShearMemberFactory();
 
-            aisc.ShearCase shearCase;
+            aisc.ShearNonCircularCase shearCase;
             bool IsValidString = Enum.TryParse(ShearCase, true, out shearCase);
             if (IsValidString == true)
             {
-                IShearMember member = factory.GetShearMemberNonCircular(shearCase,h,t_w,a,F_y);
+                IShearMember member = factory.GetShearMemberNonCircular(shearCase,h,t_w,a,F_y,E);
                 phiV_n = member.GetShearStrength();
             }
             else
