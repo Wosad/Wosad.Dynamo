@@ -74,7 +74,6 @@ namespace Loads.ASCE7_10.Gravity
             };
         }
 
-        string _ComponentWeight;
 
 
     }

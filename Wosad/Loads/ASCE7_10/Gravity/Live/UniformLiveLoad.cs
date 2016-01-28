@@ -61,7 +61,6 @@ namespace Loads.ASCE7_10.Gravity
             };
         }
 
-        string _UniformLiveLoad ;
 
         internal Live(string LiveLoadOccupancyId)
         {

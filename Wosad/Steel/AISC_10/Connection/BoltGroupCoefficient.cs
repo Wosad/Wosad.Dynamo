@@ -48,8 +48,8 @@ namespace Steel.AISC_10.Connection
         /// <param name="theta">  Angle of loading for eccentric bolt or weld group </param>
         /// <returns name="C_BoltGroup"> Coefficient for eccentrically loaded bolt group </returns>
         /// <returns name="C_prime"> Coefficient for bolt group subjected to pure moment </returns>
-        
-        [MultiReturn(new[] { "C_BoltGroup" })]
+
+        [MultiReturn(new[] { "C_BoltGroup", "C_prime" })]
         public static Dictionary<string, object> BoltGroupCoefficient(double N_rows,double N_cols, double p_h, double p_v, double e_group,double theta)
         {
             //Default values

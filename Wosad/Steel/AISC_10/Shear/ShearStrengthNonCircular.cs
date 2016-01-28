@@ -51,7 +51,7 @@ namespace Steel.AISC_10.Shear
         /// <returns name="phiV_n"> Shear strength </returns>
 
         [MultiReturn(new[] { "phiV_n" })]
-        public static Dictionary<string, object> ShearStrengthNonCircular(string ShearCase,double F_y,double t_w,double h,double a,double E)
+        public static Dictionary<string, object> ShearStrengthNonCircular(string ShearCase,double F_y,double t_w,double h,double a_s,double E)
         {
             //Default values
             double phiV_n = 0;
@@ -64,7 +64,7 @@ namespace Steel.AISC_10.Shear
             bool IsValidString = Enum.TryParse(ShearCase, true, out shearCase);
             if (IsValidString == true)
             {
-                IShearMember member = factory.GetShearMemberNonCircular(shearCase,h,t_w,a,F_y,E);
+                IShearMember member = factory.GetShearMemberNonCircular(shearCase,h,t_w,a_s,F_y,E);
                 phiV_n = member.GetShearStrength();
             }
             else
