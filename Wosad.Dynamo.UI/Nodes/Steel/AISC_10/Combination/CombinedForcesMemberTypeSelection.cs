@@ -37,7 +37,7 @@ namespace Wosad.Steel.AISC_10.Combination
     /// </summary>
 
     [NodeName("Combined forces member type selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.CombinedForces")]
+    [NodeCategory("Wosad.Steel.AISC_10.Combination")]
     [NodeDescription("Combined forces member type selection")]
     [IsDesignScriptCompatible]
     public class CombinedForcesMemberTypeSelection : UiNodeBase
