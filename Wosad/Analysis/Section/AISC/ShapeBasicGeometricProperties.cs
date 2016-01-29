@@ -45,6 +45,7 @@ namespace Analysis.Section.AISC
         /// <returns name="b_f"> Width of flange  </returns>
         /// <returns name="t_f"> Thickness of flange   </returns>
         /// <returns name="t_w"> Thickness of web  </returns>
+        /// <returns name="k"> Distance from outer face of flange to the web toe of fillet  </returns>
         /// <returns name="D"> Outside diameter of round HSS  </returns>
         /// <returns name="B"> Overall width of rectangular steel section along face transferring load or overall width of rectangular HSS member  </returns>
         /// <returns name="H_t"> Overall depth of square or rectangular HSS </returns>
@@ -52,7 +53,7 @@ namespace Analysis.Section.AISC
         /// <returns name="t_nom"> HSS and pipe nominal wall thickness </returns>
         ///  <returns name="A"> Cross-sectional area </returns>
 
-        [MultiReturn(new[] { "d","b_f","t_f","t_w","D","B","H_t","t","t_nom","A" })]
+        [MultiReturn(new[] { "d","b_f","t_f","t_w","k","D","B","H_t","t","t_nom","A" })]
         public static Dictionary<string, object> ShapeBasicGeometricProperties(string SteelShapeId)
         {
             //Default values
@@ -60,6 +61,7 @@ namespace Analysis.Section.AISC
             double b_f = 0;
             double t_f = 0;
             double t_w = 0;
+            double k = 0;
             double D = 0;
             double B = 0;
             double H_t = 0;
@@ -74,6 +76,7 @@ namespace Analysis.Section.AISC
             b_f = shape.bf;
             t_f = shape.tf;
             t_w = shape.tw;
+            k = shape.kdes;
             D = shape.OD;
             B = shape.B;
             H_t = shape.Ht;
@@ -87,6 +90,7 @@ namespace Analysis.Section.AISC
 ,{ "b_f", b_f }
 ,{ "t_f", t_f }
 ,{ "t_w", t_w }
+,{ "k", k }
 ,{ "D", D }
 ,{ "B", B }
 ,{ "H_t", H_t }

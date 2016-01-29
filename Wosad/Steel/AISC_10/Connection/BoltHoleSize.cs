@@ -46,19 +46,22 @@ namespace Steel.AISC_10.Connection
         /// <param name="BoltHoleType">  Type of bolt hole </param>
         /// <param name="IsTensionOrShear">  Identifies whether limit state involves tension or shear (for bolt dimension calculations)</param>
         /// <returns name="d_hole"> Bolt hole diameter </returns>
+        /// <returns name="b_hole"> Bolt hole width (long dimension) </returns>
 
 
-        [MultiReturn(new[] { "d_hole" })]
+        [MultiReturn(new[] { "d_hole" , "b_hole"})]
         public static Dictionary<string, object> BoltHoleSize(double d_b, string BoltHoleType, bool IsTensionOrShear = true)
         {
             //Default values
             double d_hole = 0;
+            double b_hole = 0;
             BoltHoleType holeType;
             bool IsValidString =Enum.TryParse(BoltHoleType, true, out holeType);
             if (IsValidString == true)
             {
                 b.BoltGeneral b = new b.BoltGeneral(d_b, 0, 0);
                 d_hole = b.GetBoltHoleWidth(holeType,  IsTensionOrShear);
+                b_hole = b.GetBoltHoleLength(holeType, IsTensionOrShear);
             }
             else
             {
@@ -67,7 +70,8 @@ namespace Steel.AISC_10.Connection
 
             return new Dictionary<string, object>
             {
-                { "d_hole", d_hole }
+                { "d_hole", d_hole },
+                 { "b_hole", b_hole }
  
             };
         }

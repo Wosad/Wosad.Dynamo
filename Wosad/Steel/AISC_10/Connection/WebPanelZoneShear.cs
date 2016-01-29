@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
 using System;
+using dcf = Wosad.Steel.AISC.AISC360_10.Connections.AffectedMembers.ConcentratedForces;
 
 #endregion
 
@@ -61,7 +62,8 @@ namespace Steel.AISC_10.Connection
 
 
             //Calculation logic:
-            throw new NotImplementedException();
+            phiR_n = FlangeOrWebWithConcentratedForces.WebPanelZoneShear(t_w, t_cf, b_cf, d_b, d_c, F_y, P_u, A_g, PanelDeformationConsideredInAnalysis);
+
 
             return new Dictionary<string, object>
             {

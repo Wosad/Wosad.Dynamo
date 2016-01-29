@@ -43,6 +43,7 @@ namespace Analysis.Section
         ///    Calculates AISC shape properties about X axis
         /// </summary>
         /// <param name="SteelShapeId">  Section name from steel shape database </param>
+        ///  <returns name="A"> Cross-sectional area </returns>
         /// <returns name="y_e"> Vertical distance from designated member edge to member elastic centroidal axis </returns>
         /// <returns name="y_p"> Vertical distance from designated member edge  to member plastic neutral axis </returns>
         /// <returns name="I_x"> Moment of inertia about the principal x-axis </returns>
@@ -52,7 +53,7 @@ namespace Analysis.Section
         /// <returns name="r_y"> Radius of gyration about the y-axis  </returns>
         /// 
 
-        [MultiReturn(new[] { "y_e", "y_p", "I_x", "Z_x", "S_xBot", "S_xTop", "r_y" })]
+        [MultiReturn(new[] { "A","y_e", "y_p", "I_x", "Z_x", "S_xBot", "S_xTop", "r_y" })]
         public static Dictionary<string, object> XAxisProperties(CustomProfile shape)
         {
             //Default values
@@ -63,9 +64,9 @@ namespace Analysis.Section
             double S_xBot = 0;
             double S_xTop = 0;
             double r_y = 0;
+            double A =0;
 
-
-
+            A = shape.Section.A;
             y_e = shape.Section.y_Bar;
             y_p = shape.Section.x_pBar;
             I_x = shape.Section.I_x;
@@ -76,7 +77,8 @@ namespace Analysis.Section
 
             return new Dictionary<string, object>
             {
-            { "y_e", y_e }
+             { "A", A }
+            ,{ "y_e", y_e }
             ,{ "y_p", y_p }
             ,{ "I_x", I_x }
             ,{ "Z_x", Z_x }

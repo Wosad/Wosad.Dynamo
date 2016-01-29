@@ -50,7 +50,7 @@ namespace Steel.AISC_10.General
         /// 
 
         [MultiReturn(new[] { "F_y","F_u","E","G" })]
-        public static Dictionary<string, object> MaterialMechanicalProperties(string SteelMaterialId, double d_b=0.75)
+        public static Dictionary<string, object> MaterialMechanicalProperties(string SteelMaterialId, double d_b=0)
         {
             //Default values
             double F_y = 0;
