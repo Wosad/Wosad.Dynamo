@@ -37,7 +37,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Weld load type and direction")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.Welded")]
     [NodeDescription("Weld load type and direction for strength calculation")]
     [IsDesignScriptCompatible]
     public class LoadTypeAndDirection : UiNodeBase

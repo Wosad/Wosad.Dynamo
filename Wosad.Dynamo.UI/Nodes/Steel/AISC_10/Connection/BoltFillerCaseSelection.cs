@@ -36,7 +36,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Bolt filler case selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.Bolted")]
     [NodeDescription("Bolt filler case selection")]
     [IsDesignScriptCompatible]
     public class BoltFillerCaseSelection : UiNodeBase

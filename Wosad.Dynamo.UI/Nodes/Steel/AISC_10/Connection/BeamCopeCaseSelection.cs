@@ -36,7 +36,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Beam cope case selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.AffectedElements")]
     [NodeDescription("Beam cope case selection")]
     [IsDesignScriptCompatible]
     public class BeamCopeCaseSelection : UiNodeBase

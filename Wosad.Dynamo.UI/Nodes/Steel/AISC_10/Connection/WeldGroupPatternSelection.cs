@@ -36,7 +36,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Weld group pattern selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.Welded")]
     [NodeDescription("Weld group pattern selection")]
     [IsDesignScriptCompatible]
     public class WeldGroupPatternSelection : UiNodeBase
