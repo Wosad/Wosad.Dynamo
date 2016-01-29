@@ -36,7 +36,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Group shear area pattern selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.AffectedElements")]
     [NodeDescription("Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).")]
     [IsDesignScriptCompatible]
     public class GroupShearAreaPatternSelection : UiNodeBase

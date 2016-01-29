@@ -37,7 +37,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Weld type selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.Welded")]
     [NodeDescription("Weld type selection")]
     [IsDesignScriptCompatible]
     public class WeldTypeSelection : UiNodeBase

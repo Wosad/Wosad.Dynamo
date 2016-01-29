@@ -37,7 +37,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Stress distribution selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.AffectedElements")]
     [NodeDescription("Stress distribution selection")]
     [IsDesignScriptCompatible]
     public class StressDistributionSelection : UiNodeBase

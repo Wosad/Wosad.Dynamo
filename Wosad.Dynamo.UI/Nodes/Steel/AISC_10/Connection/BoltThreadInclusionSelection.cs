@@ -37,7 +37,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Bolt thread inclusion selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.Bolted")]
     [NodeDescription("Bolt thread inclusion selection")]
     [IsDesignScriptCompatible]
     public class BoltThreadInclusionSelection : UiNodeBase

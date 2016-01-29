@@ -36,7 +36,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Bolt faying surface selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.Bolted")]
     [NodeDescription("Bolt faying surface selection")]
     [IsDesignScriptCompatible]
     public class BoltFayingSurfaceSelection : UiNodeBase

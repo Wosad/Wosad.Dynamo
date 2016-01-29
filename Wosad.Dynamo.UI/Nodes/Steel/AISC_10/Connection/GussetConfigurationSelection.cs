@@ -36,7 +36,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Gusset plate configuration selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.AffectedElements")]
     [NodeDescription("Gusset plate configuration selection")]
     [IsDesignScriptCompatible]
     public class GussetConfigurationSelection : UiNodeBase

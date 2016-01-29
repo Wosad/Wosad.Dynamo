@@ -37,7 +37,7 @@ namespace Wosad.Steel.AISC_10.Connection
     /// </summary>
 
     [NodeName("Bolt hole deformation selection")]
-    [NodeCategory("Wosad.Steel.AISC_10.Connection")]
+    [NodeCategory("Wosad.Steel.AISC_10.Connection.Bolted")]
     [NodeDescription("Bolt hole deformation")]
     [IsDesignScriptCompatible]
     public class BoltHoleDeformationSelection : UiNodeBase
