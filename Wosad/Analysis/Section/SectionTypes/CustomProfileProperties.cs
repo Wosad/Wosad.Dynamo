@@ -1,5 +1,5 @@
 ﻿#region Copyright
-/*Copyright (C) 2015 Wosad Inc
+   /*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
-
+ 
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -42,8 +42,7 @@ namespace Analysis.Section
         /// <summary>
         ///    Calculates AISC shape properties about X axis
         /// </summary>
-        /// <param name="SteelShapeId">  Section name from steel shape database </param>
-        ///  <returns name="A"> Cross-sectional area </returns>
+        /// <param name="Shape">  Section name from steel shape database </param>
         /// <returns name="y_e"> Vertical distance from designated member edge to member elastic centroidal axis </returns>
         /// <returns name="y_p"> Vertical distance from designated member edge  to member plastic neutral axis </returns>
         /// <returns name="I_x"> Moment of inertia about the principal x-axis </returns>
@@ -51,10 +50,11 @@ namespace Analysis.Section
         /// <returns name="S_xBot"> Elastic section modulus taken about the x-axis, with respect to bottom fiber  </returns>
         /// <returns name="S_xTop"> Elastic section modulus taken about the x-axis, with respect to top fiber  </returns>
         /// <returns name="r_y"> Radius of gyration about the y-axis  </returns>
+        /// <returns name="A"> Area  </returns>
         /// 
 
-        [MultiReturn(new[] { "A","y_e", "y_p", "I_x", "Z_x", "S_xBot", "S_xTop", "r_y" })]
-        public static Dictionary<string, object> XAxisProperties(CustomProfile shape)
+        [MultiReturn(new[] { "y_e", "y_p", "I_x", "Z_x", "S_xBot", "S_xTop", "r_y" , "A"})]
+        public static Dictionary<string, object> XAxisProperties(CustomProfile Shape)
         {
             //Default values
             double y_e = 0;
@@ -64,27 +64,28 @@ namespace Analysis.Section
             double S_xBot = 0;
             double S_xTop = 0;
             double r_y = 0;
-            double A =0;
+            double A = 0;
 
-            A = shape.Section.A;
-            y_e = shape.Section.y_Bar;
-            y_p = shape.Section.x_pBar;
-            I_x = shape.Section.I_x;
-            Z_x = shape.Section.Z_x;
-            S_xBot = shape.Section.S_xBot;
-            S_xTop = shape.Section.S_xTop;
-            r_y = shape.Section.r_y;
+
+            y_e = Shape.Section.y_Bar;
+            y_p = Shape.Section.x_pBar;
+            I_x = Shape.Section.I_x;
+            Z_x = Shape.Section.Z_x;
+            S_xBot = Shape.Section.S_xBot;
+            S_xTop = Shape.Section.S_xTop;
+            r_y = Shape.Section.r_y;
+            A = Shape.Section.A;
 
             return new Dictionary<string, object>
             {
-             { "A", A }
-            ,{ "y_e", y_e }
+            { "y_e", y_e }
             ,{ "y_p", y_p }
             ,{ "I_x", I_x }
             ,{ "Z_x", Z_x }
             ,{ "S_xBot", S_xBot }
             ,{ "S_xTop", S_xTop }
-            ,{ "r_x", r_y }
+            ,{ "r_y", r_y }
+            ,{ "A", A }
             };
             }
 

@@ -46,7 +46,7 @@ namespace Steel.AISC_10.Connection
         /// <param name="BoltMaterialId">  Bolt material specification </param>
         /// <param name="BoltThreadCase">  Identifies whether threads are included or excluded from shear planes </param>
         /// <param name="NumberShearPlanes">  Number of shear planes </param>
-        /// <param name="NumberShearPlanes">  Number of shear planes </param>
+        /// <param name="IsEndLoadedConnectionWithLengthEfect">  Identifies whether connection is end-loaded with length over 38 inches </param>
         /// <returns name="phiR_nv"> Connection shear strength </returns>
 
 

@@ -48,7 +48,7 @@ namespace Analysis.Section.AISC
         /// <returns name="Z_y"> Plastic section modulus about the y-axis  </returns>
         /// <returns name="S_y"> Elastic section modulus taken about the y-axis. For a channel the minimum section modulus  </returns>
         /// <returns name="r_y"> Radius of gyration about y-axis  </returns>
-        /// 
+
 
         [MultiReturn(new[] { "y_e","y_p","I_y","Z_y","S_y","r_y" })]
         public static Dictionary<string, object> YAxisProperties(string SteelShapeId)

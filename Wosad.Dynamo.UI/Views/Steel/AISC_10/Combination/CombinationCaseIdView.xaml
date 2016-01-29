@@ -36,7 +36,7 @@
 
             <WosadControls:EnumDataCollection x:Key="ConnectionCombinationTypeSource" d:IsDataSource="True">
                 <WosadControls:EnumDataElement  EnumString="Linear"       Description="Linear" />
-                <WosadControls:EnumDataElement  EnumString="Elliptical"       Description="Parabolic" />
+                <WosadControls:EnumDataElement  EnumString="Elliptical"       Description="Elliptical" />
                 <WosadControls:EnumDataElement  EnumString="Anchorage"       Description="Anchorage" />
                 <WosadControls:EnumDataElement  EnumString="Plastic"  Description="Plastic"/>
             </WosadControls:EnumDataCollection>

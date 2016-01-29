@@ -44,7 +44,6 @@ namespace Steel.AISC_10.Connection.SpecialCase
         /// <param name="t_p">  Thickness of plate   </param>
         /// <param name="a_bolts">  Distance from support to first line of bolts </param>
         /// <param name="F_y">  Specified minimum yield stress </param>
-        /// <param name="d_pl">  Depth of plate </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]

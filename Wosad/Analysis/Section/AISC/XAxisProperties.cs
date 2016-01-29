@@ -38,17 +38,17 @@ namespace Analysis.Section.AISC
 
     public partial class StandardShapeProperties 
     {
-/// <summary>
-///    Calculates AISC shape properties about X axis
-/// </summary>
-        /// <param name="SteelShapeId">  Section name from steel shape database </param>
-        /// <returns name="x_e"> Horizontal distance from designated member edge to member elastic centroidal axis </returns>
-/// <returns name="x_p"> Horizontal distance from designated member edge  to member plastic neutral axis </returns>
-/// <returns name="I_x"> Moment of inertia about the principal x-axis </returns>
-/// <returns name="Z_x"> Plastic section modulus about the x-axis  </returns>
-/// <returns name="S_x"> Elastic section modulus taken about the x-axis  </returns>
-/// <returns name="r_x"> Radius of gyration about the x-axis  </returns>
-/// 
+    /// <summary>
+    ///    Calculates AISC shape properties about X axis
+    /// </summary>
+    /// <param name="SteelShapeId">  Section name from steel shape database </param>
+    /// <returns name="x_e"> Horizontal distance from designated member edge to member elastic centroidal axis </returns>
+    /// <returns name="x_p"> Horizontal distance from designated member edge  to member plastic neutral axis </returns>
+    /// <returns name="I_x"> Moment of inertia about the principal x-axis </returns>
+    /// <returns name="Z_x"> Plastic section modulus about the x-axis  </returns>
+    /// <returns name="S_x"> Elastic section modulus taken about the x-axis  </returns>
+    /// <returns name="r_x"> Radius of gyration about the x-axis  </returns>
+
 
         [MultiReturn(new[] { "x_e","x_p","I_x","Z_x","S_x","r_x" })]
         public static Dictionary<string, object> XAxisProperties(string SteelShapeId)

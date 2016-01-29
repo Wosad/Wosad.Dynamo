@@ -67,12 +67,16 @@ namespace Analysis.Beam
 
 
             //Calculation logic:
-            TorsionalFunctionCase TCase = (TorsionalFunctionCase)Enum.Parse(typeof(TorsionalFunctionCase),TorsionalFunctionCaseId);
-            TorsionalFunctionFactory tf = new TorsionalFunctionFactory();
-            if (TCase==null)
+
+            TorsionalFunctionCase TCase;
+            bool IsValidStringTorsionCase = Enum.TryParse(TorsionalFunctionCaseId, true, out TCase);
+            if (IsValidStringTorsionCase == false)
             {
                 throw new Exception("Torsional case is not recognized. Check input string.");
             }
+
+            TorsionalFunctionFactory tf = new TorsionalFunctionFactory();
+
             ITorsionalFunction function = tf.GetTorsionalFunction(TCase, E, G, J, L, z, T, C_w, t, alpha);
             theta = function.Get_theta();
             theta_1der = function.Get_theta_1();
