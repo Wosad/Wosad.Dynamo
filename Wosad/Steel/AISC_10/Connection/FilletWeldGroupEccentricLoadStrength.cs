@@ -41,7 +41,7 @@ namespace Steel.AISC_10.Connection
         /// </summary>
         /// <param name="C_WeldGroup">  Coefficient for eccentrically loaded weld group </param>
         /// <param name="l">  Length of connection or weld   </param>
-        /// <param name="w_weld">  Size of fillet weld length  </param>
+        /// <param name="w_weld">  Size of fillet weld leg  </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
