@@ -44,14 +44,14 @@ namespace Steel.AISC_10.Connection
         ///    Calculates Net and gross shear and tension areas for block shear, shear yielding and shear rupture calculations
         /// </summary>
         /// <param name="ShearAreaCaseId">  Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).Values are: StraightLine,TBlock,UBlock,Lblock </param>
-        /// <param name="N_BoltRowParallel">  Number of bolt rows parallel  to direction of load </param>
-        /// <param name="N_BoltRowPerpendicular">  Number of bolt columns perpendicular to direction of load </param>
+        /// <param name="N_BoltRowParallel">  Number of bolt rows parallel  to direction of load (for example number of rows when load is vertical) </param>
+        /// <param name="N_BoltRowPerpendicular">  Number of bolt columns perpendicular to direction of load (for example number of columns when the load is vertical) </param>
         /// <param name="p_parallel">  Bolt spacing in the direction of load </param>
         /// <param name="p_perpendicular">  Bolt spacing perpendicular to the direction of load </param>
         /// <param name="d_hole">  Bolt hole diameter </param>
         /// <param name="t_p">  Thickness of plate   </param>
-        /// <param name="l_edgeParallel">  Edge distance measured parallel to direction of load </param>
-        /// <param name="l_edgePerpendicular">  Edge distance measured perpendicular to direction of load </param>
+        /// <param name="l_edgeParallel">  Edge distance measured parallel to direction of load (for example verical edge distance when the load is vertical) </param>
+        /// <param name="l_edgePerpendicular">  Edge distance measured perpendicular to direction of load  (for example horizontal edge distance when the load is vertical)</param>
         /// <returns name="A_gv"> Gross area subject to shear </returns>
         /// <returns name="A_nv"> Net area subject to shear </returns>
         /// <returns name="A_nt"> Net area subject to tension </returns>
