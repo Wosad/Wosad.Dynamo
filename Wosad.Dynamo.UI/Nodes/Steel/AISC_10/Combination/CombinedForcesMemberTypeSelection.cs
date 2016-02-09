@@ -54,12 +54,12 @@ namespace Wosad.Steel.AISC_10.Combination
 
         private void SetDefaultParameters()
         {
-            ReportEntry = "";
-            CombinationCaseId = "H1";
-            MemberForceCase = "FlexureAndAxial";
-            MemberSectionType = "DoublyOrSinglySymmetric";
-            ElementType = "Member";
-            ConnectionCombinationType = "Plastic";
+            ReportEntry                 = "";
+            CombinationCaseId           = "H1";
+            MemberForceCase             = "FlexureAndAxial";
+            MemberSectionType           = "DoublyOrSinglySymmetric";
+            ElementType                 = "Member";
+            ConnectionCombinationType   = "Plastic";
         }
 
 
@@ -141,7 +141,13 @@ namespace Wosad.Steel.AISC_10.Combination
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("CombinationCaseId", CombinationCaseId);
+            nodeElement.SetAttribute("CombinationCaseId",CombinationCaseId);
+            nodeElement.SetAttribute("ReportEntry",ReportEntry);
+            nodeElement.SetAttribute("MemberForceCase",MemberForceCase);
+            nodeElement.SetAttribute("MemberSectionType",MemberSectionType);
+            nodeElement.SetAttribute("ElementType",ElementType);
+            nodeElement.SetAttribute("ConnectionCombinationType",ConnectionCombinationType);
+
         }
 
         /// <summary>
@@ -150,12 +156,11 @@ namespace Wosad.Steel.AISC_10.Combination
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["CombinationCaseId"];
-            if (attrib == null)
-                return;
-
-            CombinationCaseId = attrib.Value;
-
+            var attrib = nodeElement.Attributes["CombinationCaseId"]; if (attrib != null) { CombinationCaseId = attrib.Value; }
+            var MemberForceCase_attrib = nodeElement.Attributes["MemberForceCase"]; if (MemberForceCase_attrib != null) { MemberForceCase = MemberForceCase_attrib.Value; }
+            var MemberSectionType_attrib = nodeElement.Attributes["MemberSectionType"]; if (MemberSectionType_attrib != null) { MemberSectionType = MemberSectionType_attrib.Value; }
+            var ElementType_attrib = nodeElement.Attributes["ElementType"]; if (ElementType_attrib != null) { ElementType = ElementType_attrib.Value; }
+            var ConnectionCombinationType_attrib = nodeElement.Attributes["ConnectionCombinationType"]; if (ConnectionCombinationType_attrib != null) { ConnectionCombinationType = ConnectionCombinationType_attrib.Value; }
         }
 
 

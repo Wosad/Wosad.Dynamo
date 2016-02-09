@@ -1655,6 +1655,16 @@ namespace Wosad.Analysis.Section.AISC
         {
             base.SerializeCore(nodeElement, context);
             nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
+            nodeElement.SetAttribute("ReportEntry",ReportEntry);
+            nodeElement.SetAttribute("CatalogShapeType",CatalogShapeType);
+            nodeElement.SetAttribute("ShapeTypeSteel",ShapeTypeSteel);
+            nodeElement.SetAttribute("IShapeType",IShapeType);
+            nodeElement.SetAttribute("CShapeType",CShapeType);
+            nodeElement.SetAttribute("TShapeType",TShapeType);
+            nodeElement.SetAttribute("CHSType",CHSType);
+            nodeElement.SetAttribute("LDoubleShapeType",LDoubleShapeType);
+            nodeElement.SetAttribute("WShapeGroup",WShapeGroup);
+            nodeElement.SetAttribute("AnchorRodType",AnchorRodType);
         }
 
         /// <summary>
@@ -1663,12 +1673,16 @@ namespace Wosad.Analysis.Section.AISC
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["SteelShapeId"];
-            if (attrib == null)
-                return;
-           
-            SteelShapeId = attrib.Value;
-
+            var SteelShapeId_attrib = nodeElement.Attributes["SteelShapeId"]; if (SteelShapeId_attrib != null) { SteelShapeId = SteelShapeId_attrib.Value; }
+            var CatalogShapeType_attrib = nodeElement.Attributes["CatalogShapeType"]; if (CatalogShapeType_attrib != null) { CatalogShapeType = CatalogShapeType_attrib.Value; }
+            var ShapeTypeSteel_attrib = nodeElement.Attributes["ShapeTypeSteel"]; if (ShapeTypeSteel_attrib != null) { ShapeTypeSteel = ShapeTypeSteel_attrib.Value; }
+            var IShapeType_attrib = nodeElement.Attributes["IShapeType"]; if (IShapeType_attrib != null) { IShapeType = IShapeType_attrib.Value; }
+            var CShapeType_attrib = nodeElement.Attributes["CShapeType"]; if (CShapeType_attrib != null) { CShapeType = CShapeType_attrib.Value; }
+            var TShapeType_attrib = nodeElement.Attributes["TShapeType"]; if (TShapeType_attrib != null) { TShapeType = TShapeType_attrib.Value; }
+            var CHSType_attrib = nodeElement.Attributes["CHSType"]; if (CHSType_attrib != null) { CHSType = CHSType_attrib.Value; }
+            var LDoubleShapeType_attrib = nodeElement.Attributes["LDoubleShapeType"]; if (LDoubleShapeType_attrib != null) { LDoubleShapeType = LDoubleShapeType_attrib.Value; }
+            var WShapeGroup_attrib = nodeElement.Attributes["WShapeGroup"]; if (WShapeGroup_attrib != null) { WShapeGroup = WShapeGroup_attrib.Value; }
+            var AnchorRodType_attrib = nodeElement.Attributes["AnchorRodType"]; if (AnchorRodType_attrib != null) { AnchorRodType = AnchorRodType_attrib.Value; }
         }
 
 

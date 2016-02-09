@@ -143,8 +143,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Wosad.Common, Version=0.0.2.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.2.6\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.3.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.3.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -174,6 +174,9 @@
     <Compile Include="Nodes\Analysis\Beam\Flexure\BeamDeflectionCaseSelection.cs" />
     <Compile Include="Nodes\Analysis\Beam\Flexure\BeamForceCaseSelection.cs" />
     <Compile Include="Nodes\Analysis\Beam\Torsion\BeamTorsionCaseSelection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nodes\Concrete\ACI318_14\General\Rebar\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Nodes\Loads\ASCE7_10\General\BuildingOccupancyIdSelection.cs" />
@@ -213,6 +216,9 @@
     </Compile>
     <Compile Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseView.xaml.cs">
       <DependentUpon>BeamTorsionCaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml.cs">
+      <DependentUpon>RebarSizeSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIdView.xaml.cs">
       <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
@@ -396,6 +402,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Page Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -660,7 +670,23 @@
     <None Include="Wosad.Dynamo.UI.licenseheader" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Nodes\Concrete\ACI318_14\Compression\SectionStrength\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\Compression\Stability\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\Details\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\Flexure\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\General\Material\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
     <Folder Include="Nodes\General\" />
+    <Folder Include="Views\Concrete\ACI318_14\Compression\SectionStrength\" />
+    <Folder Include="Views\Concrete\ACI318_14\Compression\Stability\" />
+    <Folder Include="Views\Concrete\ACI318_14\Details\" />
+    <Folder Include="Views\Concrete\ACI318_14\Flexure\" />
+    <Folder Include="Views\Concrete\ACI318_14\General\Material\" />
+    <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
+    <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
+    <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
     <Folder Include="Views\General\" />
     <Folder Include="Views\Loads\ASCE7_10\Seismic\" />
     <Folder Include="Views\Loads\ASCE7_10\Snow\" />

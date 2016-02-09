@@ -142,8 +142,12 @@
       <HintPath>..\packages\Wosad.Analysis.0.0.1.7\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Common, Version=0.0.2.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.2.6\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.3.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.3.1\lib\net45\Wosad.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Wosad.Concrete, Version=0.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Concrete.0.0.3.1\lib\net45\Wosad.Concrete.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -154,8 +158,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.2.10, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.2.10\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.3.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.3.2\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -211,6 +215,12 @@
     <Compile Include="Analysis\Section\SectionTypes\CustomProfile.cs" />
     <Compile Include="Analysis\Section\SectionTypes\CustomProfileProperties.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionRectangular.cs" />
+    <Compile Include="Concrete\ACI318_14\General\Material\ConcreteMaterial.cs" />
+    <Compile Include="Concrete\ACI318_14\General\Material\RebarMaterial.cs" />
+    <Compile Include="Concrete\ACI318_14\General\Rebar\BarArea.cs" />
+    <Compile Include="Concrete\ACI318_14\General\Rebar\Groups\BarArea.cs" />
+    <Compile Include="Concrete\ACI318_14\General\Rebar\RebarAreaByElementWidthAndIdAndSpacing.cs" />
+    <Compile Include="Concrete\ACI318_14\General\Rebar\RebarAreaByIdAndNumberOfBars.cs" />
     <Compile Include="Loads\ASCE7_10\General\General.cs" />
     <Compile Include="Loads\ASCE7_10\General\RiskCategory.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Dead\ComponentWeight.cs" />
@@ -300,6 +310,13 @@
     <Compile Include="Steel\AISC_10\Shear\ShearStrengthNonCircular.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Concrete\ACI318_14\Compression\" />
+    <Folder Include="Concrete\ACI318_14\Details\" />
+    <Folder Include="Concrete\ACI318_14\Flexure\" />
+    <Folder Include="Concrete\ACI318_14\General\Section\" />
+    <Folder Include="Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
+    <Folder Include="Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
+    <Folder Include="Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
     <Folder Include="Loads\ASCE7_10\Gravity\Ice\" />
     <Folder Include="Loads\ASCE7_10\Gravity\Snow\" />
     <Folder Include="Loads\ASCE7_10\Lateral\Seismic\Building fundamental period\" />

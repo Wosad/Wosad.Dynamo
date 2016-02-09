@@ -6,13 +6,13 @@
 
 
     <DataTemplate x:Key="EnumDataTemplate">
-        <Grid x:Name="LayoutRoot" >
+        <Grid x:Name="LayoutRoot" VerticalAlignment="Center" Height="Auto" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="45" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="5" />
             </Grid.ColumnDefinitions>
-            <ContentControl x:Name="IconControl" Grid.Column="0" Style="{Binding Icon}" />
+            <ContentControl x:Name="IconControl" Grid.Column="0" Style="{Binding Icon}" VerticalAlignment="Center"  />
             <TextBlock x:Name="DescriptionBlock" Width="Auto" Text="{Binding Description}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"  />
         </Grid>
     </DataTemplate>

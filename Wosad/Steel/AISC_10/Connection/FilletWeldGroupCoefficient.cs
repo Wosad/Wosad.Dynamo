@@ -51,14 +51,15 @@ namespace Steel.AISC_10.Connection
             /// <param name="F_EXX">  Filler metal classification strength </param>
             /// <param name="IsLoadOutOfPlane">  Indicates whether the load on bolt group is not in the plane of welds. In such case eccentricity is measured normal to the plane of welds. </param>
             /// <returns name="C_WeldGroup"> Coefficient for eccentrically loaded weld group </returns>
+            /// <returns name="phiR_n"> Ultimate load value at given angle and eccentricity </returns>
 
-        [MultiReturn(new[] { "C_WeldGroup" })]
+        [MultiReturn(new[] { "C_WeldGroup", "phiR_n" })]
         public static Dictionary<string, object> FilletWeldGroupCoefficient(string WeldGroupPattern,double l_Weld_horizontal,double l_Weld_vertical,double e_group,
             double theta, double w_weld, double F_EXX, bool IsLoadOutOfPlane=false)
         {
             //Default values
             double C_WeldGroup = 0;
-
+            double phiR_n = 0;
 
             //Calculation logic:
             WeldGroupPattern pattern;
@@ -67,6 +68,7 @@ namespace Steel.AISC_10.Connection
             {
                 FilletWeldGroup wg = new FilletWeldGroup(pattern, l_Weld_horizontal, l_Weld_vertical, w_weld, F_EXX, IsLoadOutOfPlane);
                 C_WeldGroup = wg.GetInstantaneousCenterCoefficient(e_group, theta); ;
+                phiR_n = wg.GetUltimateForce(e_group, theta);
             }
             else
             {
@@ -76,7 +78,8 @@ namespace Steel.AISC_10.Connection
 
             return new Dictionary<string, object>
             {
-                { "C_WeldGroup", C_WeldGroup }
+                { "C_WeldGroup", C_WeldGroup },
+                { "phiR_n", phiR_n }
  
             };
         }

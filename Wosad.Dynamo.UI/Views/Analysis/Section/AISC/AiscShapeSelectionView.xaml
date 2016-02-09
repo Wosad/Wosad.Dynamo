@@ -11,7 +11,7 @@
 	mc:Ignorable="d"
 	x:Class="Wosad.Analysis.Section.AISC.AiscShapeSelectionView"
 	x:Name="UserControl"
-	d:DesignWidth="640" d:DesignHeight="480">
+	d:DesignWidth="640" d:DesignHeight="1500">
     
     
     <UserControl.Resources>

@@ -51,7 +51,7 @@ namespace Steel.AISC_10.Connection.SpecialCase
         /// <returns name="phiM_n"> Moment strength </returns>
 
         [MultiReturn(new[] { "phiM_n" })]
-        public static Dictionary<string, object> StabilizedExtendedSinglePlateFlexuralStrength(double R_u,double F_yp,double d_pl,double t_p,double L_bm,double F_ybm,double b_f,double t_w)
+        public static Dictionary<string, object> StabilizedExtendedSinglePlateTorsionalStrength(double R_u,double F_yp,double d_pl,double t_p,double L_bm,double F_ybm,double b_f,double t_w)
         {
             //Default values
             double phiM_n = 0;
