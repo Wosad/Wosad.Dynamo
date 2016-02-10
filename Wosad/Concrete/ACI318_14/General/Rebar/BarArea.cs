@@ -21,6 +21,9 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Concrete.ACI.Infrastructure.Entities.Rebar;
+using Wosad.Concrete.ACI.Entities;
+using System;
 
 #endregion
 
@@ -40,17 +43,25 @@ namespace Concrete.ACI318_14.General
         /// <summary>
         ///     Bar area
         /// </summary>
-        /// <param name="RebarSizeId">  Rebar designation (number) indicating the size of the bar </param>
-        /// <returns name="A_b">  Area of an individual bar or wire  </returns>
+        /// <param name="RebarSizeId">  Rebar designation (number) indicating the size of  bar </param>
+        /// <returns name="A_b">  Area of an individual bar  </returns>
 
         [MultiReturn(new[] { "A_b" })]
         public static Dictionary<string, object> BarArea(string RebarSizeId)
         {
             //Default values
             double A_b = 0;
-
+            
 
             //Calculation logic:
+            RebarDesignation des;
+            bool IsValidString = Enum.TryParse(RebarSizeId, true, out des);
+            if (IsValidString == false)
+            {
+                throw new Exception("Rebar size is not recognized. Check input.");
+            }
+            RebarSection sec = new RebarSection(des);
+            A_b = sec.Area;
 
             return new Dictionary<string, object>
             {

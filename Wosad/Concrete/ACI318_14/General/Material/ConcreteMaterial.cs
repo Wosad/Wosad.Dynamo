@@ -21,6 +21,9 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Concrete.ACI.Entities;
+using System;
+using Wosad.Concrete.ACI;
 
 #endregion
 
@@ -39,9 +42,18 @@ namespace Concrete.ACI318_14.General.Material
     {
 
         [IsVisibleInDynamoLibrary(false)]
-        internal ConcreteMaterial(double f_c_prime, string ConcreteMaterialWeight)
+        internal ConcreteMaterial(double f_c_prime, string ConcreteMaterialWeight="Normalweight")
         {
+            ConcreteTypeByWeight weightType;
+            bool IsValidString = Enum.TryParse(ConcreteMaterialWeight, true, out weightType);
+            if (IsValidString == false)
+            {
+                throw new Exception("Concrete weight selection string is not recognized. Check input.");
+            }
 
+            //Convert default ksi units to psi units used by ACI
+            double f_c_prime_psi = f_c_prime * 1000;
+            this.Concrete = new Wosad.Concrete.ACI318_14.Materials.ConcreteMaterial(f_c_prime_psi, weightType, null);
         }
         /// <summary>
         ///     Concrete material
@@ -55,6 +67,8 @@ namespace Concrete.ACI318_14.General.Material
             return new ConcreteMaterial(f_c_prime, ConcreteMaterialWeight);
         }
 
+         [IsVisibleInDynamoLibrary(false)]
+        public IConcreteMaterial Concrete { get; set; }
     }
 }
 

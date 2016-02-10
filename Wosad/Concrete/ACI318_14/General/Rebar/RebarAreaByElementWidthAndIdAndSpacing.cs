@@ -21,6 +21,9 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Concrete.ACI.Entities;
+using System;
+using Wosad.Concrete.ACI.Infrastructure.Entities.Rebar;
 
 #endregion
 
@@ -41,7 +44,7 @@ namespace Concrete.ACI318_14.General
         /// </summary>
         /// <param name="RebarSizeId">  Rebar designation (number) indicating the size of the bar </param>
         /// <param name="b_element">  Element width </param>
-        /// <param name="s">   Center-to-center spacing of items, such as longitudinal reinforcement, transverse reinforcement,  tendons, or anchors  </param>
+        /// <param name="s">   Center-to-center spacing of reinforcement  </param>
         /// <param name="N_faces">  Number of faces (layers) of reinforcement </param>
         /// <returns name="A_s">  Area of nonprestressed longitudinal tension reinforcement  </returns>
 
@@ -54,6 +57,15 @@ namespace Concrete.ACI318_14.General
 
             //Calculation logic:
 
+            RebarDesignation des;
+            bool IsValidString = Enum.TryParse(RebarSizeId, true, out des);
+            if (IsValidString == false)
+            {
+                throw new Exception("Rebar size is not recognized. Check input.");
+            }
+            RebarSection sec = new RebarSection(des);
+            double A_b = sec.Area;
+            A_s = b_element / s * N_faces * A_b;
 
             return new Dictionary<string, object>
             {

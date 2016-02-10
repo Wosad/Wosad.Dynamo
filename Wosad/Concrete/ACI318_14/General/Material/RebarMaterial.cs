@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Concrete.ACI;
 
 #endregion
 
@@ -41,18 +42,29 @@ namespace Concrete.ACI318_14.General.Material
         [IsVisibleInDynamoLibrary(false)]
         internal RebarMaterial(string RebarSpecificationId)
         {
-            //todo Rebar factory
+            RebarMaterialFactory factory = new RebarMaterialFactory();
+            Material = factory.GetMaterial(RebarSpecificationId);
         }
         /// <summary>
         ///     Rebar material
         /// </summary>
         /// <param name="RebarSpecificationId">  Reinforcement specification  </param>
         /// <returns name="RebarMaterial"> Reinforcement material object, create the object using input parameters first </returns>
-        public static RebarMaterial ByRebarSpecificationId(string RebarSpecificationId)
+        public static RebarMaterial ByRebarSpecificationId(string RebarSpecificationId = "A615Grade60")
         {
             return new RebarMaterial(RebarSpecificationId);
         }
 
+        private IRebarMaterial material;
+
+         [IsVisibleInDynamoLibrary(false)]
+        public IRebarMaterial Material
+        {
+            get { return material; }
+            set { material = value; }
+        }
+        
+       
     }
 }
 

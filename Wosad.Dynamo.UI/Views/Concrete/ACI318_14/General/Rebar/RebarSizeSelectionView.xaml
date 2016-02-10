@@ -38,6 +38,6 @@
     <Grid x:Name="LayoutRoot" Width="120">
         <WosadControls:EnumControl  HeaderText="Rebar size (number)" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
-					DataPath="RebarSizeSelection"/>
+					DataPath="RebarSizeId"/>
     </Grid>
 </UserControl>
