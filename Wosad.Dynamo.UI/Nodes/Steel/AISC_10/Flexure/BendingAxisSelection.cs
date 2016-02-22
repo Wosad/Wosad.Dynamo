@@ -94,7 +94,7 @@ namespace Wosad.Steel.AISC_10.Flexure
 		    {
 		        _BendingAxis = value;
 		        RaisePropertyChanged("BendingAxis");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -117,7 +117,7 @@ namespace Wosad.Steel.AISC_10.Flexure
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

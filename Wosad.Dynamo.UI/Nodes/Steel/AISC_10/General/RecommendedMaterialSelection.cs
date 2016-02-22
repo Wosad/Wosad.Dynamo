@@ -95,7 +95,7 @@ namespace Wosad.Steel.AISC_10.General
                 {
                     _SteelMaterialId = value;
                     RaisePropertyChanged("SteelMaterialId");
-                    OnNodeModified(); 
+                    OnNodeModified(true); 
                 }
 		    }
 		}
@@ -118,7 +118,7 @@ namespace Wosad.Steel.AISC_10.General
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

@@ -93,7 +93,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _WeldGroupPattern = value;
 		        RaisePropertyChanged("WeldGroupPattern");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -116,7 +116,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

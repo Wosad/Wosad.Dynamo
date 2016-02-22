@@ -104,7 +104,7 @@ namespace Wosad.Loads.ASCE7_10.General
 		    {
 		        _BuildingOccupancyId = value;
                 RaisePropertyChanged("BuildingOccupancyId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -127,7 +127,7 @@ namespace Wosad.Loads.ASCE7_10.General
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

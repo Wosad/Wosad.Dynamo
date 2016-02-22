@@ -93,7 +93,7 @@ namespace Wosad.Steel.AISC_10.Shear
 		    {
 		        _NonCircularShearCase = value;
 		        RaisePropertyChanged("NonCircularShearCase");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -116,7 +116,7 @@ namespace Wosad.Steel.AISC_10.Shear
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

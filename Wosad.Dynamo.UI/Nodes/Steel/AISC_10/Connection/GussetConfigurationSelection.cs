@@ -87,7 +87,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _GussetPlateConfigurationId = value;
 		        RaisePropertyChanged("GussetPlateConfigurationId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -109,7 +109,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

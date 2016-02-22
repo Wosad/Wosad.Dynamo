@@ -110,7 +110,7 @@ namespace Wosad.Steel.AISC_10.Tension
 		    {
 		        _ShearLagCaseId = value;
                 RaisePropertyChanged("ShearLagCaseId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -130,7 +130,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 _l = value;
                 RaisePropertyChanged("l");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
         #endregion
@@ -150,7 +150,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 _x_bar = value;
                 RaisePropertyChanged("x_bar");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
         #endregion
@@ -170,7 +170,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 _w = value;
                 RaisePropertyChanged("w");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
         #endregion
@@ -190,7 +190,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 _B = value;
                 RaisePropertyChanged("B");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
         #endregion
@@ -210,7 +210,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 _H = value;
                 RaisePropertyChanged("H");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
         #endregion
@@ -230,7 +230,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 _b_f = value;
                 RaisePropertyChanged("b_f");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
         #endregion
@@ -250,7 +250,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 _d = value;
                 RaisePropertyChanged("d");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
         #endregion
@@ -272,7 +272,7 @@ namespace Wosad.Steel.AISC_10.Tension
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

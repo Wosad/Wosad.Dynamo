@@ -100,7 +100,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
 		    set
 		    {
 		        _ComponentId = value;
-		        OnNodeModified();
+		        OnNodeModified(true); 
                 RaisePropertyChanged("ComponentId");
 		    }
 		}
@@ -121,7 +121,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
 		    {
 		        _ComponentOption1 = value;
 		        RaisePropertyChanged("ComponentOption1");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -141,7 +141,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
 		    {
 		        _ComponentOption2 = value;
 		        RaisePropertyChanged("ComponentOption2");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -161,7 +161,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
 		    {
 		        _ComponentValue = value;
 		        RaisePropertyChanged("ComponentValue");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -197,7 +197,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

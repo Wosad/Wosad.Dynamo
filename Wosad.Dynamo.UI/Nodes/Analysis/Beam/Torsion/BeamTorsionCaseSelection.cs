@@ -96,7 +96,7 @@ namespace Wosad.Analysis.Beam.Torsion
 		    {
 		        _BeamTorsionCaseId = value;
 		        RaisePropertyChanged("BeamTorsionCaseId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -132,7 +132,7 @@ namespace Wosad.Analysis.Beam.Torsion
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

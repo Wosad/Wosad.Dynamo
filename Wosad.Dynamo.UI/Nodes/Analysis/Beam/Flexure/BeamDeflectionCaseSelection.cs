@@ -94,7 +94,7 @@ namespace Wosad.Analysis.Beam.Flexure
 		    {
 		        _BeamDeflectionCaseId = value;
 		        RaisePropertyChanged("BeamDeflectionCaseId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -130,7 +130,7 @@ namespace Wosad.Analysis.Beam.Flexure
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

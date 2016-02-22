@@ -92,7 +92,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _d_b = value;
 		        RaisePropertyChanged("d_b");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -113,7 +113,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

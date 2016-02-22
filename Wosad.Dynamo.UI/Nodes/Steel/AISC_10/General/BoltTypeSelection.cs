@@ -93,7 +93,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _BoltType = value;
 		        RaisePropertyChanged("BoltType");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -114,7 +114,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

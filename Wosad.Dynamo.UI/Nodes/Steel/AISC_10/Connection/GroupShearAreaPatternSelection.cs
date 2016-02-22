@@ -87,7 +87,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _ShearAreaCaseId = value;
 		        RaisePropertyChanged("ShearAreaCaseId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -108,7 +108,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

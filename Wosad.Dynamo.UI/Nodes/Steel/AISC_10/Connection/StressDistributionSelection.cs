@@ -92,7 +92,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _StressDistibutionType = value;
 		        RaisePropertyChanged("StressDistibutionType");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -115,7 +115,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

@@ -88,7 +88,7 @@ namespace Wosad.Analysis.Section.AISC
                 {
                     _SteelShapeId = value;
                     RaisePropertyChanged("SteelShapeId");
-                    OnNodeModified();  
+                    OnNodeModified(true);  
                 }
 
 		    }
@@ -111,7 +111,7 @@ namespace Wosad.Analysis.Section.AISC
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

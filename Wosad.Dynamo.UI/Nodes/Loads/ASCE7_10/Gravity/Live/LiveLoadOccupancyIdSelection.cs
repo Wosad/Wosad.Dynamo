@@ -91,7 +91,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
 		    {
 		        _LiveLoadOccupancyId = value;
 		        RaisePropertyChanged("LiveLoadOccupancyId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -126,7 +126,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

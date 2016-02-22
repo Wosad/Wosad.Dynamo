@@ -28,7 +28,7 @@ using Concrete.ACI318_14.General.Material;
 
 #endregion
 
-namespace Concrete.ACI318_14.General
+namespace Concrete.ACI318_14.General.Section
 {
 
 /// <summary>
@@ -58,10 +58,16 @@ namespace Concrete.ACI318_14.General
 
             CrossSectionRectangularShape section = new CrossSectionRectangularShape(ConcreteMaterial.Concrete, null, b, h);
             List<RebarPoint> LongitudinalBars = new List<RebarPoint>();
+            this.Section = section;
+           
             Wosad.Concrete.ACI.Infrastructure.Entities.Rebar.Rebar thisBar = new Wosad.Concrete.ACI.Infrastructure.Entities.Rebar.Rebar(A_s, LongitudinalRebarMaterial.Material);
             RebarPoint point = new RebarPoint(thisBar, new RebarCoordinate() { X = 0, Y = -h / 2.0 + c_cntr });
+            LongitudinalBars.Add(point);
+
             this.A_tr = A_tr;
             this.s = s;
+
+            this.LongitudinalBars = LongitudinalBars;
         }
 
         /// <summary>

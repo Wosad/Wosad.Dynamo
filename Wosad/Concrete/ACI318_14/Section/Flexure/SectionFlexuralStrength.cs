@@ -52,7 +52,7 @@ namespace Concrete.ACI318_14
         
 
         [MultiReturn(new[] { "phiM_n" })]
-        public static Dictionary<string, object> SectionFlexuralStrength(ConcreteSection ConcreteSection, string FlexuralCompressionFiberLocation)
+        public static Dictionary<string, object> SectionFlexuralStrength(ConcreteSection ConcreteSection, string FlexuralCompressionFiberLocation="Top")
         {
             //Default values
             bool IsTensionControlled = true;

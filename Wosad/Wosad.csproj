@@ -215,8 +215,8 @@
     <Compile Include="Analysis\Section\SectionTypes\CustomProfile.cs" />
     <Compile Include="Analysis\Section\SectionTypes\CustomProfileProperties.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionRectangular.cs" />
-    <Compile Include="Concrete\ACI318_14\Flexure\Groups\Flexure.cs" />
-    <Compile Include="Concrete\ACI318_14\Flexure\SectionFlexuralStrength.cs" />
+    <Compile Include="Concrete\ACI318_14\Section\Flexure\Groups\Flexure.cs" />
+    <Compile Include="Concrete\ACI318_14\Section\Flexure\SectionFlexuralStrength.cs" />
     <Compile Include="Concrete\ACI318_14\General\Material\ConcreteMaterial.cs" />
     <Compile Include="Concrete\ACI318_14\General\Material\RebarMaterial.cs" />
     <Compile Include="Concrete\ACI318_14\General\Rebar\BarArea.cs" />
@@ -314,11 +314,11 @@
     <Compile Include="Steel\AISC_10\Shear\ShearStrengthNonCircular.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Concrete\ACI318_14\Compression\" />
     <Folder Include="Concrete\ACI318_14\Details\" />
-    <Folder Include="Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
-    <Folder Include="Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
-    <Folder Include="Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
+    <Folder Include="Concrete\ACI318_14\Section\Compression\" />
+    <Folder Include="Concrete\ACI318_14\Section\ShearAndTorsion\OneWay\" />
+    <Folder Include="Concrete\ACI318_14\Section\ShearAndTorsion\Torsion\" />
+    <Folder Include="Concrete\ACI318_14\Section\ShearAndTorsion\TwoWay\" />
     <Folder Include="Loads\ASCE7_10\Gravity\Ice\" />
     <Folder Include="Loads\ASCE7_10\Gravity\Snow\" />
     <Folder Include="Loads\ASCE7_10\Lateral\Seismic\Building fundamental period\" />

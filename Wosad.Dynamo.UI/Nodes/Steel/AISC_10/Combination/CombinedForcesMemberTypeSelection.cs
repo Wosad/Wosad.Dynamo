@@ -97,7 +97,7 @@ namespace Wosad.Steel.AISC_10.Combination
 		    {
 		        _CombinationCaseId = value;
 		        RaisePropertyChanged("CombinationCaseId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -120,7 +120,7 @@ namespace Wosad.Steel.AISC_10.Combination
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

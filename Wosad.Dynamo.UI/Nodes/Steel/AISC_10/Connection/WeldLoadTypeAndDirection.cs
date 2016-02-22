@@ -94,7 +94,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _WeldLoadTypeId = value;
 		        RaisePropertyChanged("WeldLoadTypeId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
                 UpdateViewAndValues();
 		    }
 		}
@@ -118,7 +118,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

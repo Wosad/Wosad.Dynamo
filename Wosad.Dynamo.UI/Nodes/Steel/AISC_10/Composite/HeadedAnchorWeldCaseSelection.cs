@@ -94,7 +94,7 @@ namespace Wosad.Steel.AISC_10.Composite
 		    {
 		        _HeadedAnchorWeldCase = value;
 		        RaisePropertyChanged("HeadedAnchorWeldCase");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -117,7 +117,7 @@ namespace Wosad.Steel.AISC_10.Composite
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

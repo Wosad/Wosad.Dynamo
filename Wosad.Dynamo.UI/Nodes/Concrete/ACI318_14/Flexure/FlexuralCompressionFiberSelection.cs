@@ -92,7 +92,7 @@ namespace Wosad.Concrete.ACI318_14.Flexure
 		    {
 		        _FlexuralCompressionFiberLocation = value;
 		        RaisePropertyChanged("FlexuralCompressionFiberLocation");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -115,7 +115,7 @@ namespace Wosad.Concrete.ACI318_14.Flexure
         //    {
         //        reportEntry = value;
         //        RaisePropertyChanged("ReportEntry");
-        //        OnNodeModified();
+        //        OnNodeModified(true); 
         //    }
         //}
 

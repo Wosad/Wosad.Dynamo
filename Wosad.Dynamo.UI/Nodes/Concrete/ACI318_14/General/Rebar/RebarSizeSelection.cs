@@ -92,7 +92,7 @@ namespace Wosad.Concrete.ACI318_14.General.Rebar
 		    {
 		        _RebarSizeId = value;
 		        RaisePropertyChanged("RebarSizeId");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -113,7 +113,7 @@ namespace Wosad.Concrete.ACI318_14.General.Rebar
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

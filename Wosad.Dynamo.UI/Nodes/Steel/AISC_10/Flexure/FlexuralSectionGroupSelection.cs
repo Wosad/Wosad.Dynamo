@@ -99,7 +99,7 @@ namespace Wosad.Steel.AISC_10.Flexure
 		    {
 		        _SteelShapeGroupFlexure = value;
 		        RaisePropertyChanged("SteelShapeGroupFlexure");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -120,7 +120,7 @@ namespace Wosad.Steel.AISC_10.Flexure
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 

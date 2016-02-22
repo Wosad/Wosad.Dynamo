@@ -95,7 +95,7 @@ namespace Wosad.Steel.AISC_10.Connection
 		    {
 		        _BoltFillerCase = value;
 		        RaisePropertyChanged("BoltFillerCase");
-		        OnNodeModified();
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
@@ -118,7 +118,7 @@ namespace Wosad.Steel.AISC_10.Connection
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified();
+                OnNodeModified(true); 
             }
         }
 
