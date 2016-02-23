@@ -25,7 +25,6 @@ using Wosad.Common.Section.Interfaces;
 using ds = Wosad.Common.Section.SectionTypes;
 using dm =Wosad.Common.Mathematics;
 using Wosad.Concrete.ACI;
-using Wosad.Concrete.ACI.Infrastructure.Entities.Rebar;
 using Concrete.ACI318_14.General.Material;
 
 #endregion
@@ -70,14 +69,14 @@ namespace Concrete.ACI318_14.General
             set { concreteMaterial = value; }
         }
 
-        private RebarMaterial  longitudinalRebarMateria;
+        //private RebarMaterial  longitudinalRebarMateria;
 
-        [IsVisibleInDynamoLibrary(false)]
-        public RebarMaterial  LongitudinalRebarMaterial
-        {
-            get { return longitudinalRebarMateria; }
-            set { longitudinalRebarMateria = value; }
-        }
+        //[IsVisibleInDynamoLibrary(false)]
+        //public RebarMaterial  LongitudinalRebarMaterial
+        //{
+        //    get { return longitudinalRebarMateria; }
+        //    set { longitudinalRebarMateria = value; }
+        //}
 
         private RebarMaterial  transverseRebarMaterial;
 

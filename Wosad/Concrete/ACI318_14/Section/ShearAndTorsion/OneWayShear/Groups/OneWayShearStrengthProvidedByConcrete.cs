@@ -24,28 +24,29 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Steel.AISC_10
+namespace Concrete.ACI318_14.Section.ShearAndTorsion
 {
 
 /// <summary>
-///     Interaction ratio
-///     Category:   Steel.AISC_10.Combination
+///     One way concrete shear strength
+///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class Combination 
+    public partial class OneWayShear 
     {
 
-        internal Combination(string CombinationCaseId, double P_u, double M_ux, double M_uy, double V_ux, double V_uy, double phiP_n, double phiM_nx, double phiM_ny, double phiV_nx, double phiV_ny)
+
+        internal OneWayShear()
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static Combination ByInputParameters(string CombinationCaseId, double P_u, double M_ux, double M_uy, double V_ux, double V_uy, double phiP_n, double phiM_nx, double phiM_ny, double phiV_nx, double phiV_ny)
+        public static OneWayShear ByInputParameters()
         {
-            return new Combination(CombinationCaseId, P_u, M_ux, M_uy, V_ux, V_uy, phiP_n, phiM_nx, phiM_ny, phiV_nx, phiV_ny);
+            return new OneWayShear();
         }
 
     }

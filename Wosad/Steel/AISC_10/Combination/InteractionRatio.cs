@@ -27,7 +27,7 @@ using System;
 
 #endregion
 
-namespace Steel.AISC_10.Combination
+namespace Steel.AISC_10
 {
 
 /// <summary>

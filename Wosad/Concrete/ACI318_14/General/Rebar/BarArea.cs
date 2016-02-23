@@ -21,9 +21,9 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Wosad.Concrete.ACI.Infrastructure.Entities.Rebar;
 using Wosad.Concrete.ACI.Entities;
 using System;
+using Wosad.Concrete.ACI;
 
 #endregion
 

@@ -22,8 +22,8 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Concrete.ACI.Entities;
-using Wosad.Concrete.ACI.Infrastructure.Entities.Rebar;
 using System;
+using Wosad.Concrete.ACI;
 
 #endregion
 
