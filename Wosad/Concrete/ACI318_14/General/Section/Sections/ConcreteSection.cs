@@ -25,7 +25,9 @@ using Wosad.Common.Section.Interfaces;
 using ds = Wosad.Common.Section.SectionTypes;
 using dm =Wosad.Common.Mathematics;
 using Wosad.Concrete.ACI;
-using Concrete.ACI318_14.General.Material;
+using Concrete.ACI318_14.General;
+using Concrete.ACI318_14.General.Reinforcement;
+using Concrete.ACI318_14.General.Concrete;
 
 #endregion
 
@@ -60,10 +62,10 @@ namespace Concrete.ACI318_14.General
 		    set { longitudinalBars = value;}
 	    }
 
-        private Concrete.ACI318_14.General.Material.ConcreteMaterial  concreteMaterial;
+        private ConcreteMaterial  concreteMaterial;
 
         [IsVisibleInDynamoLibrary(false)]
-        public Concrete.ACI318_14.General.Material.ConcreteMaterial  ConcreteMaterial
+        public ConcreteMaterial  ConcreteMaterial
         {
             get { return concreteMaterial; }
             set { concreteMaterial = value; }

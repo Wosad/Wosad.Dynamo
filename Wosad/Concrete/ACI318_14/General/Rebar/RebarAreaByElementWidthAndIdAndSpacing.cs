@@ -28,7 +28,7 @@ using Wosad.Concrete.ACI;
 
 #endregion
 
-namespace Concrete.ACI318_14.General
+namespace Concrete.ACI318_14.General.Reinforcement
 {
 
 /// <summary>

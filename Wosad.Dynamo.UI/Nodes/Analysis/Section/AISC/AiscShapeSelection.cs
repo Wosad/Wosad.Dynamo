@@ -1654,7 +1654,7 @@ namespace Wosad.Analysis.Section.AISC
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
+            
             nodeElement.SetAttribute("ReportEntry",ReportEntry);
             nodeElement.SetAttribute("CatalogShapeType",CatalogShapeType);
             nodeElement.SetAttribute("ShapeTypeSteel",ShapeTypeSteel);
@@ -1665,6 +1665,7 @@ namespace Wosad.Analysis.Section.AISC
             nodeElement.SetAttribute("LDoubleShapeType",LDoubleShapeType);
             nodeElement.SetAttribute("WShapeGroup",WShapeGroup);
             nodeElement.SetAttribute("AnchorRodType",AnchorRodType);
+            nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
         }
 
         /// <summary>
@@ -1673,7 +1674,7 @@ namespace Wosad.Analysis.Section.AISC
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var SteelShapeId_attrib = nodeElement.Attributes["SteelShapeId"]; if (SteelShapeId_attrib != null) { SteelShapeId = SteelShapeId_attrib.Value; }
+        
             var CatalogShapeType_attrib = nodeElement.Attributes["CatalogShapeType"]; if (CatalogShapeType_attrib != null) { CatalogShapeType = CatalogShapeType_attrib.Value; }
             var ShapeTypeSteel_attrib = nodeElement.Attributes["ShapeTypeSteel"]; if (ShapeTypeSteel_attrib != null) { ShapeTypeSteel = ShapeTypeSteel_attrib.Value; }
             var IShapeType_attrib = nodeElement.Attributes["IShapeType"]; if (IShapeType_attrib != null) { IShapeType = IShapeType_attrib.Value; }
@@ -1683,6 +1684,7 @@ namespace Wosad.Analysis.Section.AISC
             var LDoubleShapeType_attrib = nodeElement.Attributes["LDoubleShapeType"]; if (LDoubleShapeType_attrib != null) { LDoubleShapeType = LDoubleShapeType_attrib.Value; }
             var WShapeGroup_attrib = nodeElement.Attributes["WShapeGroup"]; if (WShapeGroup_attrib != null) { WShapeGroup = WShapeGroup_attrib.Value; }
             var AnchorRodType_attrib = nodeElement.Attributes["AnchorRodType"]; if (AnchorRodType_attrib != null) { AnchorRodType = AnchorRodType_attrib.Value; }
+            var SteelShapeId_attrib = nodeElement.Attributes["SteelShapeId"]; if (SteelShapeId_attrib != null) { SteelShapeId = SteelShapeId_attrib.Value; }
         }
 
 

@@ -23,7 +23,9 @@ using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Concrete.ACI;
 using Wosad.Concrete.ACI318_14;
-using Concrete.ACI318_14.General.Material;
+using Concrete.ACI318_14.General;
+using Concrete.ACI318_14.General.Reinforcement;
+using Concrete.ACI318_14.General.Concrete;
 
 #endregion
 
@@ -46,13 +48,13 @@ namespace Concrete.ACI318_14.General.Section
             double h;
             double A_s;
             double c_cntr;
-            Concrete.ACI318_14.General.Material.ConcreteMaterial ConcreteMaterial;
+            ConcreteMaterial ConcreteMaterial;
             RebarMaterial LongitudinalRebarMaterial;
             RebarMaterial TransverseRebarMaterial;
 
          [IsVisibleInDynamoLibrary(false)]
         internal RectangularSectionSinglyReinforced(double b, double h, double A_s, double c_cntr,double A_tr, double s,
-        Concrete.ACI318_14.General.Material.ConcreteMaterial ConcreteMaterial, RebarMaterial LongitudinalRebarMaterial, RebarMaterial TransverseRebarMaterial)
+        ConcreteMaterial ConcreteMaterial, RebarMaterial LongitudinalRebarMaterial, RebarMaterial TransverseRebarMaterial)
         {
 
             CrossSectionRectangularShape section = new CrossSectionRectangularShape(ConcreteMaterial.Concrete, null, b, h);
@@ -85,7 +87,7 @@ namespace Concrete.ACI318_14.General.Section
 
 
         public static RectangularSectionSinglyReinforced ByWidthHeigthAndReinforcementArea(double b, double h, double A_s, double c_cntr, double A_tr, double s,
-            Concrete.ACI318_14.General.Material.ConcreteMaterial ConcreteMaterial,RebarMaterial LongitudinalRebarMaterial, RebarMaterial TransverseRebarMaterial)
+            ConcreteMaterial ConcreteMaterial,RebarMaterial LongitudinalRebarMaterial, RebarMaterial TransverseRebarMaterial)
         {
             return new RectangularSectionSinglyReinforced(b, h, A_s, c_cntr, A_tr,s, ConcreteMaterial, LongitudinalRebarMaterial, TransverseRebarMaterial);
         }
