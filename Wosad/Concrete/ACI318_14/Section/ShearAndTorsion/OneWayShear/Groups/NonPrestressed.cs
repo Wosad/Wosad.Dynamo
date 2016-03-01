@@ -39,14 +39,14 @@ namespace Concrete.ACI318_14.Section.OneWayShear
     {
 
 
-        internal OneWayShear()
+        internal NonPrestressed()
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static OneWayShear ByInputParameters()
+        public static NonPrestressed ByInputParameters()
         {
-            return new OneWayShear();
+            return new NonPrestressed();
         }
 
     }

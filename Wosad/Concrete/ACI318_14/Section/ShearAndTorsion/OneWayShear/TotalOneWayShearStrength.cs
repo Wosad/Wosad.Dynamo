@@ -34,7 +34,7 @@ namespace Concrete.ACI318_14.Section.OneWayShear
 /// 
 
 
-    [IsDesignScriptCompatible]
+
     public partial class NonPrestressed 
     {
         /// <summary>
@@ -43,8 +43,8 @@ namespace Concrete.ACI318_14.Section.OneWayShear
         /// <param name="phiV_c">   Design shear strength provided by concrete  </param>
         /// <param name="phiV_s">   Design shear strength provided by shear reinforcement  </param>
         /// <returns name="phiV_n">  Design shear strength  </returns>
-        
-        [MultiReturn(new[] {  })]
+
+        [MultiReturn(new[] { "phiV_n" })]
         public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c,double phiV_s)
         {
             //Default values

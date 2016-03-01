@@ -24,10 +24,11 @@ using Dynamo.Nodes;
 using Wosad.Concrete.ACI318_14;
 using Wosad.Common.CalculationLogger;
 using Wosad.Common.Section.Interfaces;
+using System;
 
 #endregion
 
-namespace Concrete.ACI318_14.General.Rebar
+namespace Concrete.ACI318_14.General.Reinforcement
 {
 
 /// <summary>
