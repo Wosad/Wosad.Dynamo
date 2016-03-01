@@ -24,30 +24,43 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Concrete.ACI318_14.Section.ShearAndTorsion
+namespace Concrete.ACI318_14.Section.OneWayShear
 {
 
 /// <summary>
-///     One way concrete shear strength
+///     Total one way  shear strength
 ///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class OneWayShear 
+    public partial class NonPrestressed 
     {
-
-
-        internal OneWayShear()
+        /// <summary>
+        ///     Total one way  shear strength
+        /// </summary>
+        /// <param name="phiV_c">   Design shear strength provided by concrete  </param>
+        /// <param name="phiV_s">   Design shear strength provided by shear reinforcement  </param>
+        /// <returns name="phiV_n">  Design shear strength  </returns>
+        
+        [MultiReturn(new[] {  })]
+        public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c,double phiV_s)
         {
+            //Default values
+            
 
+            //Calculation logic:
+            double phiV_n = phiV_c + phiV_s;
+
+            return new Dictionary<string, object>
+            {
+                  { "phiV_n", phiV_n }
+            };
         }
-        [IsVisibleInDynamoLibrary(false)]
-        public static OneWayShear ByInputParameters()
-        {
-            return new OneWayShear();
-        }
+
+
+
 
     }
 }
