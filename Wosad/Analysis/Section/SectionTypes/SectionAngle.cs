@@ -21,8 +21,10 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Common;
 using Wosad.Common.Section.Interfaces;
 using ds = Wosad.Common.Section.SectionTypes;
+using System;
 
 #endregion
 
@@ -34,15 +36,29 @@ namespace Analysis.Section.SectionTypes
     {
 
         [IsVisibleInDynamoLibrary(false)]
-        internal SectionAngle(double b, double h, double t)
+        internal SectionAngle(double b, double h, double t, string AngleRotation, string AngleOrientation)
         {
-            ISection  r = new ds.SectionAngle("", b, h, t);
+            AngleRotation angleRotation;
+            bool IsValidString1 = Enum.TryParse(AngleRotation, true, out angleRotation);
+            if (IsValidString1 != true)
+            {
+                throw new Exception("Angle rotation not recognized. Check string.");
+            }
+
+            AngleOrientation angleOrientation;
+            bool IsValidString2 = Enum.TryParse(AngleOrientation, true, out angleOrientation);
+            if (IsValidString2 != true)
+            {
+                throw new Exception("Angle orientation not recognized. Check string.");
+            }
+
+            ISection r = new ds.SectionAngle("", b, h, t, angleRotation, angleOrientation);
             Section = r;
         }
 
-        public static SectionAngle ByWidthHeightThickness(double b, double h, double t)
+        public static SectionAngle ByWidthHeightThickness(double b, double h, double t, string AngleRotation, string AngleOrientation)
         {
-            return new SectionAngle(b, h, t);
+            return new SectionAngle(b, h, t, AngleRotation,  AngleOrientation);
         }
 
     }

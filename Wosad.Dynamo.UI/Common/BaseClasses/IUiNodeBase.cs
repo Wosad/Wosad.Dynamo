@@ -18,6 +18,7 @@
 using System;
 using System.Collections.ObjectModel;
 using Dynamo.Models;
+using Dynamo.Graph.Nodes;
 
 namespace Wosad.Dynamo.Common
 {

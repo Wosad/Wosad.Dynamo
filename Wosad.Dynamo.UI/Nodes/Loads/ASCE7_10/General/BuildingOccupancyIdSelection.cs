@@ -31,6 +31,8 @@ using System.Xml;
 using System.Windows;
 using Wosad.Dynamo.UI.Common.TreeItems;
 using Dynamo.Nodes;
+using Dynamo.Graph;
+using Dynamo.Graph.Nodes;
 
 
 namespace Wosad.Loads.ASCE7_10.General
@@ -179,7 +181,7 @@ namespace Wosad.Loads.ASCE7_10.General
 
         private void SetOccupancyDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Loads/ASCE7_10/General/BuildingOccupancyTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7_10/General/BuildingOccupancyTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }

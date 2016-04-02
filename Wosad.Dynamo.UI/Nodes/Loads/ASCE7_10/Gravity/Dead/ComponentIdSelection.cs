@@ -36,6 +36,8 @@ using System.Windows;
 using System.IO;
 using Wosad.Dynamo.UI.Common.TreeItems;
 using Dynamo.Nodes;
+using Dynamo.Graph.Nodes;
+using Dynamo.Graph;
 
 
 namespace Wosad.Loads.ASCE7_10.Gravity.Dead
@@ -247,7 +249,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
 
         private void SetComponentDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Loads/ASCE7_10/Dead/ComponentDeadWeightTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7_10/Dead/ComponentDeadWeightTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }

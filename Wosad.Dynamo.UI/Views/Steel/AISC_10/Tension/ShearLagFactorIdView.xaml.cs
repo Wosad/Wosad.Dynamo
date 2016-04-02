@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC_10.Tension
+namespace Wosad.Steel.AISC10.Tension
 {
     /// <summary>
     /// Interaction logic for LiveLoadOccupancySelectionView.xaml

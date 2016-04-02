@@ -1,7 +1,7 @@
 ﻿<!--
 	Copyright (C) 2015 Wosad Inc
 -->
-<UserControl x:Class="Wosad.Steel.AISC_10.Connection.BoltThreadCaseView"
+<UserControl x:Class="Wosad.Steel.AISC10.Connection.BoltThreadCaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

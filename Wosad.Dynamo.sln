@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wosad.Dynamo.UI", "Wosad.Dynamo.UI\Wosad.Dynamo.UI.csproj", "{8C196CB6-CC64-4356-A4B5-FEE5F8A225C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WosadDynamoUI", "Wosad.Dynamo.UI\WosadDynamoUI.csproj", "{8C196CB6-CC64-4356-A4B5-FEE5F8A225C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wosad", "Wosad\Wosad.csproj", "{46B258A3-3F59-4D21-8AC1-F353B40D0506}"
 EndProject

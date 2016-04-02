@@ -25,6 +25,7 @@ using Wosad.Concrete.ACI318_14;
 using Wosad.Common.CalculationLogger;
 using Wosad.Common.Section.Interfaces;
 using System;
+using Dynamo.Graph.Nodes;
 
 #endregion
 
@@ -38,59 +39,59 @@ namespace Concrete.ACI318_14.General.Reinforcement
 /// 
 
 
-    [IsDesignScriptCompatible]
-    public partial class Rebar 
-    {
-        /// <summary>
-        ///     Effective depth to longitudinal rebar
-        /// </summary>
-        /// <param name="ConcreteSection">  Reinforced concrete section </param>
-        /// <param name="FlexuralCompressionFiberLocation">  Indicates whether the section in flexure has top or bottom in compression due to stresses from bending moment </param>
-        /// <param name="c">   Distance from extreme compression fiber to neutral  axis  </param>
-        /// <returns name="d">  Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </returns>
+    //[IsDesignScriptCompatible]
+    //public partial class Rebar 
+    //{
+    //    /// <summary>
+    //    ///     Effective depth to longitudinal rebar
+    //    /// </summary>
+    //    /// <param name="ConcreteSection">  Reinforced concrete section </param>
+    //    /// <param name="FlexuralCompressionFiberLocation">  Indicates whether the section in flexure has top or bottom in compression due to stresses from bending moment </param>
+    //    /// <param name="c">   Distance from extreme compression fiber to neutral  axis  </param>
+    //    /// <returns name="d">  Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </returns>
 
-        [MultiReturn(new[] { "d" })]
-        public static Dictionary<string, object> EffectiveDepthToLongitudinalRebar(ConcreteSection ConcreteSection,
-            string FlexuralCompressionFiberLocation,double c=0)
-        {
-            //Default values
-            double d = 0;
+    //    [MultiReturn(new[] { "d" })]
+    //    public static Dictionary<string, object> EffectiveDepthToLongitudinalRebar(ConcreteSection ConcreteSection,
+    //        string FlexuralCompressionFiberLocation,double c=0)
+    //    {
+    //        //Default values
+    //        double d = 0;
 
 
-            //Calculation logic:
+    //        //Calculation logic:
 
-            FlexuralCompressionFiberPosition p;
-            bool IsValidStringFiber = Enum.TryParse(FlexuralCompressionFiberLocation, true, out p);
-            if (IsValidStringFiber == false)
-            {
-            throw new Exception("Flexural compression fiber location is not recognized. Check input.");
-            }
+    //        FlexuralCompressionFiberPosition p;
+    //        bool IsValidStringFiber = Enum.TryParse(FlexuralCompressionFiberLocation, true, out p);
+    //        if (IsValidStringFiber == false)
+    //        {
+    //        throw new Exception("Flexural compression fiber location is not recognized. Check input.");
+    //        }
             
-            CalcLog log = new CalcLog ();
-            ConcreteSectionFlexure longitudinallyReinforcedSection = new ConcreteSectionFlexure(ConcreteSection.Section,
-                ConcreteSection.LongitudinalBars, log);
-            double h = ConcreteSection.Section.SliceableShape.YMax - ConcreteSection.Section.SliceableShape.YMin;
-            d = longitudinallyReinforcedSection.Get_d(c, h, p);
+    //        CalcLog log = new CalcLog ();
+    //        ConcreteSectionFlexure longitudinallyReinforcedSection = new ConcreteSectionFlexure(ConcreteSection.Section,
+    //            ConcreteSection.LongitudinalBars, log);
+    //        double h = ConcreteSection.Section.SliceableShape.YMax - ConcreteSection.Section.SliceableShape.YMin;
+    //        d = longitudinallyReinforcedSection.Get_d(c, h, p);
 
-            return new Dictionary<string, object>
-            {
-                { "d", d }
+    //        return new Dictionary<string, object>
+    //        {
+    //            { "d", d }
  
-            };
-        }
+    //        };
+    //    }
 
 
-        //internal Rebar (ConcreteSection ConcreteSection,string FlexuralCompressionFiberLocation,double c)
-        //{
+    //    //internal Rebar (ConcreteSection ConcreteSection,string FlexuralCompressionFiberLocation,double c)
+    //    //{
 
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Rebar  ByInputParameters(ConcreteSection ConcreteSection,string FlexuralCompressionFiberLocation,double c)
-        //{
-        //    return new Rebar(ConcreteSection ,FlexuralCompressionFiberLocation ,c );
-        //}
+    //    //}
+    //    //[IsVisibleInDynamoLibrary(false)]
+    //    //public static Rebar  ByInputParameters(ConcreteSection ConcreteSection,string FlexuralCompressionFiberLocation,double c)
+    //    //{
+    //    //    return new Rebar(ConcreteSection ,FlexuralCompressionFiberLocation ,c );
+    //    //}
 
-    }
+    //}
 }
 
 

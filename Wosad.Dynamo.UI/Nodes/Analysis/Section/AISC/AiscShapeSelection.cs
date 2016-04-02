@@ -30,6 +30,8 @@ using System.Windows.Resources;
 using System.IO;
 using System.Linq;
 using Dynamo.Nodes;
+using Dynamo.Graph;
+using Dynamo.Graph.Nodes;
 
 
 namespace Wosad.Analysis.Section.AISC
@@ -149,6 +151,7 @@ namespace Wosad.Analysis.Section.AISC
             WShapeGroup = "W18";
             SteelShapeId = "W18X35";
             AnchorRodType = "ThreadedAndNutted";
+
 
         }
 
@@ -1079,7 +1082,7 @@ namespace Wosad.Analysis.Section.AISC
                 //string UriString = string.Format("pack://application:,,,/Resources/{0}.txt", ResourceFileName);
                 //StreamResourceInfo sri = Application.GetResourceStream(new Uri(UriString));
 
-                string resourceName = string.Format("Wosad.Dynamo.UI.Resources.{0}.txt", ResourceFileName);
+                string resourceName = string.Format("WosadDynamoUI.Resources.{0}.txt", ResourceFileName);
                 var assembly = Assembly.GetExecutingAssembly();
    
                 using (Stream stream = assembly.GetManifestResourceStream(resourceName))

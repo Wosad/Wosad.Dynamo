@@ -17,7 +17,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ComponentDeadWeightIcons.xaml"/>
-                <!--<ResourceDictionary Source="pack://application:,,,/Wosad.Dynamo.UI;component/Common/Themes/ExpressionLightTheme.xaml"/>-->
+                <!--<ResourceDictionary Source="pack://application:,,,/WosadDynamoUI;component/Common/Themes/ExpressionLightTheme.xaml"/>-->
 
             </ResourceDictionary.MergedDictionaries>
             <converters:StyleConverter x:Key="IconStyleConverter">

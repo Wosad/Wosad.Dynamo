@@ -32,6 +32,8 @@ using Wosad.Dynamo.Common.Infra.TreeItems;
 using Wosad.Dynamo.UI.Views.Analysis.Beam.Flexure;
 using GalaSoft.MvvmLight.CommandWpf;
 using Wosad.Dynamo.UI.Common.TreeItems;
+using Dynamo.Graph;
+using Dynamo.Graph.Nodes;
 
 
 namespace Wosad.Analysis.Beam.Flexure
@@ -169,7 +171,7 @@ namespace Wosad.Analysis.Beam.Flexure
 
         private void SetCaseDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Analysis/Beam/Flexure/BeamForceCaseTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Analysis/Beam/Flexure/BeamForceCaseTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindCaseDescription));
         }

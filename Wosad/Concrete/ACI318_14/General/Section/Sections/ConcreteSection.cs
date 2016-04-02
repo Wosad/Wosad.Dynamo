@@ -24,10 +24,10 @@ using Dynamo.Nodes;
 using Wosad.Common.Section.Interfaces;
 using ds = Wosad.Common.Section.SectionTypes;
 using dm =Wosad.Common.Mathematics;
-using Wosad.Concrete.ACI;
 using Concrete.ACI318_14.General;
 using Concrete.ACI318_14.General.Reinforcement;
 using Concrete.ACI318_14.General.Concrete;
+
 
 #endregion
 
@@ -37,6 +37,9 @@ namespace Concrete.ACI318_14.General
 
     public partial class ConcreteSection
     {
+
+
+
         [IsVisibleInDynamoLibrary(false)]
         protected ConcreteSection()
         {
@@ -44,46 +47,44 @@ namespace Concrete.ACI318_14.General
         }
 
 
-        private IConcreteSection section;
+        private Wosad.Concrete.ACI.IConcreteSection section;
 
         [IsVisibleInDynamoLibrary(false)]
-        public IConcreteSection Section
+        public Wosad.Concrete.ACI.IConcreteSection Section
         {
             get { return section; }
             set { section = value; }
         }
 
-        private  List<RebarPoint>  longitudinalBars;
-
-         [IsVisibleInDynamoLibrary(false)]
-	    public  List<RebarPoint>  LongitudinalBars
-	    {
-		    get { return longitudinalBars;}
-		    set { longitudinalBars = value;}
-	    }
-
-        private ConcreteMaterial  concreteMaterial;
+        private List<RebarPoint> longitudinalBars;
 
         [IsVisibleInDynamoLibrary(false)]
-        public ConcreteMaterial  ConcreteMaterial
+        public List<RebarPoint> LongitudinalBars
+        {
+            get { return longitudinalBars; }
+            set { longitudinalBars = value; }
+        }
+
+        private ConcreteMaterial concreteMaterial;
+
+        public ConcreteMaterial ConcreteMaterial
         {
             get { return concreteMaterial; }
             set { concreteMaterial = value; }
         }
 
-        //private RebarMaterial  longitudinalRebarMateria;
+        //private RebarMaterial longitudinalRebarMateria;
 
-        //[IsVisibleInDynamoLibrary(false)]
-        //public RebarMaterial  LongitudinalRebarMaterial
+        //public RebarMaterial LongitudinalRebarMaterial
         //{
         //    get { return longitudinalRebarMateria; }
         //    set { longitudinalRebarMateria = value; }
         //}
 
-        private RebarMaterial  transverseRebarMaterial;
+        private RebarMaterial transverseRebarMaterial;
 
         [IsVisibleInDynamoLibrary(false)]
-        public RebarMaterial  TransverseRebarMaterial
+        public RebarMaterial TransverseRebarMaterial
         {
             get { return transverseRebarMaterial; }
             set { transverseRebarMaterial = value; }
@@ -106,8 +107,8 @@ namespace Concrete.ACI318_14.General
             get { return _s; }
             set { _s = value; }
         }
-        
-        
+
+
 
     }
 }

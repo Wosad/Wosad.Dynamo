@@ -21,11 +21,11 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Wosad.Concrete.ACI;
 using Wosad.Concrete.ACI318_14;
 using Concrete.ACI318_14.General;
 using Concrete.ACI318_14.General.Reinforcement;
 using Concrete.ACI318_14.General.Concrete;
+using Dynamo.Graph.Nodes;
 
 #endregion
 
@@ -33,10 +33,10 @@ namespace Concrete.ACI318_14.General.Section
 {
 
 /// <summary>
-///     Rectangular section singly reinforced
-///     Category:   Concrete.ACI318_14.General
+///   Rectangular section singly reinforced
+///   Category:   Concrete.ACI318_14.General
 /// </summary>
-/// 
+ 
 
 
     [IsDesignScriptCompatible]
@@ -61,14 +61,14 @@ namespace Concrete.ACI318_14.General.Section
             List<RebarPoint> LongitudinalBars = new List<RebarPoint>();
             this.Section = section;
            
-            Wosad.Concrete.ACI.Rebar thisBar = new Wosad.Concrete.ACI.Rebar(A_s, LongitudinalRebarMaterial.Material);
-            RebarPoint point = new RebarPoint(thisBar, new RebarCoordinate() { X = 0, Y = -h / 2.0 + c_cntr });
-            LongitudinalBars.Add(point);
+            //Rebar thisBar = new Rebar(A_s, LongitudinalRebarMaterial.Material);
+            //RebarPoint point = new RebarPoint(thisBar, new RebarCoordinate() { X = 0, Y = -h / 2.0 + c_cntr });
+            //LongitudinalBars.Add(point);
 
-            this.A_tr = A_tr;
-            this.s = s;
+            //this.A_tr = A_tr;
+            //this.s = s;
 
-            this.LongitudinalBars = LongitudinalBars;
+            //this.LongitudinalBars = LongitudinalBars;
         }
 
         /// <summary>

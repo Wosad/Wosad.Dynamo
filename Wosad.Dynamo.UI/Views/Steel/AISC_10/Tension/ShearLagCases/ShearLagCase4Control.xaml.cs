@@ -27,7 +27,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC_10.Connection
+namespace Wosad.Steel.AISC10.Connection
 {
     public partial class ShearLagCase4Control : UserControl
     {

@@ -33,6 +33,8 @@ using Wosad.Dynamo.UI.Common.TreeItems;
 using GalaSoft.MvvmLight.Command;
 using Wosad.Dynamo.UI.Views.Loads.ASCE7_10;
 using Dynamo.Nodes;
+using Dynamo.Graph;
+using Dynamo.Graph.Nodes;
 
 
 namespace Wosad.Loads.ASCE7_10.Gravity.Live
@@ -179,7 +181,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
 
         private void SetOcupancyDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Views/Loads/ASCE7_10/Live/LiveLoadOccupancyIdTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7_10/Live/LiveLoadOccupancyIdTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindOccupancyDescription));
         }

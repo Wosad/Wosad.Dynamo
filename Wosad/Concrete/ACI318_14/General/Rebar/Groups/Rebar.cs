@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Dynamo.Graph.Nodes;
 
 #endregion
 
@@ -34,22 +35,22 @@ namespace Concrete.ACI318_14.General
 /// 
 
 
-    [IsDesignScriptCompatible]
-    public partial class Rebar 
-    {
+    //[IsDesignScriptCompatible]
+    //public partial class Rebar 
+    //{
 
-         [IsVisibleInDynamoLibrary(false)]
-        internal Rebar( )
-        {
+    //     [IsVisibleInDynamoLibrary(false)]
+    //    internal Rebar( )
+    //    {
 
-        }
-        [IsVisibleInDynamoLibrary(false)]
-        public static Rebar ByInputParameters()
-        {
-            return new Rebar();
-        }
+    //    }
+    //    [IsVisibleInDynamoLibrary(false)]
+    //    public static Rebar ByInputParameters()
+    //    {
+    //        return new Rebar();
+    //    }
 
-    }
+    //}
 }
 
 
