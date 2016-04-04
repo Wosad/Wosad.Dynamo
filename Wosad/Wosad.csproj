@@ -151,8 +151,8 @@
       <HintPath>..\packages\Wosad.Concrete.0.0.4.3\lib\net45\Wosad.Concrete.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Loads.0.0.1.1\lib\net45\Wosad.Loads.dll</HintPath>
+    <Reference Include="Wosad.Loads, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Loads.0.0.5.1\lib\net45\Wosad.Loads.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Reporting, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -240,6 +240,21 @@
     <Compile Include="Loads\ASCE7_10\Gravity\Dead\Groups\Dead.cs" />
     <Compile Include="Loads\ASCE7_10\Gravity\Live\UniformLiveLoad.cs" />
     <Compile Include="Examples\SectionProperties\SectionIRolled.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\DampingRatio.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\PressureCoefficient.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\General.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\Pressure.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\StructureParameters.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\PressureCoefficient\ExternalPressureCoefficientMWFRS.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\PressureCoefficient\WindInternalPressureCoefficient.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindNetPressureMWFRS.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindPressureMWFRS.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindVelocityPressure.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindVelocityPressureExposureCoefficientByExposure.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindVelocityPressureExposureCoefficient.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\WindDirectionalityFactor.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\WindExposureConstants.cs" />
+    <Compile Include="Loads\ASCE7_10\Lateral\Wind\WindGustEffectFactor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\ReportCollector.cs" />
     <Compile Include="Steel\AISC10\Combination\Groups\Combination.cs" />
@@ -332,8 +347,6 @@
     <Folder Include="Loads\ASCE7_10\Gravity\Ice\" />
     <Folder Include="Loads\ASCE7_10\Gravity\Snow\" />
     <Folder Include="Loads\ASCE7_10\Lateral\Seismic\Building fundamental period\" />
-    <Folder Include="Loads\ASCE7_10\Lateral\Wind\External wall pressure coefficient\" />
-    <Folder Include="Loads\ASCE7_10\Lateral\Wind\Wind pressure\" />
     <Folder Include="Steel\AISC10\Compression\" />
     <Folder Include="Steel\AISC10\Flexure\" />
     <Folder Include="Steel\AISC10\Tension\" />

@@ -147,8 +147,8 @@
       <HintPath>..\packages\Wosad.Common.0.0.4.4\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Loads, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Loads.0.0.1.1\lib\net45\Wosad.Loads.dll</HintPath>
+    <Reference Include="Wosad.Loads, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Loads.0.0.5.1\lib\net45\Wosad.Loads.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -180,9 +180,9 @@
     <Compile Include="Nodes\Concrete\ACI318_14\General\Rebar\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Nodes\Loads\ASCE7_10\General\BuildingOccupancyIdSelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Dead\ComponentIdSelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7_10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\General\BuildingOccupancyIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Dead\ComponentIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Steel\AISC10\Combination\CombinedForcesMemberTypeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -224,59 +224,77 @@
     <Compile Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml.cs">
       <DependentUpon>RebarSizeSelectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIdView.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\General\BuildingOccupancyIdView.xaml.cs">
       <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ClayBrickControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ClayBrickControl.xaml.cs">
       <DependentUpon>ClayBrickControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ConcFillOnDeck1_5Control.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ConcFillOnDeck1_5Control.xaml.cs">
       <DependentUpon>ConcFillOnDeck1_5Control.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ConcFillOnDeck2Control.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ConcFillOnDeck2Control.xaml.cs">
       <DependentUpon>ConcFillOnDeck2Control.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ConcFillOnDeck3Control.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ConcFillOnDeck3Control.xaml.cs">
       <DependentUpon>ConcFillOnDeck3Control.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\CustomComponentControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\CustomComponentControl.xaml.cs">
       <DependentUpon>CustomComponentControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\DeckControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\DeckControl.xaml.cs">
       <DependentUpon>DeckControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\FullGroutedCMU.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\FullGroutedCMU.xaml.cs">
       <DependentUpon>FullGroutedCMU.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\GFRCPanelControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\GFRCPanelControl.xaml.cs">
       <DependentUpon>GFRCPanelControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\GroutedCMU.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\GroutedCMU.xaml.cs">
       <DependentUpon>GroutedCMU.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\HollowCMU.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\HollowCMU.xaml.cs">
       <DependentUpon>HollowCMU.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\PrecastPanelControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\PrecastPanelControl.xaml.cs">
       <DependentUpon>PrecastPanelControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\RoofDeckControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\RoofDeckControl.xaml.cs">
       <DependentUpon>RoofDeckControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\SolidCMU.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\SolidCMU.xaml.cs">
       <DependentUpon>SolidCMU.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ThicknessControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ThicknessControl.xaml.cs">
       <DependentUpon>ThicknessControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\WoodFramingControl.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\WoodFramingControl.xaml.cs">
       <DependentUpon>WoodFramingControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Dead\ComponentIdView.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Dead\ComponentIdView.xaml.cs">
       <DependentUpon>ComponentIdView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Loads\ASCE7_10\Live\LiveLoadOccupancyIdView.xaml.cs">
+    <Compile Include="Views\Loads\ASCE7v10\Live\LiveLoadOccupancyIdView.xaml.cs">
       <DependentUpon>LiveLoadOccupancyIdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Wind\EnclosureTypeView.xaml.cs">
+      <DependentUpon>EnclosureTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Wind\WindExposureCategoryView.xaml.cs">
+      <DependentUpon>WindExposureCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Wind\WindFaceView.xaml.cs">
+      <DependentUpon>WindFaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Wind\WindStrucureDynamicResponseTypeView.xaml.cs">
+      <DependentUpon>WindStrucureDynamicResponseTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Wind\WindSystemTypeByMaterialView.xaml.cs">
+      <DependentUpon>WindSystemTypeByMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Wind\WindVelocityLocationView.xaml.cs">
+      <DependentUpon>WindVelocityLocationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC_10\Combination\CombinationCaseIdView.xaml.cs">
       <DependentUpon>CombinationCaseIdView.xaml</DependentUpon>
@@ -364,9 +382,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\Loads\ASCE7_10\General\BuildingOccupancyTreeData.xml" />
-    <Resource Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightTreeData.xml" />
-    <Resource Include="Views\Loads\ASCE7_10\Live\LiveLoadOccupancyIdTreeData.xml" />
+    <Resource Include="Views\Loads\ASCE7v10\General\BuildingOccupancyTreeData.xml" />
+    <Resource Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightTreeData.xml" />
+    <Resource Include="Views\Loads\ASCE7v10\Live\LiveLoadOccupancyIdTreeData.xml" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="App.xaml">
@@ -417,75 +435,103 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIcons.xaml">
+    <Page Include="Views\Loads\ASCE7v10\General\BuildingOccupancyIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\General\BuildingOccupancyIdView.xaml">
+    <Page Include="Views\Loads\ASCE7v10\General\BuildingOccupancyIdView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ClayBrickControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ClayBrickControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ConcFillOnDeck1_5Control.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ConcFillOnDeck1_5Control.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ConcFillOnDeck2Control.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ConcFillOnDeck2Control.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ConcFillOnDeck3Control.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ConcFillOnDeck3Control.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\CustomComponentControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\CustomComponentControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\DeckControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\DeckControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\FullGroutedCMU.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\FullGroutedCMU.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\GFRCPanelControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\GFRCPanelControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\GroutedCMU.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\GroutedCMU.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\HollowCMU.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\HollowCMU.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\PrecastPanelControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\PrecastPanelControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\RoofDeckControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\RoofDeckControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\SolidCMU.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\SolidCMU.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\ThicknessControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\ThicknessControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightCases\WoodFramingControl.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightCases\WoodFramingControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Loads\ASCE7_10\Dead\ComponentIdView.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Dead\ComponentIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Wind\EnclosureTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Wind\WindExposureCategoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Wind\WindFaceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Wind\WindIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Wind\WindStrucureDynamicResponseTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Wind\WindSystemTypeByMaterialView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Wind\WindVelocityLocationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -657,15 +703,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Resource Include="Views\Loads\ASCE7_10\Dead\ComponentDeadWeightIcons.xaml">
+    <Resource Include="Views\Loads\ASCE7v10\Dead\ComponentDeadWeightIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Views\Loads\ASCE7_10\Live\LiveLoadOccupancyIdIcons.xaml">
+    <Resource Include="Views\Loads\ASCE7v10\Live\LiveLoadOccupancyIdIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Page Include="Views\Loads\ASCE7_10\Live\LiveLoadOccupancyIdView.xaml">
+    <Page Include="Views\Loads\ASCE7v10\Live\LiveLoadOccupancyIdView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -690,6 +736,7 @@
     <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
     <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
     <Folder Include="Nodes\General\" />
+    <Folder Include="Nodes\Loads\ASCE7v10\Lateral\Wind\" />
     <Folder Include="Views\Concrete\ACI318_14\Compression\SectionStrength\" />
     <Folder Include="Views\Concrete\ACI318_14\Compression\Stability\" />
     <Folder Include="Views\Concrete\ACI318_14\Details\" />
@@ -698,9 +745,8 @@
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
     <Folder Include="Views\General\" />
-    <Folder Include="Views\Loads\ASCE7_10\Seismic\" />
-    <Folder Include="Views\Loads\ASCE7_10\Snow\" />
-    <Folder Include="Views\Loads\ASCE7_10\Wind\" />
+    <Folder Include="Views\Loads\ASCE7v10\Seismic\" />
+    <Folder Include="Views\Loads\ASCE7v10\Snow\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx" />
