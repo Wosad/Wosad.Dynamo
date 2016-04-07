@@ -27,7 +27,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Wosad.Dynamo.UI.Views.Loads.ASCE7_10
+namespace WosadDynamoUI.Views.Loads.ASCE7v10
 {
     public partial class DeckControl : UserControl
     {

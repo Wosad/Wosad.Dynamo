@@ -21,59 +21,92 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Dynamo.Graph.Nodes;
+using Analysis.Section;
+using Wosad.Steel.AISC.SteelEntities.Materials;
+using Wosad.Steel.AISC.AISC360v10.Flexure;
+using System;
+using Wosad.Common.Entities;
+using Wosad.Common.Section.Interfaces;
+using Wosad.Steel.AISC.SteelEntities;
+using Wosad.Steel.AISC.Interfaces;
 
 #endregion
 
-namespace Steel.AISC_10.Flexure
+namespace Steel.AISC10
 {
 
 /// <summary>
-///     Limiting length for flexural inelastic buckling
-///     Category:   Steel.AISC_10.Flexure
+///     Limiting length for flexural yielding
+///     Category:   Steel.AISC10
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
-    public partial class LimitingLength 
+
+    public partial class Flexure 
     {
-/// <summary>
-///    Calculates Limiting length for flexural yielding
-/// </summary>
+        /// <summary>
+        ///     Limiting length for flexural yielding
+        /// </summary>
+        /// <param name="Shape">  Shape object   </param>
+        /// <param name="F_y">  Specified minimum yield stress </param>
+        /// <param name="BendingAxis">  Distinguishes between bending with respect to section x-axis vs x-axis </param>
+        /// <param name="FlexuralCompressionLocation">  Identifies whether top or bottom fiber of the section are subject to flexural compression (depending on the sign of moment) </param>
         /// <param name="E">  Modulus of elasticity of steel </param>
-/// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="r_y">  Radius of gyration about y-axis  </param>
-/// <param name="SteelShapeGroupFlexure">  Type of steel shape for flexural calculations </param>
+        /// <param name="IsRolledMember">  Identifies if member is rolled or built up from individual plates or shapes </param>
+        /// <returns name="phiM_n"> Moment strength </returns>
+        /// <returns name="IsApplicableLimitState"> Identifies whether the selected limit state is applicable </returns>
 
-        /// <returns name="L_p"> Limiting laterally unbraced length for the limit state of yielding  </returns>
-
-        [MultiReturn(new[] { "L_p" })]
-        public static Dictionary<string, object> LimitingLengthForFlexuralYielding(double E,double F_y,double r_y,string SteelShapeGroupFlexure)
+        [MultiReturn(new[] { "phiM_n","IsApplicableLimitState" })]
+        public static Dictionary<string, object> LimitingLengthForFlexuralYielding(CustomProfile Shape, double F_y, string BendingAxis="XAxis", string FlexuralCompressionLocation="Top", 
+            double E = 29000, bool IsRolledMember = true)
         {
             //Default values
-            double L_p = 0;
+            double phiM_n = 0;
+            bool IsApplicableLimitState = false;
 
 
             //Calculation logic:
 
+            MomentAxis Axis;
+            //Calculation logic:
+            bool IsValidStringAxis = Enum.TryParse(BendingAxis, true, out Axis);
+            if (IsValidStringAxis == false)
+            {
+                throw new Exception("Axis selection not recognized. Check input string.");
+            }
+
+            FlexuralCompressionFiberPosition FlexuralCompression;
+            //Calculation logic:
+            bool IsValidStringCompressionLoc = Enum.TryParse(FlexuralCompressionLocation, true, out FlexuralCompression);
+            if (IsValidStringCompressionLoc == false)
+            {
+                throw new Exception("Flexural compression location selection not recognized. Check input string.");
+            }
+
+
+            SteelMaterial mat = new SteelMaterial(F_y, E);
+            FlexuralMemberFactory factory = new FlexuralMemberFactory();
+            ISteelBeamFlexure beam = factory.GetBeam(Shape.Section, mat, null, Axis, FlexuralCompression, IsRolledMember);
+
+            SteelLimitStateValue L_p =
+            beam.GetLimitingLengthForFullYielding_Lp(FlexuralCompression);
+            phiM_n = L_p.Value;
+
+            IsApplicableLimitState = L_p.IsApplicable;
+
+            IsApplicableLimitState = L_p.IsApplicable;
 
             return new Dictionary<string, object>
             {
-                { "L_p", L_p }
+                { "phiM_n", phiM_n }
+                ,{ "IsApplicableLimitState", IsApplicableLimitState }
  
             };
         }
 
 
-        //internal LimitingLength (double E,double F_y,double r_y,string SteelShapeGroupFlexure)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static LimitingLength  ByInputParameters(double E,double F_y,double r_y,string SteelShapeGroupFlexure)
-        //{
-        //    return new LimitingLength(E ,F_y ,r_y ,SteelShapeGroupFlexure );
-        //}
 
     }
 }

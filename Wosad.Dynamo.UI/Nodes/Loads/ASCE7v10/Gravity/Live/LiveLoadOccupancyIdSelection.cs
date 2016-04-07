@@ -31,13 +31,13 @@ using System.Windows.Input;
 using System.Windows;
 using Wosad.Dynamo.UI.Common.TreeItems;
 using GalaSoft.MvvmLight.Command;
-using Wosad.Dynamo.UI.Views.Loads.ASCE7_10;
+using WosadDynamoUI.Views.Loads.ASCE7v10;
 using Dynamo.Nodes;
 using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Loads.ASCE7_10.Gravity.Live
+namespace Wosad.Loads.ASCE7v10.Gravity.Live
 {
 
     /// <summary>
@@ -45,8 +45,8 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
     /// </summary>
 
     [NodeName("Live Load occupancy ID selection")]
-    [NodeCategory("Wosad.Loads.ASCE7_10.Gravity.Live")]
-    [NodeDescription("Occupancy or use  for selection of uniformly distributed loads - ASCE7-10")]
+    [NodeCategory("Wosad.Loads.ASCE7v10.Gravity.Live")]
+    [NodeDescription("Occupancy or use  for selection of uniformly distributed loads")]
     [IsDesignScriptCompatible]
     public class LiveLoadOccupancyIdSelection : UiNodeBase
     {
@@ -181,7 +181,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Live
 
         private void SetOcupancyDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7_10/Live/LiveLoadOccupancyIdTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7v10/Live/LiveLoadOccupancyIdTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindOccupancyDescription));
         }

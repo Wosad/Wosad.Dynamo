@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Steel.AISC10.Composite
+namespace Wosad.Steel.AISC10.Composite.Anchor
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Wosad.Steel.AISC10.Composite
     /// </summary>
 
     [NodeName("Headed anchor weld case selection")]
-    [NodeCategory("Wosad.Steel.AISC10.Composite")]
+    [NodeCategory("Wosad.Steel.AISC10.Composite.Anchor")]
     [NodeDescription("Strength of headed stud anchor")]
     [IsDesignScriptCompatible]
     public class HeadedAnchorWeldCaseSelection : UiNodeBase

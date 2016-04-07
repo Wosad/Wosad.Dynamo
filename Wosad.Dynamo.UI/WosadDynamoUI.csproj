@@ -183,6 +183,9 @@
     <Compile Include="Nodes\Loads\ASCE7v10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Dead\ComponentIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindExposureCategory.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindFace.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindVelocityLocation.cs" />
     <Compile Include="Nodes\Steel\AISC10\Combination\CombinedForcesMemberTypeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -736,7 +739,6 @@
     <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
     <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
     <Folder Include="Nodes\General\" />
-    <Folder Include="Nodes\Loads\ASCE7v10\Lateral\Wind\" />
     <Folder Include="Views\Concrete\ACI318_14\Compression\SectionStrength\" />
     <Folder Include="Views\Concrete\ACI318_14\Compression\Stability\" />
     <Folder Include="Views\Concrete\ACI318_14\Details\" />

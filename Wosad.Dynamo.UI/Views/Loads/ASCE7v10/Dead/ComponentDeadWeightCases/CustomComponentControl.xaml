@@ -6,7 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-   x:Class="Wosad.Dynamo.UI.Views.Loads.ASCE7_10.CustomComponentControl"
+   x:Class="WosadDynamoUI.Views.Loads.ASCE7v10.CustomComponentControl"
     mc:Ignorable="d"
     d:DesignHeight="30" d:DesignWidth="800">
 

@@ -233,28 +233,28 @@
     <Compile Include="Concrete\ACI318_14\Section\ShearAndTorsion\OneWayShear\OneWayShearStrengthProvidedByConcrete.cs" />
     <Compile Include="Concrete\ACI318_14\Section\ShearAndTorsion\OneWayShear\OneWayShearStrengthProvidedByRebar.cs" />
     <Compile Include="Concrete\ACI318_14\Section\ShearAndTorsion\OneWayShear\TotalOneWayShearStrength.cs" />
-    <Compile Include="Loads\ASCE7_10\General\General.cs" />
-    <Compile Include="Loads\ASCE7_10\General\RiskCategory.cs" />
-    <Compile Include="Loads\ASCE7_10\Gravity\Dead\ComponentWeight.cs" />
-    <Compile Include="Loads\ASCE7_10\Gravity\Dead\Groups\Live.cs" />
-    <Compile Include="Loads\ASCE7_10\Gravity\Dead\Groups\Dead.cs" />
-    <Compile Include="Loads\ASCE7_10\Gravity\Live\UniformLiveLoad.cs" />
+    <Compile Include="Loads\ASCE7v10\General\General.cs" />
+    <Compile Include="Loads\ASCE7v10\General\RiskCategory.cs" />
+    <Compile Include="Loads\ASCE7v10\Gravity\Dead\ComponentWeight.cs" />
+    <Compile Include="Loads\ASCE7v10\Gravity\Dead\Groups\Live.cs" />
+    <Compile Include="Loads\ASCE7v10\Gravity\Dead\Groups\Dead.cs" />
+    <Compile Include="Loads\ASCE7v10\Gravity\Live\UniformLiveLoad.cs" />
     <Compile Include="Examples\SectionProperties\SectionIRolled.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\DampingRatio.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\PressureCoefficient.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\General.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\Pressure.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Groups\StructureParameters.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\PressureCoefficient\ExternalPressureCoefficientMWFRS.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\PressureCoefficient\WindInternalPressureCoefficient.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindNetPressureMWFRS.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindPressureMWFRS.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindVelocityPressure.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindVelocityPressureExposureCoefficientByExposure.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\Pressure\WindVelocityPressureExposureCoefficient.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\WindDirectionalityFactor.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\WindExposureConstants.cs" />
-    <Compile Include="Loads\ASCE7_10\Lateral\Wind\WindGustEffectFactor.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\DampingRatio.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\PressureCoefficient.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\General.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\Pressure.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\StructureParameters.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\PressureCoefficient\ExternalPressureCoefficientMWFRS.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\PressureCoefficient\WindInternalPressureCoefficient.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Pressure\WindNetPressureMWFRS.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Pressure\WindPressureMWFRS.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Pressure\WindVelocityPressure.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Pressure\WindVelocityPressureExposureCoefficientByExposure.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\Pressure\WindVelocityPressureExposureCoefficient.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\WindDirectionalityFactor.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\WindExposureConstants.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Wind\WindGustEffectFactor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporting\ReportCollector.cs" />
     <Compile Include="Steel\AISC10\Combination\Groups\Combination.cs" />
@@ -319,6 +319,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Steel\AISC10\Connection\WhitmoreSectionWidth.cs" />
+    <Compile Include="Steel\AISC10\Flexure\FlexuralCompressionFlangeYielding.cs" />
+    <Compile Include="Steel\AISC10\Flexure\FlexuralFlangeLocalBuckling.cs" />
+    <Compile Include="Steel\AISC10\Flexure\FlexuralLateralTorsionalBuckling.cs" />
+    <Compile Include="Steel\AISC10\Flexure\FlexuralTensionFlangeYielding.cs" />
+    <Compile Include="Steel\AISC10\Flexure\FlexuralWebOrWallLocalBuckling.cs" />
+    <Compile Include="Steel\AISC10\Flexure\FlexuralYielding.cs" />
+    <Compile Include="Steel\AISC10\Flexure\Groups\Flexure.cs" />
+    <Compile Include="Steel\AISC10\Flexure\LimitingLengthForFlexuralInelasticBuckling.cs" />
+    <Compile Include="Steel\AISC10\Flexure\LimitingLengthForFlexuralYielding.cs" />
     <Compile Include="Steel\AISC10\General\Groups\MaterialProperties.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -344,11 +353,10 @@
     <Folder Include="Concrete\ACI318_14\Section\Compression\" />
     <Folder Include="Concrete\ACI318_14\Section\ShearAndTorsion\Torsion\" />
     <Folder Include="Concrete\ACI318_14\Section\ShearAndTorsion\TwoWay\" />
-    <Folder Include="Loads\ASCE7_10\Gravity\Ice\" />
-    <Folder Include="Loads\ASCE7_10\Gravity\Snow\" />
-    <Folder Include="Loads\ASCE7_10\Lateral\Seismic\Building fundamental period\" />
+    <Folder Include="Loads\ASCE7v10\Gravity\Ice\" />
+    <Folder Include="Loads\ASCE7v10\Gravity\Snow\" />
+    <Folder Include="Loads\ASCE7v10\Lateral\Seismic\Building fundamental period\" />
     <Folder Include="Steel\AISC10\Compression\" />
-    <Folder Include="Steel\AISC10\Flexure\" />
     <Folder Include="Steel\AISC10\Tension\" />
   </ItemGroup>
   <ItemGroup>

@@ -27,7 +27,7 @@ using Wosad.Dynamo.Common;
 using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
 using System.Windows.Input;
-using Wosad.Dynamo.UI.Views.Loads.ASCE7_10;
+using WosadDynamoUI.Views.Loads.ASCE7v10;
 using GalaSoft.MvvmLight.Command;
 using System.Reflection;
 using Wosad.Dynamo.Common.Infra.TreeItems;
@@ -40,7 +40,7 @@ using Dynamo.Graph.Nodes;
 using Dynamo.Graph;
 
 
-namespace Wosad.Loads.ASCE7_10.Gravity.Dead
+namespace Wosad.Loads.ASCE7v10.Gravity.Dead
 {
 
     /// <summary>
@@ -48,7 +48,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
     /// </summary>
 
     [NodeName("Component ID selection")]
-    [NodeCategory("Wosad.Loads.ASCE7_10.Gravity.Dead")]
+    [NodeCategory("Wosad.Loads.ASCE7v10.Gravity.Dead")]
     [NodeDescription("Building component ID (name) used for calculation of dead weight")]
     [IsDesignScriptCompatible]
     public class ComponentIdSelection : UiNodeBase
@@ -249,7 +249,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
 
         private void SetComponentDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7_10/Dead/ComponentDeadWeightTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7v10/Dead/ComponentDeadWeightTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }
@@ -298,7 +298,7 @@ namespace Wosad.Loads.ASCE7_10.Gravity.Dead
                 Assembly execAssembly = Assembly.GetExecutingAssembly();
                 AssemblyName assemblyName = new AssemblyName(execAssembly.FullName);
                 string execAssemblyName = assemblyName.Name;
-                string typeStr =execAssemblyName +".Views.Loads.ASCE7_10." + selectedComponent.ResourcePath;
+                string typeStr =execAssemblyName +".Views.Loads.ASCE7v10." + selectedComponent.ResourcePath;
                 try
                 {
                     Type subMenuType = execAssembly.GetType(typeStr);

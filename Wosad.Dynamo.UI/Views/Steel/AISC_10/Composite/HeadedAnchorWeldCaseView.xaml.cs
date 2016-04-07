@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC10.Composite
+namespace Wosad.Steel.AISC10.Composite.Anchor
 {
     /// <summary>
     /// Interaction logic for HeadedAnchorWeldCaseView.xaml

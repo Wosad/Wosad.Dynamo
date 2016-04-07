@@ -25,7 +25,7 @@ using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Wosad.Loads.ASCE7.Entities;
-using Wosad.Dynamo.UI.Views.Loads.ASCE7_10;
+using WosadDynamoUI.Views.Loads.ASCE7v10;
 using Wosad.Dynamo.Common.Infra.TreeItems;
 using System.Xml;
 using System.Windows;
@@ -35,7 +35,7 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Loads.ASCE7_10.General
+namespace Wosad.Loads.ASCE7v10.General
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Wosad.Loads.ASCE7_10.General
     /// </summary>
 
     [NodeName("Building occupancy ID selection")]
-    [NodeCategory("Wosad.Loads.ASCE7_10.General")]
+    [NodeCategory("Wosad.Loads.ASCE7v10.General")]
     [NodeDescription("Selection of occupancy for determination of Risk Category")]
     [IsDesignScriptCompatible]
     public class BuildingOccupancyIdSelection : UiNodeBase
@@ -181,7 +181,7 @@ namespace Wosad.Loads.ASCE7_10.General
 
         private void SetOccupancyDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7_10/General/BuildingOccupancyTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7v10/General/BuildingOccupancyTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }

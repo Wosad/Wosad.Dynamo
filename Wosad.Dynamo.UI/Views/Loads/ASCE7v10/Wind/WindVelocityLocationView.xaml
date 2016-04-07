@@ -19,15 +19,15 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="Case1" Description="Case1" />
-                <WosadControls:EnumDataElement   EnumString="Case2" Description="Case2"/>
-                <WosadControls:EnumDataElement   EnumString="Case3" Description="Case3" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource Wall}" EnumString="Wall" Description="Wall" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource Roof}" EnumString="Roof" Description="Roof"/>
+                
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <WosadControls:EnumControl  HeaderText="Case selection" 
+        <WosadControls:EnumControl  HeaderText="Location where wind velocity is calculated" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
 					DataPath="WindVelocityLocation"/>
     </Grid>
