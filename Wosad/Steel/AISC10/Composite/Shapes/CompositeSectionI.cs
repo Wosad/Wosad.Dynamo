@@ -64,7 +64,8 @@ namespace Steel.AISC10.Composite.Sections
             //ISliceableSection secI = new shapes.SectionIRolled("", catI.d, catI.b_fTop, catI.tf, catI.t_w, catI.k);
             //Section = secI;
 
-           //new! Section = factory.GetSliceableSection(ShapeId, ShapeTypeSteel.IShapeRolled);
+           //new! 
+            Section = factory.GetSliceableSection(ShapeId, ShapeTypeSteel.IShapeRolled);
         }
 
         public static CompositeSectionI FromGeometry(double d, double b_f, double t_f, double t_w, double k = 0)

@@ -15,14 +15,14 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
+                <ResourceDictionary Source="DeckIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="HeadedAnchorWeldCaseSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="WeldedDirectly" Description="Welded directly to the steel shape" />
-                <WosadControls:EnumDataElement   EnumString="WeldedThroughDeck" Description="Welded through steel deck"/>
+                <WosadControls:EnumDataElement Icon="{StaticResource StudWeldedDirectly}"  EnumString="WeldedDirectly" Description="Welded directly to the steel shape" />
+                <WosadControls:EnumDataElement Icon="{StaticResource  StudWeldedThroughDeck}"  EnumString="WeldedThroughDeck" Description="Welded through steel deck"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

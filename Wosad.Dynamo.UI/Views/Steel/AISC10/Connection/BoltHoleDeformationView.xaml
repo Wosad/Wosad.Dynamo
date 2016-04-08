@@ -13,14 +13,14 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
+                <ResourceDictionary Source="BoltIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="BoltHoleDeformationTypeSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="ConsideredUnderServiceLoad" Description="Deformation Considered under service load" />
-                <WosadControls:EnumDataElement   EnumString="NotConsideredUnderServiceLoad" Description="Not considered under service load"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource  BoltDeformationConsidered}"  EnumString="ConsideredUnderServiceLoad" Description="Deformation Considered under service load" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource  BoltDeformationNotConsidered}"  EnumString="NotConsideredUnderServiceLoad" Description="Not considered under service load"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

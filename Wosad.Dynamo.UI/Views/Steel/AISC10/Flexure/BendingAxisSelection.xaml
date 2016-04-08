@@ -22,8 +22,8 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="BendingAxisSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement    Icon="{StaticResource BendingAxisX}" EnumString="X" Description="X axis" />
-                <WosadControls:EnumDataElement   Icon="{StaticResource BendingAxisY}" EnumString="Y" Description="Y axis"/>
+                <WosadControls:EnumDataElement    Icon="{StaticResource BendingAxisX}" EnumString="XAxis" Description="X axis" />
+                <WosadControls:EnumDataElement   Icon="{StaticResource BendingAxisY}" EnumString="YAxis" Description="Y axis"/>
             </WosadControls:EnumDataCollection>
             
                 </ResourceDictionary>

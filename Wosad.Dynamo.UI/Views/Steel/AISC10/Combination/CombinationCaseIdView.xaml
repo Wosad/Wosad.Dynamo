@@ -13,32 +13,32 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="XXX.xaml"/>-->
+                <ResourceDictionary Source="CombinationCaseIdIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
             <WosadConverters:BooleanToVisibilityInvertedConverter x:Key="BooleanToVisibilityInvertedConverter" />
 
             <WosadControls:EnumDataCollection x:Key="ElementTypeSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement  EnumString="Member"       Description="Member" />
-                <WosadControls:EnumDataElement  EnumString="Connection"  Description="Connection"/>
+                <WosadControls:EnumDataElement Icon="{StaticResource  ComboMember}" EnumString="Member"       Description="Member" />
+                <WosadControls:EnumDataElement Icon="{StaticResource ComboConnection}" EnumString="Connection"  Description="Connection"/>
             </WosadControls:EnumDataCollection>
 
             <WosadControls:EnumDataCollection x:Key="MemberForceCaseSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement  EnumString="FlexureAndAxial"       Description="Flexure and axial" />
-                <WosadControls:EnumDataElement  EnumString="FlexureAndAxialAndShear"  Description="Flexure, axial, shear and torsion"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource  ComboFlexureAxial}" EnumString="FlexureAndAxial"       Description="Flexure and axial" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource  ComboFlexuralAxialTorsion}" EnumString="FlexureAndAxialAndShear"  Description="Flexure, axial, shear and torsion"/>
             </WosadControls:EnumDataCollection>
             
             <WosadControls:EnumDataCollection x:Key="MemberSectionTypeSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement  EnumString="DoublyOrSinglySymmetric"       Description="Doubly or singly symmetric" />
-                <WosadControls:EnumDataElement  EnumString="Other"  Description="Other"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource  ShapeDoublySymmetric}" EnumString="DoublyOrSinglySymmetric"       Description="Doubly or singly symmetric" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource  ShapeSinglySymmetric}" EnumString="Other"  Description="Other"/>
             </WosadControls:EnumDataCollection>
 
             <WosadControls:EnumDataCollection x:Key="ConnectionCombinationTypeSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement  EnumString="Linear"       Description="Linear" />
-                <WosadControls:EnumDataElement  EnumString="Elliptical"       Description="Elliptical" />
-                <WosadControls:EnumDataElement  EnumString="Anchorage"       Description="Anchorage" />
-                <WosadControls:EnumDataElement  EnumString="Plastic"  Description="Plastic"/>
+                <WosadControls:EnumDataElement Icon="{StaticResource  ComboLinear}" EnumString="Linear"       Description="Linear" />
+                <WosadControls:EnumDataElement Icon="{StaticResource  ComboElliptical}" EnumString="Elliptical"       Description="Elliptical" />
+                <WosadControls:EnumDataElement Icon="{StaticResource  ComboAnchorage}" EnumString="Anchorage"       Description="Anchorage" />
+                <WosadControls:EnumDataElement Icon="{StaticResource  ComboPlastic}" EnumString="Plastic"  Description="Plastic"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

@@ -39,7 +39,7 @@ namespace Steel.AISC10.Composite
         /// <summary>
         ///    Calculates Strength of headed stud anchor
         /// </summary>
-        /// <param name="N_anchors">  Number of shear anchors along full length of element </param>
+        /// <param name="N_anchors">  Number of shear anchors from point of maximum moment to point of zero moment </param>
         /// <param name="Q_n">  Nominal strength of one steel headed stud or steel channel anchor  </param>
         /// <returns name="SumQ_n"> Sum of the nominal strengths of steel anchors between the point of maximum positive moment and the point of zero moment to either side </returns>
 
