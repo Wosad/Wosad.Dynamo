@@ -42,10 +42,11 @@ namespace Steel.AISC10.Connection
         /// <param name="C_WeldGroup">  Coefficient for eccentrically loaded weld group </param>
         /// <param name="l">  Length of connection or weld   </param>
         /// <param name="w_weld">  Size of fillet weld leg  </param>
+        /// <param name="C_1">  Electrode strength coefficient </param>
         /// <returns name="phiR_n"> Strength of member or connection </returns>
 
         [MultiReturn(new[] { "phiR_n" })]
-        public static Dictionary<string, object> FilletWeldGroupEccentricLoadStrength(double C_WeldGroup,double l, double w_weld)
+        public static Dictionary<string, object> FilletWeldGroupEccentricLoadStrength(double C_WeldGroup, double l, double w_weld, double C_1=1.0)
         {
             //Default values
             double phiR_n = 0;
@@ -53,7 +54,7 @@ namespace Steel.AISC10.Connection
 
             //Calculation logic:
             double D = w_weld / (1.0 / 16.0);
-            phiR_n= 0.75*D* C_WeldGroup*l;
+            phiR_n= 0.75*D* C_WeldGroup*C_1*l;
 
             return new Dictionary<string, object>
             {

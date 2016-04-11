@@ -246,7 +246,7 @@
         ueP5+EV/1s38M0nyA1T9rYaeX0gDAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Analysis.Section.AISC.AISCShapeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Analysis.Section.AISC.AiscShapeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAp6SURBVHhe7V07iyVFGB3wBwwIxgPmMpHxgH9gNdpw
@@ -297,7 +297,7 @@
         GAwGg8Fg6I+Tk/8BuJJYBobE3SIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Analysis.Section.AISC.AISCShapeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Analysis.Section.AISC.AiscShapeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJ9SURBVFhH5ZaxqtRAGIUDPsA+woIvsOAL7CNcu1su

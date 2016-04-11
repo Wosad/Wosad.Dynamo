@@ -46,10 +46,10 @@ namespace Wosad.Analysis.Section.AISC
     [NodeCategory("Wosad.Analysis.Section.AISC")]
     [NodeDescription("Selection of shape type from AISC v14 database")]
     [IsDesignScriptCompatible]
-    public class AISCShapeSelection : UiNodeBase
+    public class AiscShapeSelection : UiNodeBase
     {
 
-        public AISCShapeSelection()
+        public AiscShapeSelection()
         {
             
             
@@ -1746,9 +1746,9 @@ namespace Wosad.Analysis.Section.AISC
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class AiscShapeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<AISCShapeSelection>
+            INodeViewCustomization<AiscShapeSelection>
         {
-            public void CustomizeView(AISCShapeSelection model, NodeView nodeView)
+            public void CustomizeView(AiscShapeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 

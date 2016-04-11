@@ -68,7 +68,7 @@ namespace Steel.AISC10.Connection
             {
                 FilletWeldGroup wg = new FilletWeldGroup(pattern, l_Weld_horizontal, l_Weld_vertical, w_weld, F_EXX, IsLoadOutOfPlane);
                 C_WeldGroup = wg.GetInstantaneousCenterCoefficient(e_group, theta); ;
-                phiR_n = wg.GetUltimateForce(e_group, theta);
+                phiR_n = 0.75*wg.GetUltimateForce(e_group, theta); //0.75 is the phi factor
             }
             else
             {
