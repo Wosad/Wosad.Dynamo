@@ -233,6 +233,9 @@
     <Compile Include="Concrete\ACI318_14\Section\ShearAndTorsion\OneWayShear\OneWayShearStrengthProvidedByConcrete.cs" />
     <Compile Include="Concrete\ACI318_14\Section\ShearAndTorsion\OneWayShear\OneWayShearStrengthProvidedByRebar.cs" />
     <Compile Include="Concrete\ACI318_14\Section\ShearAndTorsion\OneWayShear\TotalOneWayShearStrength.cs" />
+    <Compile Include="General\DesignToCapacityMultiple.cs" />
+    <Compile Include="General\DesignToCapacitySingle.cs" />
+    <Compile Include="General\Groups\DemandToCapacity.cs" />
     <Compile Include="Loads\ASCE7v10\General\General.cs" />
     <Compile Include="Loads\ASCE7v10\General\RiskCategory.cs" />
     <Compile Include="Loads\ASCE7v10\Gravity\Dead\ComponentWeight.cs" />
