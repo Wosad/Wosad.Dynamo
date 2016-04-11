@@ -149,7 +149,7 @@ namespace Wosad.Analysis.Section.AISC
             CHSType = "CHS";
             LDoubleShapeType = "Equal";
             RefreshView = true;
-            SteelShapeId = "W18X35";
+            
             AnchorRodType = "ThreadedAndNutted";
             //Groups
             WShapeGroup = "W18";
@@ -167,6 +167,8 @@ namespace Wosad.Analysis.Section.AISC
             CHSShapeGroup = "HSS6";
             PipeGroup = "Pipe6";
             LDoubleGapType = "NoGap";
+
+            SteelShapeId = "W18X35";
 
         }
 
@@ -1683,7 +1685,7 @@ namespace Wosad.Analysis.Section.AISC
             nodeElement.SetAttribute("LDoubleShapeType",LDoubleShapeType);
             
             nodeElement.SetAttribute("AnchorRodType",AnchorRodType);
-            nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
+
             nodeElement.SetAttribute("WShapeGroup", WShapeGroup);
             nodeElement.SetAttribute("SShapeGroup", SShapeGroup);
             nodeElement.SetAttribute("MShapeGroup", MShapeGroup);
@@ -1699,6 +1701,8 @@ namespace Wosad.Analysis.Section.AISC
             nodeElement.SetAttribute("CHSShapeGroup", CHSShapeGroup);
             nodeElement.SetAttribute("PipeGroup", PipeGroup);
             nodeElement.SetAttribute("LDoubleGapType", LDoubleGapType);
+
+            nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
         }
 
         /// <summary>
@@ -1717,7 +1721,7 @@ namespace Wosad.Analysis.Section.AISC
             var LDoubleShapeType_attrib = nodeElement.Attributes["LDoubleShapeType"]; if (LDoubleShapeType_attrib != null) { LDoubleShapeType = LDoubleShapeType_attrib.Value; }
             var WShapeGroup_attrib = nodeElement.Attributes["WShapeGroup"]; if (WShapeGroup_attrib != null) { WShapeGroup = WShapeGroup_attrib.Value; }
             var AnchorRodType_attrib = nodeElement.Attributes["AnchorRodType"]; if (AnchorRodType_attrib != null) { AnchorRodType = AnchorRodType_attrib.Value; }
-            var SteelShapeId_attrib = nodeElement.Attributes["SteelShapeId"]; if (SteelShapeId_attrib != null) { SteelShapeId = SteelShapeId_attrib.Value; }
+
             
 
             var SShapeGroup_attrib = nodeElement.Attributes["SShapeGroup"]; if (SShapeGroup_attrib != null)                     { SShapeGroup           = SShapeGroup_attrib.Value; }
@@ -1734,6 +1738,9 @@ namespace Wosad.Analysis.Section.AISC
             var CHSShapeGroup_attrib = nodeElement.Attributes["CHSShapeGroup"]; if (CHSShapeGroup_attrib != null)               { CHSShapeGroup         = CHSShapeGroup_attrib.Value; }
             var PipeGroup_attrib = nodeElement.Attributes["PipeGroup"]; if (PipeGroup_attrib != null)                           { PipeGroup             = PipeGroup_attrib.Value; }
             var LDoubleGapType_attrib = nodeElement.Attributes["LDoubleGapType"]; if (LDoubleGapType_attrib != null)            { LDoubleGapType        = LDoubleGapType_attrib.Value; }
+
+
+            var SteelShapeId_attrib = nodeElement.Attributes["SteelShapeId"]; if (SteelShapeId_attrib != null) { SteelShapeId = SteelShapeId_attrib.Value; }
 
         }
 
