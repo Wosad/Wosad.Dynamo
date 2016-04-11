@@ -40,7 +40,7 @@ namespace Loads.ASCE7v10.Lateral.Wind
     public partial class WindPressure 
     {
         /// <summary>
-        ///     Wind net pressure on Main Wind-Force Resisting System (MWFRS) elements excluding effects of internal pressure
+        ///     Wind net pressure on Main Wind-Force Resisting System (MWFRS) elements excluding effects of internal pressure (PSF UNITS)
         /// </summary>
         /// <param name="q_z">  Velocity pressure evaluated at height z above ground </param>
         /// <param name="q_h">  Velocity pressure evaluated at height z=h </param>

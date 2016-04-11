@@ -549,8 +549,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Steel\AISC10\Combination\CombinationCaseIdView.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Steel\AISC10\Composite\DeckIcons.xaml">
       <SubType>Designer</SubType>

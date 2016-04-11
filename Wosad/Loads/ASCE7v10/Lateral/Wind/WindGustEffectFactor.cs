@@ -42,14 +42,14 @@ namespace Loads.ASCE7v10.Lateral.Wind
     public partial class StructureParameters 
     {
         /// <summary>
-        ///     Wind gust effect factor accounting for the dynamic interaction between the building and the structure . 
+        ///     Wind gust effect factor accounting for the dynamic interaction between the building and the structure (FT MPH UNITS). 
         /// </summary>
-        /// <param name="B">  Horizontal dimension of building measured normal to wind direction </param>
-        /// <param name="h">  Mean roof height of a building or height of other structure </param>
-        /// <param name="L">  Horizontal dimension of a building measured parallel to the wind direction </param>
+        /// <param name="B">  Horizontal dimension of building measured normal to wind direction (FT) </param>
+        /// <param name="h">  Mean roof height of a building or height of other structure (FT) </param>
+        /// <param name="L">  Horizontal dimension of a building measured parallel to the wind direction (FT) </param>
         /// <param name="beta">  Damping ratio, percent critical for buildings or other structures </param>
-        /// <param name="n_1">  Fundamental natural frequency </param>
-        /// <param name="V">  Basic wind speed </param>
+        /// <param name="n_1">  Fundamental natural frequency (HZ)</param>
+        /// <param name="V">  Basic wind speed (MPH) </param>
         /// <param name="WindExposureCategory">  Exposure category for wind calculation </param>
         /// <param name="WindStructureDynamicResponseType">  Type of wind dynamic response (flexible or rigid) </param>
         /// <returns name="G"> Gust-effect factor </returns>

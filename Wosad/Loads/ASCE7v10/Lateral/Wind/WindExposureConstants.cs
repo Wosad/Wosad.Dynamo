@@ -45,7 +45,7 @@ namespace Loads.ASCE7v10.Lateral.Wind
         /// </summary>
         /// <param name="WindExposureCategory">  Exposure category for wind calculation </param>
         /// <returns name="alpha"> 3-sec gust-speed power law exponent </returns>
-        /// <returns name="z_g"> Nominal height of the atmospheric boundary layer used in this standard </returns>
+        /// <returns name="z_g"> Nominal height of the atmospheric boundary layer (FT) </returns>
         /// <returns name="alpha_"> Mean hourly wind-speed power law exponent </returns>
         /// <returns name="b_"> Mean hourly wind speed factor  </returns>
         /// <returns name="c"> Turbulence intensity factor </returns>

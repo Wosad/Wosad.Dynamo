@@ -46,6 +46,7 @@ namespace Analysis.Section.SectionTypes
 
         public static SectionPipe ByDiameterWallThickness(double D, double t_nom, double t_des=0)
         {
+
             return new SectionPipe(D, t_nom, t_des);
         }
 

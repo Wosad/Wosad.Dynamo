@@ -39,7 +39,7 @@ namespace Loads.ASCE7v10.Lateral.Wind
     public partial class WindPressure 
     {
         /// <summary>
-        ///     Wind pressure on Main Wind-Force Resisting System (MWFRS) elements (psf) . 
+        ///     Wind pressure on Main Wind-Force Resisting System (MWFRS) elements (PSF UNITS)
         /// </summary>
         /// <param name="q">  Velocity pressure </param>
         /// <param name="G">  Gust-effect factor </param>

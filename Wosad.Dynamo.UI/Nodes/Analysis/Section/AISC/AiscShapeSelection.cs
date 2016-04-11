@@ -35,20 +35,21 @@ using Dynamo.Graph.Nodes;
 
 
 namespace Wosad.Analysis.Section.AISC
+
+    //Wosad.Analysis.Section.AISC.ShapeSelection
 {
 
     /// <summary>
-    ///Selection of shape type  
+    ///Selection of shape type from AISC v14 database
     /// </summary>
-
     [NodeName("AISC shape selection")]
     [NodeCategory("Wosad.Analysis.Section.AISC")]
-    [NodeDescription("Selection of shape type")]
+    [NodeDescription("Selection of shape type from AISC v14 database")]
     [IsDesignScriptCompatible]
-    public class AiscShapeSelection : UiNodeBase
+    public class AISCShapeSelection : UiNodeBase
     {
 
-        public AiscShapeSelection()
+        public AISCShapeSelection()
         {
             
             
@@ -148,10 +149,24 @@ namespace Wosad.Analysis.Section.AISC
             CHSType = "CHS";
             LDoubleShapeType = "Equal";
             RefreshView = true;
-            WShapeGroup = "W18";
             SteelShapeId = "W18X35";
             AnchorRodType = "ThreadedAndNutted";
-
+            //Groups
+            WShapeGroup = "W18";
+            SShapeGroup = "S12";
+            MShapeGroup = "M8";
+            CShapeGroup = "C8";
+            MCShapeGroup = "MC8";
+            WTShapeGroup = "WT9";
+            STShapeGroup = "ST6";
+            LShapeGroup = "L8";
+            LDoubleEqualGroup = "Angle2L4";
+            LDoubleLLBBGroup = "Angle2L4";
+            LDoubleSLBBGroup = "Angle2L4";
+            RHSShapeGroup = "HSS6";
+            CHSShapeGroup = "HSS6";
+            PipeGroup = "Pipe6";
+            LDoubleGapType = "NoGap";
 
         }
 
@@ -1666,9 +1681,24 @@ namespace Wosad.Analysis.Section.AISC
             nodeElement.SetAttribute("TShapeType",TShapeType);
             nodeElement.SetAttribute("CHSType",CHSType);
             nodeElement.SetAttribute("LDoubleShapeType",LDoubleShapeType);
-            nodeElement.SetAttribute("WShapeGroup",WShapeGroup);
+            
             nodeElement.SetAttribute("AnchorRodType",AnchorRodType);
             nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
+            nodeElement.SetAttribute("WShapeGroup", WShapeGroup);
+            nodeElement.SetAttribute("SShapeGroup", SShapeGroup);
+            nodeElement.SetAttribute("MShapeGroup", MShapeGroup);
+            nodeElement.SetAttribute("CShapeGroup", CShapeGroup);
+            nodeElement.SetAttribute("MCShapeGroup", MCShapeGroup);
+            nodeElement.SetAttribute("WTShapeGroup", WTShapeGroup);
+            nodeElement.SetAttribute("STShapeGroup", STShapeGroup);
+            nodeElement.SetAttribute("LShapeGroup", LShapeGroup);
+            nodeElement.SetAttribute("LDoubleEqualGroup", LDoubleEqualGroup);
+            nodeElement.SetAttribute("LDoubleLLBBGroup", LDoubleLLBBGroup);
+            nodeElement.SetAttribute("LDoubleSLBBGroup", LDoubleSLBBGroup);
+            nodeElement.SetAttribute("RHSShapeGroup", RHSShapeGroup);
+            nodeElement.SetAttribute("CHSShapeGroup", CHSShapeGroup);
+            nodeElement.SetAttribute("PipeGroup", PipeGroup);
+            nodeElement.SetAttribute("LDoubleGapType", LDoubleGapType);
         }
 
         /// <summary>
@@ -1688,6 +1718,23 @@ namespace Wosad.Analysis.Section.AISC
             var WShapeGroup_attrib = nodeElement.Attributes["WShapeGroup"]; if (WShapeGroup_attrib != null) { WShapeGroup = WShapeGroup_attrib.Value; }
             var AnchorRodType_attrib = nodeElement.Attributes["AnchorRodType"]; if (AnchorRodType_attrib != null) { AnchorRodType = AnchorRodType_attrib.Value; }
             var SteelShapeId_attrib = nodeElement.Attributes["SteelShapeId"]; if (SteelShapeId_attrib != null) { SteelShapeId = SteelShapeId_attrib.Value; }
+            
+
+            var SShapeGroup_attrib = nodeElement.Attributes["SShapeGroup"]; if (SShapeGroup_attrib != null)                     { SShapeGroup           = SShapeGroup_attrib.Value; }
+            var MShapeGroup_attrib = nodeElement.Attributes["MShapeGroup"]; if (MShapeGroup_attrib != null)                     { MShapeGroup           = MShapeGroup_attrib.Value; }
+            var CShapeGroup_attrib = nodeElement.Attributes["CShapeGroup"]; if (CShapeGroup_attrib != null)                     { CShapeGroup           = CShapeGroup_attrib.Value; }
+            var MCShapeGroup_attrib = nodeElement.Attributes["MCShapeGroup"]; if (MCShapeGroup_attrib != null)                  { MCShapeGroup          = MCShapeGroup_attrib.Value; }
+            var WTShapeGroup_attrib = nodeElement.Attributes["WTShapeGroup"]; if (WTShapeGroup_attrib != null)                  { WTShapeGroup          = WTShapeGroup_attrib.Value; }
+            var STShapeGroup_attrib = nodeElement.Attributes["STShapeGroup"]; if (STShapeGroup_attrib != null)                  { STShapeGroup          = STShapeGroup_attrib.Value; }
+            var LShapeGroup_attrib = nodeElement.Attributes["LShapeGroup"]; if (LShapeGroup_attrib != null)                     { LShapeGroup           = LShapeGroup_attrib.Value; }
+            var LDoubleEqualGroup_attrib = nodeElement.Attributes["LDoubleEqualGroup"]; if (LDoubleEqualGroup_attrib != null)   { LDoubleEqualGroup     = LDoubleEqualGroup_attrib.Value; }
+            var LDoubleLLBBGroup_attrib = nodeElement.Attributes["LDoubleLLBBGroup"]; if (LDoubleLLBBGroup_attrib != null)      { LDoubleLLBBGroup      = LDoubleLLBBGroup_attrib.Value; }
+            var LDoubleSLBBGroup_attrib = nodeElement.Attributes["LDoubleSLBBGroup"]; if (LDoubleSLBBGroup_attrib != null)      { LDoubleSLBBGroup      = LDoubleSLBBGroup_attrib.Value; }
+            var RHSShapeGroup_attrib = nodeElement.Attributes["RHSShapeGroup"]; if (RHSShapeGroup_attrib != null)               { RHSShapeGroup         = RHSShapeGroup_attrib.Value; }
+            var CHSShapeGroup_attrib = nodeElement.Attributes["CHSShapeGroup"]; if (CHSShapeGroup_attrib != null)               { CHSShapeGroup         = CHSShapeGroup_attrib.Value; }
+            var PipeGroup_attrib = nodeElement.Attributes["PipeGroup"]; if (PipeGroup_attrib != null)                           { PipeGroup             = PipeGroup_attrib.Value; }
+            var LDoubleGapType_attrib = nodeElement.Attributes["LDoubleGapType"]; if (LDoubleGapType_attrib != null)            { LDoubleGapType        = LDoubleGapType_attrib.Value; }
+
         }
 
 
@@ -1699,9 +1746,9 @@ namespace Wosad.Analysis.Section.AISC
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class AiscShapeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<AiscShapeSelection>
+            INodeViewCustomization<AISCShapeSelection>
         {
-            public void CustomizeView(AiscShapeSelection model, NodeView nodeView)
+            public void CustomizeView(AISCShapeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 

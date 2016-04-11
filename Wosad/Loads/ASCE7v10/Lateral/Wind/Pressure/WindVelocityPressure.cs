@@ -41,7 +41,7 @@ namespace Loads.ASCE7v10.Lateral.Wind
     public partial class WindPressure 
     {
         /// <summary>
-        ///     Velocity pressure, evaluated at height z accounting for the basic wind pressure prior to adjustment by the building–specific aerodynamic and dynamic factors . 
+        ///     Velocity pressure, evaluated at height z accounting for the basic wind pressure prior to adjustment by the building–specific aerodynamic and dynamic factors (PSF UNITS)
         /// </summary>
         /// <param name="K_z">  Velocity pressure exposure coefficient evaluated at height z (or h) </param>
         /// <param name="K_zt">  Topographic factor </param>

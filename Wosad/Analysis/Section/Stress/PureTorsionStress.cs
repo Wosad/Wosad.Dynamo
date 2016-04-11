@@ -29,7 +29,7 @@ namespace Analysis.Section
 {
 
 /// <summary>
-///     Pure torsion stress in open cross section
+///     Pure torsion stress
 ///     Category:   Analysis.Beam
 /// </summary>
 
@@ -37,7 +37,7 @@ namespace Analysis.Section
     public partial class TorsionalStress 
     {
         /// <summary>
-        /// Calculates Pure torsion stress in open cross section
+        /// Calculates pure torsion stress
         /// </summary>
         /// <param name="G">  Shear modulus of elasticity </param>
         /// <param name="t_el">  Thickness of element </param>

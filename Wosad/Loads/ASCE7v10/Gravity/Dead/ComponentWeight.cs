@@ -38,7 +38,7 @@ namespace Loads.ASCE7v10.Gravity
     public partial class Dead
     {
         /// <summary>
-        ///    Calculates Building component weight per surface area of the component (psf) - ASCE7-10.
+        ///    Calculates Building component weight per surface area of the component (PSF UNITS)
         /// </summary>
         /// <param name="ComponentId">  building component id (name) </param>
         /// <param name="ComponentOption1">  building component subtype (option1) </param>

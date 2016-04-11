@@ -38,7 +38,7 @@ namespace Loads.ASCE7v10.Gravity
     public partial class Live 
     {
         /// <summary>
-        ///    Calculates Minimum uniformly distributed live load (psf) - ASCE7-10.
+        ///    Calculates Minimum uniformly distributed live load (PSF UNITS)
         /// </summary>
         /// <param name="SpaceOccupancyId">  description of space for calculation of live loads</param>
         /// <returns>  Uniformly distributed live load </returns>

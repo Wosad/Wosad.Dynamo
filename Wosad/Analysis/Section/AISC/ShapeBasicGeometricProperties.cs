@@ -78,7 +78,14 @@ namespace Analysis.Section.AISC
             t_w = shape.tw;
             k = shape.kdes;
             D = shape.OD;
-            B = shape.B;
+            if (B==0)
+            {
+                B = shape.b;
+            }
+            else
+            {
+                B = shape.B;
+            }
             H_t = shape.Ht;
             t = shape.t;
             t_nom = shape.tnom;
