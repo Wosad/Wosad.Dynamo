@@ -51,13 +51,16 @@ namespace Analysis.Section.AISC
         /// <returns name="H_t"> Overall depth of square or rectangular HSS </returns>
         /// <returns name="t"> Thickness of element plate or element wall  </returns>
         /// <returns name="t_nom"> HSS and pipe nominal wall thickness </returns>
+        /// <returns name="t_des"> HSS and pipe design wall thickness </returns>
+        /// <returns name="b"> Width of flat for HSS or leg length for angle </returns>
         ///  <returns name="A"> Cross-sectional area </returns>
 
-        [MultiReturn(new[] { "d","b_f","t_f","t_w","k","D","B","H_t","t","t_nom","A" })]
+        [MultiReturn(new[] { "d", "b_f", "t_f", "t_w", "k", "D", "B", "H_t", "t", "t_nom", "t_des", "b", "A" })]
         public static Dictionary<string, object> ShapeBasicGeometricProperties(string SteelShapeId)
         {
             //Default values
             double d = 0;
+            double b= 0;
             double b_f = 0;
             double t_f = 0;
             double t_w = 0;
@@ -67,6 +70,7 @@ namespace Analysis.Section.AISC
             double H_t = 0;
             double t = 0;
             double t_nom = 0;
+            double t_des = 0;
             double A = 0;
 
             //Calculation logic
@@ -78,32 +82,29 @@ namespace Analysis.Section.AISC
             t_w = shape.tw;
             k = shape.kdes;
             D = shape.OD;
-            if (B==0)
-            {
-                B = shape.b;
-            }
-            else
-            {
-                B = shape.B;
-            }
+            b = shape.b;
+            B = shape.B;
             H_t = shape.Ht;
             t = shape.t;
             t_nom = shape.tnom;
+            t_des = shape.tdes;
             A = shape.A;
 
             return new Dictionary<string, object>
             {
                 { "d", d }
-,{ "b_f", b_f }
-,{ "t_f", t_f }
-,{ "t_w", t_w }
-,{ "k", k }
-,{ "D", D }
-,{ "B", B }
-,{ "H_t", H_t }
-,{ "t", t }
-,{ "t_nom", t_nom }
- ,{ "A", A }
+                ,{ "b_f", b_f }
+                ,{ "t_f", t_f }
+                ,{ "t_w", t_w }
+                ,{ "k", k }
+                ,{ "D", D }
+                ,{ "B", B }
+                ,{ "H_t", H_t }
+                ,{ "t", t }
+                ,{ "t_nom", t_nom }
+                ,{ "t_des", t_des }
+                ,{ "b", b }
+                 ,{ "A", A }
             };
         }
 
