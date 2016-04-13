@@ -30,14 +30,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC10.Flexure
+namespace Wosad.General.Flexure
 {
-    /// <summary>
-    /// Interaction logic for Wosad.Steel.AISC10.Flexure.FlexuralCompressionLocationView.xaml
-    /// </summary>
-    public partial class FlexuralCompressionLocationView: UserControl
+
+    public partial class FlexuralBracingCaseView: UserControl
     {
-        public FlexuralCompressionLocationView()
+        public FlexuralBracingCaseView()
         {
             InitializeComponent();
         }

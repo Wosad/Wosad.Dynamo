@@ -7,7 +7,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d"
-	x:Class="Wosad.Steel.AISC10.Flexure.BendingAxisSelectionView"
+	x:Class="Wosad.General.Flexure.BendingAxisSelectionView"
     xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
     xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
 	x:Name="UserControl"

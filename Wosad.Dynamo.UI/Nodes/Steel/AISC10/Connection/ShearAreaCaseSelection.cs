@@ -30,36 +30,30 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Steel.AISC10.Flexure
+namespace Wosad.Steel.AISC10.Connection
 {
 
     /// <summary>
-    ///Flexural bracing case selection  
+    ///Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).  
     /// </summary>
 
-    [NodeName("Flexural bracing case selection")]
-    [NodeCategory("Wosad.Steel.AISC10.Flexure")]
-    [NodeDescription("Flexural bracing case selection")]
+    [NodeName("Shear area case selection")]
+    [NodeCategory("Wosad.Steel.AISC10.Connection.AffectedElements")]
+    [NodeDescription("Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).")]
     [IsDesignScriptCompatible]
-    public class FlexuralBracingCaseSelection : UiNodeBase
+    public class ShearAreaCaseSelection : UiNodeBase
     {
 
-        public FlexuralBracingCaseSelection()
+        public ShearAreaCaseSelection()
         {
-            
+            ReportEntry="";
+            ShearAreaCaseId = "TBlock";
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("FlexuralBracingCase", "Identifies the type of lateral bracing for a flexural member"));
+            OutPortData.Add(new PortData("ShearAreaCaseId", "Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).Values are: StraightLine,TBlock,UBlock,Lblock"));
             RegisterAllPorts();
-            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
         }
 
-        private void SetDefaultParameters()
-        {
-            //ReportEntry="";
-            FlexuralBracingCase = "NoLateralBracing";
-
-        }
 
 
         /// <summary>
@@ -80,26 +74,25 @@ namespace Wosad.Steel.AISC10.Flexure
 
         #region OutputProperties
 
-		#region FlexuralBracingCaseProperty
+		#region ShearAreaCaseIdProperty
 		
 		/// <summary>
-		/// FlexuralBracingCase property
+		/// ShearAreaCaseId property
 		/// </summary>
-		/// <value>Identifies the type of lateral bracing for a flexural member</value>
-		public string _FlexuralBracingCase;
+		/// <value>Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).Values are: StraightLine,TBlock,UBlock,Lblock</value>
+		public string _ShearAreaCaseId;
 		
-		public string FlexuralBracingCase
+		public string ShearAreaCaseId
 		{
-		    get { return _FlexuralBracingCase; }
+		    get { return _ShearAreaCaseId; }
 		    set
 		    {
-		        _FlexuralBracingCase = value;
-		        RaisePropertyChanged("FlexuralBracingCase");
-		        OnNodeModified();
+		        _ShearAreaCaseId = value;
+		        RaisePropertyChanged("ShearAreaCaseId");
+		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
-
 
         #region ReportEntryProperty
 
@@ -108,18 +101,18 @@ namespace Wosad.Steel.AISC10.Flexure
         /// </summary>
         /// <value>Calculation entries that can be converted into a report.</value>
 
-        //public string reportEntry;
+        public string reportEntry;
 
-        //public string ReportEntry
-        //{
-        //    get { return reportEntry; }
-        //    set
-        //    {
-        //        reportEntry = value;
-        //        RaisePropertyChanged("ReportEntry");
-        //        OnNodeModified();
-        //    }
-        //}
+        public string ReportEntry
+        {
+            get { return reportEntry; }
+            set
+            {
+                reportEntry = value;
+                RaisePropertyChanged("ReportEntry");
+                OnNodeModified(true); 
+            }
+        }
 
 
 
@@ -137,7 +130,7 @@ namespace Wosad.Steel.AISC10.Flexure
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("FlexuralBracingCase", FlexuralBracingCase);
+            nodeElement.SetAttribute("ShearAreaCaseId", ShearAreaCaseId);
         }
 
         /// <summary>
@@ -146,29 +139,29 @@ namespace Wosad.Steel.AISC10.Flexure
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["FlexuralBracingCase"];
+            var attrib = nodeElement.Attributes["ShearAreaCaseId"];
             if (attrib == null)
                 return;
-           
-            FlexuralBracingCase = attrib.Value;
-            //SetComponentDescription();
+
+            ShearAreaCaseId = attrib.Value;
 
         }
 
         #endregion
 
 
+
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class FlexuralBracingCaseViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<FlexuralBracingCaseSelection>
+        public class GroupShearAreaPatternSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<ShearAreaCaseSelection>
         {
-            public void CustomizeView(FlexuralBracingCaseSelection model, NodeView nodeView)
+            public void CustomizeView(ShearAreaCaseSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                FlexuralBracingCaseView control = new FlexuralBracingCaseView();
+                ShearAreaCaseView control = new ShearAreaCaseView();
                 control.DataContext = model;
                 
                 
@@ -176,6 +169,7 @@ namespace Wosad.Steel.AISC10.Flexure
                 base.CustomizeView(model, nodeView);
             }
 
+            
         }
     }
 }

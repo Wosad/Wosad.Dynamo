@@ -35,9 +35,9 @@ namespace Wosad.Steel.AISC10.Connection
     /// <summary>
     /// Interaction logic for GroupShearAreaPatternView.xaml
     /// </summary>
-    public partial class GroupShearAreaPatternView : UserControl
+    public partial class ShearAreaCaseView : UserControl
     {
-        public GroupShearAreaPatternView()
+        public ShearAreaCaseView()
         {
             InitializeComponent();
         }

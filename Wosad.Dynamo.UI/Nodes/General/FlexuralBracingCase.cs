@@ -24,42 +24,41 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
-using Wosad.Loads.ASCE7.Entities;
-using System.Xml;
 using Dynamo.Nodes;
+using System.Xml;
 using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Steel.AISC10.Flexure
+namespace Wosad.General.Flexure
 {
 
     /// <summary>
-    ///Bending axis selection  
+    ///Flexural bracing case selection  
     /// </summary>
 
-    [NodeName("Bending axis selection")]
-    [NodeCategory("Wosad.Steel.AISC10.Flexure")]
-    [NodeDescription("Bending axis selection")]
+    [NodeName("Flexural bracing case selection")]
+    [NodeCategory("Wosad.General.Flexure")]
+    [NodeDescription("Flexural bracing case selection")]
     [IsDesignScriptCompatible]
-    public class BendingAxisSelection : UiNodeBase
+    public class FlexuralBracingCaseSelection : UiNodeBase
     {
 
-        public BendingAxisSelection()
+        public FlexuralBracingCaseSelection()
         {
-            ReportEntry="";
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("BendingAxis", "Distinguishes between bending with respect to section x-axis vs x-axis"));
+            OutPortData.Add(new PortData("FlexuralBracingCase", "Identifies the type of lateral bracing for a flexural member"));
             RegisterAllPorts();
-            //PropertyChanged += NodePropertyChanged;
             SetDefaultParameters();
+            //PropertyChanged += NodePropertyChanged;
         }
 
         private void SetDefaultParameters()
         {
-            ReportEntry = "";
-            BendingAxis = "X";
+            //ReportEntry="";
+            FlexuralBracingCase = "NoLateralBracing";
+
         }
 
 
@@ -71,7 +70,7 @@ namespace Wosad.Steel.AISC10.Flexure
             return GetType();
         }
 
-        #region properties
+        #region Properties
 
         #region InputProperties
 
@@ -81,26 +80,25 @@ namespace Wosad.Steel.AISC10.Flexure
 
         #region OutputProperties
 
-		#region BendingAxisProperty
+		#region FlexuralBracingCaseProperty
 		
 		/// <summary>
-		/// BendingAxis property
+		/// FlexuralBracingCase property
 		/// </summary>
-		/// <value>Distinguishes between bending with respect to section x-axis vs x-axis</value>
-		public string _BendingAxis;
+		/// <value>Identifies the type of lateral bracing for a flexural member</value>
+		public string _FlexuralBracingCase;
 		
-		public string BendingAxis
+		public string FlexuralBracingCase
 		{
-		    get { return _BendingAxis; }
+		    get { return _FlexuralBracingCase; }
 		    set
 		    {
-		        _BendingAxis = value;
-		        RaisePropertyChanged("BendingAxis");
-		        OnNodeModified(true); 
+		        _FlexuralBracingCase = value;
+		        RaisePropertyChanged("FlexuralBracingCase");
+		        OnNodeModified();
 		    }
 		}
 		#endregion
-
 
 
         #region ReportEntryProperty
@@ -110,18 +108,18 @@ namespace Wosad.Steel.AISC10.Flexure
         /// </summary>
         /// <value>Calculation entries that can be converted into a report.</value>
 
-        public string reportEntry;
+        //public string reportEntry;
 
-        public string ReportEntry
-        {
-            get { return reportEntry; }
-            set
-            {
-                reportEntry = value;
-                RaisePropertyChanged("ReportEntry");
-                OnNodeModified(true); 
-            }
-        }
+        //public string ReportEntry
+        //{
+        //    get { return reportEntry; }
+        //    set
+        //    {
+        //        reportEntry = value;
+        //        RaisePropertyChanged("ReportEntry");
+        //        OnNodeModified();
+        //    }
+        //}
 
 
 
@@ -139,7 +137,7 @@ namespace Wosad.Steel.AISC10.Flexure
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("BendingAxis", BendingAxis);
+            nodeElement.SetAttribute("FlexuralBracingCase", FlexuralBracingCase);
         }
 
         /// <summary>
@@ -148,34 +146,32 @@ namespace Wosad.Steel.AISC10.Flexure
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["BendingAxis"];
+            var attrib = nodeElement.Attributes["FlexuralBracingCase"];
             if (attrib == null)
                 return;
            
-            BendingAxis = attrib.Value;
+            FlexuralBracingCase = attrib.Value;
+            //SetComponentDescription();
 
         }
 
-
-
         #endregion
-
 
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BendingAxisSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BendingAxisSelection>
+        public class FlexuralBracingCaseViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<FlexuralBracingCaseSelection>
         {
-            public void CustomizeView(BendingAxisSelection model, NodeView nodeView)
+            public void CustomizeView(FlexuralBracingCaseSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BendingAxisSelectionView control = new BendingAxisSelectionView();
+                FlexuralBracingCaseView control = new FlexuralBracingCaseView();
                 control.DataContext = model;
                 
-
+                
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }

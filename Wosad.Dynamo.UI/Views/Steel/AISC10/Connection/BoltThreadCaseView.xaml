@@ -15,14 +15,14 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
+                <ResourceDictionary Source="BoltIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="BoltThreadCaseSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="N" Description="Included" />
-                <WosadControls:EnumDataElement   EnumString="X" Description="Excluded"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource  ThreadsIncluded}"  EnumString="N" Description="Included" />
+                <WosadControls:EnumDataElement   Icon="{StaticResource  ThreadsExcluded}" EnumString="X" Description="Excluded"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

@@ -37,7 +37,7 @@ namespace Steel.AISC10.Connection
     public partial class Bolted 
     {
         /// <summary>
-        ///    Calculates Bolt minimum edge distance
+        ///    Calculates bolt edge and center-to-center clear distances for bolt bearing checks
         /// </summary>
         /// <param name="l_BoltEdge">  Distance from bolt centerline to connected material edge </param>
         /// <param name="l_BoltCenter">  Bolt centerline spacing </param>

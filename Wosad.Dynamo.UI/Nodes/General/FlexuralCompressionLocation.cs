@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Steel.AISC10.Flexure
+namespace Wosad.General.Flexure
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Wosad.Steel.AISC10.Flexure
     /// </summary>
 
     [NodeName("Flexural compression face selection")]
-    [NodeCategory("Wosad.Steel.AISC10.Flexure")]
+    [NodeCategory("Wosad.General.Flexure")]
     [NodeDescription("Flexural compression face selection")]
     [IsDesignScriptCompatible]
     public class FlexuralCompressionLocationSelection : UiNodeBase

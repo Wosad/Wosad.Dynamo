@@ -24,36 +24,43 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
-using Dynamo.Nodes;
+using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
+using Dynamo.Nodes;
 using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Steel.AISC10.Connection
+namespace Wosad.General.Flexure
 {
 
     /// <summary>
-    ///Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).  
+    ///Bending axis selection  
     /// </summary>
 
-    [NodeName("Group shear area pattern selection")]
-    [NodeCategory("Wosad.Steel.AISC10.Connection.AffectedElements")]
-    [NodeDescription("Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).")]
+    [NodeName("Bending axis selection")]
+    [NodeCategory("Wosad.General.Flexure")]
+    [NodeDescription("Bending axis selection")]
     [IsDesignScriptCompatible]
-    public class GroupShearAreaPatternSelection : UiNodeBase
+    public class BendingAxisSelection : UiNodeBase
     {
 
-        public GroupShearAreaPatternSelection()
+        public BendingAxisSelection()
         {
             ReportEntry="";
-            ShearAreaCaseId = "TBlock";
+            
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("ShearAreaCaseId", "Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).Values are: StraightLine,TBlock,UBlock,Lblock"));
+            OutPortData.Add(new PortData("BendingAxis", "Distinguishes between bending with respect to section x-axis vs x-axis"));
             RegisterAllPorts();
             //PropertyChanged += NodePropertyChanged;
+            SetDefaultParameters();
         }
 
+        private void SetDefaultParameters()
+        {
+            ReportEntry = "";
+            BendingAxis = "XAxis";
+        }
 
 
         /// <summary>
@@ -64,7 +71,7 @@ namespace Wosad.Steel.AISC10.Connection
             return GetType();
         }
 
-        #region Properties
+        #region properties
 
         #region InputProperties
 
@@ -74,25 +81,27 @@ namespace Wosad.Steel.AISC10.Connection
 
         #region OutputProperties
 
-		#region ShearAreaCaseIdProperty
+		#region BendingAxisProperty
 		
 		/// <summary>
-		/// ShearAreaCaseId property
+		/// BendingAxis property
 		/// </summary>
-		/// <value>Case selection for shear area calculations in affected elements in connections (block shear, shear yielding, shear rupture).Values are: StraightLine,TBlock,UBlock,Lblock</value>
-		public string _ShearAreaCaseId;
+		/// <value>Distinguishes between bending with respect to section x-axis vs x-axis</value>
+		public string _BendingAxis;
 		
-		public string ShearAreaCaseId
+		public string BendingAxis
 		{
-		    get { return _ShearAreaCaseId; }
+		    get { return _BendingAxis; }
 		    set
 		    {
-		        _ShearAreaCaseId = value;
-		        RaisePropertyChanged("ShearAreaCaseId");
+		        _BendingAxis = value;
+		        RaisePropertyChanged("BendingAxis");
 		        OnNodeModified(true); 
 		    }
 		}
 		#endregion
+
+
 
         #region ReportEntryProperty
 
@@ -130,7 +139,7 @@ namespace Wosad.Steel.AISC10.Connection
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("ShearAreaCaseId", ShearAreaCaseId);
+            nodeElement.SetAttribute("BendingAxis", BendingAxis);
         }
 
         /// <summary>
@@ -139,13 +148,15 @@ namespace Wosad.Steel.AISC10.Connection
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["ShearAreaCaseId"];
+            var attrib = nodeElement.Attributes["BendingAxis"];
             if (attrib == null)
                 return;
-
-            ShearAreaCaseId = attrib.Value;
+           
+            BendingAxis = attrib.Value;
 
         }
+
+
 
         #endregion
 
@@ -154,22 +165,21 @@ namespace Wosad.Steel.AISC10.Connection
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class GroupShearAreaPatternSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<GroupShearAreaPatternSelection>
+        public class BendingAxisSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<BendingAxisSelection>
         {
-            public void CustomizeView(GroupShearAreaPatternSelection model, NodeView nodeView)
+            public void CustomizeView(BendingAxisSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                GroupShearAreaPatternView control = new GroupShearAreaPatternView();
+                BendingAxisSelectionView control = new BendingAxisSelectionView();
                 control.DataContext = model;
                 
-                
+
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }
 
-            
         }
     }
 }

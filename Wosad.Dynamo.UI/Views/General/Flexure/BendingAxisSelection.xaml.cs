@@ -1,4 +1,4 @@
-#region Copyright
+﻿#region Copyright
    /*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,9 +17,7 @@
  
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -30,16 +28,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC10.Flexure
+namespace Wosad.General.Flexure
 {
-    /// <summary>
-    /// Interaction logic for Wosad.Steel.AISC10.Flexure.FlexuralBracingCaseView.xaml
-    /// </summary>
-    public partial class FlexuralBracingCaseView: UserControl
-    {
-        public FlexuralBracingCaseView()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for BendingAxisSelection.xaml
+	/// </summary>
+	public partial class BendingAxisSelectionView : UserControl
+	{
+        public BendingAxisSelectionView()
+		{
+			this.InitializeComponent();
+		}
+	}
 }
