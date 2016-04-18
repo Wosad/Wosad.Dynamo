@@ -34,15 +34,25 @@ namespace Analysis.Section.SectionTypes
     {
 
         [IsVisibleInDynamoLibrary(false)]
-        internal SectionChannel(double d, double b_f, double t_f, double t_w)
+        internal SectionChannel(double d, double b_f, double t_f, double t_w, bool IsWeakAxis, bool AreFlangeTipsDown)
         {
-            ISection  r = new ds.SectionChannel("",d, b_f,t_f,t_w);
+            ISection r = new ds.SectionChannel("", d, b_f, t_f, t_w, IsWeakAxis, AreFlangeTipsDown);
             Section = r;
         }
 
-        public static SectionChannel ByFlangeAndWebDimensions(double d, double b_f, double t_f, double t_w)
+        /// <summary>
+        /// Creates an instance of a channel shape
+        /// </summary>
+        /// <param name="d">Depth</param>
+        /// <param name="b_f">Flange width</param>
+        /// <param name="t_f">Flange thickness</param>
+        /// <param name="t_w">Web thickness</param>
+        /// <param name="IsWeakAxis">Indicates if the section is rotated to have weak axis oriented horizontally</param>
+        /// <param name="AreFlangeTipsDown">If in weak axis shape orientation, indicates if the shape is oriended with flanges pointing up or down</param>
+        /// <returns></returns>
+        public static SectionChannel ByFlangeAndWebDimensions(double d, double b_f, double t_f, double t_w, bool IsWeakAxis=false, bool AreFlangeTipsDown=false)
         {
-            return new SectionChannel(d, b_f, t_f, t_w);
+            return new SectionChannel(d, b_f, t_f, t_w, IsWeakAxis, AreFlangeTipsDown);
         }
 
     }

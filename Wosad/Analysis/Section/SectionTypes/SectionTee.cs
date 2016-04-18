@@ -34,15 +34,15 @@ namespace Analysis.Section.SectionTypes
     {
 
         [IsVisibleInDynamoLibrary(false)]
-        internal SectionTee(double d, double b_f, double t_f, double t_w)
+        internal SectionTee(double d, double b_f, double t_f, double t_w, bool IsInverted)
         {
-            ISection  r = new ds.SectionTee("",d, b_f,t_f,t_w);
+            ISection r = new ds.SectionTee("", d, b_f, t_f, t_w, IsInverted);
             Section = r;
         }
 
-        public static SectionTee ByFlangeAndWebDimensions(double d, double b_f,double t_f,double t_w)
+        public static SectionTee ByFlangeAndWebDimensions(double d, double b_f,double t_f,double t_w, bool IsInverted=false)
         {
-            return new SectionTee(d, b_f, t_f, t_w);
+            return new SectionTee(d, b_f, t_f, t_w, IsInverted);
         }
 
     }
