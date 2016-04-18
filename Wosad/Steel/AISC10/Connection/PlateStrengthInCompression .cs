@@ -55,7 +55,7 @@ namespace Steel.AISC10.Connection
 
             //Calculation logic:
             AffectedElementInCompression compMember = new AffectedElementInCompression(F_y, b, t);
-            phiR_n = compMember.GetCompressionCapacity(1.0, KL);
+            phiR_n = compMember.GetCompressionCapacity(KL);
 
             return new Dictionary<string, object>
             {

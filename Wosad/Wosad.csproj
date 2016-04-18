@@ -143,8 +143,8 @@
       <HintPath>..\packages\Wosad.Analysis.0.0.4.1\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Common, Version=0.0.4.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.4.4\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.5.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Concrete, Version=0.0.4.1, Culture=neutral, processorArchitecture=MSIL">
@@ -159,8 +159,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.4.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.4.1\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.5.1\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -182,6 +182,7 @@
     <Compile Include="Analysis\Section\SectionTypes\SectionChannel.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionChannelRolled.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionDoubleAngle.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionDoubleStacked.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionI.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionIRolled.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionPipe.cs" />

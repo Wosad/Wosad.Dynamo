@@ -40,7 +40,14 @@ namespace Analysis.Section.SectionTypes
             ISection r = new ds.SectionI("", d, b_f, t_f, t_w);
             Section = r;
         }
-
+        /// <summary>
+        /// Creates an insance of I-shape based on shape geometry
+        /// </summary>
+        /// <param name="d">Depth</param>
+        /// <param name="b_f">Flange width</param>
+        /// <param name="t_f">Flange thickness</param>
+        /// <param name="t_w">Web thisckness</param>
+        /// <returns></returns>
         public static SectionI ByFlangeAndWebDimensions(double d, double b_f, double t_f, double t_w)
         {
             return new SectionI(d, b_f, t_f, t_w);
