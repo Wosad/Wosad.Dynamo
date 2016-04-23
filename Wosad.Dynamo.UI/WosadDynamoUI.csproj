@@ -182,7 +182,7 @@
     </Compile>
     <Compile Include="Nodes\Loads\ASCE7v10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Dead\ComponentIdSelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancyIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancySelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindExposureCategory.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindFace.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindVelocityLocation.cs" />

@@ -47,7 +47,7 @@ namespace Loads.ASCE7v10.Gravity
         /// <returns> "Parameter name: q_D", Uniformly distributed component dead load </returns>
         
         [MultiReturn(new[] { "q_D" })]
-        public static Dictionary<string, object> ComponentWeight_q_D(string ComponentId,
+        public static Dictionary<string, object> ComponentWeight(string ComponentId,
             double ComponentOption1, double ComponentOption2, double ComponentValue)
         {
             //Default values

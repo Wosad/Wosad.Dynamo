@@ -44,7 +44,7 @@ namespace Loads.ASCE7v10.Gravity
         /// <returns>  Uniformly distributed live load </returns>
         /// 
         [MultiReturn(new[] { "q_L" })]
-        public static Dictionary<string, object> UniformLiveLoad_q_L(string SpaceOccupancyId)
+        public static Dictionary<string, object> UniformLiveLoad(string SpaceOccupancyId)
         {
             //Default values
             double q_L = 0;

@@ -44,14 +44,14 @@ namespace Wosad.Loads.ASCE7v10.Gravity.Live
     ///Occupancy or use  for selection of uniformly distributed loads - ASCE7-10  
     /// </summary>
 
-    [NodeName("Live Load occupancy ID selection")]
+    [NodeName("Live Load occupancy selection")]
     [NodeCategory("Wosad.Loads.ASCE7v10.Gravity.Live")]
     [NodeDescription("Occupancy or use  for selection of uniformly distributed loads")]
     [IsDesignScriptCompatible]
-    public class LiveLoadOccupancyIdSelection : UiNodeBase
+    public class LiveLoadOccupancySelection : UiNodeBase
     {
 
-        public LiveLoadOccupancyIdSelection()
+        public LiveLoadOccupancySelection()
         {
             ReportEntry="";
             LiveLoadOccupancyId = "Office";
@@ -277,9 +277,9 @@ namespace Wosad.Loads.ASCE7v10.Gravity.Live
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class LiveLoadOccupancyIdViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<LiveLoadOccupancyIdSelection>
+            INodeViewCustomization<LiveLoadOccupancySelection>
         {
-            public void CustomizeView(LiveLoadOccupancyIdSelection model, NodeView nodeView)
+            public void CustomizeView(LiveLoadOccupancySelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 

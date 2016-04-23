@@ -273,6 +273,7 @@
     <Compile Include="Steel\AISC10\Composite\LowerBoundMomentOfInertia.cs" />
     <Compile Include="Steel\AISC10\Composite\PositiveMomentFlexuralStrength.cs" />
     <Compile Include="Steel\AISC10\Composite\Groups\CompositeSteelShape.cs" />
+    <Compile Include="Steel\AISC10\Composite\Shapes\CompositeSectionGeneral.cs" />
     <Compile Include="Steel\AISC10\Composite\Shapes\CompositeSectionI.cs" />
     <Compile Include="Steel\AISC10\Composite\ShearStrengthOfHeadedAnchor.cs" />
     <Compile Include="Steel\AISC10\Connection\BearingBoltNominalShearStress.cs" />
