@@ -29,36 +29,38 @@ namespace Loads.ASCE7v10.Lateral.Seismic
 {
 
 /// <summary>
-///     Seismic fundamental period upper  limit coefficient
+///     Building fundamental period for seismic loads
 ///     Category:   Loads.ASCE7v10.Lateral.Seismic
 /// </summary>
 /// 
 
-
     public partial class BuildingFundamentalPeriod 
     {
         /// <summary>
-        ///     Coefficient  for upper limit on  calculated period  
+        ///     Fundamental period of the building  used to account for building dynamic response to base accelerations
         /// </summary>
-        /// <param name="S_D1">  Design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
-        /// <returns name="C_u"> Coefficient for upper limit on  calculated period </returns>
+        /// <param name="C_u">  Coefficient for upper limit on  calculated period </param>
+        /// <param name="T_a">  Approximate fundamental period of the building </param>
+        /// <param name="T_calc">Calculated fundamental period of the building</param>
+        /// <returns name="T"> Fundamental period of the building </returns>
 
-        [MultiReturn(new[] { "C_u" })]
-        public static Dictionary<string, object> SeismicFundamentalPeriodUpperLimitCoefficient(double S_D1)
+        [MultiReturn(new[] { "T" })]
+        public static Dictionary<string, object> BuildingFundamentalPeriodForSeismicLoads(double C_u,double T_a, double T_calc)
         {
             //Default values
-            double C_u = 0;
+            double T = 0;
 
 
             //Calculation logic:
 
             CalcLog log = new CalcLog();
             Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.Building building = new Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.Building(null, log);
-            double Cu = building.GetCoefficientForUpperBoundOnCalculatedPeriod(S_D1);
+            double Tmax = building.GetMaximumPeriod(T_a, C_u);
+            T = building.GetFundamentalPeriod(T_calc, Tmax);
 
             return new Dictionary<string, object>
             {
-                { "C_u", C_u }
+                { "T", T }
  
             };
         }

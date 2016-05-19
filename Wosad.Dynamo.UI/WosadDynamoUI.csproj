@@ -186,6 +186,7 @@
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicDesignCategorySelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicLateralSystemIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicSiteClass.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicSystemTypeGeneralProcedureSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindExposureCategory.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindFace.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindVelocityLocation.cs" />
@@ -292,6 +293,9 @@
     </Compile>
     <Compile Include="Views\Loads\ASCE7v10\Seismic\SeismicSiteClassView.xaml.cs">
       <DependentUpon>SeismicSiteClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Seismic\SeismicSystemTypeGeneralProcedureSelectionView.xaml.cs">
+      <DependentUpon>SeismicSystemTypeGeneralProcedureSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loads\ASCE7v10\Wind\EnclosureTypeView.xaml.cs">
       <DependentUpon>EnclosureTypeView.xaml</DependentUpon>
@@ -536,6 +540,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Resource Include="Views\Loads\ASCE7v10\Seismic\SeismicSystemTypeGeneralProcedureIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Views\Loads\ASCE7v10\Seismic\SeismicLateralSystemIdSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -545,6 +553,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Page Include="Views\Loads\ASCE7v10\Seismic\SeismicSiteClassView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7v10\Seismic\SeismicSystemTypeGeneralProcedureSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -57,7 +57,7 @@ namespace Loads.ASCE7v10.Lateral.Seismic
 
             SeismicSystemTypeForApproximateAnalysis SeismicSystemType;
             bool IsValidSystemType = Enum.TryParse(SeismicSystemTypeGeneralProcedure, out SeismicSystemType);
-            if (IsValidSystemType)
+            if (IsValidSystemType==false)
             {
                 throw new Exception("Lateral system not recognized");  
             }

@@ -244,6 +244,7 @@
     <Compile Include="Loads\ASCE7v10\Gravity\Dead\Groups\Dead.cs" />
     <Compile Include="Loads\ASCE7v10\Gravity\Live\UniformLiveLoad.cs" />
     <Compile Include="Examples\SectionProperties\SectionIRolled.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Building fundamental period\BuildingFundamentalPeriodForSeismicLoads.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Building fundamental period\SeismicFundamentalPeriodGeneralMethod.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Building fundamental period\SeismicFundamentalPeriodUpperLimitCoefficient.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Groups\AccelerationParameters.cs" />
