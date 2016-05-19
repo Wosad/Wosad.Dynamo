@@ -48,7 +48,7 @@ namespace Wosad.Loads.ASCE7v10.Lateral.Seismic
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("SiteClass", "Seismic site class (as a function of soil type)"));
+            OutPortData.Add(new PortData("SeismicSiteClass", "Seismic site class (as a function of soil type)"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;

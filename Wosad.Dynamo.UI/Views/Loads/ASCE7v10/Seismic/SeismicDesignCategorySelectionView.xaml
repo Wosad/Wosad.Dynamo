@@ -31,6 +31,6 @@
     <Grid x:Name="LayoutRoot">
         <WosadControls:EnumControl  HeaderText="Seismic design category (SDC) selection" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
-					DataPath="SeismicDesignCategorySelection"/>
+					DataPath="SeismicDesignCategory"/>
     </Grid>
 </UserControl>

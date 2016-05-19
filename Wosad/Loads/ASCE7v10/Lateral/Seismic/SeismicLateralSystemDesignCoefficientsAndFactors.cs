@@ -43,7 +43,7 @@ namespace Loads.ASCE7v10.Lateral.Seismic
         /// <summary>
         ///     Seismic design Coefficients and Factors
         /// </summary>
-        /// <param name="LateralSystemId">  Id of the lateral system from ASCE7-10 table 12.2-1 </param>
+        /// <param name="SeismicLateralSystemId">  Id of the lateral system from ASCE7-10 table 12.2-1 </param>
         /// <param name="SeismicDesignCategory"> Seismic design category (SDC)</param>
         /// <param name="CheckSystemApplicabilityForSDC">Indicates if applicability of selected system for a given SDC is checked</param>
         /// <returns name="R"> Resonant response factor </returns>
@@ -51,7 +51,7 @@ namespace Loads.ASCE7v10.Lateral.Seismic
         /// <returns name="Omega_0"> Overstrength factor </returns>
 
         [MultiReturn(new[] { "R","C_d","Omega_0" })]
-        public static Dictionary<string, object> SeismicLateralSystemDesignCoefficientsAndFactors(string LateralSystemId, 
+        public static Dictionary<string, object> SeismicLateralSystemDesignCoefficientsAndFactors(string SeismicLateralSystemId, 
             string SeismicDesignCategory="B", bool CheckSystemApplicabilityForSDC=false)
         {
             //Default values
@@ -69,11 +69,11 @@ namespace Loads.ASCE7v10.Lateral.Seismic
                 SeismicDesignCategory _SeismicDesignCategory;
                 bool IsValidSDC = Enum.TryParse(SeismicDesignCategory, out _SeismicDesignCategory);
 
-                bls = new BuildingLateralSystem(LateralSystemId, _SeismicDesignCategory, log);
+                bls = new BuildingLateralSystem(SeismicLateralSystemId, _SeismicDesignCategory, log);
             }
             else
             {
-                bls = new BuildingLateralSystem(LateralSystemId, log);
+                bls = new BuildingLateralSystem(SeismicLateralSystemId, log);
             }
             R = bls.R;
             C_d = bls.Cd;
