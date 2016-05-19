@@ -66,10 +66,10 @@ namespace Loads.ASCE7v10.Lateral.Seismic
 
             if (CheckSystemApplicabilityForSDC == true)
             {
-                SeismicDesignCategory SeismicDesignCategory;
-                bool IsValidSDC = Enum.TryParse(SeismicDesignCategory, out SeismicDesignCategory);
+                SeismicDesignCategory _SeismicDesignCategory;
+                bool IsValidSDC = Enum.TryParse(SeismicDesignCategory, out _SeismicDesignCategory);
 
-                bls = new BuildingLateralSystem(LateralSystemId, SeismicDesignCategory, log);
+                bls = new BuildingLateralSystem(LateralSystemId, _SeismicDesignCategory, log);
             }
             else
             {

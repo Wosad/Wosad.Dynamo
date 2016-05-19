@@ -183,6 +183,7 @@
     <Compile Include="Nodes\Loads\ASCE7v10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Dead\ComponentIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancySelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicDesignCategorySelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicLateralSystemIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicSiteClass.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindExposureCategory.cs" />
@@ -282,6 +283,9 @@
     </Compile>
     <Compile Include="Views\Loads\ASCE7v10\Live\LiveLoadOccupancyIdView.xaml.cs">
       <DependentUpon>LiveLoadOccupancyIdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Seismic\SeismicDesignCategorySelectionView.xaml.cs">
+      <DependentUpon>SeismicDesignCategorySelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loads\ASCE7v10\Seismic\SeismicLateralSystemIdSelectionView.xaml.cs">
       <DependentUpon>SeismicLateralSystemIdSelectionView.xaml</DependentUpon>
@@ -528,6 +532,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Page Include="Views\Loads\ASCE7v10\Seismic\SeismicDesignCategorySelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Loads\ASCE7v10\Seismic\SeismicLateralSystemIdSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
