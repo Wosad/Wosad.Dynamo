@@ -183,6 +183,8 @@
     <Compile Include="Nodes\Loads\ASCE7v10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Dead\ComponentIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancySelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicLateralSystemIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicSiteClass.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindExposureCategory.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindFace.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindVelocityLocation.cs" />
@@ -280,6 +282,12 @@
     </Compile>
     <Compile Include="Views\Loads\ASCE7v10\Live\LiveLoadOccupancyIdView.xaml.cs">
       <DependentUpon>LiveLoadOccupancyIdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Seismic\SeismicLateralSystemIdSelectionView.xaml.cs">
+      <DependentUpon>SeismicLateralSystemIdSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7v10\Seismic\SeismicSiteClassView.xaml.cs">
+      <DependentUpon>SeismicSiteClassView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loads\ASCE7v10\Wind\EnclosureTypeView.xaml.cs">
       <DependentUpon>EnclosureTypeView.xaml</DependentUpon>
@@ -513,6 +521,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Loads\ASCE7v10\Dead\ComponentIdView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Views\Loads\ASCE7v10\Seismic\SeismicLateralSystemIdIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Views\Loads\ASCE7v10\Seismic\SeismicLateralSystemIdSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Views\Loads\ASCE7v10\Seismic\SeismicSiteClassIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Views\Loads\ASCE7v10\Seismic\SeismicSiteClassView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -784,7 +808,6 @@
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
-    <Folder Include="Views\Loads\ASCE7v10\Seismic\" />
     <Folder Include="Views\Loads\ASCE7v10\Snow\" />
   </ItemGroup>
   <ItemGroup>
@@ -906,6 +929,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseTreeData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Loads\ASCE7v10\Seismic\SeismicLateralSystemIdTreeData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

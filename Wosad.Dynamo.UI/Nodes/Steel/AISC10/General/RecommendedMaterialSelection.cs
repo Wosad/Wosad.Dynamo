@@ -56,6 +56,7 @@ namespace Wosad.Steel.AISC10.General
             //InPortData.Add(new PortData("d_b", "Bolt diameter required for recommended material filtering"));
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
             OutPortData.Add(new PortData("SteelMaterialId", "Steel material"));
+            //OutPortData.Add(new PortData("d_b", "Bolt diameter required for recommended material filtering"));
             RegisterAllPorts();
             SetDefaultParameters();
 
@@ -263,7 +264,7 @@ namespace Wosad.Steel.AISC10.General
             {
                 _db = value;
                 RaisePropertyChanged("d_b");
-                FetchAllAvailableMaterialsList();
+                //FetchAllAvailableMaterialsList();
                 UpdateView();
             }
         }

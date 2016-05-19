@@ -24,28 +24,26 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Steel.AISC_10.Tension
+namespace Steel.AISC10
 {
 
 /// <summary>
 ///     Tensile strength 
-///     Category:   Steel.AISC_10.Tension
+///     Category:   Steel.AISC10
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
-    public partial class Strength 
+    public partial class Tension 
     {
-/// <summary>
-///    Calculates Member tensile strength 
-/// </summary>
+        /// <summary>
+        ///     Member tensile strength 
+        /// </summary>
         /// <param name="F_y">  Specified minimum yield stress </param>
-/// <param name="F_u">  Specified minimum tensile strength   </param>
-/// <param name="A_e">  Effective net area </param>
-/// <param name="A_g">  Gross cross-sectional area of member </param>
-
-        /// <returns name="phiP_n"> Compressive strength </returns>
+        /// <param name="F_u">  Specified minimum tensile strength   </param>
+        /// <param name="A_e">  Effective net area </param>
+        /// <param name="A_g">  Gross cross-sectional area of member </param>
+        /// <returns name="phiP_n"> Tensile strength </returns>
 
         [MultiReturn(new[] { "phiP_n" })]
         public static Dictionary<string, object> TensileStrength(double F_y,double F_u,double A_e,double A_g)
@@ -65,14 +63,14 @@ namespace Steel.AISC_10.Tension
         }
 
 
-        //internal Strength (double F_y,double F_u,double A_e,double A_g)
+        //internal Tension (double F_y,double F_u,double A_e,double A_g)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static Strength  ByInputParameters(double F_y,double F_u,double A_e,double A_g)
+        //public static Tension  ByInputParameters(double F_y,double F_u,double A_e,double A_g)
         //{
-        //    return new Strength(F_y ,F_u ,A_e ,A_g );
+        //    return new Tension(F_y ,F_u ,A_e ,A_g );
         //}
 
     }

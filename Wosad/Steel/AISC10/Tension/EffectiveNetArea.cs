@@ -21,38 +21,42 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360v10.D_Tension;
 
 #endregion
 
-namespace Steel.AISC_10.Tension
+namespace Steel.AISC10
 {
 
 /// <summary>
 ///     Effective net area 
-///     Category:   Steel.AISC_10.Tension
+///     Category:   Steel.AISC10
 /// </summary>
 /// 
 
 
-    [IsDesignScriptCompatible]
-    public partial class EffectiveArea 
-    {
-/// <summary>
-///    Calculates Effective area for tensile strength
-/// </summary>
-        /// <param name="ShearLagCaseId">  Defines the type of tension element for shear lag calculation </param>
-/// <param name="A_n">  Net area of member   </param>
-/// <param name="A_connected">  Area of directly connected elements (to be used for Case 3 from AISC Table D3.1) </param>
-/// <param name="t_p">  Thickness of plate   </param>
-/// <param name="l">  Length of connection or weld   </param>
-/// <param name="B">  Overall width of rectangular steel section along face transferring load or overall width of rectangular HSS member  </param>
-/// <param name="H">  Flexural constant or overall height of rectangular HSS member measured in the plane of the connection  </param>
-/// <param name="IsBoltedSplice">  Identifies whether member is spliced using bolted plates </param>
 
+    public partial class Tension 
+    {
+        /// <summary>
+        ///     Effective area for tensile strength
+        /// </summary>
+        /// <param name="ShearLagCaseId">  Defines the type of tension element for shear lag calculation </param>
+        /// <param name="U">  Shear lag factor  </param>
+        /// <param name="A_n">  Net area of member   </param>
+        /// <param name="A_g">  Gross cross-sectional area of member (used is parameter IsBoltedSplice is set to true)  </param>
+        /// <param name="A_connected">  Area of directly connected elements (to be used for Case 3 from AISC Table D3.1) when variable IsPartiallyWeldedWithTransverseWelds is set to true </param>
+        /// <param name="IsPartiallyWeldedWithTransverseWelds"> Identifies whether this is a tension members where the tension load is transmitted only by transverse welds to some but not all of the cross-sectional elements </param>
+        /// <param name="IsBoltedSplice">  Identifies whether member is spliced using bolted plates </param>
         /// <returns name="A_e"> Effective net area </returns>
 
-        [MultiReturn(new[] { "A_e" })]
-        public static Dictionary<string, object> EffectiveNetArea(string ShearLagCaseId,double A_n, A_connected,double t_p,double l,double B,double H,bool IsBoltedSplice)
+
+        
+        public static Dictionary<string, object> EffectiveNetArea(string ShearLagCaseId,double U,double A_n,
+            double A_g,
+            double A_connected,
+            bool IsPartiallyWeldedWithTransverseWelds =false,
+            bool IsBoltedSplice =false)
         {
             //Default values
             double A_e = 0;
@@ -60,6 +64,8 @@ namespace Steel.AISC_10.Tension
 
             //Calculation logic:
 
+            TensionMember tm = new TensionMember();
+            A_e = tm.GetEffectiveNetArea(A_n, U, A_g, A_connected, IsPartiallyWeldedWithTransverseWelds, IsBoltedSplice);
 
             return new Dictionary<string, object>
             {
@@ -69,14 +75,14 @@ namespace Steel.AISC_10.Tension
         }
 
 
-        //internal EffectiveArea (string ShearLagCaseId,double A_n, A_connected,double t_p,double l,double B,double H,bool IsBoltedSplice)
+        //internal Tension (string ShearLagCaseId,double U,double A_n,double A_g,double A_connected,bool IsPartiallyWeldedWithTransverseWelds,bool IsBoltedSplice)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static EffectiveArea  ByInputParameters(string ShearLagCaseId,double A_n, A_connected,double t_p,double l,double B,double H,bool IsBoltedSplice)
+        //public static Tension  ByInputParameters(string ShearLagCaseId,double U,double A_n,double A_g,double A_connected,bool IsPartiallyWeldedWithTransverseWelds,bool IsBoltedSplice)
         //{
-        //    return new EffectiveArea(ShearLagCaseId ,A_n ,A_connected ,t_p ,l ,B ,H ,IsBoltedSplice );
+        //    return new Tension(ShearLagCaseId ,U ,A_n ,A_g ,A_connected ,IsPartiallyWeldedWithTransverseWelds ,IsBoltedSplice );
         //}
 
     }

@@ -244,6 +244,19 @@
     <Compile Include="Loads\ASCE7v10\Gravity\Dead\Groups\Dead.cs" />
     <Compile Include="Loads\ASCE7v10\Gravity\Live\UniformLiveLoad.cs" />
     <Compile Include="Examples\SectionProperties\SectionIRolled.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Building fundamental period\SeismicFundamentalPeriodGeneralMethod.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Building fundamental period\SeismicFundamentalPeriodUpperLimitCoefficient.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Groups\AccelerationParameters.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Groups\Building.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Groups\General.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Groups\BuildingFundamentalPeriod.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\Groups\Site.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicBaseShear.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicDesignCategory.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicDesignSiteAccelerationParameters.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicLateralSystemDesignCoefficientsAndFactors.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicResponseCoefficient.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicSiteCoefficients.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Wind\DampingRatio.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\PressureCoefficient.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\General.cs" />
@@ -349,6 +362,10 @@
     <Compile Include="Steel\AISC10\Shear\Groups\ShearStrength.cs" />
     <Compile Include="Steel\AISC10\Shear\ShearStrengthCircular.cs" />
     <Compile Include="Steel\AISC10\Shear\ShearStrengthNonCircular.cs" />
+    <Compile Include="Steel\AISC10\Tension\EffectiveNetArea.cs" />
+    <Compile Include="Steel\AISC10\Tension\Groups\Tension.cs" />
+    <Compile Include="Steel\AISC10\Tension\Shear lag factor.cs" />
+    <Compile Include="Steel\AISC10\Tension\TensileStrength.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concrete\ACI318_14\Beam\Flexure\" />
@@ -360,9 +377,7 @@
     <Folder Include="Concrete\ACI318_14\Section\ShearAndTorsion\TwoWay\" />
     <Folder Include="Loads\ASCE7v10\Gravity\Ice\" />
     <Folder Include="Loads\ASCE7v10\Gravity\Snow\" />
-    <Folder Include="Loads\ASCE7v10\Lateral\Seismic\Building fundamental period\" />
     <Folder Include="Steel\AISC10\Compression\" />
-    <Folder Include="Steel\AISC10\Tension\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

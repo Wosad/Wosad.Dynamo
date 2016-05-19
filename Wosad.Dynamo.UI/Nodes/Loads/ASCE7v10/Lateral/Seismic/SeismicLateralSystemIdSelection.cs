@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -26,43 +26,45 @@ using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 using System.Windows.Input;
+using Dynamo.Graph.Nodes;
 using System.Windows;
 using System.Xml;
-using Wosad.Dynamo.Common.Infra.TreeItems;
-using Wosad.Dynamo.UI.Views.Analysis.Beam.Flexure;
-using GalaSoft.MvvmLight.CommandWpf;
-using Wosad.Dynamo.UI.Common.TreeItems;
 using Dynamo.Graph;
-using Dynamo.Graph.Nodes;
+using Wosad.Dynamo.Common.Infra.TreeItems;
+using Wosad.Dynamo.UI.Common.TreeItems;
+using GalaSoft.MvvmLight.Command;
 
 
-
-namespace Wosad.Analysis.Beam.Torsion
+namespace Wosad.Loads.ASCE7v10.Lateral.Seismic
 {
 
     /// <summary>
-    ///Selection of beam load and boundary condition case for torsional analysis  
+    ///Selection of lateral system and Design Coefficients and Factors for Seismic Force-Resisting System   
     /// </summary>
 
-    [NodeName("Torsion case selection")]
-    [NodeCategory("Wosad.Analysis.Beam.Torsion")]
-    [NodeDescription("Selection of beam load and boundary condition case for torsional analysis")]
+    [NodeName("Seismic lateral system Id selection")]
+    [NodeCategory("Wosad.Loads.ASCE7v10.Lateral.Seismic.Building")]
+    [NodeDescription("Selection of lateral system and Design Coefficients and Factors for Seismic Force-Resisting System ")]
     [IsDesignScriptCompatible]
-    public class BeamTorsionCaseSelection : UiNodeBase
+    public class SeismicLateralSystemIdSelection : UiNodeBase
     {
 
-        public BeamTorsionCaseSelection()
+        public SeismicLateralSystemIdSelection()
         {
-            ReportEntry = "";
-            BeamTorsionCaseDescription="Uniformly distributed torque";
-            BeamTorsionCaseId = "Case4";
+            
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("BeamTorsionCaseId", "Case ID used in calculation of the values of torsional functions (per AISC design guide 9)"));
+            OutPortData.Add(new PortData("SeismicLateralSystemId", "Id of the lateral system from ASCE7-10 table 12.2-1"));
             RegisterAllPorts();
+            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
         }
 
-
+        private void SetDefaultParameters()
+        {
+            //ReportEntry="";
+            SeismicLateralSystemIdDescription = "Steel systems not specifically detailed for seismic resistance excluding cantilever column systems";
+            SeismicLateralSystemId = "H1";
+        }
 
 
         /// <summary>
@@ -83,39 +85,46 @@ namespace Wosad.Analysis.Beam.Torsion
 
         #region OutputProperties
 
-		#region BeamTorsionCaseIdProperty
+		#region SeismicLateralSystemIdProperty
 		
 		/// <summary>
-		/// BeamTorsionCaseId property
+		/// SeismciLateralSystemId property
 		/// </summary>
-		/// <value>Case ID used in calculation of the beam forces</value>
-		public string _BeamTorsionCaseId;
+		/// <value>Id of the lateral system from ASCE7-10 table 12.2-1</value>
+		public string _SeismicLateralSystemId;
 		
-		public string BeamTorsionCaseId
+		public string SeismicLateralSystemId
 		{
-		    get { return _BeamTorsionCaseId; }
+		    get { return _SeismicLateralSystemId; }
 		    set
 		    {
-		        _BeamTorsionCaseId = value;
-		        RaisePropertyChanged("BeamTorsionCaseId");
-		        OnNodeModified(true); 
+		        _SeismicLateralSystemId = value;
+		        RaisePropertyChanged("SeismicLateralSystemId");
+		        OnNodeModified();
 		    }
 		}
 		#endregion
 
+        #region SeismicLateralSystemIdDescriptionProperty
 
-        #region BeamTorsionCaseDescription Property
-        private string _BeamTorsionCaseDescription;
-        public string BeamTorsionCaseDescription
+        /// <summary>
+        /// SeismicLateralSystemId property
+        /// </summary>
+        /// <value>Id of the lateral system from ASCE7-10 table 12.2-1</value>
+        public string _SeismicLateralSystemIdDescription;
+
+        public string SeismicLateralSystemIdDescription
         {
-            get { return _BeamTorsionCaseDescription; }
+            get { return _SeismicLateralSystemIdDescription; }
             set
             {
-                _BeamTorsionCaseDescription = value;
-                RaisePropertyChanged("BeamTorsionCaseDescription");
+                _SeismicLateralSystemIdDescription = value;
+                RaisePropertyChanged("SeismicLateralSystemIdDescription");
+                OnNodeModified();
             }
         }
         #endregion
+
 
 
         #region ReportEntryProperty
@@ -134,7 +143,7 @@ namespace Wosad.Analysis.Beam.Torsion
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified(true); 
+                OnNodeModified();
             }
         }
 
@@ -154,7 +163,7 @@ namespace Wosad.Analysis.Beam.Torsion
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("BeamTorsionCaseId", BeamTorsionCaseId);
+            nodeElement.SetAttribute("SeismicLateralSystemId", SeismicLateralSystemId);
         }
 
         /// <summary>
@@ -163,32 +172,13 @@ namespace Wosad.Analysis.Beam.Torsion
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["BeamTorsionCaseId"];
+            var attrib = nodeElement.Attributes["SeismicLateralSystemId"];
             if (attrib == null)
                 return;
 
-            BeamTorsionCaseId = attrib.Value;
-            SetCaseDescription();
-        }
+            SeismicLateralSystemId = attrib.Value;
+            //SetComponentDescription();
 
-        private void SetCaseDescription()
-        {
-            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Analysis/Beam/Torsion/BeamTorsionCaseTreeData.xml");
-            XmlTreeHelper treeHelper = new XmlTreeHelper();
-            treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindCaseDescription));
-        }
-
-
-
-        private void FindCaseDescription(XmlNode node)
-        {
-            if (null != node.Attributes["Id"])
-            {
-                if (node.Attributes["Id"].Value == BeamTorsionCaseId)
-                {
-                    BeamTorsionCaseDescription = node.Attributes["Description"].Value;
-                }
-            }
         }
 
 
@@ -204,8 +194,24 @@ namespace Wosad.Analysis.Beam.Torsion
             OnSelectedItemChanged(e.NewValue);
         }
 
+        private void SetComponentDescription()
+        {
+            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Loads/ASCE7v10/Lateral/Seismic/SeismicLateralSystemIdTreeData.xml");
+            XmlTreeHelper treeHelper = new XmlTreeHelper();
+            treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
+        }
 
-
+        private void FindDescription(XmlNode node)
+        {
+            //check if attribute "Id" exists
+            if (null != node.Attributes["Tag"])
+            {
+                if (node.Attributes["Tag"].Value == SeismicLateralSystemId)
+                   {
+                       SeismicLateralSystemIdDescription = node.Attributes["Description"].Value;
+                   }
+            }
+        }
 
         #endregion
 
@@ -219,12 +225,13 @@ namespace Wosad.Analysis.Beam.Torsion
             get
             {
 
-
+                if (SeismicLateralSystemIdDescription == null)
+                {
                     selectedItemChanged = new RelayCommand<object>((i) =>
                     {
                         OnSelectedItemChanged(i);
                     });
-
+                }
 
                 return selectedItemChanged;
             }
@@ -232,11 +239,6 @@ namespace Wosad.Analysis.Beam.Torsion
         }
 
 
-
-        public void DisplayComponentUI(XTreeItem selectedComponent)
-        {
-
-        }
 
 
         private XTreeItem selectedItem;
@@ -268,12 +270,17 @@ namespace Wosad.Analysis.Beam.Torsion
             if (item != null)
             {
 
+
                 string id = xtreeItem.Id;
                 if (id != "X")
                 {
-                    BeamTorsionCaseId = xtreeItem.Id;
+                    if (xtreeItem.Tag!="X")
+                    {
+                        SeismicLateralSystemId = xtreeItem.Tag;
+                        SeismicLateralSystemIdDescription = xtreeItem.Description;
+                    }
+
                     SelectedItem = xtreeItem;
-                    BeamTorsionCaseDescription = xtreeItem.Description;
                 }
             }
         }
@@ -285,14 +292,14 @@ namespace Wosad.Analysis.Beam.Torsion
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BeamTorsionCaseSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BeamTorsionCaseSelection>
+        public class SeismicLateralSystemDesignationViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<SeismicLateralSystemIdSelection>
         {
-            public void CustomizeView(BeamTorsionCaseSelection model, NodeView nodeView)
+            public void CustomizeView(SeismicLateralSystemIdSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BeamTorsionCaseView control = new BeamTorsionCaseView();
+                SeismicLateralSystemIdSelectionView control = new SeismicLateralSystemIdSelectionView();
                 control.DataContext = model;
                 
                 //remove this part if control does not contain tree
@@ -306,7 +313,6 @@ namespace Wosad.Analysis.Beam.Torsion
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }
-
 
         }
     }
