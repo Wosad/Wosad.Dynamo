@@ -22,6 +22,7 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Common.CalculationLogger;
+using System;
 
 #endregion
 
@@ -29,40 +30,47 @@ namespace Loads.ASCE7v10.Lateral.Seismic
 {
 
 /// <summary>
-///     Seismic fundamental period upper  limit coefficient
+///     Seismic importance factor
 ///     Category:   Loads.ASCE7v10.Lateral.Seismic
 /// </summary>
 /// 
 
 
-    public partial class BuildingFundamentalPeriod 
+    public partial class General 
     {
         /// <summary>
-        ///     Coefficient  for upper limit on  calculated period  
+        ///     Importance factor for seismic loads 
         /// </summary>
-        /// <param name="S_D1">  Design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
-        /// <returns name="C_u"> Coefficient for upper limit on  calculated period </returns>
+        /// <param name="BuildingRiskCategory">  Building risk category </param>
+        /// <returns name="I_e"> Seismic importance factor  </returns>
 
-        [MultiReturn(new[] { "C_u" })]
-        public static Dictionary<string, object> SeismicFundamentalPeriodUpperLimitCoefficient(double S_D1)
+        [MultiReturn(new[] { "I_e" })]
+        public static Dictionary<string, object> SeismicImportanceFactor(string BuildingRiskCategory)
         {
             //Default values
-            double C_u = 0;
+            double I_e = 0;
 
 
             //Calculation logic:
-
             CalcLog log = new CalcLog();
-            Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.Building building = new Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.Building(null, log);
-            C_u = building.GetCoefficientForUpperBoundOnCalculatedPeriod(S_D1);
+
+            Wosad.Loads.ASCE7.Entities.BuildingRiskCategory _BuildingRiskCategory;
+            bool IsValidCat = Enum.TryParse(BuildingRiskCategory, out _BuildingRiskCategory);
+            if (IsValidCat == false)
+            {
+                throw new Exception("Building risk category not recognized. Check input.");
+            }
+            //= (BuildingRiskCategory)Enum.Parse(typeof(BuildingRiskCategory), (string)GetParameterValue("RiskCategory", inputData));
+
+            Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.General gen = new Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.General(log);
+            I_e = gen.GetImportanceFactor(_BuildingRiskCategory);
 
             return new Dictionary<string, object>
             {
-                { "C_u", C_u }
+                { "I_e", I_e }
  
             };
         }
-
 
 
     }

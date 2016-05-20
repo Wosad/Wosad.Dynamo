@@ -21,7 +21,6 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Wosad.Common.CalculationLogger;
 
 #endregion
 
@@ -29,36 +28,34 @@ namespace Loads.ASCE7v10.Lateral.Seismic
 {
 
 /// <summary>
-///     Seismic fundamental period upper  limit coefficient
+///     Seismic story forces
 ///     Category:   Loads.ASCE7v10.Lateral.Seismic
 /// </summary>
 /// 
 
 
-    public partial class BuildingFundamentalPeriod 
+    public partial class Building 
     {
         /// <summary>
-        ///     Coefficient  for upper limit on  calculated period  
+        ///     Fundamental period of the building  used to account for building dynamic response to base accelerations
         /// </summary>
-        /// <param name="S_D1">  Design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
-        /// <returns name="C_u"> Coefficient for upper limit on  calculated period </returns>
+        /// <param name="StoryElevationsFromBase">  List of elevations (ft) fom building base of individual stories or lumped masses </param>
+        /// <param name="StoryWeights">  List of story weights  (lumped masses) corresponding to the list of story elevations </param>
+        /// <returns name="StoryForces"> List of individual story forces </returns>
 
-        [MultiReturn(new[] { "C_u" })]
-        public static Dictionary<string, object> SeismicFundamentalPeriodUpperLimitCoefficient(double S_D1)
+        [MultiReturn(new[] { "StoryForces" })]
+        public static Dictionary<string, object> SeismicStoryForces(List<double> StoryElevationsFromBase,List<double> StoryWeights)
         {
             //Default values
-            double C_u = 0;
+            List<double> StoryForces = new List<double>();
 
 
             //Calculation logic:
 
-            CalcLog log = new CalcLog();
-            Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.Building building = new Wosad.Loads.ASCE.ASCE7_10.SeismicLoads.Building(null, log);
-            C_u = building.GetCoefficientForUpperBoundOnCalculatedPeriod(S_D1);
 
             return new Dictionary<string, object>
             {
-                { "C_u", C_u }
+                { "StoryForces", StoryForces }
  
             };
         }

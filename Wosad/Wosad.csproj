@@ -143,24 +143,24 @@
       <HintPath>..\packages\Wosad.Analysis.0.0.4.1\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Common, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.5.1\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.6.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Concrete, Version=0.0.4.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Wosad.Concrete.0.0.4.3\lib\net45\Wosad.Concrete.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Loads, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Loads.0.0.5.1\lib\net45\Wosad.Loads.dll</HintPath>
+    <Reference Include="Wosad.Loads, Version=0.0.5.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Loads.0.0.5.2\lib\net45\Wosad.Loads.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Reporting, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.5.1\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.5.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.5.5\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -255,9 +255,11 @@
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicBaseShear.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicDesignCategory.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicDesignSiteAccelerationParameters.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicImportanceFactor.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicLateralSystemDesignCoefficientsAndFactors.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicResponseCoefficient.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicSiteCoefficients.cs" />
+    <Compile Include="Loads\ASCE7v10\Lateral\Seismic\SeismicStoryForces.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Wind\DampingRatio.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\PressureCoefficient.cs" />
     <Compile Include="Loads\ASCE7v10\Lateral\Wind\Groups\General.cs" />
