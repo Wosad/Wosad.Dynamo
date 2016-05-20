@@ -21,7 +21,8 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Wosad.Steel.AISC.AISC360v10.D_Tension;
+using Wosad.Steel.AISC.AISC360v10;
+using Wosad.Steel.AISC.AISC360v10.Tension;
 
 #endregion
 
