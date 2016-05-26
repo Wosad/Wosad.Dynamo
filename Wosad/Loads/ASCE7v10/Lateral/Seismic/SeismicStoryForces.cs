@@ -21,6 +21,8 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Loads.ASCE.ASCE7_10.SeismicLoads;
+using Wosad.Common.CalculationLogger;
 
 #endregion
 
@@ -39,19 +41,23 @@ namespace Loads.ASCE7v10.Lateral.Seismic
         /// <summary>
         ///     Fundamental period of the building  used to account for building dynamic response to base accelerations
         /// </summary>
+        /// <param name="T">Fundamental period of the building used for design</param>
+        /// <param name="C_s">Seismic response coefficient which multiplied by the building seismic weight, gives the building seismic base shear (lateral pseudo-acceleration, expressed in units of gravity)</param>
         /// <param name="StoryElevationsFromBase">  List of elevations (ft) fom building base of individual stories or lumped masses </param>
         /// <param name="StoryWeights">  List of story weights  (lumped masses) corresponding to the list of story elevations </param>
         /// <returns name="StoryForces"> List of individual story forces </returns>
 
         [MultiReturn(new[] { "StoryForces" })]
-        public static Dictionary<string, object> SeismicStoryForces(List<double> StoryElevationsFromBase,List<double> StoryWeights)
+        public static Dictionary<string, object> SeismicStoryForces(double T, double C_s, List<double> StoryElevationsFromBase,List<double> StoryWeights)
         {
             //Default values
             List<double> StoryForces = new List<double>();
 
 
             //Calculation logic:
-
+            CalcLog log = new CalcLog();
+            SeismicLateralForceResistingStructure structure = new SeismicLateralForceResistingStructure(log);
+            StoryForces = structure.CalculateSeismicLoads(T, C_s, StoryElevationsFromBase, StoryWeights);
 
             return new Dictionary<string, object>
             {
