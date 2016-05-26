@@ -55,15 +55,15 @@ namespace Steel.AISC10
     /// <param name="FlexuralCompressionLocation">  Identifies whether top or bottom fiber of the section are subject to flexural compression (depending on the sign of moment) </param>
     /// <param name="E">  Modulus of elasticity of steel </param>
     ///  <param name="IsRolledMember">  Identifies if member is rolled or built up from individual plates or shapes </param>
-    /// <returns name="phiM_n"> Moment strength </returns>
+        /// <returns name="L_r"> Limiting length for flexural inelastic buckling </returns>
     /// <returns name="IsApplicableLimitState"> Identifies whether the selected limit state is applicable </returns>
 
-        [MultiReturn(new[] { "phiM_n","IsApplicableLimitState" })]
+        [MultiReturn(new[] { "L_r","IsApplicableLimitState" })]
         public static Dictionary<string, object> LimitingLengthForFlexuralInelasticBuckling(CustomProfile Shape, double F_y, string BendingAxis="XAxis", string FlexuralCompressionLocation="Top", 
             double E = 29000, bool IsRolledMember = true)
         {
             //Default values
-            double phiM_n = 0;
+            double L_rValue = 0;
             bool IsApplicableLimitState = false;
 
 
@@ -91,13 +91,13 @@ namespace Steel.AISC10
 
             SteelLimitStateValue L_r =
             beam.GetLimitingLengthForInelasticLTB_Lr(FlexuralCompression);
-            phiM_n = L_r.Value;
+            L_rValue = L_r.Value;
 
             IsApplicableLimitState = L_r.IsApplicable;
 
             return new Dictionary<string, object>
             {
-                { "phiM_n", phiM_n }
+                { "L_r", L_rValue }
                 ,{ "IsApplicableLimitState", IsApplicableLimitState }
  
             };
