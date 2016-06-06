@@ -1,4 +1,4 @@
-﻿#region Copyright
+#region Copyright
    /*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,38 +15,31 @@
    */
 #endregion
  
-#region
-
-using Autodesk.DesignScript.Runtime;
-using Dynamo.Models;
+using System;
 using System.Collections.Generic;
-using Dynamo.Nodes;
-using Wosad.Common.Section.Interfaces;
-using ds = Wosad.Common.Section.SectionTypes;
-using dm =Wosad.Common.Mathematics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-#endregion
-
-namespace Analysis.Section
+namespace Wosad.Steel.AISC10.HSS
 {
-
-//Consider renaming into Section profile
-    public partial class CustomProfile
+    /// <summary>
+    /// Interaction logic for Wosad.Steel.AISC10.HSS.ForceTypeSelectionView.xaml
+    /// </summary>
+    public partial class ForceTypeSelectionView: UserControl
     {
-        [IsVisibleInDynamoLibrary(false)]
-        protected CustomProfile()
+        public ForceTypeSelectionView()
         {
-
-        }
-
-
-        private ISection section;
-
-        [IsVisibleInDynamoLibrary(false)]
-        public ISection Section
-        {
-            get { return section; }
-            set { section = value; }
+            InitializeComponent();
         }
     }
 }

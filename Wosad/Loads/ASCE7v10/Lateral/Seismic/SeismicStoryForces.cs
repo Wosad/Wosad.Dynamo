@@ -57,16 +57,13 @@ namespace Loads.ASCE7v10.Lateral.Seismic
             //Calculation logic:
             CalcLog log = new CalcLog();
             SeismicLateralForceResistingStructure structure = new SeismicLateralForceResistingStructure(log);
-            StoryForces = structure.CalculateSeismicLoads(T, C_s, StoryElevationsFromBase, StoryWeights);
+            //StoryForces = structure.CalculateSeismicLoads(T, C_s, StoryElevationsFromBase, StoryWeights);
 
             return new Dictionary<string, object>
             {
                 { "StoryForces", StoryForces }
- 
             };
         }
-
-
 
     }
 }

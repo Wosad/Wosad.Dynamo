@@ -35,7 +35,7 @@
                 <StackPanel Orientation="Horizontal">
                     <ContentControl Width="40" Height="40" Background="White"
                             Style="{Binding XPath=@ResourcePath, Converter={StaticResource IconStyleConverter}}"/>
-                    <TextBlock Text="{Binding XPath=@Header}" />
+                    <TextBlock Text="{Binding XPath=@Header}"  VerticalAlignment="Center" />
                 </StackPanel>
             </HierarchicalDataTemplate>
         </ResourceDictionary>

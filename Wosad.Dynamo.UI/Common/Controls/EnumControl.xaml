@@ -45,7 +45,7 @@
 					<ColumnDefinition/>
 				</Grid.ColumnDefinitions>
                 <ComboBox x:Name="EnumCombobox" 
-                          Height="35"
+                          Height="45"
                            SelectedValuePath="EnumString"
                             SelectedValue="{Binding SelectedItem,
                             Mode=TwoWay,
@@ -55,7 +55,8 @@
                            ElementName=ListControl,
                            Mode=TwoWay,
                            UpdateSourceTrigger=PropertyChanged}" 
-                          
+                           HorizontalContentAlignment ="Stretch"
+                          VerticalAlignment="Center"
                           HorizontalAlignment="Stretch"/>
             </Grid>
 		</UserControl>

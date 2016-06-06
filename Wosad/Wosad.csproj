@@ -140,7 +140,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="Wosad.Analysis, Version=0.0.4.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Analysis.0.0.4.1\lib\net45\Wosad.Analysis.dll</HintPath>
+      <HintPath>..\packages\Wosad.Analysis.0.0.5.1\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Common, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
@@ -151,16 +151,16 @@
       <HintPath>..\packages\Wosad.Concrete.0.0.4.3\lib\net45\Wosad.Concrete.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Loads, Version=0.0.5.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Loads.0.0.5.2\lib\net45\Wosad.Loads.dll</HintPath>
+    <Reference Include="Wosad.Loads, Version=0.0.5.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Loads.0.0.5.5\lib\net45\Wosad.Loads.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Reporting, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.5.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.5.5\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.6.1\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -292,6 +292,10 @@
     <Compile Include="Steel\AISC10\Composite\Shapes\CompositeSectionGeneral.cs" />
     <Compile Include="Steel\AISC10\Composite\Shapes\CompositeSectionI.cs" />
     <Compile Include="Steel\AISC10\Composite\ShearStrengthOfHeadedAnchor.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlateBearingStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlateRhsShape.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlateChsShape.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlateIShape.cs" />
     <Compile Include="Steel\AISC10\Connection\BearingBoltNominalShearStress.cs" />
     <Compile Include="Steel\AISC10\Connection\BearingBoltShearStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\BearingStrengthAtBoltHole.cs" />
@@ -306,14 +310,19 @@
     <Compile Include="Steel\AISC10\Connection\BoltHoleSize.cs" />
     <Compile Include="Steel\AISC10\Connection\BoltNominalTensileStress.cs" />
     <Compile Include="Steel\AISC10\Connection\BoltTensileStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\ConcentricallyLoadedBasePlateMinimumThickness.cs" />
     <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInFlexure.cs" />
     <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInShear.cs" />
     <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInTension.cs" />
     <Compile Include="Steel\AISC10\Connection\CopedSectionStrengthInFlexure.cs" />
+    <Compile Include="Steel\AISC10\Connection\EccenticallyLoadedBasePlateMinimumThickness.cs" />
     <Compile Include="Steel\AISC10\Connection\FilletWeldGroupConcentricLoadStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\FilletWeldGroupEccentricLoadStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\FlangeLocalBending.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\AffectedElements.cs" />
+    <Compile Include="Steel\AISC10\Connection\Groups\BasePlateShapeObject.cs" />
+    <Compile Include="Steel\AISC10\Connection\Groups\MinimumThickness.cs" />
+    <Compile Include="Steel\AISC10\Connection\Groups\Concrete.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\Bolted.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\Welded.cs" />
     <Compile Include="Steel\AISC10\Connection\GussetPlateConfigurationCompactness.cs" />
@@ -331,6 +340,7 @@
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\ExtendedSinglePlateShearStrengthWithoutStabilizer.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\StabilizedExtendedSinglePlateTorsionalMoment.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\StabilizedExtendedSinglePlateTorsionalStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\TensionLoadedBasePlateMinimumThickness.cs" />
     <Compile Include="Steel\AISC10\Connection\WebCompressionBuckling.cs" />
     <Compile Include="Steel\AISC10\Connection\WebLocalCrippling.cs" />
     <Compile Include="Steel\AISC10\Connection\WebLocalYielding.cs" />
@@ -362,6 +372,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Analysis\Section\AISC\YAxisProperties.cs" />
+    <Compile Include="Steel\AISC10\HSS\BranchPunchingStrength.cs" />
+    <Compile Include="Steel\AISC10\HSS\BranchYieldingFromUnevenLoadDistributionStrength.cs" />
+    <Compile Include="Steel\AISC10\HSS\ChordSidewallLocalCripplingStrength.cs" />
+    <Compile Include="Steel\AISC10\HSS\ChordSidewallLocalYieldingStrength.cs" />
+    <Compile Include="Steel\AISC10\HSS\ChordSidewallShearStrength.cs" />
+    <Compile Include="Steel\AISC10\HSS\ChordWallPlastificationStrength.cs" />
+    <Compile Include="Steel\AISC10\HSS\Groups\Truss.cs" />
     <Compile Include="Steel\AISC10\Shear\Groups\ShearStrength.cs" />
     <Compile Include="Steel\AISC10\Shear\ShearStrengthCircular.cs" />
     <Compile Include="Steel\AISC10\Shear\ShearStrengthNonCircular.cs" />

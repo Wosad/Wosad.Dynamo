@@ -147,8 +147,8 @@
       <HintPath>..\packages\Wosad.Common.0.0.5.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Loads, Version=0.0.5.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Loads.0.0.5.2\lib\net45\Wosad.Loads.dll</HintPath>
+    <Reference Include="Wosad.Loads, Version=0.0.5.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Loads.0.0.5.5\lib\net45\Wosad.Loads.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -176,7 +176,6 @@
     <Compile Include="Nodes\Analysis\Beam\Torsion\BeamTorsionCaseSelection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Nodes\Concrete\ACI318_14\Flexure\FlexuralCompressionFiberSelection.cs" />
     <Compile Include="Nodes\Concrete\ACI318_14\General\Rebar\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -205,6 +204,9 @@
     <Compile Include="Nodes\Steel\AISC10\Connection\GussetConfigurationSelection.cs" />
     <Compile Include="Nodes\General\FlexuralBracingCase.cs" />
     <Compile Include="Nodes\General\FlexuralCompressionLocation.cs" />
+    <Compile Include="Nodes\Steel\AISC10\HSS\ForceTypeSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC10\HSS\HssTrussConnectionClassificationSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC10\HSS\HssTrussConnectionMemberTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC10\Shear\ShearCaseNonCircularSelection.cs" />
     <Compile Include="Nodes\Steel\AISC10\Tension\ShearLagCaseSelection.cs" />
     <Compile Include="Nodes\Steel\AISC10\Connection\WeldLoadTypeAndDirection.cs" />
@@ -224,9 +226,6 @@
     </Compile>
     <Compile Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseView.xaml.cs">
       <DependentUpon>BeamTorsionCaseView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Concrete\ACI318_14\Flexure\FlexuralCompressionFiberSelectionView.xaml.cs">
-      <DependentUpon>FlexuralCompressionFiberSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml.cs">
       <DependentUpon>RebarSizeSelectionView.xaml</DependentUpon>
@@ -354,11 +353,20 @@
     <Compile Include="Views\Steel\AISC10\Connection\GussetConfigurationView.xaml.cs">
       <DependentUpon>GussetConfigurationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\General\Flexure\FlexuralBracingCaseView.xaml.cs">
+    <Compile Include="Views\Flexure\FlexuralBracingCaseView.xaml.cs">
       <DependentUpon>FlexuralBracingCaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\General\Flexure\FlexuralCompressionLocationView.xaml.cs">
+    <Compile Include="Views\Flexure\FlexuralCompressionLocationView.xaml.cs">
       <DependentUpon>FlexuralCompressionLocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC10\HSS\ForceTypeSelectionView.xaml.cs">
+      <DependentUpon>ForceTypeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC10\HSS\HssTrussConnectionClassificationSelectionView.xaml.cs">
+      <DependentUpon>HssTrussConnectionClassificationSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Steel\AISC10\HSS\HssTrussConnectionMemberTypeSelectionView.xaml.cs">
+      <DependentUpon>HssTrussConnectionMemberTypeSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC10\Shear\ShearNonCircularCaseView.xaml.cs">
       <DependentUpon>ShearNonCircularCaseView.xaml</DependentUpon>
@@ -399,7 +407,7 @@
     <Compile Include="Views\Analysis\Section\AISC\AiscShapeSelectionView.xaml.cs">
       <DependentUpon>AiscShapeSelectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\General\Flexure\BendingAxisSelection.xaml.cs">
+    <Compile Include="Views\Flexure\BendingAxisSelection.xaml.cs">
       <DependentUpon>BendingAxisSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC10\General\RecommendedMaterialSelectionView.xaml.cs">
@@ -449,10 +457,6 @@
       <SubType>Designer</SubType>
     </Resource>
     <Page Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Concrete\ACI318_14\Flexure\FlexuralCompressionFiberSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -676,21 +680,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\General\Flexure\BendingBracingCaseIcons.xaml">
+    <Page Include="Views\Flexure\BendingBracingCaseIcons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\General\Flexure\FlexuralBracingCaseView.xaml">
+    <Page Include="Views\Flexure\FlexuralBracingCaseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\General\Flexure\FlexuralCompressionLocationView.xaml">
+    <Page Include="Views\Flexure\FlexuralCompressionLocationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\General\Flexure\FlexureIcons.xaml">
+    <Page Include="Views\Flexure\FlexureIcons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Steel\AISC10\HSS\ForceTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC10\HSS\HssTrussConnectionClassificationSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Steel\AISC10\HSS\HssTrussConnectionMemberTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Steel\AISC10\Shear\ShearNonCircularCaseIcons.xaml">
       <SubType>Designer</SubType>
@@ -772,11 +788,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\General\Flexure\BendingAxisSelection.xaml">
+    <Page Include="Views\Flexure\BendingAxisSelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\General\Flexure\BendingAxisSelectionIcons.xaml">
+    <Page Include="Views\Flexure\BendingAxisSelectionIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -816,6 +832,7 @@
     <Folder Include="Nodes\Concrete\ACI318_14\Compression\SectionStrength\" />
     <Folder Include="Nodes\Concrete\ACI318_14\Compression\Stability\" />
     <Folder Include="Nodes\Concrete\ACI318_14\Details\" />
+    <Folder Include="Nodes\Concrete\ACI318_14\Flexure\" />
     <Folder Include="Nodes\Concrete\ACI318_14\General\Material\" />
     <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
     <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
@@ -824,10 +841,12 @@
     <Folder Include="Views\Concrete\ACI318_14\Compression\SectionStrength\" />
     <Folder Include="Views\Concrete\ACI318_14\Compression\Stability\" />
     <Folder Include="Views\Concrete\ACI318_14\Details\" />
+    <Folder Include="Views\Concrete\ACI318_14\Flexure\" />
     <Folder Include="Views\Concrete\ACI318_14\General\Material\" />
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
     <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
+    <Folder Include="Views\General\" />
     <Folder Include="Views\Loads\ASCE7v10\Snow\" />
   </ItemGroup>
   <ItemGroup>

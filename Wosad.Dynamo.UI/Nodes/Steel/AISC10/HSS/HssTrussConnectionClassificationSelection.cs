@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -26,29 +26,29 @@ using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 using System.Xml;
-using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
+using Dynamo.Graph;
 
 
-namespace Wosad.Concrete.ACI318_14.Flexure
+namespace Wosad.Steel.AISC10.HSS
 {
 
     /// <summary>
-    ///Flexural compression fiber location selection  
+    ///HSS truss connection classification selection  
     /// </summary>
 
-    [NodeName("Flexural compression fiber location selection")]
-    [NodeCategory("Wosad.Concrete.ACI318_14.Flexure")]
-    [NodeDescription("Flexural compression fiber location selection")]
+    [NodeName("HSS truss connection classification selection")]
+    [NodeCategory("Wosad.Steel.AISC10.HSS")]
+    [NodeDescription("HSS truss connection classification selection")]
     [IsDesignScriptCompatible]
-    public class FlexuralCompressionFiberSelection : UiNodeBase
+    public class HssTrussConnectionClassificationSelection : UiNodeBase
     {
 
-        public FlexuralCompressionFiberSelection()
+        public HssTrussConnectionClassificationSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("FlexuralCompressionFiberLocation", "Indicates whether the section in flexure has top or bottom in compression due to stresses from bending moment"));
+            OutPortData.Add(new PortData("HssTrussConnectionClassification", "Distinguishes between T, Y, X, gapped K or overlapped K"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
@@ -57,7 +57,7 @@ namespace Wosad.Concrete.ACI318_14.Flexure
         private void SetDefaultParameters()
         {
             //ReportEntry="";
-            FlexuralCompressionFiberLocation = "Top";
+            HssTrussConnectionClassification = "GappedK";
         }
 
 
@@ -79,22 +79,22 @@ namespace Wosad.Concrete.ACI318_14.Flexure
 
         #region OutputProperties
 
-		#region FlexuralCompressionFiberLocationProperty
+		#region HssTrussConnectionClassificationProperty
 		
 		/// <summary>
-		/// FlexuralCompressionFiberLocation property
+		/// HssTrussConnectionClassification property
 		/// </summary>
-		/// <value>Indicates whether the section in flexure has top or bottom in compression due to stresses from bending moment</value>
-		public string _FlexuralCompressionFiberLocation;
+		/// <value>Distinguishes between T, Y, X, gapped K or overlapped K</value>
+		public string _HssTrussConnectionClassification;
 		
-		public string FlexuralCompressionFiberLocation
+		public string HssTrussConnectionClassification
 		{
-		    get { return _FlexuralCompressionFiberLocation; }
+		    get { return _HssTrussConnectionClassification; }
 		    set
 		    {
-		        _FlexuralCompressionFiberLocation = value;
-		        RaisePropertyChanged("FlexuralCompressionFiberLocation");
-		        OnNodeModified(true); 
+		        _HssTrussConnectionClassification = value;
+		        RaisePropertyChanged("HssTrussConnectionClassification");
+		        OnNodeModified();
 		    }
 		}
 		#endregion
@@ -108,18 +108,18 @@ namespace Wosad.Concrete.ACI318_14.Flexure
         /// </summary>
         /// <value>Calculation entries that can be converted into a report.</value>
 
-        //public string reportEntry;
+        public string reportEntry;
 
-        //public string ReportEntry
-        //{
-        //    get { return reportEntry; }
-        //    set
-        //    {
-        //        reportEntry = value;
-        //        RaisePropertyChanged("ReportEntry");
-        //        OnNodeModified(true); 
-        //    }
-        //}
+        public string ReportEntry
+        {
+            get { return reportEntry; }
+            set
+            {
+                reportEntry = value;
+                RaisePropertyChanged("ReportEntry");
+                OnNodeModified();
+            }
+        }
 
 
 
@@ -137,7 +137,7 @@ namespace Wosad.Concrete.ACI318_14.Flexure
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("FlexuralCompressionFiberLocation", FlexuralCompressionFiberLocation);
+            nodeElement.SetAttribute("HssTrussConnectionClassification", HssTrussConnectionClassification);
         }
 
         /// <summary>
@@ -146,33 +146,34 @@ namespace Wosad.Concrete.ACI318_14.Flexure
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["FlexuralCompressionFiberLocation"];
+            var attrib = nodeElement.Attributes["HssTrussConnectionClassification"];
             if (attrib == null)
                 return;
-
-            FlexuralCompressionFiberLocation = attrib.Value;
+           
+            HssTrussConnectionClassification = attrib.Value;
             //SetComponentDescription();
 
         }
 
 
-
-
+    
         #endregion
+
+
 
 
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class FlexuralCompressionFiberSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<FlexuralCompressionFiberSelection>
+        public class HssTrussConnectionClassificationSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<HssTrussConnectionClassificationSelection>
         {
-            public void CustomizeView(FlexuralCompressionFiberSelection model, NodeView nodeView)
+            public void CustomizeView(HssTrussConnectionClassificationSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                FlexuralCompressionFiberSelectionView control = new FlexuralCompressionFiberSelectionView();
+                HssTrussConnectionClassificationSelectionView control = new HssTrussConnectionClassificationSelectionView();
                 control.DataContext = model;
                 
                 

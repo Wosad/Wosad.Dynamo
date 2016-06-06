@@ -1,4 +1,4 @@
-﻿#region Copyright
+#region Copyright
    /*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,32 +21,30 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Wosad.Common.Section.Interfaces;
-using ds = Wosad.Common.Section.SectionTypes;
-using dm =Wosad.Common.Mathematics;
+using Dynamo.Graph.Nodes;
 
 #endregion
 
-namespace Analysis.Section
+namespace Steel.AISC10.Connection.BasePlate
 {
 
-//Consider renaming into Section profile
-    public partial class CustomProfile
+
+    [IsDesignScriptCompatible]
+    public partial class MinimumThickness 
     {
-        [IsVisibleInDynamoLibrary(false)]
-        protected CustomProfile()
+
+
+        internal MinimumThickness()
         {
 
         }
-
-
-        private ISection section;
-
         [IsVisibleInDynamoLibrary(false)]
-        public ISection Section
+        public static MinimumThickness ByInputParameters()
         {
-            get { return section; }
-            set { section = value; }
+            return new MinimumThickness();
         }
+
     }
 }
+
+

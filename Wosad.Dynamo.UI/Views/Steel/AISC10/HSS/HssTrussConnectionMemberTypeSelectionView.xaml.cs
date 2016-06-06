@@ -30,14 +30,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Concrete.ACI318_14.Flexure
+namespace Wosad.Steel.AISC10.HSS
 {
     /// <summary>
-    /// Interaction logic for Wosad.Concrete.ACI318_14.Flexure.FlexuralCompressionFiberSelectionView.xaml
+    /// Interaction logic for Wosad.Steel.AISC10.HSS.HssTrussConnectionMemberTypeSelectionView.xaml
     /// </summary>
-    public partial class FlexuralCompressionFiberSelectionView: UserControl
+    public partial class HssTrussConnectionMemberTypeSelectionView: UserControl
     {
-        public FlexuralCompressionFiberSelectionView()
+        public HssTrussConnectionMemberTypeSelectionView()
         {
             InitializeComponent();
         }

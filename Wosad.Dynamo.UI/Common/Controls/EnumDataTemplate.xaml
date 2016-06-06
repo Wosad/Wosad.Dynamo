@@ -6,14 +6,17 @@
 
 
     <DataTemplate x:Key="EnumDataTemplate">
-        <Grid x:Name="LayoutRoot" VerticalAlignment="Center" Height="Auto" >
+        <Grid x:Name="LayoutRoot" VerticalAlignment="Center" Height="43" HorizontalAlignment="Stretch" > 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="45" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
                 <ColumnDefinition Width="5" />
             </Grid.ColumnDefinitions>
-            <ContentControl x:Name="IconControl" Grid.Column="0" Style="{Binding Icon}" VerticalAlignment="Center"  />
-            <TextBlock x:Name="DescriptionBlock" Width="Auto" Text="{Binding Description}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"  />
+            <ContentControl x:Name="IconControl" Grid.Column="0" Style="{Binding Icon}" Height="40" VerticalAlignment="Center"  />
+            <Grid Height ="30" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <TextBlock x:Name="DescriptionBlock" Width="Auto"  Text="{Binding Description}"  VerticalAlignment="Center" HorizontalAlignment="Center"  />
+            </Grid>
+            
         </Grid>
     </DataTemplate>
 
