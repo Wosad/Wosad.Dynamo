@@ -1,7 +1,7 @@
 <!--
 	Copyright (C) 2015 Wosad Inc
 -->
-<UserControl x:Class="Wosad.Steel.AISC10.HSS.ForceTypeSelectionView"
+<UserControl x:Class="Wosad.General.AxialForceTypeSelectionView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -27,8 +27,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <WosadControls:EnumControl  HeaderText="Case selection" 
+        <WosadControls:EnumControl  HeaderText="Type of member force:" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
-					DataPath="ForceType"/>
+					DataPath="AxialForceType"/>
     </Grid>
 </UserControl>

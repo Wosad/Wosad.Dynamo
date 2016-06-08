@@ -21,7 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-
+using Wosad.Steel.AISC.AISC360v10.Connections.BasePlate;
 
 #endregion
 
@@ -52,7 +52,8 @@ namespace Steel.AISC10.Connection.BasePlate
 
 
             //Calculation logic:
-
+            BasePlateConcentricallyLoaded bp = new BasePlateConcentricallyLoaded(BasePlateShape.Plate);
+            t_min = bp.GetMinimumThicknessConcentricLoad(P_u);
 
             return new Dictionary<string, object>
             {

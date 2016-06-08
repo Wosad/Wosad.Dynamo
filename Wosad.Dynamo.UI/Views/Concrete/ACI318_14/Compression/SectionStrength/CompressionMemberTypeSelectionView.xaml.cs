@@ -30,14 +30,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC10.HSS
+namespace Wosad.Concrete.ACI318_14.Compression.SectionStrength
 {
     /// <summary>
-    /// Interaction logic for Wosad.Steel.AISC10.HSS.ForceTypeSelectionView.xaml
+    /// Interaction logic for Wosad.Concrete.ACI318_14.Compression.SectionStrength.CompressionMemberTypeSelectionView.xaml
     /// </summary>
-    public partial class ForceTypeSelectionView: UserControl
+    public partial class CompressionMemberTypeSelectionView: UserControl
     {
-        public ForceTypeSelectionView()
+        public CompressionMemberTypeSelectionView()
         {
             InitializeComponent();
         }

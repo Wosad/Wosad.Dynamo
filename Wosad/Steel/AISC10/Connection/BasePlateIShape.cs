@@ -48,7 +48,7 @@ namespace Steel.AISC10.Connection.BasePlate.Shapes
         /// <param name="N_bp">  Base plate width (for I-shaped column measured parallel to the strong-axis of the shape) </param>
         /// <param name="A_2">  Maximum area of the portion of the supporting surface that is geometrically similar to and concentric with the loaded area  </param>
         /// <param name="F_y">  Specified minimum yield stress </param>
-        /// <param name="fc_prime"> </param>
+        /// <param name="fc_prime"> Specified minimum compressive strength of concrete</param>
         /// <param name="d_c">Depth of column </param>
         /// <param name="b_f">Flange width</param>
         /// <returns name="BasePlateIShape"> Base plate I-shape object , created from input parameters </returns>

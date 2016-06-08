@@ -26,29 +26,30 @@ using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
 using System.Xml;
-using Dynamo.Graph.Nodes;
 using Dynamo.Graph;
+using Dynamo.Graph.Nodes;
+using Wosad.General;
 
 
-namespace Wosad.Steel.AISC10.HSS
+namespace Wosad.General
 {
 
     /// <summary>
-    ///HSS truss connection classification selection  
+    ///Force type selection  
     /// </summary>
 
-    [NodeName("HSS truss connection classification selection")]
-    [NodeCategory("Wosad.Steel.AISC10.HSS.Truss")]
-    [NodeDescription("HSS truss connection classification selection")]
+    [NodeName("Axial force type selection")]
+    [NodeCategory("Wosad.General")]
+    [NodeDescription("Force type selection")]
     [IsDesignScriptCompatible]
-    public class HssTrussConnectionClassificationSelection : UiNodeBase
+    public class AxialForceTypeSelection : UiNodeBase
     {
 
-        public HssTrussConnectionClassificationSelection()
+        public AxialForceTypeSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("HssTrussConnectionClassification", "Distinguishes between T, Y, X, gapped K or overlapped K"));
+            OutPortData.Add(new PortData("AxialForceType", "Distinguishes between tension, compression or reversible force in main branch member"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
@@ -57,7 +58,7 @@ namespace Wosad.Steel.AISC10.HSS
         private void SetDefaultParameters()
         {
             //ReportEntry="";
-            HssTrussConnectionClassification = "GappedK";
+            AxialForceType = "Reversible";
         }
 
 
@@ -79,21 +80,21 @@ namespace Wosad.Steel.AISC10.HSS
 
         #region OutputProperties
 
-		#region HssTrussConnectionClassificationProperty
+		#region ForceTypeProperty
 		
 		/// <summary>
-		/// HssTrussConnectionClassification property
+		/// ForceType property
 		/// </summary>
-		/// <value>Distinguishes between T, Y, X, gapped K or overlapped K</value>
-		public string _HssTrussConnectionClassification;
+		/// <value>Distinguishes between tension, compression or reversible force in main branch member</value>
+		public string _AxialForceType;
 		
-		public string HssTrussConnectionClassification
+		public string AxialForceType
 		{
-		    get { return _HssTrussConnectionClassification; }
+		    get { return _AxialForceType; }
 		    set
 		    {
-		        _HssTrussConnectionClassification = value;
-		        RaisePropertyChanged("HssTrussConnectionClassification");
+		        _AxialForceType = value;
+		        RaisePropertyChanged("ForceType");
 		        OnNodeModified();
 		    }
 		}
@@ -137,7 +138,7 @@ namespace Wosad.Steel.AISC10.HSS
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("HssTrussConnectionClassification", HssTrussConnectionClassification);
+            nodeElement.SetAttribute("AxialForceType", AxialForceType);
         }
 
         /// <summary>
@@ -146,19 +147,17 @@ namespace Wosad.Steel.AISC10.HSS
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["HssTrussConnectionClassification"];
+            var attrib = nodeElement.Attributes["AxialForceType"];
             if (attrib == null)
                 return;
-           
-            HssTrussConnectionClassification = attrib.Value;
+
+            AxialForceType = attrib.Value;
             //SetComponentDescription();
 
         }
 
 
-    
         #endregion
-
 
 
 
@@ -166,14 +165,14 @@ namespace Wosad.Steel.AISC10.HSS
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class HssTrussConnectionClassificationSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<HssTrussConnectionClassificationSelection>
+        public class ForceTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<AxialForceTypeSelection>
         {
-            public void CustomizeView(HssTrussConnectionClassificationSelection model, NodeView nodeView)
+            public void CustomizeView(AxialForceTypeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                HssTrussConnectionClassificationSelectionView control = new HssTrussConnectionClassificationSelectionView();
+                AxialForceTypeSelectionView control = new AxialForceTypeSelectionView();
                 control.DataContext = model;
                 
                 

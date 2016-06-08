@@ -19,17 +19,17 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString=" T"            Description=" T"          />
-                <WosadControls:EnumDataElement   EnumString=" Y"            Description=" Y"          />
-                <WosadControls:EnumDataElement   EnumString=" X"            Description=" X"          />
-                <WosadControls:EnumDataElement   EnumString=" GappedK"      Description=" GappedK"    />
-                <WosadControls:EnumDataElement   EnumString=" OverlappedK"  Description=" OverlappedK" />
+                <WosadControls:EnumDataElement   EnumString="T"            Description="T"          />
+                <WosadControls:EnumDataElement   EnumString="Y"            Description="Y"          />
+                <WosadControls:EnumDataElement   EnumString="X"            Description="X (Cross)"          />
+                <WosadControls:EnumDataElement   EnumString="GappedK"      Description="Gapped K"    />
+                <WosadControls:EnumDataElement   EnumString="OverlappedK"  Description="Overlapped K" />
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <WosadControls:EnumControl  HeaderText="Case selection" 
+        <WosadControls:EnumControl  HeaderText="Connection classification:" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
 					DataPath="HssTrussConnectionClassification"/>
     </Grid>

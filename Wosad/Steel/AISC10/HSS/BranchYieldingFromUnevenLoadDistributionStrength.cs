@@ -49,10 +49,10 @@ namespace Steel.AISC10.HSS
         /// <param name="HssTrussConnectionClassification">  Distinguishes between T, Y, X, gapped K or overlapped K connection </param>
         /// <param name="MainBranchSection">  Section object (Tube or Pipe) </param>
         /// <param name="theta_main">  Angle between chord and main branch or overlapped branch  </param>
-        /// <param name="ForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
+        /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
         /// <param name="SecondaryBranchSection">  Section object (Tube or Pipe). Specify same section as main branch for T and Y connections </param>
         /// <param name="theta_sec">  Angle between chord and secondary branch or overlapping branch. Specify same angle as main branch for T and Y connections </param>
-        /// <param name="ForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
+        /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
         /// <param name="F_yb">  Specified minimum yield stress of HSS branch member material  </param>
         /// <param name="ChordSection">  Section object (Tube or Pipe) </param>
         /// <param name="F_yc">  Specified minimum yield stress of HSS chord member material  </param>
@@ -66,8 +66,8 @@ namespace Steel.AISC10.HSS
         /// <returns name="IsApplicableSecn"> Identifies whether the selected limit state is applicable (secondary branch)</returns>
 
         [MultiReturn(new[] { "phiP_nMain", "phiP_nSec", "IsApplicableMain", "IsApplicableSecn" })]
-        public static Dictionary<string, object> BranchPunchingStrength(string HssTrussConnectionMemberType, string HssTrussConnectionClassification, CustomProfile MainBranchSection, double theta_main,
-            string ForceTypeMain, CustomProfile SecondaryBranchSection, double theta_sec, string ForceTypeSecondary, double F_yb, CustomProfile ChordSection, double F_yc, bool IsTensionChord, double P_uChord, double M_uChord, double O_v)
+        public static Dictionary<string, object> BranchYieldingFromUnevenLoadDistributionStrength(string HssTrussConnectionMemberType, string HssTrussConnectionClassification, CustomProfile MainBranchSection, double theta_main,
+            string AxialForceTypeMain, CustomProfile SecondaryBranchSection, double theta_sec, string AxialForceTypeSecondary, double F_yb, CustomProfile ChordSection, double F_yc, bool IsTensionChord, double P_uChord, double M_uChord, double O_v)
         {
             //Default values
             double phiP_nMain = 0;
@@ -104,20 +104,20 @@ namespace Steel.AISC10.HSS
             }
 
 
-            bool IsValidMainForce = Enum.TryParse(ForceTypeMain, true, out _MainBranchForceType);
+            bool IsValidMainForce = Enum.TryParse(AxialForceTypeMain, true, out _MainBranchForceType);
             if (IsValidMainForce == false)
             {
                 throw new Exception("Failed to convert string. Specify force as Tension, Compression or Reversible. Please check input.");
             }
 
 
-            bool IsValidSecForce = Enum.TryParse(ForceTypeSecondary, true, out _SecondaryBranchForceType);
+            bool IsValidSecForce = Enum.TryParse(AxialForceTypeSecondary, true, out _SecondaryBranchForceType);
             if (IsValidSecForce == false)
             {
                 throw new Exception("Failed to convert string. Specify force as Tension, Compression or Reversible. Please check input.");
             }
 
-            if (!(MainBranchSection is ISectionHollow) || !(SecondaryBranchSection is ISectionHollow) || !(ChordSection is ISectionHollow))
+            if (!(MainBranchSection.Section is ISectionHollow) || !(SecondaryBranchSection.Section is ISectionHollow) || !(ChordSection.Section is ISectionHollow))
             {
                 throw new Exception("Failed to convert section. Section needs to be either a Pipe or a Tube. Please check input.");
             }

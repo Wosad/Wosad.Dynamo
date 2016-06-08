@@ -21,6 +21,8 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360v10.Connections.BasePlate;
+using System;
 
 
 #endregion
@@ -38,9 +40,9 @@ namespace Steel.AISC10.Connection.BasePlate
     public partial class MinimumThickness 
     {
         /// <summary>
-        ///     Eccentically  loaded  base plate minimum thickness
+        ///     Eccentrically  loaded  base plate minimum thickness
         /// </summary>
-        /// <param name="BasePlateShape">  Base plate shape object , created from inut parameters </param>
+        /// <param name="BasePlateShape">  Base plate shape object, created from inut parameters </param>
         /// <param name="P_u">  Required axial strength </param>
         /// <param name="M_u">  Required flexural strength </param>
         /// <param name="BendingAxis">  Distinguishes between bending with respect to section x-axis vs x-axis </param>
@@ -48,14 +50,22 @@ namespace Steel.AISC10.Connection.BasePlate
         /// <returns name="t_min"> Minimum thickness of connection material </returns>
 
         [MultiReturn(new[] { "t_min" })]
-        public static Dictionary<string, object> EccenticallyLoadedBasePlateMinimumThickness(BasePlateShapeObject BasePlateShape, double P_u, double M_u, string BendingAxis, double f_anchor)
+        public static Dictionary<string, object> EccentricallyLoadedBasePlateMinimumThickness(BasePlateShapeObject BasePlateShape, double P_u, double M_u, string BendingAxis, double f_anchor)
         {
             //Default values
             double t_min = 0;
 
+            
+            Wosad.Steel.AISC.BendingAxis axis;
+            bool IsValidAxisString = Enum.TryParse(BendingAxis, true, out axis);
+            if (IsValidAxisString == false)
+            {
+                throw new Exception("Failed to convert string. Specify X or Y axis. Please check input");
+            }
 
             //Calculation logic:
-
+            BasePlateEccentricallyLoaded bp = new BasePlateEccentricallyLoaded(BasePlateShape.Plate);
+            t_min = bp.GetMinimumThicknessEccentricLoadStrongAxis(P_u, M_u, axis, f_anchor);
 
             return new Dictionary<string, object>
             {

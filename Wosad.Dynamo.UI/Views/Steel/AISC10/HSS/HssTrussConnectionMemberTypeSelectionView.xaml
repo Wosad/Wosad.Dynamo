@@ -19,14 +19,14 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="Rhs" Description="Case1" />
-                <WosadControls:EnumDataElement   EnumString="Chs" Description="Case2"/>
+                <WosadControls:EnumDataElement   EnumString="Rhs" Description="Rectangular HSS (RHS)" />
+                <WosadControls:EnumDataElement   EnumString="Chs" Description="Circular HSS (CHS)"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <WosadControls:EnumControl  HeaderText="Case selection" 
+        <WosadControls:EnumControl  HeaderText="Type of HSS member:" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
 					DataPath="HssTrussConnectionMemberType"/>
     </Grid>

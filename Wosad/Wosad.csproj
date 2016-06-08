@@ -315,7 +315,7 @@
     <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInShear.cs" />
     <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInTension.cs" />
     <Compile Include="Steel\AISC10\Connection\CopedSectionStrengthInFlexure.cs" />
-    <Compile Include="Steel\AISC10\Connection\EccenticallyLoadedBasePlateMinimumThickness.cs" />
+    <Compile Include="Steel\AISC10\Connection\EccentricallyLoadedBasePlateMinimumThickness.cs" />
     <Compile Include="Steel\AISC10\Connection\FilletWeldGroupConcentricLoadStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\FilletWeldGroupEccentricLoadStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\FlangeLocalBending.cs" />
