@@ -1,5 +1,5 @@
 #region Copyright
-   /*Copyright (C) 2015 Wosad Inc
+/*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -27,21 +27,22 @@ using Wosad.Steel.AISC.AISC360v10.K_HSS.TrussConnections;
 using Wosad.Common.Section.Interfaces;
 using System;
 using Wosad.Steel.AISC.Entities;
+using Wosad.Steel.AISC.SteelEntities;
 
 #endregion
 
 namespace Steel.AISC10.HSS
 {
 
-/// <summary>
-///     Chord wall plastification strength
-///     Category:   Steel.AISC10.HSS
-/// </summary>
-/// 
+    /// <summary>
+    ///     Chord wall plastification strength
+    ///     Category:   Steel.AISC10.HSS
+    /// </summary>
+    /// 
 
 
 
-    public partial class Truss 
+    public partial class Truss
     {
         /// <summary>
         ///     Chord wall plastification strength
@@ -50,7 +51,7 @@ namespace Steel.AISC10.HSS
         /// <param name="HssTrussConnectionClassification">  Distinguishes between T, Y, X, gapped K or overlapped K connection </param>
         /// <param name="MainBranchSection">  Section object (Tube or Pipe) </param>
         /// <param name="theta_main">  Angle between chord and main branch or overlapped branch  </param>
-        /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
+        /// <param name="AxialForceTypeMain">  Distinguishes between tension, compression or reversible force in main branch member </param>
         /// <param name="SecondaryBranchSection">  Section object (Tube or Pipe). Specify same section as main branch for T and Y connections </param>
         /// <param name="theta_sec">  Angle between chord and secondary branch or overlapping branch. Specify same angle as main branch for T and Y connections </param>
         /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
@@ -67,7 +68,7 @@ namespace Steel.AISC10.HSS
         /// <returns name="IsApplicableSecn"> Identifies whether the selected limit state is applicable (secondary branch)</returns>
 
         [MultiReturn(new[] { "phiP_nMain", "phiP_nSec", "IsApplicableMain", "IsApplicableSecn" })]
-        public static Dictionary<string, object> ChordWallPlastificationStrength(string HssTrussConnectionMemberType, string HssTrussConnectionClassification, CustomProfile MainBranchSection, double theta_main, 
+        public static Dictionary<string, object> ChordWallPlastificationStrength(string HssTrussConnectionMemberType, string HssTrussConnectionClassification, CustomProfile MainBranchSection, double theta_main,
             string AxialForceTypeMain,
             CustomProfile SecondaryBranchSection, double theta_sec, string AxialForceTypeSecondary, double F_yb, CustomProfile ChordSection, double F_yc, bool IsTensionChord, double P_uChord, double M_uChord, double O_v)
         {
@@ -84,8 +85,8 @@ namespace Steel.AISC10.HSS
 
             HssTrussConnectionMemberType _MemberType;
             HssTrussConnectionClassification _Class;
-            BranchForceType _MainBranchForceType;
-            BranchForceType _SecondaryBranchForceType;
+            AxialForceType _MainBranchForceType;
+            AxialForceType _SecondaryBranchForceType;
 
 
             ISectionHollow _MainBranchSection;
@@ -132,18 +133,54 @@ namespace Steel.AISC10.HSS
 
             HssTrussConnectionFactory factory = new HssTrussConnectionFactory();
 
-            IHssTrussBranchConnection conMain = factory.GetConnection(_MemberType, _Class, _ChordSection, _MainBranchSection, _SecondaryBranchSection, F_yc,
-            F_yb, theta_main, theta_sec, _MainBranchForceType, _SecondaryBranchForceType, IsTensionChord, P_uChord, M_uChord, O_v);
 
-            IHssTrussBranchConnection conSec = factory.GetConnection(_MemberType, _Class, _ChordSection, _SecondaryBranchSection, _MainBranchSection, F_yc,
-            F_yb, theta_sec, theta_main, _SecondaryBranchForceType, _MainBranchForceType, IsTensionChord, P_uChord, M_uChord, O_v);
+            bool IsKConnection = _Class == Wosad.Steel.AISC.Entities.HssTrussConnectionClassification.GappedK || _Class == Wosad.Steel.AISC.Entities.HssTrussConnectionClassification.OverlappedK ? true : false;
 
+            if (IsKConnection == true && _MemberType == Wosad.Steel.AISC.Entities.HssTrussConnectionMemberType.Chs && _MainBranchForceType == AxialForceType.Reversible && _SecondaryBranchForceType == AxialForceType.Reversible)
+            {
+                // account for load reversal in branches
+                IHssTrussBranchConnection conMain1 = factory.GetConnection(_MemberType, _Class, _ChordSection, _MainBranchSection, _SecondaryBranchSection, F_yc,
+                F_yb, theta_main, theta_sec, AxialForceType.Compression, AxialForceType.Tension, IsTensionChord, P_uChord, M_uChord, O_v);
 
-            phiP_nMain = conMain.GetChordWallPlastificationStrength().Value;
-            phiP_nSec = conSec.GetBranchPunchingStrength().Value;
+                IHssTrussBranchConnection conMain2 = factory.GetConnection(_MemberType, _Class, _ChordSection, _MainBranchSection, _SecondaryBranchSection, F_yc,
+                F_yb, theta_main, theta_sec, AxialForceType.Tension, AxialForceType.Compression, IsTensionChord, P_uChord, M_uChord, O_v);
 
-            IsApplicableMain = conMain.GetChordWallPlastificationStrength().IsApplicable;
-            IsApplicableSecn = conSec.GetChordWallPlastificationStrength().IsApplicable;
+                IHssTrussBranchConnection conSec1 = factory.GetConnection(_MemberType, _Class, _ChordSection, _SecondaryBranchSection, _MainBranchSection, F_yc,
+                F_yb, theta_sec, theta_main, AxialForceType.Compression, AxialForceType.Tension, IsTensionChord, P_uChord, M_uChord, O_v);
+
+                IHssTrussBranchConnection conSec2 = factory.GetConnection(_MemberType, _Class, _ChordSection, _SecondaryBranchSection, _MainBranchSection, F_yc,
+                F_yb, theta_sec, theta_main, AxialForceType.Tension, AxialForceType.Compression, IsTensionChord, P_uChord, M_uChord, O_v);
+
+                SteelLimitStateValue main1 = conMain1.GetChordWallPlastificationStrength(true);
+                SteelLimitStateValue main2 = conMain2.GetChordWallPlastificationStrength(true);
+
+                SteelLimitStateValue sec1 = conSec1.GetChordWallPlastificationStrength(true);
+                SteelLimitStateValue sec2 = conSec2.GetChordWallPlastificationStrength(true);
+
+                phiP_nMain = Math.Min(main1.Value, main2.Value);
+                phiP_nMain = Math.Min(sec1.Value, sec2.Value);
+
+                IsApplicableMain = main1.IsApplicable;
+                IsApplicableSecn = sec1.IsApplicable;
+
+            }
+            else
+            {
+                IHssTrussBranchConnection conMain = factory.GetConnection(_MemberType, _Class, _ChordSection, _MainBranchSection, _SecondaryBranchSection, F_yc,
+                F_yb, theta_main, theta_sec, _MainBranchForceType, _SecondaryBranchForceType, IsTensionChord, P_uChord, M_uChord, O_v);
+
+                IHssTrussBranchConnection conSec = factory.GetConnection(_MemberType, _Class, _ChordSection, _SecondaryBranchSection, _MainBranchSection, F_yc,
+                F_yb, theta_sec, theta_main, _SecondaryBranchForceType, _MainBranchForceType, IsTensionChord, P_uChord, M_uChord, O_v);
+
+                SteelLimitStateValue main = conMain.GetChordWallPlastificationStrength(true);
+                SteelLimitStateValue sec = conSec.GetChordWallPlastificationStrength(true);
+                phiP_nMain = main.Value;
+                phiP_nSec = sec.Value;
+
+                IsApplicableMain = main.IsApplicable;
+                IsApplicableSecn = sec.IsApplicable;
+            }
+
 
 
             return new Dictionary<string, object>

@@ -1,5 +1,5 @@
 #region Copyright
-   /*Copyright (C) 2015 Wosad Inc
+/*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -33,23 +33,23 @@ using Wosad.Steel.AISC.Entities;
 namespace Steel.AISC10.HSS
 {
 
-/// <summary>
-///     Branch yielding from uneven load distribution strength
-///     Category:   Steel.AISC10.HSS
-/// </summary>
-/// 
+    /// <summary>
+    ///     Branch yielding from uneven load distribution strength
+    ///     Category:   Steel.AISC10.HSS
+    /// </summary>
+    /// 
 
 
-    public partial class Truss 
+    public partial class Truss
     {
         /// <summary>
         ///     Branch yielding from uneven load distribution strength
         /// </summary>
-                /// <param name="HssTrussConnectionMemberType">  Specifies if the connection members are circular HSS (CHS) or rectangular HSS </param>
+        /// <param name="HssTrussConnectionMemberType">  Specifies if the connection members are circular HSS (CHS) or rectangular HSS </param>
         /// <param name="HssTrussConnectionClassification">  Distinguishes between T, Y, X, gapped K or overlapped K connection </param>
         /// <param name="MainBranchSection">  Section object (Tube or Pipe) </param>
         /// <param name="theta_main">  Angle between chord and main branch or overlapped branch  </param>
-        /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
+        /// <param name="AxialForceTypeMain">  Distinguishes between tension, compression or reversible force in main branch member </param>
         /// <param name="SecondaryBranchSection">  Section object (Tube or Pipe). Specify same section as main branch for T and Y connections </param>
         /// <param name="theta_sec">  Angle between chord and secondary branch or overlapping branch. Specify same angle as main branch for T and Y connections </param>
         /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
@@ -82,8 +82,8 @@ namespace Steel.AISC10.HSS
 
             HssTrussConnectionMemberType _MemberType;
             HssTrussConnectionClassification _Class;
-            BranchForceType _MainBranchForceType;
-            BranchForceType _SecondaryBranchForceType;
+            AxialForceType _MainBranchForceType;
+            AxialForceType _SecondaryBranchForceType;
 
 
             ISectionHollow _MainBranchSection;

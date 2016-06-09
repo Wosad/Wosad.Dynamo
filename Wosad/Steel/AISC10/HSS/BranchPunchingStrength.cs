@@ -1,5 +1,5 @@
 #region Copyright
-   /*Copyright (C) 2015 Wosad Inc
+/*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -33,15 +33,15 @@ using Wosad.Common.Section.Interfaces;
 namespace Steel.AISC10.HSS
 {
 
-/// <summary>
-///     Branch punching strength
-///     Category:   Steel.AISC10.HSS
-/// </summary>
-/// 
+    /// <summary>
+    ///     Branch punching strength
+    ///     Category:   Steel.AISC10.HSS
+    /// </summary>
+    /// 
 
 
 
-    public partial class Truss 
+    public partial class Truss
     {
         /// <summary>
         ///     Branch punching strength
@@ -50,7 +50,7 @@ namespace Steel.AISC10.HSS
         /// <param name="HssTrussConnectionClassification">  Distinguishes between T, Y, X, gapped K or overlapped K connection </param>
         /// <param name="MainBranchSection">  Section object (Tube or Pipe) </param>
         /// <param name="theta_main">  Angle between chord and main branch or overlapped branch  </param>
-        /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
+        /// <param name="AxialForceTypeMain">  Distinguishes between tension, compression or reversible force in main branch member </param>
         /// <param name="SecondaryBranchSection">  Section object (Tube or Pipe). Specify same section as main branch for T and Y connections </param>
         /// <param name="theta_sec">  Angle between chord and secondary branch or overlapping branch. Specify same angle as main branch for T and Y connections </param>
         /// <param name="AxialForceTypeSecondary">  Distinguishes between tension, compression or reversible force in main branch member </param>
@@ -72,70 +72,70 @@ namespace Steel.AISC10.HSS
             string AxialForceTypeMain, CustomProfile SecondaryBranchSection, double theta_sec, string AxialForceTypeSecondary, double F_yb, CustomProfile ChordSection, double F_yc, bool IsTensionChord, double P_uChord, double M_uChord, double O_v)
         {
             //Default values
-        double phiP_nMain = -1;
-        double phiP_nSec = -1;
-        bool IsApplicableMain = false;
-        bool IsApplicableSecn = false;
+            double phiP_nMain = -1;
+            double phiP_nSec = -1;
+            bool IsApplicableMain = false;
+            bool IsApplicableSecn = false;
 
             //Calculation logic:
 
-        #region Evaluate and update input
+            #region Evaluate and update input
 
-        HssTrussConnectionMemberType _MemberType;
-        HssTrussConnectionClassification _Class;
-        BranchForceType _MainBranchForceType;
-        BranchForceType _SecondaryBranchForceType;
-
-
-        ISectionHollow _MainBranchSection;
-        ISectionHollow _SecondaryBranchSection;
-        ISectionHollow _ChordSection;
-
-        bool IsValidMemType = Enum.TryParse(HssTrussConnectionMemberType, true, out _MemberType);
-        if (IsValidMemType == false)
-        {
-            throw new Exception("Failed to convert string. HssTrussConnectionMemberType must be either RHS (rectanguar HSS) or CHS (circular HSS) . Please check input.");
-        }
+            HssTrussConnectionMemberType _MemberType;
+            HssTrussConnectionClassification _Class;
+            AxialForceType _MainBranchForceType;
+            AxialForceType _SecondaryBranchForceType;
 
 
-        bool IsValidIClass = Enum.TryParse(HssTrussConnectionClassification, true, out _Class);
-        if (IsValidIClass == false)
-        {
-            throw new Exception("Failed to convert string. HssTrussConnectionClassification needs to specify T,Y,X, GappedK or Overlapped K connection type. Please check input.");
-        }
+            ISectionHollow _MainBranchSection;
+            ISectionHollow _SecondaryBranchSection;
+            ISectionHollow _ChordSection;
+
+            bool IsValidMemType = Enum.TryParse(HssTrussConnectionMemberType, true, out _MemberType);
+            if (IsValidMemType == false)
+            {
+                throw new Exception("Failed to convert string. HssTrussConnectionMemberType must be either RHS (rectanguar HSS) or CHS (circular HSS) . Please check input.");
+            }
 
 
-        bool IsValidMainForce = Enum.TryParse(AxialForceTypeMain, true, out _MainBranchForceType);
-        if (IsValidMainForce == false)
-        {
-            throw new Exception("Failed to convert string. Specify force as Tension, Compression or Reversible. Please check input.");
-        }
+            bool IsValidIClass = Enum.TryParse(HssTrussConnectionClassification, true, out _Class);
+            if (IsValidIClass == false)
+            {
+                throw new Exception("Failed to convert string. HssTrussConnectionClassification needs to specify T,Y,X, GappedK or Overlapped K connection type. Please check input.");
+            }
 
 
-        bool IsValidSecForce = Enum.TryParse(AxialForceTypeSecondary, true, out _SecondaryBranchForceType);
-        if (IsValidSecForce == false)
-        {
-            throw new Exception("Failed to convert string. Specify force as Tension, Compression or Reversible. Please check input.");
-        }
-
-        if (!(MainBranchSection.Section is ISectionHollow) || !(SecondaryBranchSection.Section is ISectionHollow) || !(ChordSection.Section is ISectionHollow))
-        {
-            throw new Exception("Failed to convert section. Section needs to be either a Pipe or a Tube. Please check input.");
-        }
-
-        _MainBranchSection = MainBranchSection.Section as ISectionHollow;
-        _SecondaryBranchSection = SecondaryBranchSection.Section as ISectionHollow;
-        _ChordSection = ChordSection.Section as ISectionHollow; 
-        #endregion
+            bool IsValidMainForce = Enum.TryParse(AxialForceTypeMain, true, out _MainBranchForceType);
+            if (IsValidMainForce == false)
+            {
+                throw new Exception("Failed to convert string. Specify force as Tension, Compression or Reversible. Please check input.");
+            }
 
 
-        HssTrussConnectionFactory factory = new HssTrussConnectionFactory();
+            bool IsValidSecForce = Enum.TryParse(AxialForceTypeSecondary, true, out _SecondaryBranchForceType);
+            if (IsValidSecForce == false)
+            {
+                throw new Exception("Failed to convert string. Specify force as Tension, Compression or Reversible. Please check input.");
+            }
+
+            if (!(MainBranchSection.Section is ISectionHollow) || !(SecondaryBranchSection.Section is ISectionHollow) || !(ChordSection.Section is ISectionHollow))
+            {
+                throw new Exception("Failed to convert section. Section needs to be either a Pipe or a Tube. Please check input.");
+            }
+
+            _MainBranchSection = MainBranchSection.Section as ISectionHollow;
+            _SecondaryBranchSection = SecondaryBranchSection.Section as ISectionHollow;
+            _ChordSection = ChordSection.Section as ISectionHollow;
+            #endregion
+
+
+            HssTrussConnectionFactory factory = new HssTrussConnectionFactory();
 
             IHssTrussBranchConnection conMain = factory.GetConnection(_MemberType, _Class, _ChordSection, _MainBranchSection, _SecondaryBranchSection, F_yc,
             F_yb, theta_main, theta_sec, _MainBranchForceType, _SecondaryBranchForceType, IsTensionChord, P_uChord, M_uChord, O_v);
 
-            IHssTrussBranchConnection conSec= factory.GetConnection(_MemberType, _Class, _ChordSection,_SecondaryBranchSection, _MainBranchSection,  F_yc,
-            F_yb,theta_sec, theta_main, _SecondaryBranchForceType,  _MainBranchForceType, IsTensionChord, P_uChord, M_uChord, O_v);
+            IHssTrussBranchConnection conSec = factory.GetConnection(_MemberType, _Class, _ChordSection, _SecondaryBranchSection, _MainBranchSection, F_yc,
+            F_yb, theta_sec, theta_main, _SecondaryBranchForceType, _MainBranchForceType, IsTensionChord, P_uChord, M_uChord, O_v);
 
             phiP_nMain = conMain.GetBranchPunchingStrength().Value;
             phiP_nSec = conSec.GetBranchPunchingStrength().Value;
@@ -150,11 +150,11 @@ namespace Steel.AISC10.HSS
                 ,{ "IsApplicableMain", IsApplicableMain }
                 ,{ "IsApplicableSecn", IsApplicableSecn }
               };
-            }
-
-
         }
+
+
     }
+}
 
 
 

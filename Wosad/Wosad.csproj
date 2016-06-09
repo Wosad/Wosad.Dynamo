@@ -159,8 +159,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.6.1\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.6.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.6.2\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -292,6 +292,9 @@
     <Compile Include="Steel\AISC10\Composite\Shapes\CompositeSectionGeneral.cs" />
     <Compile Include="Steel\AISC10\Composite\Shapes\CompositeSectionI.cs" />
     <Compile Include="Steel\AISC10\Composite\ShearStrengthOfHeadedAnchor.cs" />
+    <Compile Include="Steel\AISC10\Compression\FlexuralBucklingStrength.cs" />
+    <Compile Include="Steel\AISC10\Compression\Groups\Compression.cs" />
+    <Compile Include="Steel\AISC10\Compression\TorsionalAndFlexuralTorsionalBucklingStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\BasePlateBearingStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\BasePlateRhsShape.cs" />
     <Compile Include="Steel\AISC10\Connection\BasePlateChsShape.cs" />
@@ -397,7 +400,6 @@
     <Folder Include="Concrete\ACI318_14\Section\ShearAndTorsion\TwoWay\" />
     <Folder Include="Loads\ASCE7v10\Gravity\Ice\" />
     <Folder Include="Loads\ASCE7v10\Gravity\Snow\" />
-    <Folder Include="Steel\AISC10\Compression\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

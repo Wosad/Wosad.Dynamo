@@ -51,8 +51,8 @@ namespace Steel.AISC10.Connection.BasePlate.Shapes
         /// <param name="A_2">  Maximum area of the portion of the supporting surface that is geometrically similar to and concentric with the loaded area  </param>
         /// <param name="F_y">  Specified minimum yield stress </param>
         /// <param name="fc_prime"> </param>
-        /// <param name="d_c">Depth of column </param>
-        /// <param name="b_f">Flange width</param>
+        /// <param name="B">HSS column width </param>
+        /// <param name="H">HSS column depth</param>
         /// <returns name="BasePlateRhsShape"> Base plate Rectangular HSS shape object , created from input parameters </returns>
 
 
