@@ -13,7 +13,7 @@
 	<Grid x:Name="LayoutRoot" Height="30">
 		<StackPanel Height="30" Orientation="Horizontal">
 			<TextBlock TextWrapping="Wrap" Text="Component thickness" VerticalAlignment="Center" Margin="15,0,0,0"/>
-			<TextBox TextWrapping="Wrap" Text="{Binding NumericValue, Mode=TwoWay}" Width="70" Height="20" Margin="10,0,0,0"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding ComponentValue, Mode=TwoWay}" Width="70" Height="20" Margin="10,0,0,0"/>
 			<TextBlock TextWrapping="Wrap" Text="in." VerticalAlignment="Center" Margin="5,0,0,0"/>
 		</StackPanel>
 	</Grid>
