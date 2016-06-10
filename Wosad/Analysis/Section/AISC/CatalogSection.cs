@@ -28,6 +28,8 @@ using Wosad.Common.Section.Predefined;
 using Analysis.Section.SectionTypes;
 using shapes = Wosad.Common.Section.SectionTypes;
 using Wosad.Common.Entities;
+using Wosad.Common;
+using System;
 
 #endregion
 
@@ -40,10 +42,29 @@ namespace Analysis.Section.AISC
 
 
         [IsVisibleInDynamoLibrary(false)]
-        internal CatalogSection(string ShapeId)
+        internal CatalogSection(string ShapeId, string AngleOrientation, string AngleRotation)
         {
             AiscShapeFactory factory = new AiscShapeFactory();
-            ISection section = factory.GetShape(ShapeId, ShapeTypeSteel.IShapeRolled);
+            AngleOrientation ori = new AngleOrientation();
+            AngleRotation  rot = new Wosad.Common.AngleRotation();
+
+              AngleOrientation _AngleOrientation;
+              bool IsValidInputString = Enum.TryParse(AngleOrientation, true, out _AngleOrientation);
+                if (IsValidInputString == false)
+                {
+                        throw new Exception("Failed to convert string. Specifuy AngleOrientation. Please check input");
+                }
+
+                
+                AngleRotation _AngleRotation;
+                bool IsValidInputRotation = Enum.TryParse(AngleRotation, true, out _AngleRotation);
+                if (IsValidInputRotation == false)
+                {
+                    throw new Exception("Failed to convert string. Errormessage. Please check input");
+                }
+
+
+             ISection section = factory.GetShape(ShapeId, _AngleOrientation, _AngleRotation);
             //PredefinedSectionI catI = section as PredefinedSectionI;
             //ISliceableSection secI = new shapes.SectionIRolled("", catI.d, catI.b_fTop, catI.t_f, catI.t_w, catI.k);
             //Section = secI;
@@ -51,10 +72,10 @@ namespace Analysis.Section.AISC
         }
 
 
-        public static CatalogSection FromShapeId(string ShapeId)
+        public static CatalogSection FromShapeId(string ShapeId, string AngleOrientation = "LongLegVertical", string AngleRotation ="FlatLegBottom")
         {
 
-            return new CatalogSection(ShapeId);
+            return new CatalogSection(ShapeId, AngleOrientation, AngleRotation);
         }
     }
 }

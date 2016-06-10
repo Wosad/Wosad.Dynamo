@@ -143,8 +143,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Wosad.Common, Version=0.0.5.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.5.1\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.6.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.6.3\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.5.4, Culture=neutral, processorArchitecture=MSIL">
@@ -179,6 +179,8 @@
     <Compile Include="Nodes\Concrete\ACI318_14\General\Rebar\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Nodes\General\Flexure\AngleOrientation.cs" />
+    <Compile Include="Nodes\General\Flexure\AngleRotation.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\General\BuildingOccupancyIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Dead\ComponentIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancySelection.cs" />
@@ -229,6 +231,12 @@
     </Compile>
     <Compile Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml.cs">
       <DependentUpon>RebarSizeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\Flexure\AngleOrientationView.xaml.cs">
+      <DependentUpon>AngleOrientationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\Flexure\AngleRotationView.xaml.cs">
+      <DependentUpon>AngleRotationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loads\ASCE7v10\General\BuildingOccupancyIdView.xaml.cs">
       <DependentUpon>BuildingOccupancyIdView.xaml</DependentUpon>
@@ -461,6 +469,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\General\Flexure\AngleOrientationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\General\Flexure\AngleRotationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
