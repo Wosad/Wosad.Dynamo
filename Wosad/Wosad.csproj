@@ -325,7 +325,7 @@
     <Compile Include="Steel\AISC10\Connection\Groups\AffectedElements.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\BasePlateShapeObject.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\MinimumThickness.cs" />
-    <Compile Include="Steel\AISC10\Connection\Groups\Concrete.cs" />
+    <Compile Include="Steel\AISC10\Connection\Groups\Bearing.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\Bolted.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\Welded.cs" />
     <Compile Include="Steel\AISC10\Connection\GussetPlateConfigurationCompactness.cs" />

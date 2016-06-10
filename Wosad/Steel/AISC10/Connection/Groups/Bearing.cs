@@ -8,18 +8,17 @@ using Wosad.Steel.AISC;
 
 namespace Steel.AISC10.Connection.BasePlate
 {
-     [IsVisibleInDynamoLibrary(false)]
-    public partial class Concrete
+    public partial class Bearing
     {
 
-         internal Concrete()
+        internal Bearing()
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static Concrete ByInputParameters()
+        public static Bearing ByInputParameters()
         {
-            return new Concrete();
+            return new Bearing();
         }
     }
 }

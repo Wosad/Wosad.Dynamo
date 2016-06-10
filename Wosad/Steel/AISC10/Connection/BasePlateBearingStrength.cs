@@ -35,7 +35,7 @@ namespace Steel.AISC10.Connection.BasePlate
 
 
 
-    public partial class Concrete
+    public partial class Bearing
     {
         /// <summary>
         ///     Base plate bearing strength
@@ -51,7 +51,7 @@ namespace Steel.AISC10.Connection.BasePlate
 
 
             //Calculation logic:
-
+            phiP_p = BasePlateShape.Plate.GetphiP_p();
 
             return new Dictionary<string, object>
             {
