@@ -21,16 +21,15 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Dynamo.Graph.Nodes;
+using Wosad.Steel.AISC.SteelEntities;
+using Wosad.Steel.AISC.AISC360v10.Flexure;
+using Wosad.Steel.AISC.SteelEntities.Materials;
+using Wosad.Steel.AISC.Interfaces;
+using Wosad.Steel.AISC;
+using Wosad.Common.Section.Interfaces;
+using System;
 using Analysis.Section;
 using Wosad.Common.Entities;
-using Wosad.Common.Section.Interfaces;
-using Wosad.Steel.AISC.SteelEntities.Materials;
-using Wosad.Steel.AISC.AISC360v10.Flexure;
-using System;
-using Wosad.Steel.AISC.Interfaces;
-using Wosad.Steel.AISC.SteelEntities;
-using Wosad.Steel.AISC;
 
 #endregion
 
@@ -38,7 +37,7 @@ namespace Steel.AISC10
 {
 
 /// <summary>
-///     Flexural lateral-torsional buckling
+///     Flexural leg or stem local buckling
 ///     Category:   Steel.AISC10
 /// </summary>
 /// 
@@ -48,29 +47,30 @@ namespace Steel.AISC10
     public partial class Flexure 
     {
         /// <summary>
-        ///     Flexural lateral-torsional buckling
+        ///     Flexural leg or stem local buckling
         /// </summary>
-        /// <param name="Shape">  Shape object   </param>
+        /// <param name="Shape">  Shape object  </param>
+        /// <param name="F_y">  Specified minimum yield stress </param>
         /// <param name="BendingAxis">  Distinguishes between bending with respect to section x-axis vs x-axis </param>
         /// <param name="FlexuralCompressionLocation">  Identifies whether top or bottom fiber of the section are subject to flexural compression (depending on the sign of moment) </param>
-        /// <param name="F_y">  Specified minimum yield stress </param>
-        /// <param name="L_b">  Length between points that are either braced against lateral displacement of compression flange or braced against twist of the cross section   </param>
-        /// <param name="C_b"> Lateral-torsional buckling modification factor for nonuniform moment diagrams   </param>
-        /// <param name="FlexuralBracingCase">  Identifies the type of lateral bracing for a flexural member </param>
         /// <param name="E">  Modulus of elasticity of steel </param>
+        /// <param name="FlexuralBracingCase">  Identifies the type of lateral bracing for a flexural member </param>
         /// <param name="IsRolledMember">  Identifies if member is rolled or built up from individual plates or shapes </param>
         /// <returns name="phiM_n"> Moment strength </returns>
         /// <returns name="IsApplicableLimitState"> Identifies whether the selected limit state is applicable </returns>
 
         [MultiReturn(new[] { "phiM_n","IsApplicableLimitState" })]
-        public static Dictionary<string, object> FlexuralLateralTorsionalBuckling(CustomProfile Shape,string BendingAxis,string FlexuralCompressionLocation,double F_y,
-            double L_b, double C_b=1.0, string FlexuralBracingCase="NoLateralBracing", double E = 29000, bool IsRolledMember = true)
+        public static Dictionary<string, object> FlexuralLegOrStemLocalBuckling(CustomProfile Shape,
+            double F_y, string BendingAxis = "Axis", string FlexuralCompressionLocation = "Top", double E = 29000, 
+            string FlexuralBracingCase = "NoLateralBracing", bool IsRolledMember = true)
         {
+
             //Default values
             double phiM_n = 0;
             bool IsApplicableLimitState = false;
 
 
+            //Calculation logic:
             //Calculation logic:
 
             MomentAxis Axis;
@@ -103,19 +103,16 @@ namespace Steel.AISC10
             ISteelBeamFlexure beam = factory.GetBeam(Shape.Section, mat, null, Axis, FlexuralCompression, IsRolledMember);
 
 
-            SteelLimitStateValue LTB = beam.GetFlexuralLateralTorsionalBucklingStrength(C_b, L_b, FlexuralCompression, Bracing);
-            phiM_n = LTB.Value;
-
-            IsApplicableLimitState = LTB.IsApplicable;
+            SteelLimitStateValue StemBuckling = beam.GetFlexuralLegOrStemBucklingStrength( FlexuralCompression, Bracing);
+            phiM_n = StemBuckling.Value;
 
             return new Dictionary<string, object>
             {
                 { "phiM_n", phiM_n }
-                ,{ "IsApplicableLimitState", IsApplicableLimitState }
+            ,{ "IsApplicableLimitState", IsApplicableLimitState }
  
             };
         }
-
 
 
     }

@@ -159,8 +159,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.6.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.6.3\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.6.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.6.5\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -358,6 +358,7 @@
     <Compile Include="Steel\AISC10\Flexure\FlexuralCompressionFlangeYielding.cs" />
     <Compile Include="Steel\AISC10\Flexure\FlexuralFlangeLocalBuckling.cs" />
     <Compile Include="Steel\AISC10\Flexure\FlexuralLateralTorsionalBuckling.cs" />
+    <Compile Include="Steel\AISC10\Flexure\FlexuralLegOrStemLocalBuckling.cs" />
     <Compile Include="Steel\AISC10\Flexure\FlexuralTensionFlangeYielding.cs" />
     <Compile Include="Steel\AISC10\Flexure\FlexuralWebOrWallLocalBuckling.cs" />
     <Compile Include="Steel\AISC10\Flexure\FlexuralYielding.cs" />
