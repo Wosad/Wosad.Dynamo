@@ -47,6 +47,7 @@ namespace General
         /// <returns name="DCR_min"> Smallest demand to capacity ratio </returns>
         /// <returns name="DCR_max"> Largest demand to capacity ratio </returns>
 
+
         [MultiReturn(new[] { "DCR_min", "DCR_max"})]
         public static Dictionary<string, object> DemandToCapacityMultiple(List<double> DCRs)
         {
@@ -55,8 +56,8 @@ namespace General
             //if (DCRs is List<double>)
             //{
                 List<double> DCRflat = DCRs as List<double>;
-                DCR_min = DCRflat.Where(dc => dc >= 0).Min();
-                DCR_max = DCRflat.Where(dc => dc >= 0).Max();
+                DCR_min = DCRflat.Where(dc => dc > 0).Min();
+                DCR_max = DCRflat.Where(dc => dc > 0).Max();
 
             //}
             //else if (DCRs is List<List<double>>)
