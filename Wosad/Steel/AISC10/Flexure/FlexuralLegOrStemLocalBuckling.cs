@@ -71,7 +71,6 @@ namespace Steel.AISC10
 
 
             //Calculation logic:
-            //Calculation logic:
 
             MomentAxis Axis;
 

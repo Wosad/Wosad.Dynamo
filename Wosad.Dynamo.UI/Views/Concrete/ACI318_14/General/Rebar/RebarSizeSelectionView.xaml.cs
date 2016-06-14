@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Concrete.ACI318_14.General.Rebar
+namespace Wosad.Concrete.ACI318_14.General.Reinforcement
 {
     /// <summary>
     /// Interaction logic for Wosad.Concrete.ACI318_14.General.Rebar.RebarSizeSelectionView.xaml

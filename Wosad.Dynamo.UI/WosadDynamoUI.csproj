@@ -176,7 +176,7 @@
     <Compile Include="Nodes\Analysis\Beam\Torsion\BeamTorsionCaseSelection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Nodes\Concrete\ACI318_14\General\Rebar\RebarSizeSelection.cs">
+    <Compile Include="Nodes\Concrete\ACI318_14\General\Reinforcement\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Nodes\General\Flexure\AngleOrientation.cs" />

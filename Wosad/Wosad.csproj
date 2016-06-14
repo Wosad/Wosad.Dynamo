@@ -159,8 +159,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.6.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.6.5\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.6.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.6.6\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -295,64 +295,73 @@
     <Compile Include="Steel\AISC10\Compression\FlexuralBucklingStrength.cs" />
     <Compile Include="Steel\AISC10\Compression\Groups\Compression.cs" />
     <Compile Include="Steel\AISC10\Compression\TorsionalAndFlexuralTorsionalBucklingStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\BasePlateBearingStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\BasePlateRhsShape.cs" />
-    <Compile Include="Steel\AISC10\Connection\BasePlateChsShape.cs" />
-    <Compile Include="Steel\AISC10\Connection\BasePlateIShape.cs" />
-    <Compile Include="Steel\AISC10\Connection\BearingBoltNominalShearStress.cs" />
-    <Compile Include="Steel\AISC10\Connection\BearingBoltShearStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\BearingStrengthAtBoltHole.cs" />
-    <Compile Include="Steel\AISC10\Connection\BlockShearStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\BoltClearDistance.cs" />
-    <Compile Include="Steel\AISC10\Connection\BoltGroupBearingStrength.cs">
+    <Compile Include="Steel\AISC10\Connection\BasePlate\BasePlateBearingStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlate\BasePlateRhsShape.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlate\BasePlateChsShape.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlate\BasePlateIShape.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BearingBoltNominalShearStress.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BearingBoltShearStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BearingStrengthAtBoltHole.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\BlockShearStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltClearDistance.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltGroupBearingStrength.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Steel\AISC10\Connection\BoltGroupCoefficient.cs" />
-    <Compile Include="Steel\AISC10\Connection\BoltGroupShearAndTensionAreas.cs" />
-    <Compile Include="Steel\AISC10\Connection\BoltGroupStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\BoltHoleSize.cs" />
-    <Compile Include="Steel\AISC10\Connection\BoltNominalTensileStress.cs" />
-    <Compile Include="Steel\AISC10\Connection\BoltTensileStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\ConcentricallyLoadedBasePlateMinimumThickness.cs" />
-    <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInFlexure.cs" />
-    <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInShear.cs" />
-    <Compile Include="Steel\AISC10\Connection\ConnectedElementStrengthInTension.cs" />
-    <Compile Include="Steel\AISC10\Connection\CopedSectionStrengthInFlexure.cs" />
-    <Compile Include="Steel\AISC10\Connection\EccentricallyLoadedBasePlateMinimumThickness.cs" />
-    <Compile Include="Steel\AISC10\Connection\FilletWeldGroupConcentricLoadStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\FilletWeldGroupEccentricLoadStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\FlangeLocalBending.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltGroupCoefficient.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltGroupShearAndTensionAreas.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltGroupStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltHoleSize.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltNominalTensileStress.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\BoltTensileStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlate\ConcentricallyLoadedBasePlateMinimumThickness.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\ConnectedElementStrengthInFlexure.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\ConnectedElementStrengthInShear.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\ConnectedElementStrengthInTension.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\CopedSectionStrengthInFlexure.cs" />
+    <Compile Include="Steel\AISC10\Connection\BasePlate\EccentricallyLoadedBasePlateMinimumThickness.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\Groups\UniformForceMethod.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\GussetToBeamConnectionBetaIdeal.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\GussetToColumnConnectionAlphaIdeal.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\UFMForcesMomentAtBeamGussetInterface.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\UFMForcesMomentAtColumnGussetInterface.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\UFMForcesNoMomentsAtInterfaces.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\UFMForcesSpecialCase1.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\UFMForcesSpecialCase2.cs" />
+    <Compile Include="Steel\AISC10\Connection\UFM\UFMForcesSpecialCase3.cs" />
+    <Compile Include="Steel\AISC10\Connection\Welds\FilletWeldGroupConcentricLoadStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\Welds\FilletWeldGroupEccentricLoadStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\FlangeLocalBending.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\AffectedElements.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\BasePlateShapeObject.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\MinimumThickness.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\Bearing.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\Bolted.cs" />
     <Compile Include="Steel\AISC10\Connection\Groups\Welded.cs" />
-    <Compile Include="Steel\AISC10\Connection\GussetPlateConfigurationCompactness.cs" />
-    <Compile Include="Steel\AISC10\Connection\GussetPlateEffectiveCompressionLength.cs" />
-    <Compile Include="Steel\AISC10\Connection\MaximumTensileForceWithEffectsOfPryingAction.cs" />
-    <Compile Include="Steel\AISC10\Connection\MinimumPlateThicknessEffectsOfPryingAction.cs" />
-    <Compile Include="Steel\AISC10\Connection\ModifiedBoltShearStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\FilletWeldGroupCoefficient.cs" />
-    <Compile Include="Steel\AISC10\Connection\PlateStrengthInCompression .cs" />
-    <Compile Include="Steel\AISC10\Connection\Slip-CriticalBoltCombinedTensionAndShear.cs" />
-    <Compile Include="Steel\AISC10\Connection\Slip-CriticalBoltShearStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\GussetPlateConfigurationCompactness.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\GussetPlateEffectiveCompressionLength.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\MaximumTensileForceWithEffectsOfPryingAction.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\MinimumPlateThicknessEffectsOfPryingAction.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\ModifiedBoltShearStrength.cs" />
+    <Compile Include="Steel\AISC10\Connection\Welds\FilletWeldGroupCoefficient.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\PlateStrengthInCompression .cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\Slip-CriticalBoltCombinedTensionAndShear.cs" />
+    <Compile Include="Steel\AISC10\Connection\Bolts\Slip-CriticalBoltShearStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\Groups\ExtendedSingle.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\ExtendedSinglePlateFlexuralBucklingStrength.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\ExtendedSinglePlateMaxPlateThickness.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\ExtendedSinglePlateShearStrengthWithoutStabilizer.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\StabilizedExtendedSinglePlateTorsionalMoment.cs" />
     <Compile Include="Steel\AISC10\Connection\SpecialCase\SinglePlate\StabilizedExtendedSinglePlateTorsionalStrength.cs" />
-    <Compile Include="Steel\AISC10\Connection\TensionLoadedBasePlateMinimumThickness.cs" />
-    <Compile Include="Steel\AISC10\Connection\WebCompressionBuckling.cs" />
-    <Compile Include="Steel\AISC10\Connection\WebLocalCrippling.cs" />
-    <Compile Include="Steel\AISC10\Connection\WebLocalYielding.cs" />
-    <Compile Include="Steel\AISC10\Connection\WebPanelZoneShear.cs" />
-    <Compile Include="Steel\AISC10\Connection\WebSideswayBuckling.cs" />
-    <Compile Include="Steel\AISC10\Connection\WeldStrength.cs">
+    <Compile Include="Steel\AISC10\Connection\BasePlate\TensionLoadedBasePlateMinimumThickness.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\WebCompressionBuckling.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\WebLocalCrippling.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\WebLocalYielding.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\WebPanelZoneShear.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\WebSideswayBuckling.cs" />
+    <Compile Include="Steel\AISC10\Connection\Welds\WeldStrength.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Steel\AISC10\Connection\WhitmoreSectionWidth.cs" />
+    <Compile Include="Steel\AISC10\Connection\AffectedElements\WhitmoreSectionWidth.cs" />
     <Compile Include="Steel\AISC10\Flexure\BucklingModificationFactor.cs" />
     <Compile Include="Steel\AISC10\Flexure\BucklingModificationFactorByBeamCaseId.cs" />
     <Compile Include="Steel\AISC10\Flexure\FlexuralCompressionFlangeYielding.cs" />

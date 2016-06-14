@@ -34,7 +34,7 @@ using Concrete.ACI318_14.General.Concrete;
 namespace Concrete.ACI318_14.General
 {
 
-
+  [IsVisibleInDynamoLibrary(false)]
     public partial class ConcreteSection
     {
 
@@ -67,6 +67,7 @@ namespace Concrete.ACI318_14.General
 
         private ConcreteMaterial concreteMaterial;
 
+        [IsVisibleInDynamoLibrary(false)]
         public ConcreteMaterial ConcreteMaterial
         {
             get { return concreteMaterial; }

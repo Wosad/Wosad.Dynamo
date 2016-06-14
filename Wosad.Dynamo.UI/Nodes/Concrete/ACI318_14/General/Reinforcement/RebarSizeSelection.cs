@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Wosad.Concrete.ACI318_14.General.Rebar
+namespace Wosad.Concrete.ACI318_14.General.Reinforcement
 {
 
     /// <summary>
