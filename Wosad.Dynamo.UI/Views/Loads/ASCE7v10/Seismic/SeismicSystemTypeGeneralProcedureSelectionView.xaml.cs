@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Loads.ASCE7v10.Lateral.Seismic.BuildingFundamentalPeriod
+namespace Wosad.Loads.ASCE7.Lateral.Seismic.BuildingFundamentalPeriod
 {
     /// <summary>
     /// Interaction logic for Wosad.Loads.ASCE7v10.Lateral.Seismic.BuildingFundamentalPeriod.SeismicSystemTypeGeneralProcedureSelectionView.xaml

@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Loads.ASCE7v10.Lateral.Seismic.General
+namespace Wosad.Loads.ASCE7.Lateral.Seismic.General
 {
     /// <summary>
     /// Interaction logic for Wosad.Loads.ASCE7v10.Lateral.Seismic.General.SeismicDesignCategorySelectionView.xaml

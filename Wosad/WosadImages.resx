@@ -1412,7 +1412,7 @@
         RMpP7TGSGNvtZJUWgQLwv4E+l1x88/rHWK3+AgZ2TlzADK0QAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Loads.ASCE7v10.General.RiskCategory.BuildingRiskCategory.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Loads.ASCE7.General.RiskCategory.BuildingRiskCategory.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAF0ElEQVR4Xu2cy5HcNhRFJwOH
@@ -1443,7 +1443,7 @@
         Y4wxxhhjjDHGGGOMMcYYY4wxxhhjjDHGGPOOt7d/AdOBd7iva5ewAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Loads.ASCE7v10.General.RiskCategory.BuildingRiskCategory.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Loads.ASCE7.General.RiskCategory.BuildingRiskCategory.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFtSURBVFhH7Za9bcMwEIW1QUbwCBnBI3gEj+DSpUfw
@@ -1455,7 +1455,7 @@
         OWBj2yoJ8I1nXcLw71AlgS3clABlTJ+slMXXt2PHf0HX/QAuw8ndJ1XmSwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Loads.ASCE7v10.Gravity.Dead.ComponentWeight.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Loads.ASCE7.Gravity.Dead.ComponentWeight.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAC30lEQVR4Xu2cwYkUUBBEJwND
@@ -1474,7 +1474,7 @@
         EWiokQ9PAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Loads.ASCE7v10.Gravity.Dead.ComponentWeight.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Loads.ASCE7.Gravity.Dead.ComponentWeight.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC8SURBVFhH7ZXRDYMwDESzASMwQkdglI7RT0boGmzB
@@ -1483,7 +1483,7 @@
         erP+EaFiPULugo+KxhXm7K7FbONSA5AFtFcAjbbc+xumUg2olA9dE2IHcksAHgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Loads.ASCE7v10.Gravity.Live.UniformLiveLoad.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Loads.ASCE7.Gravity.Live.UniformLiveLoad.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADoklEQVR4Xu3dvVHcUBTFcTqg
@@ -1505,7 +1505,7 @@
         AAAAAAAAAICVOzq6B/Vf+/qEQSw2AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Loads.ASCE7v10.Gravity.Live.UniformLiveLoad.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Loads.ASCE7.Gravity.Live.UniformLiveLoad.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADDSURBVFhH7ZOxEQIhEEXp5EqgBEqwBEu40JASLMHU

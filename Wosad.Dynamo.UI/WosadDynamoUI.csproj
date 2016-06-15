@@ -176,21 +176,21 @@
     <Compile Include="Nodes\Analysis\Beam\Torsion\BeamTorsionCaseSelection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Nodes\Concrete\ACI318_14\General\Reinforcement\RebarSizeSelection.cs">
+    <Compile Include="Nodes\Concrete\ACI318\General\Reinforcement\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Nodes\General\Flexure\AngleOrientation.cs" />
     <Compile Include="Nodes\General\Flexure\AngleRotation.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\General\BuildingOccupancyIdSelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Dead\ComponentIdSelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Gravity\Live\LiveLoadOccupancySelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicDesignCategorySelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicLateralSystemIdSelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicSiteClass.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Seismic\SeismicSystemTypeGeneralProcedureSelection.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindExposureCategory.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindFace.cs" />
-    <Compile Include="Nodes\Loads\ASCE7v10\Lateral\Wind\WindVelocityLocation.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\General\BuildingOccupancyIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Gravity\Dead\ComponentIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Gravity\Live\LiveLoadOccupancySelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Seismic\SeismicDesignCategorySelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Seismic\SeismicLateralSystemIdSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Seismic\SeismicSiteClass.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Seismic\SeismicSystemTypeGeneralProcedureSelection.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Wind\WindExposureCategory.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Wind\WindFace.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Wind\WindVelocityLocation.cs" />
     <Compile Include="Nodes\Steel\AISC10\Combination\CombinedForcesMemberTypeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -845,14 +845,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Nodes\Concrete\ACI318_14\Compression\SectionStrength\" />
-    <Folder Include="Nodes\Concrete\ACI318_14\Compression\Stability\" />
-    <Folder Include="Nodes\Concrete\ACI318_14\Details\" />
-    <Folder Include="Nodes\Concrete\ACI318_14\Flexure\" />
-    <Folder Include="Nodes\Concrete\ACI318_14\General\Material\" />
-    <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
-    <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
-    <Folder Include="Nodes\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
+    <Folder Include="Nodes\Concrete\ACI318\Compression\SectionStrength\" />
+    <Folder Include="Nodes\Concrete\ACI318\Compression\Stability\" />
+    <Folder Include="Nodes\Concrete\ACI318\Details\" />
+    <Folder Include="Nodes\Concrete\ACI318\Flexure\" />
+    <Folder Include="Nodes\Concrete\ACI318\General\Material\" />
+    <Folder Include="Nodes\Concrete\ACI318\ShearAndTorsion\OneWay\" />
+    <Folder Include="Nodes\Concrete\ACI318\ShearAndTorsion\Torsion\" />
+    <Folder Include="Nodes\Concrete\ACI318\ShearAndTorsion\TwoWay\" />
     <Folder Include="Nodes\Steel\AISC10\Flexure\" />
     <Folder Include="Views\Concrete\ACI318_14\Compression\SectionStrength\" />
     <Folder Include="Views\Concrete\ACI318_14\Compression\Stability\" />

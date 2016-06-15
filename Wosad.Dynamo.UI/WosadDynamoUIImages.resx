@@ -506,7 +506,7 @@
         SHH/BSadqZLkAGNzpKXAz17jAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7v10.Gravity.Dead.ComponentIdSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Gravity.Dead.ComponentIdSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAABCUlEQVR4Xu3cwQnCQBRF0XRi
@@ -517,7 +517,7 @@
         AAAAAC63LF8jqNHSOM1pSAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7v10.Gravity.Dead.ComponentIdSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Gravity.Dead.ComponentIdSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABzSURBVFhHYxgFo2AUjAJcoPzGCnsaYX6oFfgBUOF+
@@ -525,7 +525,7 @@
         hKNgFAw4AKZWbFmIGng0G46CUTCYAAMDAE7Di/2i9FxPAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7v10.Gravity.Live.LiveLoadOccupancySelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Gravity.Live.LiveLoadOccupancySelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAFs0lEQVR4Xu2dwbWbOhRFXwcp
@@ -556,7 +556,7 @@
         8gdKnc8i0M+bpgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7v10.Gravity.Live.LiveLoadOccupancySelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Gravity.Live.LiveLoadOccupancySelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFLSURBVFhH7VbBbcJAEHQHlEAJlEAJlEAJPHlSAiXk
@@ -568,7 +568,7 @@
         AP1tVdjTFo1IAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7v10.Lateral.Wind.WindExposureCategory.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.WindExposureCategory.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAB4klEQVR4Xu3cwW3VUBCG0ddJ
@@ -583,7 +583,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7v10.Lateral.Wind.WindExposureCategory.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.WindExposureCategory.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACgSURBVFhH7ZC9EYMwGEO9ASMwCqNkDMqMkpYtWCMd

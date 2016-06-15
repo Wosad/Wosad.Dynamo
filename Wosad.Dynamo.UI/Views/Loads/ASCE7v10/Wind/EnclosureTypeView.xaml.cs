@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Loads.ASCE7v10.Lateral.Wind
+namespace Loads.ASCE7.Lateral.Wind
 {
     /// <summary>
     /// Interaction logic for Loads.ASCE7v10.Lateral.Wind.EnclosureTypeView.xaml
