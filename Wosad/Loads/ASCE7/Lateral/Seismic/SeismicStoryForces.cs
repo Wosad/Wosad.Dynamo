@@ -45,10 +45,11 @@ namespace Loads.ASCE7.Lateral.Seismic
         /// <param name="C_s">Seismic response coefficient which multiplied by the building seismic weight, gives the building seismic base shear (lateral pseudo-acceleration, expressed in units of gravity)</param>
         /// <param name="StoryElevationsFromBase">  List of elevations (ft) fom building base of individual stories or lumped masses </param>
         /// <param name="StoryWeights">  List of story weights  (lumped masses) corresponding to the list of story elevations </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="StoryForces"> List of individual story forces </returns>
 
         [MultiReturn(new[] { "StoryForces" })]
-        public static Dictionary<string, object> SeismicStoryForces(double T, double C_s, List<double> StoryElevationsFromBase,List<double> StoryWeights)
+        public static Dictionary<string, object> SeismicStoryForces(double T, double C_s, List<double> StoryElevationsFromBase, List<double> StoryWeights, string Code = "ASCE7-10")
         {
             //Default values
             List<double> StoryForces = new List<double>();
@@ -57,7 +58,7 @@ namespace Loads.ASCE7.Lateral.Seismic
             //Calculation logic:
             CalcLog log = new CalcLog();
             SeismicLateralForceResistingStructure structure = new SeismicLateralForceResistingStructure(log);
-            //StoryForces = structure.CalculateSeismicLoads(T, C_s, StoryElevationsFromBase, StoryWeights);
+            StoryForces = structure.CalculateSeismicLoads(T, C_s, StoryElevationsFromBase, StoryWeights);
 
             return new Dictionary<string, object>
             {

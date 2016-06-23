@@ -42,10 +42,11 @@ namespace Loads.ASCE7.Lateral.Seismic
         /// <param name="C_u">  Coefficient for upper limit on  calculated period </param>
         /// <param name="T_a">  Approximate fundamental period of the building </param>
         /// <param name="T_calc">Calculated fundamental period of the building</param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="T"> Fundamental period of the building </returns>
 
         [MultiReturn(new[] { "T" })]
-        public static Dictionary<string, object> BuildingFundamentalPeriodForSeismicLoads(double C_u,double T_a, double T_calc)
+        public static Dictionary<string, object> BuildingFundamentalPeriodForSeismicLoads(double C_u, double T_a, double T_calc, string Code = "ASCE7-10")
         {
             //Default values
             double T = 0;

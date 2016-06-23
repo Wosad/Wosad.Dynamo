@@ -42,10 +42,11 @@ namespace Loads.ASCE7.Lateral.Wind
         ///     Wind directionality factor
         /// </summary>
         /// <param name="WindStructureDescriptionForExposure">  Description of the structure for exposure category determination </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="K_d"> Wind directionality factor </returns>
 
         [MultiReturn(new[] { "K_d" })]
-        public static Dictionary<string, object> WindDirectionalityFactor(string WindStructureDescriptionForExposure="MWFRS")
+        public static Dictionary<string, object> WindDirectionalityFactor(string WindStructureDescriptionForExposure = "MWFRS", string Code = "ASCE7-10")
         {
             //Default values
             double K_d = 0;

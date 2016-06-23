@@ -31,7 +31,7 @@ namespace Analysis.Section.AISC
 
 /// <summary>
 ///     AISC shape basic geometric properties
-///     Category:   Steel.AISC_10.General
+///     Category:   Steel.AISC.General
 /// </summary>
 /// 
 
@@ -48,14 +48,14 @@ namespace Analysis.Section.AISC
         /// <returns name="k"> Distance from outer face of flange to the web toe of fillet  </returns>
         /// <returns name="D"> Outside diameter of round HSS  </returns>
         /// <returns name="B"> Overall width of rectangular steel section along face transferring load or overall width of rectangular HSS member  </returns>
-        /// <returns name="H_t"> Overall depth of square or rectangular HSS </returns>
+        /// <returns name="H"> Overall depth of square or rectangular HSS </returns>
         /// <returns name="t"> Thickness of element plate or element wall  </returns>
         /// <returns name="t_nom"> HSS and pipe nominal wall thickness </returns>
         /// <returns name="t_des"> HSS and pipe design wall thickness </returns>
         /// <returns name="b"> Width of flat for HSS or leg length for angle </returns>
         ///  <returns name="A"> Cross-sectional area </returns>
 
-        [MultiReturn(new[] { "d", "b_f", "t_f", "t_w", "k", "D", "B", "H_t", "t", "t_nom", "t_des", "b", "A" })]
+        [MultiReturn(new[] { "d", "b_f", "t_f", "t_w", "k", "D", "B", "H", "t", "t_nom", "t_des", "b", "A" })]
         public static Dictionary<string, object> ShapeBasicGeometricProperties(string SteelShapeId)
         {
             //Default values
@@ -67,7 +67,7 @@ namespace Analysis.Section.AISC
             double k = 0;
             double D = 0;
             double B = 0;
-            double H_t = 0;
+            double H = 0;
             double t = 0;
             double t_nom = 0;
             double t_des = 0;
@@ -84,7 +84,7 @@ namespace Analysis.Section.AISC
             D = shape.OD;
             b = shape.b;
             B = shape.B;
-            H_t = shape.Ht;
+            H = shape.Ht;
             t = shape.t;
             t_nom = shape.tnom;
             t_des = shape.tdes;
@@ -99,7 +99,7 @@ namespace Analysis.Section.AISC
                 ,{ "k", k }
                 ,{ "D", D }
                 ,{ "B", B }
-                ,{ "H_t", H_t }
+                ,{ "H", H }
                 ,{ "t", t }
                 ,{ "t_nom", t_nom }
                 ,{ "t_des", t_des }
@@ -108,16 +108,6 @@ namespace Analysis.Section.AISC
             };
         }
 
-
-        //internal CatalogShapeProperties (string SteelShapeId)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static CatalogShapeProperties  ByInputParameters(string SteelShapeId)
-        //{
-        //    return new CatalogShapeProperties(SteelShapeId );
-        //}
 
     }
 }

@@ -46,13 +46,14 @@ namespace Loads.ASCE7.Lateral.Seismic
         /// <param name="SeismicLateralSystemId">  Id of the lateral system from ASCE7-10 table 12.2-1 </param>
         /// <param name="SeismicDesignCategory"> Seismic design category (SDC)</param>
         /// <param name="CheckSystemApplicabilityForSDC">Indicates if applicability of selected system for a given SDC is checked</param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="R"> Resonant response factor </returns>
         /// <returns name="C_d"> Deflection amplification factor </returns>
         /// <returns name="Omega_0"> Overstrength factor </returns>
 
         [MultiReturn(new[] { "R","C_d","Omega_0" })]
-        public static Dictionary<string, object> SeismicLateralSystemDesignCoefficientsAndFactors(string SeismicLateralSystemId, 
-            string SeismicDesignCategory="B", bool CheckSystemApplicabilityForSDC=false)
+        public static Dictionary<string, object> SeismicLateralSystemDesignCoefficientsAndFactors(string SeismicLateralSystemId,
+            string SeismicDesignCategory = "B", bool CheckSystemApplicabilityForSDC = false, string Code = "ASCE7-10")
         {
             //Default values
             double R = 0;

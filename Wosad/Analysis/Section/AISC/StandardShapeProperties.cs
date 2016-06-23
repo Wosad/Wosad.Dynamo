@@ -30,7 +30,7 @@ namespace Analysis.Section.AISC
 
 /// <summary>
 ///     AISC shape properties
-///     Category:   Steel.AISC_10.General
+///     Category:   Steel.AISC.General
 /// </summary>
 /// 
 

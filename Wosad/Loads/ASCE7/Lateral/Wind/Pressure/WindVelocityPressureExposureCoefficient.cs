@@ -47,10 +47,11 @@ namespace Loads.ASCE7.Lateral.Wind
         /// <param name="z_g">  Nominal height of the atmospheric boundary layer (ft) </param>
         /// <param name="alpha">  3-sec gust-speed power law exponent </param>
         /// <param name="WindVelocityLocation">  Location type for wind velocity used in pressure calculations </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="K_z"> Velocity pressure exposure coefficient evaluated at height z (or h) </returns>
 
         [MultiReturn(new[] { "K_z" })]
-        public static Dictionary<string, object> WindVelocityPressureExposureCoefficient(double z,double z_g,double alpha,string WindVelocityLocation="Wall")
+        public static Dictionary<string, object> WindVelocityPressureExposureCoefficient(double z, double z_g, double alpha, string WindVelocityLocation = "Wall", string Code = "ASCE7-10")
         {
 
 

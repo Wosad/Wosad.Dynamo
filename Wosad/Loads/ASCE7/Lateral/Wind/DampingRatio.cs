@@ -43,10 +43,11 @@ namespace Loads.ASCE7.Lateral.Wind
         ///     Wind gust effect factor accounting for the dynamic interaction between the building and the structure . 
         /// </summary>
         /// <param name="WindMaterialDampingType">  Type of material for determining inherent structural damping </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="beta"> Damping ratio, percent critical for buildings or other structures </returns>
 
         [MultiReturn(new[] { "beta" })]
-        public static Dictionary<string, object> DampingRatio(string WindMaterialDampingType="Steel")
+        public static Dictionary<string, object> DampingRatio(string WindMaterialDampingType = "Steel", string Code = "ASCE7-10")
         {
             //Default values
             double beta = 0;

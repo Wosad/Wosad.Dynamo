@@ -44,10 +44,11 @@ namespace Concrete.ACI318.Section.OneWayShear
         /// <param name="f_yt">   Specified yield strength of transverse reinforcement  </param>
         /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
         /// <param name="s">   Center-to-center spacing of items, such as longitudinal reinforcement, transverse reinforcement,  tendons, or anchors  </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="phiV_s">  Design shear strength provided by shear reinforcement  </returns>
 
         [MultiReturn(new[] { "phiV_s" })]
-        public static Dictionary<string, object> OneWayShearStrengthProvidedByRebar(double A_v,double f_yt,double d,double s)
+        public static Dictionary<string, object> OneWayShearStrengthProvidedByRebar(double A_v, double f_yt, double d, double s, string Code = "ACI318-14")
         {
             //Default values
             double phiV_s = 0;

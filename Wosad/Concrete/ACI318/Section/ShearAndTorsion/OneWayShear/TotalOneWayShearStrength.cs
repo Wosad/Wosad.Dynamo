@@ -42,10 +42,11 @@ namespace Concrete.ACI318.Section.OneWayShear
         /// </summary>
         /// <param name="phiV_c">   Design shear strength provided by concrete  </param>
         /// <param name="phiV_s">   Design shear strength provided by shear reinforcement  </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="phiV_n">  Design shear strength  </returns>
 
         [MultiReturn(new[] { "phiV_n" })]
-        public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c,double phiV_s)
+        public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c, double phiV_s, string Code = "ACI318-14")
         {
             //Default values
             

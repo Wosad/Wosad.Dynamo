@@ -44,11 +44,12 @@ namespace Loads.ASCE7.Lateral.Seismic
         /// <param name="S_S">  Mapped mcer, 5 percent damped, spectral response acceleration parameter at short periods </param>
         /// <param name="S_1">  Mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
         /// <param name="SiteClass">  Seismic site class (as a function of soil type) </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="F_a"> Short-period site coefficient (at 0.2 s-period) </returns>
         /// <returns name="F_v"> Long-period site coefficient (at 1.0 s-period) </returns>
 
         [MultiReturn(new[] { "F_a","F_v" })]
-        public static Dictionary<string, object> SeismicSiteCoefficients(double S_S,double S_1,string SiteClass)
+        public static Dictionary<string, object> SeismicSiteCoefficients(double S_S, double S_1, string SiteClass, string Code = "ASCE7-10")
         {
             //Default values
         double F_a = 0;

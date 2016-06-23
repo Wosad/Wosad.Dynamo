@@ -41,10 +41,11 @@ namespace Loads.ASCE7.Gravity
         ///    Calculates Minimum uniformly distributed live load (PSF UNITS)
         /// </summary>
         /// <param name="SpaceOccupancyId">  description of space for calculation of live loads</param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns>  Uniformly distributed live load </returns>
         /// 
         [MultiReturn(new[] { "q_L" })]
-        public static Dictionary<string, object> UniformLiveLoad(string SpaceOccupancyId)
+        public static Dictionary<string, object> UniformLiveLoad(string SpaceOccupancyId, string Code = "ASCE7-10")
         {
             //Default values
             double q_L = 0;

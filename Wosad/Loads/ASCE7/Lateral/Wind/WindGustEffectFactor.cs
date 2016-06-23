@@ -52,11 +52,12 @@ namespace Loads.ASCE7.Lateral.Wind
         /// <param name="V">  Basic wind speed (MPH) </param>
         /// <param name="WindExposureCategory">  Exposure category for wind calculation </param>
         /// <param name="WindStructureDynamicResponseType">  Type of wind dynamic response (flexible or rigid) </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="G"> Gust-effect factor </returns>
 
         [MultiReturn(new[] { "G" })]
         public static Dictionary<string, object> WindGustEffectFactor(double B,double h,double L,double beta,double n_1,double V,
-            string WindExposureCategory, string WindStructureDynamicResponseType="Flexible")
+            string WindExposureCategory, string WindStructureDynamicResponseType = "Flexible", string Code = "ASCE7-10")
         {
             //Default values
             double G = 0;

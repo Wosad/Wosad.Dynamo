@@ -39,17 +39,18 @@ namespace Loads.ASCE7.Lateral.Seismic
 
     public partial class General 
     {
-/// <summary>
-///     Seismic Design Category (SDC)  classification assigned to a structure based on its Risk Category  and the severity of the design earthquake ground motion at the site 
-/// </summary>
+        /// <summary>
+        ///     Seismic Design Category (SDC)  classification assigned to a structure based on its Risk Category  and the severity of the design earthquake ground motion at the site 
+        /// </summary>
         /// <param name="BuildingRiskCategory">  Building risk category </param>
-/// <param name="S_DS">  Design, 5 percent damped, spectral response acceleration parameter at short periods </param>
-/// <param name="S_D1">  Design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
-/// <param name="S_1">  Mapped mcer, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
+        /// <param name="S_DS">  Design, 5 percent damped, spectral response acceleration parameter at short periods </param>
+        /// <param name="S_D1">  Design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
+        /// <param name="S_1">  Mapped mcer, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="SeismicDesignCategory"> Seismic design category (SDC) </returns>
 
         [MultiReturn(new[] { "SeismicDesignCategory" })]
-        public static Dictionary<string, object> SeismicDesignCategory(string BuildingRiskCategory,double S_DS,double S_D1,double S_1)
+        public static Dictionary<string, object> SeismicDesignCategory(string BuildingRiskCategory, double S_DS, double S_D1, double S_1, string Code = "ASCE7-10")
         {
             //Default values
             string SeismicDesignCategory = "";

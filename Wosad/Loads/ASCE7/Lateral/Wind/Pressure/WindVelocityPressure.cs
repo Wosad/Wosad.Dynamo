@@ -48,10 +48,11 @@ namespace Loads.ASCE7.Lateral.Wind
         /// <param name="K_d">  Wind directionality factor </param>
         /// <param name="V">  Basic wind speed (miles per hour) </param>
         /// <param name="WindVelocityLocation">  Location type for wind velocity used in pressure calculations </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="q_z"> Velocity pressure evaluated at height z above ground (psf) </returns>
 
         [MultiReturn(new[] { "q_z" })]
-        public static Dictionary<string, object> WindVelocityPressure(double K_z,double K_zt,double K_d,double V,string WindVelocityLocation="Wall")
+        public static Dictionary<string, object> WindVelocityPressure(double K_z, double K_zt, double K_d, double V, string WindVelocityLocation = "Wall", string Code = "ASCE7-10")
         {
         //public static double WindVelocityPressure(double K_z, double K_zt, double K_d, double V, string WindVelocityLocation = "Wall")
         //{

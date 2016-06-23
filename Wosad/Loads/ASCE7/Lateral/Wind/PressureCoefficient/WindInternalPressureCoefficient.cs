@@ -43,10 +43,11 @@ namespace Loads.ASCE7.Lateral.Wind
         ///     Wind internal pressure coefficient  accounting for the effects of the internal pressure on the component wind pressures 
         /// </summary>
         /// <param name="WindEnclosureType">  Type of enclosure (open, partially-enclosed or enclosed)  </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="GC_pi"> Product of internal pressure coefficient and gust-effect factor to be used in determination of wind loads for buildings </returns>
 
         [MultiReturn(new[] { "GC_pi" })]
-        public static Dictionary<string, object> WindInternalPressureCoefficient(string WindEnclosureType ="Enclosed")
+        public static Dictionary<string, object> WindInternalPressureCoefficient(string WindEnclosureType = "Enclosed", string Code = "ASCE7-10")
         {
             //Default values
             double GC_pi = 0;

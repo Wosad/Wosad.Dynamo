@@ -48,10 +48,11 @@ namespace Loads.ASCE7.Lateral.Seismic
         /// <param name="R">  Resonant response factor </param>
         /// <param name="I_e">  Seismic importance factor  </param>
         /// <param name="S_1">  Mapped MCER, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="C_s"> Seismic response coefficient which multiplied by the building seismic weight, gives the building seismic base shear (lateral pseudo-acceleration, expressed in units of gravity) </returns>
 
         [MultiReturn(new[] { "C_s" })]
-        public static Dictionary<string, object> SeismicResponseCoefficient(double T,double S_DS,double S_D1,double T_L,double R,double I_e,double S_1)
+        public static Dictionary<string, object> SeismicResponseCoefficient(double T, double S_DS, double S_D1, double T_L, double R, double I_e, double S_1, string Code = "ASCE7-10")
         {
             //Default values
             double C_s = 0;

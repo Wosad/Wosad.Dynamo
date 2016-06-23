@@ -44,6 +44,7 @@ namespace Loads.ASCE7.Lateral.Wind
         ///     Terrain exposure constants, as a function of Exposure Category . 
         /// </summary>
         /// <param name="WindExposureCategory">  Exposure category for wind calculation </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="alpha"> 3-sec gust-speed power law exponent </returns>
         /// <returns name="z_g"> Nominal height of the atmospheric boundary layer (FT) </returns>
         /// <returns name="alpha_"> Mean hourly wind-speed power law exponent </returns>
@@ -54,7 +55,7 @@ namespace Loads.ASCE7.Lateral.Wind
         /// <returns name="z_min"> Exposure constant </returns>
 
         [MultiReturn(new[] { "alpha","z_g","alpha_","b_","c","l","epsilon_","z_min" })]
-        public static Dictionary<string, object> WindExposureConstants(string WindExposureCategory)
+        public static Dictionary<string, object> WindExposureConstants(string WindExposureCategory, string Code = "ASCE7-10")
         {
             //Default values
             double alpha = 0;

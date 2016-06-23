@@ -48,10 +48,11 @@ namespace Loads.ASCE7.Lateral.Wind
         /// <param name="B">  Horizontal dimension of building measured normal to wind direction </param>
         /// <param name="L">  Horizontal dimension of a building measured parallel to the wind direction </param>
         /// <param name="WindFaceType">  Type of face relative to wind direction (windward, leeward or side)  </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="C_p"> External pressure coefficient to be used in determination of wind loads for buildings </returns>
 
         [MultiReturn(new[] { "C_p" })]
-        public static Dictionary<string, object> ExternalPressureCoefficientMWFRS(double B,double L, string WindFaceType)
+        public static Dictionary<string, object> ExternalPressureCoefficientMWFRS(double B, double L, string WindFaceType, string Code = "ASCE7-10")
         {
             //Default values
             double C_p = 0;

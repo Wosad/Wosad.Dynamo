@@ -36,7 +36,8 @@
                            Mode=TwoWay,
                            UpdateSourceTrigger=PropertyChanged}" 
                    VerticalAlignment="Center" HorizontalAlignment="Center"  
-			Grid.Row="0" />
+
+			Grid.Row="0" Margin="4,0" />
 
         
         <UserControl x:Name="ComboboxWrapper" Grid.Row="1">

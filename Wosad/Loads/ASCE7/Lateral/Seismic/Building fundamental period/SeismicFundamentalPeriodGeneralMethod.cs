@@ -43,10 +43,11 @@ namespace Loads.ASCE7.Lateral.Seismic
         /// </summary>
         /// <param name="h_n">  Structural height defined as  the vertical distance  from the base to the highest level of the seismic force-resisting system of the structure.   </param>
         /// <param name="SeismicSystemTypeGeneralProcedure">Seismic lateral system type (used in approximate procedure for fundamental period determination)</param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="T_a"> Approximate fundamental period of the building </returns>
 
         [MultiReturn(new[] { "T_a" })]
-        public static Dictionary<string, object> SeismicFundamentalPeriodGeneralMethod(double h_n, string SeismicSystemTypeGeneralProcedure)
+        public static Dictionary<string, object> SeismicFundamentalPeriodGeneralMethod(double h_n, string SeismicSystemTypeGeneralProcedure, string Code = "ASCE7-10")
         {
             //Default values
             double T_a = 0;

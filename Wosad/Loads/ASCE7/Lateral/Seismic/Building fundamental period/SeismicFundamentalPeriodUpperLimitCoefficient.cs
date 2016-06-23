@@ -41,10 +41,11 @@ namespace Loads.ASCE7.Lateral.Seismic
         ///     Coefficient  for upper limit on  calculated period  
         /// </summary>
         /// <param name="S_D1">  Design, 5 percent damped, spectral response acceleration parameter at a period of 1 s </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="C_u"> Coefficient for upper limit on  calculated period </returns>
 
         [MultiReturn(new[] { "C_u" })]
-        public static Dictionary<string, object> SeismicFundamentalPeriodUpperLimitCoefficient(double S_D1)
+        public static Dictionary<string, object> SeismicFundamentalPeriodUpperLimitCoefficient(double S_D1, string Code = "ASCE7-10")
         {
             //Default values
             double C_u = 0;

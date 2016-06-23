@@ -592,7 +592,7 @@
         yu0FjDHmpoTwAUUX1rod2tLVAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Combination.CombinedForcesMemberTypeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Combination.CombinedForcesMemberTypeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAASTSURBVHhe7Z3hUeMwFITpgBIogRkaoIQrgRIogRIo
@@ -618,7 +618,7 @@
         F3y7Znz3QDL0AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Combination.CombinedForcesMemberTypeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Combination.CombinedForcesMemberTypeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEhSURBVFhH7ZZ9DYMwEMVxgIRJIMEAEiYBCZOAhEmY
@@ -629,7 +629,7 @@
         7GdxJnd1/dFI3CTqdurUoZVlbzckEpEqIp8GAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Composite.Anchor.DeckConditionSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Composite.Anchor.DeckConditionSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAW9SURBVHhe7Zy9cdtAEIXVgUtwCZpxAxpXoNQzDhQ5
@@ -660,7 +660,7 @@
         CFWCCcFlPQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Composite.Anchor.DeckConditionSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Composite.Anchor.DeckConditionSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFqSURBVFhH7ZTBbYNAEEXpgBIoAckNUELkCijBN1+5
@@ -672,7 +672,7 @@
         9wekqJvtWj9EhlF4ZtZRPHmqzS3gobv/0FJErBlJ8gVsQJ+VZ2nPYAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Composite.Anchor.HeadedAnchorWeldCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Composite.Anchor.HeadedAnchorWeldCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAPPSURBVHhe7ZvLUeNAFEWdgUMgBKpIgBAIgRVrQiCE
@@ -695,7 +695,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Composite.Anchor.HeadedAnchorWeldCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Composite.Anchor.HeadedAnchorWeldCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEFSURBVFhH7ZXRDYIwFEXZgBEYgYQFGMER+OLbEfjh
@@ -706,7 +706,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.AffectedElements.BeamCopeCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.AffectedElements.BeamCopeCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAThSURBVHhe7Z3BUdtgFITpgBIogZkUACVwzY1TzpSQ
@@ -733,7 +733,7 @@
         jDHGGGOMMcYYY4wxxpiZcXT0F1nX10sezWP5AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.AffectedElements.BeamCopeCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.AffectedElements.BeamCopeCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAElSURBVFhH7ZbBDYJAEEXpwBIsgYQCtARK8MTZDrQE
@@ -744,7 +744,7 @@
         S5jxWGKNqdi5WByYY3/HvD9Fr98oCF7BZMtaFJScQgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltDiameterSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltDiameterSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAWbSURBVHhe7Zw9ktNKFEZnB28JLOFVsQBYAAEpGREx
@@ -774,7 +774,7 @@
         EPkAAAAAAAAAAAAAAAAAAAAAAAAjcHHxH3TjsSmkWhS/AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltDiameterSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltDiameterSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFwSURBVFhH7ZaxrcIwFEWzASMwQiQGgAEoaOmoqJEY
@@ -786,7 +786,7 @@
         kFk5l4FrzWuY7zpEdXlZcl7tvVcg4a4mlTw4EPP1+x/5lw8kiq5PoTRK0H2g+QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltFayingSurfaceSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltFayingSurfaceSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAUiSURBVHhe7Z09ktNAEIX3Bhxhj0AVF+AABByAYCNi
@@ -814,7 +814,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAANVycfEHKq8GdTj5LOkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltFayingSurfaceSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltFayingSurfaceSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFmSURBVFhH7VYxjsIwEMwPeAJPQMoH4Ac0FEgUqaj5
@@ -826,7 +826,7 @@
         8ENinzyV7f4BsWETICDIfjDvdfO3PSDg8xBFb4XpUlWbySTKAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltFillerCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltFillerCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAS8SURBVHhe7Z3LbRsxEIbdQUpICQHSQEpwCT7lbKSC
@@ -853,7 +853,7 @@
         YII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltFillerCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltFillerCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEeSURBVFhH7ZbdDYIwFIXZwBEcgYQFGMERGME3XhnB
@@ -864,7 +864,7 @@
         AEFC9oP+rnN5lEhsiSx7AxezMw/LKXctAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltHoleDeformationSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltHoleDeformationSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAhpSURBVHhe7Z3NkdQwEIXJgBAIgSoCYEMgBEIghL3s
@@ -906,7 +906,7 @@
         GGOMMcYYY4wxxhhjjDHGGGPMZfPu3X+fqu8P8WVkmwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltHoleDeformationSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltHoleDeformationSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHISURBVFhH7ZU9isJQFIWzA5fgEgQ34JR2LsDCWhDs
@@ -920,7 +920,7 @@
         aPD3CIJPKofXWNUiq3EAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltHoleTypeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltHoleTypeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAa9SURBVHhe7Z09jhQ7FIVnB28JLAGJBTQLmIB0MiJi
@@ -955,7 +955,7 @@
         EEIIIYQQQgghRAqurv4HPm2tzXaaJWwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltHoleTypeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltHoleTypeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGTSURBVFhH7ZY9joJQFIXZgUtwCZO4AFmAxbR2VtYm
@@ -968,7 +968,7 @@
         c2n1/1s2MDDgRxC8AdZjuxxrmEMwAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltThreadInclusionSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltThreadInclusionSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAgTSURBVHhe7Z2/btRMFMXzBjxCHiESD0AegCItUopU
@@ -1009,7 +1009,7 @@
         opN5dZcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.BoltThreadInclusionSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.BoltThreadInclusionSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGlSURBVFhH7VY7jsIwFMwN9gg5AhIXyBG2oaNIRZ2O
@@ -1022,7 +1022,7 @@
         ibRWznFov4CQcec89R78BQP0iVXf7X5+xQf0C8e5Az/MNkHE4l7QAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.GussetConfigurationSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.GussetConfigurationSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAASsSURBVHhe7Z3NbdxIGEQnA4XgEBZwAgrBIfjks0PY
@@ -1048,7 +1048,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAADA4XA4/AdhpiAVCmgzhgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.GussetConfigurationSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.GussetConfigurationSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFQSURBVFhH7ZbNbcJAFITdASWkBCQacAkpwSWkBErI
@@ -1060,7 +1060,7 @@
         Jp5AVf0CPpfvzZGVmi8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.LoadTypeAndDirection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.LoadTypeAndDirection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAVzSURBVHhe7d3tUeNKEIVhMiAEQtiqTYAQCIEQNgRC
@@ -1090,7 +1090,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.LoadTypeAndDirection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.LoadTypeAndDirection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFJSURBVFhH7ZXRbYMwGITZgBEYIVIW6AgdISN0BEbo
@@ -1102,7 +1102,7 @@
         8MywULAbpgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.ShearAreaCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.ShearAreaCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAkwSURBVHhe7Z09chQ7FIXZwVsCS3AVC8ABIQEpVQSO
@@ -1148,7 +1148,7 @@
         YII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.ShearAreaCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.ShearAreaCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJASURBVFhH7VU7jsIwEOUGOQJHQOICQeIANEggUeQI
@@ -1164,7 +1164,7 @@
         /4fodL4A0qWw+FLPuaoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.StressDistributionSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.StressDistributionSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAW8SURBVHhe7Z0xbttKEIZ9Ax8hRzCQA8QHSPHadK5S
@@ -1195,7 +1195,7 @@
         TLlzVX7hAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.StressDistributionSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.StressDistributionSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAF5SURBVFhH7ZYxjsIwEEVzgxyBI0TiAjlCjpCKOhIX
@@ -1208,7 +1208,7 @@
         RU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.WeldGroupPatternSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.WeldGroupPatternSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALkSURBVHhe7d3NTaNBEIRhZ0IISCRAKIRCCIREXntZ
@@ -1227,7 +1227,7 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.WeldGroupPatternSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.WeldGroupPatternSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADKSURBVFhH7ZbhCYQwDIW7wY1wIwgu4Cg3iqM5gvv4
@@ -1237,7 +1237,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.WeldTypeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.WeldTypeSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALmSURBVHhe7d3hbRMxGAbgbtARGKFSF+gIjNARGKEj
@@ -1256,7 +1256,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Connection.WeldTypeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Connection.WeldTypeSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADdSURBVFhH7ZbdDYMwEIOzASN0BCQWYBRG6AgdhRE6
@@ -1266,7 +1266,7 @@
         Ddag/P8gCP6MlL6vCg9huhiD3wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.General.RecommendedMaterialSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.General.RecommendedMaterialSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAeKSURBVHhe7Z09btwwFIR9gxwhRzCQA8QHSOE2navU
@@ -1304,7 +1304,7 @@
         i1Gj/nG0EEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCNEUR0d/AYmRtMCT1RVxAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.General.RecommendedMaterialSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.General.RecommendedMaterialSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGlSURBVFhH7ZY/jkFhFMXtwBIsQWIBLEAxrU6ltgMW
@@ -1317,7 +1317,7 @@
         iAl7bC8ndTzv/RhPxXKW/TfIiBVpxfT0G2/8VVQqV4BfKS6Kdu7QAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Shear.NonCircularShearCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Shear.NonCircularShearCaseSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAWaSURBVHhe7Z3tkZtIFEUnA4cwIbjKCTiECcEhOASH
@@ -1347,7 +1347,7 @@
         ZYJDRey+McYYY4wxxhhjjDHG7I6Xl/8Ba6ZcN9VtMhAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Steel.AISC10.Shear.NonCircularShearCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Steel.AISC.Shear.NonCircularShearCaseSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAESSURBVFhH7ZbRDcIwDES7QUdB6gKMwgiMwAiM0BE6

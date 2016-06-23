@@ -46,10 +46,11 @@ namespace Loads.ASCE7.Lateral.Wind
         /// <param name="C_p">  External pressure coefficient to be used in determination of wind loads for buildings </param>
         /// <param name="q_i">  Velocity pressure for internal pressure determination </param>
         /// <param name="GC_pi">  Product of internal pressure coefficient and gust-effect factor to be used in determination of wind loads for buildings </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="p"> Design pressure to be used in determination of wind loads for buildings </returns>
 
         [MultiReturn(new[] { "p" })]
-        public static Dictionary<string, object> WindPressureMWFRS(double q,double G,double C_p,double q_i,double GC_pi)
+        public static Dictionary<string, object> WindPressureMWFRS(double q, double G, double C_p, double q_i, double GC_pi, string Code = "ASCE7-10")
         {
 
 

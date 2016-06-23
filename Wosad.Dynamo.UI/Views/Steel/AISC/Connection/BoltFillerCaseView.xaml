@@ -1,0 +1,35 @@
+﻿<!--
+	Copyright (C) 2015 Wosad Inc
+-->
+<UserControl x:Class="Wosad.Steel.AISC.Connection.BoltFillerCaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
+             xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BoltIcons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+            <WosadControls:EnumDataCollection x:Key="BoltFillerCaseSource" d:IsDataSource="True">
+                <WosadControls:EnumDataElement  Icon="{StaticResource  BoltNoFillers}" EnumString="NoFillers" Description="No fillers" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource  BoltDevelopedFillers}" EnumString="BoltsAddedToDistributeLoad" Description="Bolts added to distribute load"/>
+                <WosadControls:EnumDataElement  Icon="{StaticResource  BoltOneFiller}" EnumString="One" Description="One" />
+                <WosadControls:EnumDataElement  Icon="{StaticResource  BoltTwoFillers}" EnumString="TwoOrMore" Description="Two or more"/>
+            </WosadControls:EnumDataCollection>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <WosadControls:EnumControl  HeaderText="Bolt filler case:" 
+                                    ItemsSource="{StaticResource BoltFillerCaseSource}" 
+					DataPath="BoltFillerCase"/>
+    </Grid>
+</UserControl>
