@@ -217,6 +217,9 @@ namespace Wosad.Loads.ASCE7.Gravity.Dead
         {
             base.SerializeCore(nodeElement, context);
             nodeElement.SetAttribute("ComponentId", ComponentId);
+            nodeElement.SetAttribute("ComponentOption1", ComponentOption1.ToString());
+            nodeElement.SetAttribute("ComponentOption2", ComponentOption2.ToString());
+            nodeElement.SetAttribute("ComponentValue", ComponentValue.ToString());
         }
 
         /// <summary>
@@ -225,12 +228,28 @@ namespace Wosad.Loads.ASCE7.Gravity.Dead
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["ComponentId"];
-            if (attrib == null)
-                return;
-           
-            ComponentId = attrib.Value;
-            SetComponentDescription();
+            var attribComponentId = nodeElement.Attributes["ComponentId"];
+            if (attribComponentId != null)
+            {
+                ComponentId = attribComponentId.Value;
+                SetComponentDescription();
+            }
+            var attribComponentOption1 = nodeElement.Attributes["ComponentOption1"];
+            var attribComponentOption2 = nodeElement.Attributes["ComponentOption2"];
+            var attribComponentValue = nodeElement.Attributes["ComponentValue"];
+
+            try
+            {
+                this.ComponentOption1 = double.Parse(attribComponentOption1.Value);
+                this.ComponentOption2 = double.Parse(attribComponentOption2.Value);
+                this.ComponentValue = double.Parse(attribComponentValue.Value);
+            }
+            catch (Exception)
+            {
+
+            }
+            
+
 
         }
 
