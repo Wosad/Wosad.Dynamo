@@ -41,9 +41,9 @@ namespace Steel.AISC.FloorVibrations
         ///     Beam frequency single
         /// </summary>
         /// <param name="Delta">  Beam (joist or girder) deflection </param>
-        /// <returns name="f"> Beam frequency </returns>
+        /// <returns name="f_n"> Beam fundamental frequency </returns>
 
-        [MultiReturn(new[] { "f" })]
+        [MultiReturn(new[] { "f_n" })]
         public static Dictionary<string, object> BeamFrequencySingle(double Delta)
         {
             //Default values
@@ -56,7 +56,7 @@ namespace Steel.AISC.FloorVibrations
 
             return new Dictionary<string, object>
             {
-                { "f", f }
+                { "f_n", f }
  
             };
         }

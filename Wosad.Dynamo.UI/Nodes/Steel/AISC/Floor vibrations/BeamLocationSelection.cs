@@ -30,7 +30,7 @@ using System.Xml;
 using Dynamo.Graph;
 
 
-namespace Wosad.Steel.AISC.FloorVibrations
+namespace Wosad.Steel.AISC.FloorVibrations.EffectiveProperties
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Wosad.Steel.AISC.FloorVibrations
     /// </summary>
 
     [NodeName("Beam location selection")]
-    [NodeCategory("Wosad.Steel.AISC.FloorVibrations")]
+    [NodeCategory("Wosad.Steel.AISC.FloorVibrations.EffectiveProperties")]
     [NodeDescription("Beam location selection")]
     [IsDesignScriptCompatible]
     public class BeamLocationSelection : UiNodeBase

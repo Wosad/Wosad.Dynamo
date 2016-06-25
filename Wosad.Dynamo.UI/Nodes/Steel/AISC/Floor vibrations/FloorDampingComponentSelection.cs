@@ -30,7 +30,7 @@ using System.Xml;
 using Dynamo.Graph;
 
 
-namespace Wosad.Steel.AISC.FloorVibrations
+namespace Wosad.Steel.AISC.FloorVibrations.Acceleration
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Wosad.Steel.AISC.FloorVibrations
     /// </summary>
 
     [NodeName("Floor damping component selection")]
-    [NodeCategory("Wosad.Steel.AISC.FloorVibrations")]
+    [NodeCategory("Wosad.Steel.AISC.FloorVibrations.Acceleration")]
     [NodeDescription("Floor damping component selection")]
     [IsDesignScriptCompatible]
     public class FloorDampingComponentSelection : UiNodeBase

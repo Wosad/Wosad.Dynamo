@@ -49,7 +49,8 @@ namespace Steel.AISC.Composite
         /// <returns name="b_eff"> Effective width of concrete slab in composite beam design </returns>
 
         [MultiReturn(new[] { "b_eff" })]
-        public static Dictionary<string, object> BeamEffectiveSlabWidth(double L, double L_centerLeft, double L_centerRight, double L_edgeLeft, double L_edgeRight, string Code = "AISC360-10")
+        public static Dictionary<string, object> BeamEffectiveSlabWidth(double L, double L_centerLeft, double L_centerRight, double L_edgeLeft, 
+            double L_edgeRight, string Code = "AISC360-10")
         {
             //Default values
             double b_eff = 0;

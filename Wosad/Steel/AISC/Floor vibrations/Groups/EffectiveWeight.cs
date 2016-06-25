@@ -32,17 +32,17 @@ namespace Steel.AISC.FloorVibrations
 
 
     [IsDesignScriptCompatible]
-    public partial class EffectiveWeight 
+    public partial class EffectiveProperties 
     {
 
-        internal EffectiveWeight()
+        internal EffectiveProperties()
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static EffectiveWeight ByInputParameters()
+        public static EffectiveProperties ByInputParameters()
         {
-            return new EffectiveWeight();
+            return new EffectiveProperties();
         }
 
     }

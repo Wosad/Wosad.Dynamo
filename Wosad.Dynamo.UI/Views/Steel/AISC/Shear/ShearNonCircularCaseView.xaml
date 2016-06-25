@@ -23,6 +23,7 @@
                 <WosadControls:EnumDataElement  Icon="{StaticResource UnstiffenedWeb}"                    EnumString="MemberWithoutStiffeners"                Description="Member without stiffeners" />
                 <WosadControls:EnumDataElement  Icon="{StaticResource StiffenedWeb}"      EnumString="MemberWithStiffeners"  Description="Member with stiffeners"/>
                 <WosadControls:EnumDataElement  Icon="{StaticResource Tee}"           EnumString="Tee"       Description="Tee" />
+                <WosadControls:EnumDataElement             EnumString="Box"       Description="Box or Rectangular HSS" />
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

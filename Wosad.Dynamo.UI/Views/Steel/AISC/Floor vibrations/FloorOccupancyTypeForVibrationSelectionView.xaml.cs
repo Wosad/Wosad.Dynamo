@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Steel.AISC.FloorVibrations
+namespace Wosad.Steel.AISC.FloorVibrations.Acceleration
 {
     /// <summary>
     /// Interaction logic for Wosad.Steel.AISC10.FloorOccupancyTypeForVibrationSelectionView.xaml

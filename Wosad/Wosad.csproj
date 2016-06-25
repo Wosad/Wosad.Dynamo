@@ -159,8 +159,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.6.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.6.7\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.6.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.6.8\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -184,6 +184,7 @@
     <Compile Include="Analysis\Section\SectionTypes\SectionDoubleAngle.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionDoubleStacked.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionI.cs" />
+    <Compile Include="Analysis\Section\SectionTypes\SectionIWithReinfWebOpening.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionIRolled.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionPipe.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionOfPlateWithHoles.cs" />

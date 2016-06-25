@@ -39,6 +39,7 @@
                 <WosadControls:EnumDataElement Icon="{StaticResource  ComboElliptical}" EnumString="Elliptical"       Description="Elliptical" />
                 <WosadControls:EnumDataElement Icon="{StaticResource  ComboAnchorage}" EnumString="Anchorage"       Description="Anchorage" />
                 <WosadControls:EnumDataElement Icon="{StaticResource  ComboPlastic}" EnumString="Plastic"  Description="Plastic"/>
+                <WosadControls:EnumDataElement Icon="{StaticResource  ComboAnchorage}" EnumString="Cubic"  Description="Cubic"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

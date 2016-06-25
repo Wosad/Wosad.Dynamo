@@ -62,7 +62,7 @@ namespace Steel.AISC.Composite
 
 
             //Calculation logic:
-            steel.HeadedAnchorDeckCondition deckCondition;
+            steel.DeckAtBeamCondition deckCondition;
             bool IsValidHeadedAnchorDeckCondition = Enum.TryParse(HeadedAnchorDeckCondition, true, out deckCondition);
             if (IsValidHeadedAnchorDeckCondition == false)
             {

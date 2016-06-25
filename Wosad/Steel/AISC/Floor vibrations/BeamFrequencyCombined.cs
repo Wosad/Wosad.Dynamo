@@ -39,15 +39,15 @@ namespace Steel.AISC.FloorVibrations
     public partial class FundamentalFrequency 
     {
         /// <summary>
-        ///     Beam frequency combined
+        ///     Combined beam-girder system frequency
         /// </summary>
         /// <param name="Delta_j">  Joist deflection </param>
         /// <param name="Delta_g">  Girder deflection </param>
         /// <param name="Delta_c">Column deflection</param>
-        /// <returns name="f"> Beam frequency </returns>
+        /// <returns name="f_n"> Combined beam-girder system fundamental frequency </returns>
 
-        [MultiReturn(new[] { "f" })]
-        public static Dictionary<string, object> BeamFrequencyCombined(double Delta_j,double Delta_g, double Delta_c =0)
+        [MultiReturn(new[] { "f_n" })]
+        public static Dictionary<string, object> BeamSystemFrequencyCombined(double Delta_j, double Delta_g, double Delta_c = 0)
         {
             //Default values
             double f = 0;
@@ -55,10 +55,11 @@ namespace Steel.AISC.FloorVibrations
 
             //Calculation logic:
             FloorVibrationBeamGirderPanel bgPanel = new FloorVibrationBeamGirderPanel();
-            //f = bgPanel.GetCombinedModeFundamentalFrequency(Delta_j, Delta_g, Delta_c);
+            f = bgPanel.GetCombinedModeFundamentalFrequency(Delta_j, Delta_g, Delta_c);
+
             return new Dictionary<string, object>
             {
-                { "f", f }
+                { "f_n", f }
  
             };
         }

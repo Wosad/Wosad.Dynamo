@@ -54,6 +54,7 @@ namespace Steel.AISC.FloorVibrations
 
             //Calculation logic:
             FloorVibrationBeamGirderPanel bgPanel = new FloorVibrationBeamGirderPanel();
+            beta_floor = bgPanel.GetFloorModalDampingRatio(DampingComponents);
 
             return new Dictionary<string, object>
             {

@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using System.Xml;
 
 
-namespace Wosad.Steel.AISC.FloorVibrations
+namespace Wosad.Steel.AISC.FloorVibrations.EffectiveProperties
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Wosad.Steel.AISC.FloorVibrations
     /// </summary>
 
     [NodeName("Joist to girder connection type selection")]
-    [NodeCategory("Wosad.Steel.AISC.FloorVibrations")]
+    [NodeCategory("Wosad.Steel.AISC.FloorVibrations.EffectiveProperties")]
     [NodeDescription("Joist to girder connection type selection")]
     [IsDesignScriptCompatible]
     public class JoistToGirderConnectionTypeSelection : UiNodeBase

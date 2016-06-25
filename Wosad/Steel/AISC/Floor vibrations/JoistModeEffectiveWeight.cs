@@ -22,6 +22,7 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Steel.AISC.Entities.FloorVibrations;
+using System;
 
 #endregion
 
@@ -36,7 +37,7 @@ namespace Steel.AISC.FloorVibrations
 
 
 
-    public partial class EffectiveWeight 
+    public partial class EffectiveProperties 
     {
         /// <summary>
         ///     Joist mode effective weight
@@ -57,7 +58,17 @@ namespace Steel.AISC.FloorVibrations
 
 
             //Calculation logic:
+
+
+            Wosad.Steel.AISC.Entities.Enums.FloorVibrations.AdjacentSpanWeightIncreaseType _AdjacentSpanWeightIncreaseType;
+            bool IsValidInputString = Enum.TryParse(AdjacentSpanWeightIncreaseType, true, out _AdjacentSpanWeightIncreaseType);
+            if (IsValidInputString == false)
+            {
+                throw new Exception("Failed to convert string. Specify adjacent span continuity type. Please check input");
+            }
+
             FloorVibrationBeamGirderPanel bgPanel = new FloorVibrationBeamGirderPanel();
+            W_j = bgPanel.GetJoistModeEffectiveWeight(w_j, S_j, B_j, L_j, _AdjacentSpanWeightIncreaseType);
 
             return new Dictionary<string, object>
             {

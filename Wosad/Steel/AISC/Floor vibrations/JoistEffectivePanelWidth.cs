@@ -22,6 +22,10 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Steel.AISC.Entities.FloorVibrations;
+using System;
+using WosadEnums = Wosad.Steel.AISC;
+using Wosad.Steel.AISC.Entities.Enums.FloorVibrations;
+
 
 #endregion
 
@@ -36,7 +40,7 @@ namespace Steel.AISC.FloorVibrations
 
 
 
-    public partial class EffectiveWeight 
+    public partial class EffectiveProperties 
     {
         /// <summary>
         ///     Joist effective panel width
@@ -48,7 +52,7 @@ namespace Steel.AISC.FloorVibrations
         /// <param name="w_r">  Average width of concrete rib or haunch  </param>
         /// <param name="s_r">  Metal deck rib spacing (center to center) </param>
         /// <param name="DeckAtBeamCondition">  Identifies whether deck runs parallel or perpendicular to beam or there is no deck </param>
-        /// <param name="L_j">Joist or secondary beam  span</param>
+        /// <param name="L_j">  Joist or secondary beam  span </param>
         /// <param name="I_j">  Moment of inertia of joist or secondary beam </param>
         /// <param name="S_j">  Spacing of joists or secondary beams </param>
         /// <param name="L_floor">  Full uninterrupted length of floor </param>
@@ -58,7 +62,7 @@ namespace Steel.AISC.FloorVibrations
 
 
         [MultiReturn(new[] { "B_j" })]
-        public static Dictionary<string, object> JoistEffectivePanelWidth(double fc_prime, double w_c, double h_solid, double h_rib, double w_r, double s_r, string DeckAtBeamCondition,
+        public static Dictionary<string, object> JoistEffectivePanelWidth(double fc_prime, double w_c, double h_solid, double h_rib, double w_r, double s_r, string DeckAtBeamCondition, 
             double L_j, double I_j, double S_j, double L_floor, string BeamLocation, string Code = "AISC. Design Guide 11. 1st Ed")
         {
             //Default values
@@ -67,6 +71,23 @@ namespace Steel.AISC.FloorVibrations
 
             //Calculation logic:
             FloorVibrationBeamGirderPanel bgPanel = new FloorVibrationBeamGirderPanel();
+
+
+            WosadEnums.DeckAtBeamCondition _DeckAtBeamCondition;
+            bool IsValidInputString = Enum.TryParse(DeckAtBeamCondition, true, out _DeckAtBeamCondition);
+            if (IsValidInputString == false)
+            {
+                throw new Exception("Failed to convert string. Need to specify deck direction with respect to beam being considered. Please check input");
+            }
+
+            BeamFloorLocationType _BeamFloorLocationType;
+            bool IsValidLocation = Enum.TryParse(BeamLocation, true, out _BeamFloorLocationType);
+            if (IsValidLocation == false)
+            {
+                throw new Exception("Failed to convert string. Need to specify beam location as Inner or AtFreeEdge. Please check input");
+            }
+
+            B_j = bgPanel.GetEffectiveJoistWidth(fc_prime, w_c, h_solid, h_rib, w_r, s_r, _DeckAtBeamCondition, L_j, I_j, S_j, L_floor, _BeamFloorLocationType);
 
             return new Dictionary<string, object>
             {
