@@ -42,7 +42,7 @@ namespace Analysis.Section.AISC
 
 
         [IsVisibleInDynamoLibrary(false)]
-        internal CatalogSection(string ShapeId, string AngleOrientation, string AngleRotation)
+        internal CatalogSection(string ShapeId, string AngleOrientation="LongLegVertical", string AngleRotation="FlatLegTop")
         {
             AiscShapeFactory factory = new AiscShapeFactory();
             AngleOrientation ori = new AngleOrientation();

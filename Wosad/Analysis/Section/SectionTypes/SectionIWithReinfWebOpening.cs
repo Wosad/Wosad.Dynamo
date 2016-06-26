@@ -35,7 +35,7 @@ namespace Analysis.Section.SectionTypes
 
         [IsVisibleInDynamoLibrary(false)]
         internal SectionIWithReinfWebOpening(double d, double b_f, double t_f, double t_w, double h_o,
-            double e, double b_r, double t_r, bool IsOneSidedReinforcment)
+            double e, double b_r, double t_r, bool IsOneSidedReinforcment= true)
         {
             ds.SectionIWithReinfWebOpening r = new ds.SectionIWithReinfWebOpening("", d, b_f, t_f, t_w,h_o,e,b_r,t_r,IsOneSidedReinforcment);
             Section = r;
