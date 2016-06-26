@@ -213,7 +213,7 @@
     <Compile Include="Nodes\Steel\AISC\Floor vibrations\FloorOccupancyTypeForVibrationSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\Floor vibrations\JoistToGirderConnectionTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\HSS\HssTrussConnectionClassificationSelection.cs" />
-    <Compile Include="Nodes\Steel\AISC\HSS\HssTrussConnectionMemberTypeSelection.cs" />
+    <Compile Include="Nodes\Steel\AISC\HSS\HssConnectionMemberTypeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\Shear\ShearCaseNonCircularSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\Tension\ShearLagCaseSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\Connection\WeldLoadTypeAndDirection.cs" />
@@ -393,8 +393,8 @@
     <Compile Include="Views\Steel\AISC\HSS\HssTrussConnectionClassificationSelectionView.xaml.cs">
       <DependentUpon>HssTrussConnectionClassificationSelectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Steel\AISC\HSS\HssTrussConnectionMemberTypeSelectionView.xaml.cs">
-      <DependentUpon>HssTrussConnectionMemberTypeSelectionView.xaml</DependentUpon>
+    <Compile Include="Views\Steel\AISC\HSS\HssConnectionMemberTypeSelectionView.xaml.cs">
+      <DependentUpon>HssConnectionMemberTypeSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Steel\AISC\Shear\ShearNonCircularCaseView.xaml.cs">
       <DependentUpon>ShearNonCircularCaseView.xaml</DependentUpon>
@@ -760,7 +760,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Steel\AISC\HSS\HssTrussConnectionMemberTypeSelectionView.xaml">
+    <Page Include="Views\Steel\AISC\HSS\HssConnectionMemberTypeSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

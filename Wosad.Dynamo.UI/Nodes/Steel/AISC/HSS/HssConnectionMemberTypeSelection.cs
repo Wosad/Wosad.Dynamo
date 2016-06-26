@@ -37,18 +37,18 @@ namespace Wosad.Steel.AISC.HSS
     ///HSS truss connection member type selection  
     /// </summary>
 
-    [NodeName("HSS truss connection member type selection")]
+    [NodeName("HSS connection member type selection")]
     [NodeCategory("Wosad.Steel.AISC.HSS")]
-    [NodeDescription("HSS truss connection member type selection")]
+    [NodeDescription("HSS connection member type selection")]
     [IsDesignScriptCompatible]
-    public class HssTrussConnectionMemberTypeSelection : UiNodeBase
+    public class HssConnectionMemberTypeSelection : UiNodeBase
     {
 
-        public HssTrussConnectionMemberTypeSelection()
+        public HssConnectionMemberTypeSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("HssTrussConnectionMemberType", "Specifies if the connection members are circular HSS (CHS) or rectangular HSS"));
+            OutPortData.Add(new PortData("HssConnectionMemberType", "Specifies if the connection members are circular HSS (CHS) or rectangular HSS"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
@@ -167,13 +167,13 @@ namespace Wosad.Steel.AISC.HSS
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class HssTrussConnectionMemberTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<HssTrussConnectionMemberTypeSelection>
+            INodeViewCustomization<HssConnectionMemberTypeSelection>
         {
-            public void CustomizeView(HssTrussConnectionMemberTypeSelection model, NodeView nodeView)
+            public void CustomizeView(HssConnectionMemberTypeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                HssTrussConnectionMemberTypeSelectionView control = new HssTrussConnectionMemberTypeSelectionView();
+                HssConnectionMemberTypeSelectionView control = new HssConnectionMemberTypeSelectionView();
                 control.DataContext = model;
                 
                 

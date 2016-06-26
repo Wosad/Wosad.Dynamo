@@ -15,31 +15,38 @@
    */
 #endregion
  
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+#region
 
-namespace Wosad.Steel.AISC.HSS
+using Autodesk.DesignScript.Runtime;
+using Dynamo.Models;
+using System.Collections.Generic;
+using Dynamo.Nodes;
+using Dynamo.Graph.Nodes;
+
+#endregion
+
+namespace Steel.AISC.Connection
 {
-    /// <summary>
-    /// Interaction logic for Wosad.Steel.AISC.HSS.HssTrussConnectionMemberTypeSelectionView.xaml
-    /// </summary>
-    public partial class HssTrussConnectionMemberTypeSelectionView: UserControl
+
+
+
+    [IsDesignScriptCompatible]
+    public partial class BeamWebOpening 
     {
-        public HssTrussConnectionMemberTypeSelectionView()
+
+
+
+        internal BeamWebOpening()
         {
-            InitializeComponent();
+
         }
+        [IsVisibleInDynamoLibrary(false)]
+        public static BeamWebOpening ByInputParameters()
+        {
+            return new BeamWebOpening();
+        }
+
     }
 }
+
+
