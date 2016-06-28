@@ -385,9 +385,9 @@
     <Compile Include="Steel\AISC\Floor vibrations\FloorPredictedAcceleration.cs" />
     <Compile Include="Steel\AISC\Floor vibrations\GirderEffectivePanelWidth.cs" />
     <Compile Include="Steel\AISC\Floor vibrations\GirderModeEffectiveWeight.cs" />
+    <Compile Include="Steel\AISC\Floor vibrations\Groups\Acceleration.cs" />
     <Compile Include="Steel\AISC\Floor vibrations\Groups\BeamFrequencyCombined.cs" />
     <Compile Include="Steel\AISC\Floor vibrations\Groups\EffectiveWeight.cs" />
-    <Compile Include="Steel\AISC\Floor vibrations\Groups\Acceleration.cs" />
     <Compile Include="Steel\AISC\Floor vibrations\JoistEffectivePanelWidth.cs" />
     <Compile Include="Steel\AISC\Floor vibrations\JoistModeEffectiveWeight.cs" />
     <Compile Include="Steel\AISC\Floor vibrations\ModalDamping.cs" />
