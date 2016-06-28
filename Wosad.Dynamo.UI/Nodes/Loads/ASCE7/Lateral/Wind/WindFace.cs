@@ -30,7 +30,7 @@ using System.Xml;
 using Dynamo.Graph;
 
 
-namespace Loads.ASCE7.Lateral.Wind.PressureCoefficient
+namespace Wosad.Loads.ASCE7.Lateral.Wind.PressureCoefficient
 {
 
     /// <summary>
@@ -41,10 +41,10 @@ namespace Loads.ASCE7.Lateral.Wind.PressureCoefficient
     [NodeCategory("Wosad.Loads.ASCE7.Lateral.Wind.PressureCoefficient")]
     [NodeDescription("Selection of the type of face relative to wind direction (windward, leeward or side)  ")]
     [IsDesignScriptCompatible]
-    public class WindFace : UiNodeBase
+    public class WindFaceSelection : UiNodeBase
     {
 
-        public WindFace()
+        public WindFaceSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
@@ -163,9 +163,9 @@ namespace Loads.ASCE7.Lateral.Wind.PressureCoefficient
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class WindFaceViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<WindFace>
+            INodeViewCustomization<WindFaceSelection>
         {
-            public void CustomizeView(WindFace model, NodeView nodeView)
+            public void CustomizeView(WindFaceSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 

@@ -874,7 +874,7 @@
         bqBU0TXE/VNqapqvrnsA2jZmnMYSJA0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindExposureCategory.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindExposureCategorySelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAB4klEQVR4Xu3cwW3VUBCG0ddJ
@@ -889,7 +889,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindExposureCategory.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindExposureCategorySelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAApElEQVRYR+2QzRGCMBSE0wEl
@@ -898,7 +898,7 @@
         6SyuZX7S9cWWLdxegh+QJVra63pjjPlbUpoBKeLaCsgSz6QAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindVelocityLocation.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindVelocityLocationSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAEnUlEQVR4Xu2dQYobVxRFewde
@@ -924,7 +924,7 @@
         lVFoFAAAAAAAAAAAAAAAAAAAnjUPD58B/5NsFQroz1sAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindVelocityLocation.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.General.WindVelocityLocationSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAABUUlEQVRYR+2WwW3DMAxFvYFH
@@ -936,7 +936,7 @@
         budDzA3QkzK12xyTn3iL/kFVdQGtHpYHmKDhJwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7.Lateral.Wind.PressureCoefficient.WindFace.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.PressureCoefficient.WindFaceSelection.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAALzUlEQVR4Xu2dS67cxhWGtQMt
@@ -993,7 +993,7 @@
         N278HxJ8sZxrj34SAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Wosad.Loads.ASCE7.Lateral.Wind.PressureCoefficient.WindFace.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Wosad.Loads.ASCE7.Lateral.Wind.PressureCoefficient.WindFaceSelection.Small" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACjElEQVRYR+2WP25TQRDGfYMc

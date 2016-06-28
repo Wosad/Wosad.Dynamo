@@ -30,7 +30,7 @@ using System.Xml;
 using Dynamo.Graph;
 
 
-namespace Loads.ASCE7.Lateral.Wind
+namespace Wosad.Loads.ASCE7.Lateral.Wind.General
 {
 
     /// <summary>

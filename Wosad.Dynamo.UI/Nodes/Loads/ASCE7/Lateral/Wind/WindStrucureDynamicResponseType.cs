@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
-
+ 
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Loads.ASCE7.Lateral.Wind.StructureParameters
+namespace Wosad.Loads.ASCE7.Lateral.Wind.StructureParameters
 {
 
     /// <summary>
