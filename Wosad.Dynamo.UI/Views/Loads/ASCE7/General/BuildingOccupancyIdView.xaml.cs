@@ -31,7 +31,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
-namespace WosadDynamoUI.Views.Loads.ASCE7v10
+namespace WosadDynamoUI.Views.Loads.ASCE7
 {
 
     public partial class BuildingOccupancyIdView : UserControl

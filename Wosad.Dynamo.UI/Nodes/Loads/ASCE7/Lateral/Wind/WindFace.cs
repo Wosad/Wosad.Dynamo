@@ -30,7 +30,7 @@ using System.Xml;
 using Dynamo.Graph;
 
 
-namespace Loads.ASCE7.Lateral.Wind
+namespace Loads.ASCE7.Lateral.Wind.PressureCoefficient
 {
 
     /// <summary>

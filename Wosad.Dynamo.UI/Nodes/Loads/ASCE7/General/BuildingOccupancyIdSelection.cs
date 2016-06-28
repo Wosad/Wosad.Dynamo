@@ -25,7 +25,6 @@ using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Wosad.Loads.ASCE7.Entities;
-using WosadDynamoUI.Views.Loads.ASCE7v10;
 using Wosad.Dynamo.Common.Infra.TreeItems;
 using System.Xml;
 using System.Windows;
@@ -33,6 +32,7 @@ using Wosad.Dynamo.UI.Common.TreeItems;
 using Dynamo.Nodes;
 using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
+using WosadDynamoUI.Views.Loads.ASCE7;
 
 
 namespace Wosad.Loads.ASCE7.General

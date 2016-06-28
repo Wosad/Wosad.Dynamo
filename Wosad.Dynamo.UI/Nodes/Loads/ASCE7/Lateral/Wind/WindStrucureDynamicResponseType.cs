@@ -30,21 +30,21 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Loads.ASCE7.Lateral.Wind
+namespace Loads.ASCE7.Lateral.Wind.StructureParameters
 {
 
     /// <summary>
     ///Selection of the type of dynamic response of the structure (flexible or rigid)   
     /// </summary>
 
-    [NodeName("Wind strucure dynamic response type")]
+    [NodeName("Wind structure dynamic response type")]
     [NodeCategory("Wosad.Loads.ASCE7.Lateral.Wind.StructureParameters")]
     [NodeDescription("Selection of the type of dynamic response of the structure (flexible or rigid) ")]
     [IsDesignScriptCompatible]
-    public class WindStrucureDynamicResponseType : UiNodeBase
+    public class WindStructureDynamicResponseTypeSelection : UiNodeBase
     {
 
-        public WindStrucureDynamicResponseType()
+        public WindStructureDynamicResponseTypeSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
@@ -164,9 +164,9 @@ namespace Loads.ASCE7.Lateral.Wind
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class WindStrucureDynamicResponseTypeViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<WindStrucureDynamicResponseType>
+            INodeViewCustomization<WindStructureDynamicResponseTypeSelection>
         {
-            public void CustomizeView(WindStrucureDynamicResponseType model, NodeView nodeView)
+            public void CustomizeView(WindStructureDynamicResponseTypeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 

@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using System.Xml;
 
 
-namespace Wosad.Loads.ASCE7.Lateral.Seismic
+namespace Wosad.Loads.ASCE7.Lateral.Seismic.Site
 {
 
     /// <summary>

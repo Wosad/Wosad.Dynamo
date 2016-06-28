@@ -30,7 +30,7 @@ using System.Xml;
 using Dynamo.Graph.Nodes;
 
 
-namespace Loads.ASCE7.Lateral.Wind
+namespace Loads.ASCE7.Lateral.Wind.StructureParameters
 {
 
     /// <summary>
@@ -41,10 +41,10 @@ namespace Loads.ASCE7.Lateral.Wind
     [NodeCategory("Wosad.Loads.ASCE7.Lateral.Wind.StructureParameters")]
     [NodeDescription("Selection of main material for the building MWFRS, influencing the amount of  inherent structural damping  ")]
     [IsDesignScriptCompatible]
-    public class WindSystemTypeByMaterial : UiNodeBase
+    public class WindSystemTypeByMaterialSelection : UiNodeBase
     {
 
-        public WindSystemTypeByMaterial()
+        public WindSystemTypeByMaterialSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
@@ -162,9 +162,9 @@ namespace Loads.ASCE7.Lateral.Wind
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class WindSystemTypeByMaterialViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<WindSystemTypeByMaterial>
+            INodeViewCustomization<WindSystemTypeByMaterialSelection>
         {
-            public void CustomizeView(WindSystemTypeByMaterial model, NodeView nodeView)
+            public void CustomizeView(WindSystemTypeByMaterialSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 

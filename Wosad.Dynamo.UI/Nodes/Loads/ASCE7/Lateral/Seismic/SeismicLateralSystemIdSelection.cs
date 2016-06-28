@@ -35,7 +35,7 @@ using Wosad.Dynamo.UI.Common.TreeItems;
 using GalaSoft.MvvmLight.Command;
 
 
-namespace Wosad.Loads.ASCE7.Lateral.Seismic
+namespace Wosad.Loads.ASCE7.Lateral.Seismic.Building
 {
 
     /// <summary>

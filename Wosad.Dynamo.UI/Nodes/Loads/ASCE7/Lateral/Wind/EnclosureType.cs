@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using Dynamo.Graph.Nodes;
 
 
-namespace Loads.ASCE7.Lateral.Wind
+namespace Loads.ASCE7.Lateral.Wind.StructureParameters
 {
 
     /// <summary>
@@ -41,10 +41,10 @@ namespace Loads.ASCE7.Lateral.Wind
     [NodeCategory("Wosad.Loads.ASCE7.Lateral.Wind.StructureParameters")]
     [NodeDescription("Selection of the type of enclosure (open, partially-enclosed or enclosed)  ")]
     [IsDesignScriptCompatible]
-    public class EnclosureType : UiNodeBase
+    public class WindEnclosureTypeSelection : UiNodeBase
     {
 
-        public EnclosureType()
+        public WindEnclosureTypeSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
@@ -165,9 +165,9 @@ namespace Loads.ASCE7.Lateral.Wind
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class EnclosureTypeViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<EnclosureType>
+            INodeViewCustomization<WindEnclosureTypeSelection>
         {
-            public void CustomizeView(EnclosureType model, NodeView nodeView)
+            public void CustomizeView(WindEnclosureTypeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
