@@ -151,8 +151,8 @@
       <HintPath>..\packages\Wosad.Concrete.0.0.4.3\lib\net45\Wosad.Concrete.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Loads, Version=0.0.5.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Loads.0.0.5.5\lib\net45\Wosad.Loads.dll</HintPath>
+    <Reference Include="Wosad.Loads, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Loads.0.0.6.1\lib\net45\Wosad.Loads.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Reporting, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">

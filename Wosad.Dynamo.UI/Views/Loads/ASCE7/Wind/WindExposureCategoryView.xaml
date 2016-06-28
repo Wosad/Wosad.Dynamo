@@ -13,7 +13,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="/WosadDynamoUI;component/Views/Loads/ASCE7v10/Wind/WindIcons.xaml"/>
+                    <ResourceDictionary Source="/WosadDynamoUI;component/Views/Loads/ASCE7/Wind/WindIcons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
