@@ -323,9 +323,11 @@
     </Compile>
     <Compile Include="Views\Loads\ASCE7\Wind\WindStrucureDynamicResponseTypeView.xaml.cs">
       <DependentUpon>WindStrucureDynamicResponseTypeView.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\Loads\ASCE7\Wind\WindSystemTypeByMaterialView.xaml.cs">
       <DependentUpon>WindSystemTypeByMaterialView.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\Loads\ASCE7\Wind\WindVelocityLocationView.xaml.cs">
       <DependentUpon>WindVelocityLocationView.xaml</DependentUpon>
@@ -620,12 +622,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Loads\ASCE7\Wind\WindStrucureDynamicResponseTypeView.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Loads\ASCE7\Wind\WindSystemTypeByMaterialView.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Loads\ASCE7\Wind\WindVelocityLocationView.xaml">
       <Generator>MSBuild:Compile</Generator>
