@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -24,54 +24,48 @@ using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
-using Wosad.Loads.ASCE7.Entities;
+using Dynamo.Nodes;
+using Dynamo.Graph.Nodes;
 using Wosad.Dynamo.Common.Infra.TreeItems;
 using System.Xml;
-using System.Windows;
-using Wosad.Dynamo.UI.Common.TreeItems;
-using Dynamo.Nodes;
 using Dynamo.Graph;
-using Dynamo.Graph.Nodes;
-using WosadDynamoUI.Views.Loads.ASCE7;
+using System.Windows;
+using System.Windows.Input;
+using Wosad.Dynamo.UI.Common.TreeItems;
+using GalaSoft.MvvmLight.Command;
 
 
-namespace Wosad.Loads.ASCE7.General
+namespace Wosad.Loads.ASCE7.Lateral.Wind.StructureParameters
 {
 
     /// <summary>
-    ///Selection of occupancy for determination of Risk Category  
+    ///Structure type for directionality factor calculation  
     /// </summary>
 
-    [NodeName("Building occupancy ID selection")]
-    [NodeCategory("Wosad.Loads.ASCE7.General")]
-    [NodeDescription("Selection of occupancy for determination of Risk Category")]
+    [NodeName("Wind directionality case")]
+    [NodeCategory("Wosad.Loads.ASCE7.Lateral.Wind.StructureParameters")]
+    [NodeDescription("Structure type for directionality factor calculation")]
     [IsDesignScriptCompatible]
-    public class BuildingOccupancyIdSelection : UiNodeBase
+    public class WindDirectionalityCaseIdSelection : UiNodeBase
     {
 
-        public BuildingOccupancyIdSelection()
+        public WindDirectionalityCaseIdSelection()
         {
-            ReportEntry="";
-            BuildingOccupancyDescription ="Commercial building";
-            BuildingOccupancyId = "Commercial building";
+            
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("BuildingOccupancyId", "Occupancy description"));
+            OutPortData.Add(new PortData("WindDirectionalityCaseId", "Structure type for directionality factor calculation"));
             RegisterAllPorts();
+            SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
         }
 
-        #region BuildingOccupancyDescription Property
-        private string _BuildingOccupancyDescription;
-        public string BuildingOccupancyDescription
+        private void SetDefaultParameters()
         {
-            get { return _BuildingOccupancyDescription; }
-            set
-            {
-                _BuildingOccupancyDescription = value;
-                RaisePropertyChanged("BuildingOccupancyDescription");
-            }
+            //ReportEntry="";
+            this.WindDirectionalityCaseId = "MWFRS";
+            this.WindDirectionalityCaseIdDescription = "Main Wind Force Resisting System (MWFRS)";
         }
-        #endregion
+
 
         /// <summary>
         ///     Gets the type of this class, to be used in base class for reflection
@@ -81,7 +75,7 @@ namespace Wosad.Loads.ASCE7.General
             return GetType();
         }
 
-        #region properties
+        #region Properties
 
         #region InputProperties
 
@@ -91,26 +85,46 @@ namespace Wosad.Loads.ASCE7.General
 
         #region OutputProperties
 
-		#region BuildingOccupancyIdProperty
+		#region WindDirectionalityCaseIdProperty
 		
 		/// <summary>
-		/// BuildingOccupancy property
+		/// WindDirectionalityCaseId property
 		/// </summary>
-		/// <value>Occupancy description</value>
-		public string _BuildingOccupancyId;
+		/// <value></value>
+        public  string _WindDirectionalityCaseId;
 		
-		public string BuildingOccupancyId
-		{
-		    get { return _BuildingOccupancyId; }
-		    set
-		    {
-		        _BuildingOccupancyId = value;
-                RaisePropertyChanged("BuildingOccupancyId");
-		        OnNodeModified(true); 
-		    }
-		}
+        public string  WindDirectionalityCaseId
+        {
+            get { return _WindDirectionalityCaseId; }
+            set
+            {
+                _WindDirectionalityCaseId = value;
+                RaisePropertyChanged("WindDirectionalityCaseId");
+                OnNodeModified();
+            }
+        }
 		#endregion
 
+
+        #region WindDirectionalityCaseDescriptionProperty
+
+        /// <summary>
+        /// WindDirectionalityCaseDescription property
+        /// </summary>
+        /// <value></value>
+        public string _WindDirectionalityCaseIdDescription;
+
+        public string WindDirectionalityCaseIdDescription
+        {
+            get { return _WindDirectionalityCaseIdDescription; }
+            set
+            {
+                _WindDirectionalityCaseIdDescription = value;
+                RaisePropertyChanged("WindDirectionalityCaseIdDescription");
+                OnNodeModified();
+            }
+        }
+        #endregion
 
 
         #region ReportEntryProperty
@@ -129,7 +143,7 @@ namespace Wosad.Loads.ASCE7.General
             {
                 reportEntry = value;
                 RaisePropertyChanged("ReportEntry");
-                OnNodeModified(true); 
+                OnNodeModified();
             }
         }
 
@@ -140,7 +154,7 @@ namespace Wosad.Loads.ASCE7.General
 
         #endregion
         #endregion
-        
+
         #region Serialization
 
         /// <summary>
@@ -149,7 +163,7 @@ namespace Wosad.Loads.ASCE7.General
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("BuildingOccupancyId", BuildingOccupancyId);
+            nodeElement.SetAttribute("WindDirectionalityCaseId", WindDirectionalityCaseId);
         }
 
         /// <summary>
@@ -158,12 +172,12 @@ namespace Wosad.Loads.ASCE7.General
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["BuildingOccupancyId"];
+            var attrib = nodeElement.Attributes["WindDirectionalityCaseId"];
             if (attrib == null)
                 return;
-
-            BuildingOccupancyId = attrib.Value;
-            SetOccupancyDescription();
+           
+            WindDirectionalityCaseId = attrib.Value;
+            //SetComponentDescription();
 
         }
 
@@ -180,38 +194,51 @@ namespace Wosad.Loads.ASCE7.General
             OnSelectedItemChanged(e.NewValue);
         }
 
-        private void SetOccupancyDescription()
+        private void SetComponentDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7v10/General/BuildingOccupancyTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Loads/ASCE7/Lateral/Wind/DirectionalityTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }
 
         private void FindDescription(XmlNode node)
         {
-            if (null != node.Attributes["Id"])
+            //check if attribute "Id" exists
+            if (null != node.Attributes["Tag"])
             {
-                   if (node.Attributes["Id"].Value== BuildingOccupancyId)
+                   if (node.Attributes["Tag"].Value== WindDirectionalityCaseId)
                    {
-                       BuildingOccupancyDescription = node.Attributes["Description"].Value;
+                       WindDirectionalityCaseIdDescription = node.Attributes["Description"].Value;
                    }
             }
         }
 
         #endregion
 
-        #region treeView elements
+        #region TreeView elements
 
         public TreeView TreeViewControl { get; set; }
 
-
-
-
-        public void DisplayComponentUI(XTreeItem selectedComponent)
+        private ICommand selectedItemChanged;
+        public ICommand SelectedItemChanged
         {
+            get
+            {
 
-          
+                if (WindDirectionalityCaseIdDescription == null)
+                {
+                    selectedItemChanged = new RelayCommand<object>((i) =>
+                    {
+                        OnSelectedItemChanged(i);
+                    });
+                }
+
+                return selectedItemChanged;
+            }
+
         }
+
+
 
 
         private XTreeItem selectedItem;
@@ -229,6 +256,7 @@ namespace Wosad.Loads.ASCE7.General
 
         private void OnSelectedItemChanged(object i)
         {
+
             XmlElement item = i as XmlElement;
             XTreeItem xtreeItem = new XTreeItem()
             {
@@ -243,35 +271,16 @@ namespace Wosad.Loads.ASCE7.General
             if (item != null)
             {
 
-
-                string Id = xtreeItem.Id;
-                if (Id != "X")
+                string id = xtreeItem.Tag;
+                if (id != "X")
                 {
-                    BuildingOccupancyId = xtreeItem.Id;
-                    BuildingOccupancyDescription = xtreeItem.Description;
+                    WindDirectionalityCaseId = id;
+                    WindDirectionalityCaseIdDescription = xtreeItem.Description;
                     SelectedItem = xtreeItem;
-                    DisplayComponentUI(xtreeItem);
                 }
             }
         }
 
-        #endregion
-
-        //Additional UI is a user control which is based on the user selection
-        // can remove this property
-
-        #region Additional UI
-        private UserControl additionalUI;
-
-        public UserControl AdditionalUI
-        {
-            get { return additionalUI; }
-            set
-            {
-                additionalUI = value;
-                RaisePropertyChanged("AdditionalUI");
-            }
-        }
         #endregion
 
 
@@ -280,16 +289,17 @@ namespace Wosad.Loads.ASCE7.General
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class BuildingOccupancyViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<BuildingOccupancyIdSelection>
+        public class WindDirectionalityCaseIdSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<WindDirectionalityCaseIdSelection>
         {
-            public void CustomizeView(BuildingOccupancyIdSelection model, NodeView nodeView)
+            public void CustomizeView(WindDirectionalityCaseIdSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                BuildingOccupancyIdView control = new BuildingOccupancyIdView();
+                WindDirectionalityCaseIdSelectionView control = new WindDirectionalityCaseIdSelectionView();
                 control.DataContext = model;
                 
+                //remove this part if control does not contain tree
                 TreeView tv = control.FindName("selectionTree") as TreeView;
                 if (tv!=null)
                 {

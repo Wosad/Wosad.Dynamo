@@ -182,6 +182,7 @@
     <Compile Include="Nodes\General\Flexure\AngleOrientation.cs" />
     <Compile Include="Nodes\General\Flexure\AngleRotation.cs" />
     <Compile Include="Nodes\Loads\ASCE7\Lateral\Wind\EnclosureType.cs" />
+    <Compile Include="Nodes\Loads\ASCE7\Lateral\Wind\WindDirectionalityCaseIdSelection.cs" />
     <Compile Include="Nodes\Loads\ASCE7\Lateral\Wind\WindStrucureDynamicResponseType.cs" />
     <Compile Include="Nodes\Loads\ASCE7\Lateral\Wind\WindSystemTypeByMaterial.cs" />
     <Compile Include="Nodes\Loads\ASCE7\General\BuildingOccupancyIdSelection.cs" />
@@ -314,6 +315,9 @@
     </Compile>
     <Compile Include="Views\Loads\ASCE7\Wind\EnclosureTypeView.xaml.cs">
       <DependentUpon>EnclosureTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loads\ASCE7\Wind\WindDirectionalityCaseIdSelectionView.xaml.cs">
+      <DependentUpon>WindDirectionalityCaseIdSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Loads\ASCE7\Wind\WindExposureCategoryView.xaml.cs">
       <DependentUpon>WindExposureCategoryView.xaml</DependentUpon>
@@ -606,6 +610,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Loads\ASCE7\Wind\EnclosureTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7\Wind\WindDirectionalityIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Loads\ASCE7\Wind\WindDirectionalityCaseIdSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1031,6 +1043,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Loads\ASCE7\Seismic\SeismicLateralSystemIdTreeData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Loads\ASCE7\Wind\DirectionalityTreeData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
