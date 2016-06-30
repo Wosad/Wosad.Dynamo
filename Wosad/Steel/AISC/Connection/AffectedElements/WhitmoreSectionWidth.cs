@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Steel.AISC360v10.Connections.AffectedElements;
 
+
 #endregion
 
 namespace Steel.AISC.Connection

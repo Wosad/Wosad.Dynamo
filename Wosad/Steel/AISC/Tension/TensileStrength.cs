@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Steel.AISC.AISC360v10.Tension;
 
 #endregion
 
@@ -54,7 +55,8 @@ namespace Steel.AISC
 
 
             //Calculation logic:
-
+            TensionMember tm = new TensionMember();
+            phiP_n = tm.GetDesignTensileCapacity(F_y, F_u, A_g, A_e);
 
             return new Dictionary<string, object>
             {
@@ -64,15 +66,6 @@ namespace Steel.AISC
         }
 
 
-        //internal Tension (double F_y,double F_u,double A_e,double A_g)
-        //{
-
-        //}
-        //[IsVisibleInDynamoLibrary(false)]
-        //public static Tension  ByInputParameters(double F_y,double F_u,double A_e,double A_g)
-        //{
-        //    return new Tension(F_y ,F_u ,A_e ,A_g );
-        //}
 
     }
 }

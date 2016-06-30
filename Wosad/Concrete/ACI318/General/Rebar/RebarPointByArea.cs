@@ -47,6 +47,9 @@ namespace Concrete.ACI318.General.Reinforcement
          internal RebarPoint(double A_b, double X_shp, double Y_shp, RebarMaterial RebarMaterial)
         {
 
+            Rebar b = new Rebar(A_b, RebarMaterial.Material);
+            //RebarPointLData = new RebarPoint(thisBar, new RebarCoordinate() { X = X_shp, Y = Y_shp });
+
         }
 
          /// <summary>
@@ -63,9 +66,18 @@ namespace Concrete.ACI318.General.Reinforcement
             return new RebarPoint(A_b,X_shp,Y_shp,RebarMaterial);
         }
 
-    
+
+        private RebarPoint rebarPointData;
+
+        [IsVisibleInDynamoLibrary(false)]
+        public RebarPoint RebarPointLData
+        {
+            get { return rebarPointData; }
+            set { rebarPointData = value; }
+        }
 
 
+ 
     }
 }
 

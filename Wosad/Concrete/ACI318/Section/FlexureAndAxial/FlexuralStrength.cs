@@ -26,10 +26,11 @@ using Wosad.Concrete.ACI;
 using Concrete.ACI318.General;
 using Wosad.Common.Section.Interfaces;
 using System;
+using Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes;
 
 #endregion
 
-namespace Concrete.ACI318.Section.Flexure
+namespace Concrete.ACI318.Section.FlexureAndAxialForce
 {
 
 /// <summary>
@@ -39,73 +40,82 @@ namespace Concrete.ACI318.Section.Flexure
 /// 
 
 
-    //public partial class Flexure 
-    //{
-    //    /// <summary>
-    //    ///     SectionFlexural strength
-    //    /// </summary>
-    //    /// <param name="ConcreteSection">  Reinforced concrete section </param>
-    //    /// <param name="FlexuralCompressionFiberLocation">  Indicates whether the section in flexure has top or bottom in compression due to stresses from bending moment </param>
-    //    /// <param name="ConfinementReinforcementType">  Type of confinement reinforcement (spiral, ties or none) </param>
-    //    /// <returns name="phiM_n">  Design flexural strength at section   </returns>
-    //    /// <returns name="a"> Depth of equivalent rectangular stress block  </returns>
-    //    /// <returns name="c">  Distance from extreme compression fiber to neutral  axis  </returns>
-    //    /// <returns name="FlexuralFailureModeClassification"> Identifies if section is tension-controlled, transitional or compression-controlled </returns>
-    //    /// <returns name="epsilon_t">  Net tensile strain in extreme layer of longitudinal tension reinforcement at nominal strength,  excluding strains due to effective prestress, creep,  shrinkage, and temperature </returns>
+    public partial class Flexure
+    {
+        /// <summary>
+        ///     SectionFlexural strength
+        /// </summary>
+        /// <param name="ConcreteSection">  Reinforced concrete section </param>
+        /// <param name="FlexuralCompressionFiberLocation">  Indicates whether the section in flexure has top or bottom in compression due to stresses from bending moment </param>
+        /// <param name="ConfinementReinforcementType">  Type of confinement reinforcement (spiral, ties or none) </param>
+        /// <returns name="phiM_n">  Design flexural strength at section   </returns>
+        /// <returns name="a"> Depth of equivalent rectangular stress block  </returns>
+        /// <returns name="c">  Distance from extreme compression fiber to neutral  axis  </returns>
+        /// <returns name="FlexuralFailureModeClassification"> Identifies if section is tension-controlled, transitional or compression-controlled </returns>
+        /// <returns name="epsilon_t">  Net tensile strain in extreme layer of longitudinal tension reinforcement at nominal strength,  excluding strains due to effective prestress, creep,  shrinkage, and temperature </returns>
 
-    //    [MultiReturn(new[] { "phiM_n","a","c","FlexuralFailureModeClassification","epsilon_t" })]
-    //    public static Dictionary<string, object> FlexuralStrength(ConcreteSection ConcreteSection, 
-    //        string FlexuralCompressionFiberLocation="Top", string ConfinementReinforcementType = "Ties")
-    //    {
-    //        //Default values
-    //        double phiM_n = 0;
-    //        double a = 0;
-    //        double c = 0;
-    //        string FlexuralFailureModeClassification = "";
-    //        double epsilon_t = 0;
+        [MultiReturn(new[] { "phiM_n", "a", "c", "FlexuralFailureModeClassification", "epsilon_t" })]
+        public static Dictionary<string, object> FlexuralStrength(ConcreteSection ConcreteSection,
+            string FlexuralCompressionFiberLocation = "Top", string ConfinementReinforcementType = "Ties")
+        {
+            //Default values
+            double phiM_n = 0;
+            double a = 0;
+            double c = 0;
+            string FlexuralFailureModeClassification = "";
+            double epsilon_t = 0;
 
 
 
-    //        //Calculation logic:
+            //Calculation logic:
 
-    //        FlexuralCompressionFiberPosition p;
-    //        bool IsValidStringFiber = Enum.TryParse(FlexuralCompressionFiberLocation, true, out p);
-    //        if (IsValidStringFiber == false)
-    //        {
-    //        throw new Exception("Flexural compression fiber location is not recognized. Check input.");
-    //        }
+            FlexuralCompressionFiberPosition p;
+            bool IsValidStringFiber = Enum.TryParse(FlexuralCompressionFiberLocation, true, out p);
+            if (IsValidStringFiber == false)
+            {
+                throw new Exception("Flexural compression fiber location is not recognized. Check input.");
+            }
 
-    //        ConfinementReinforcementType co;
-    //        bool IsValidStringConf = Enum.TryParse(ConfinementReinforcementType, true, out co);
-    //        if (IsValidStringConf == false)
-    //        {
-    //        throw new Exception("Confinement reinforcement type is not recognized. Check input.");
-    //        }
+            ConfinementReinforcementType co;
+            bool IsValidStringConf = Enum.TryParse(ConfinementReinforcementType, true, out co);
+            if (IsValidStringConf == false)
+            {
+                throw new Exception("Confinement reinforcement type is not recognized. Check input.");
+            }
 
-    //        ConcreteSectionFlexure beam = new ConcreteSectionFlexure(ConcreteSection.Section, ConcreteSection.LongitudinalBars, null);
-    //        ConcreteFlexuralStrengthResult result = beam.GetDesignFlexuralStrength(p, co);
+            //Convert rebar points
+            List<RebarPoint> LongitudinalBars = new List<RebarPoint>();
+            foreach (var bar in ConcreteSection.LongitudinalBars)
+            {
+                //Rebar thisBar = new Rebar(bar.RebarPointLData, new MaterialAstmA615(A615Grade.Grade60));
+                //RebarPoint point = new RebarPoint(thisBar, new RebarCoordinate() { X = 0, Y = -Height / 2.0 + bar.Cover });
+                //LongitudinalBars.Add(point);
+            }
 
-    //        phiM_n = result.phiM_n;
-    //        a = result.a;
-    //        c = result.a / ConcreteSection.ConcreteMaterial.Concrete.beta1;
-    //        FlexuralFailureModeClassification = result.FlexuralFailureModeClassification.ToString();
-    //        epsilon_t = result.epsilon_t;
+            //ConcreteSectionFlexure beam = new ConcreteSectionFlexure(ConcreteSection.Section, ConcreteSection.LongitudinalBars, null);
+            //ConcreteFlexuralStrengthResult result = beam.GetDesignFlexuralStrength(p, co);
 
-    //        return new Dictionary<string, object>
-    //        {
-    //        { "phiM_n", phiM_n }
-    //        ,{ "a", a }
-    //        ,{ "c", c }
-    //        ,{ "FlexuralFailureModeClassification", FlexuralFailureModeClassification }
-    //        ,{ "epsilon_t", epsilon_t }
+            //phiM_n = result.phiM_n;
+            //a = result.a;
+            //c = result.a / ConcreteSection.ConcreteMaterial.Concrete.beta1;
+            //FlexuralFailureModeClassification = result.FlexuralFailureModeClassification.ToString();
+            //epsilon_t = result.epsilon_t;
+
+            return new Dictionary<string, object>
+            {
+            { "phiM_n", phiM_n }
+            ,{ "a", a }
+            ,{ "c", c }
+            ,{ "FlexuralFailureModeClassification", FlexuralFailureModeClassification }
+            ,{ "epsilon_t", epsilon_t }
  
-    //        };
-    //    }
+            };
+        }
 
 
 
 
-    //}
+    }
 }
 
 
