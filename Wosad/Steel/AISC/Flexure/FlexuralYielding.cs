@@ -47,7 +47,7 @@ namespace Steel.AISC
     public partial class Flexure 
     {
     /// <summary>
-    ///     Flexural yielding
+        ///     Flexural yielding
     /// </summary>
     /// <param name="Shape">  Shape object </param>
     ///  <param name="F_y">  Specified minimum yield stress </param>
