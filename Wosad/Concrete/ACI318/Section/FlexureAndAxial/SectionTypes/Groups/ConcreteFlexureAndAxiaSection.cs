@@ -27,7 +27,7 @@ using dm =Wosad.Common.Mathematics;
 using Concrete.ACI318.General;
 using Concrete.ACI318.General.Reinforcement;
 using Concrete.ACI318.General.Concrete;
-
+using wosadAci = Wosad.Concrete.ACI;
 
 #endregion
 
@@ -35,25 +35,25 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes
 {
 
   [IsVisibleInDynamoLibrary(false)]
-    public partial class ConcreteSection
+    public partial class ConcreteFlexureAndAxiaSection
     {
 
 
 
         [IsVisibleInDynamoLibrary(false)]
-        protected ConcreteSection()
+        protected ConcreteFlexureAndAxiaSection()
         {
 
         }
 
 
-        private Wosad.Concrete.ACI.IConcreteSection section;
+        private wosadAci.IConcreteFlexuralMember flexSection;
 
         [IsVisibleInDynamoLibrary(false)]
-        public Wosad.Concrete.ACI.IConcreteSection Section
+        public wosadAci.IConcreteFlexuralMember FlexuralSection
         {
-            get { return section; }
-            set { section = value; }
+            get { return flexSection; }
+            set { flexSection = value; }
         }
 
         private List<RebarPoint> longitudinalBars;

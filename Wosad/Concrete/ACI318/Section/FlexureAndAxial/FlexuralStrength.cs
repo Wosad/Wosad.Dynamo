@@ -27,6 +27,7 @@ using Concrete.ACI318.General;
 using Wosad.Common.Section.Interfaces;
 using System;
 using Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes;
+using wosadAci = Wosad.Concrete.ACI;
 
 #endregion
 
@@ -43,7 +44,7 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce
     public partial class Flexure
     {
         /// <summary>
-        ///     SectionFlexural strength
+        ///     Section flexural strength
         /// </summary>
         /// <param name="ConcreteSection">  Reinforced concrete section </param>
         /// <param name="FlexuralCompressionFiberLocation">  Indicates whether the section in flexure has top or bottom in compression due to stresses from bending moment </param>
@@ -55,7 +56,7 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce
         /// <returns name="epsilon_t">  Net tensile strain in extreme layer of longitudinal tension reinforcement at nominal strength,  excluding strains due to effective prestress, creep,  shrinkage, and temperature </returns>
 
         [MultiReturn(new[] { "phiM_n", "a", "c", "FlexuralFailureModeClassification", "epsilon_t" })]
-        public static Dictionary<string, object> FlexuralStrength(ConcreteSection ConcreteSection,
+        public static Dictionary<string, object> FlexuralStrength(ConcreteFlexureAndAxiaSection ConcreteSection,
             string FlexuralCompressionFiberLocation = "Top", string ConfinementReinforcementType = "Ties")
         {
             //Default values
@@ -83,23 +84,19 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce
                 throw new Exception("Confinement reinforcement type is not recognized. Check input.");
             }
 
-            //Convert rebar points
-            List<RebarPoint> LongitudinalBars = new List<RebarPoint>();
-            foreach (var bar in ConcreteSection.LongitudinalBars)
-            {
-                //Rebar thisBar = new Rebar(bar.RebarPointLData, new MaterialAstmA615(A615Grade.Grade60));
-                //RebarPoint point = new RebarPoint(thisBar, new RebarCoordinate() { X = 0, Y = -Height / 2.0 + bar.Cover });
-                //LongitudinalBars.Add(point);
-            }
 
-            //ConcreteSectionFlexure beam = new ConcreteSectionFlexure(ConcreteSection.Section, ConcreteSection.LongitudinalBars, null);
-            //ConcreteFlexuralStrengthResult result = beam.GetDesignFlexuralStrength(p, co);
+             wosadAci.IConcreteFlexuralMember beam = ConcreteSection.FlexuralSection;
+             ConcreteFlexuralStrengthResult result = beam.GetDesignFlexuralStrength(p, co);
 
-            //phiM_n = result.phiM_n;
-            //a = result.a;
-            //c = result.a / ConcreteSection.ConcreteMaterial.Concrete.beta1;
-            //FlexuralFailureModeClassification = result.FlexuralFailureModeClassification.ToString();
-            //epsilon_t = result.epsilon_t;
+            //note that internally ACI nodes in Wosad use psi units consistent with ACI code
+            //convert to ksi units consistent with the rest of Dynamo nodes here
+
+             phiM_n = result.phiM_n/1000.0;
+
+             a = result.a;
+             c = result.a / ConcreteSection.ConcreteMaterial.Concrete.beta1;
+             FlexuralFailureModeClassification = result.FlexuralFailureModeClassification.ToString();
+             //epsilon_t = result.epsilon_t;
 
             return new Dictionary<string, object>
             {

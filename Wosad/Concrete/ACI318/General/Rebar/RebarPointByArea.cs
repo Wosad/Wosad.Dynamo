@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Concrete.ACI;
 using Dynamo.Graph.Nodes;
+using wosadAci =Wosad.Concrete.ACI;
 
 #endregion
 
@@ -47,8 +48,8 @@ namespace Concrete.ACI318.General.Reinforcement
          internal RebarPoint(double A_b, double X_shp, double Y_shp, RebarMaterial RebarMaterial)
         {
 
-            Rebar b = new Rebar(A_b, RebarMaterial.Material);
-            //RebarPointLData = new RebarPoint(thisBar, new RebarCoordinate() { X = X_shp, Y = Y_shp });
+            wosadAci.Rebar b = new wosadAci.Rebar(A_b, RebarMaterial.Material);
+            this.RebarPointLData = new wosadAci.RebarPoint(b, new wosadAci.RebarCoordinate() { X = X_shp, Y = Y_shp });
 
         }
 
@@ -67,10 +68,10 @@ namespace Concrete.ACI318.General.Reinforcement
         }
 
 
-        private RebarPoint rebarPointData;
+        private wosadAci.RebarPoint rebarPointData;
 
         [IsVisibleInDynamoLibrary(false)]
-        public RebarPoint RebarPointLData
+        public wosadAci.RebarPoint RebarPointLData
         {
             get { return rebarPointData; }
             set { rebarPointData = value; }

@@ -26,6 +26,9 @@ using Concrete.ACI318.General;
 using Concrete.ACI318.General.Reinforcement;
 using Concrete.ACI318.General.Concrete;
 using Dynamo.Graph.Nodes;
+using wosadAci = Wosad.Concrete.ACI;
+using wosadAci14 = Wosad.Concrete.ACI318_14;
+using Wosad.Common.CalculationLogger;
 
 #endregion
 
@@ -40,7 +43,7 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes
 
 
     [IsDesignScriptCompatible]
-    public partial class RectangularSectionSinglyReinforced : ConcreteSection
+    public partial class RectangularSectionSinglyReinforced : ConcreteFlexureAndAxiaSection
     {
 
             //Default values
@@ -54,21 +57,20 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes
 
          [IsVisibleInDynamoLibrary(false)]
         internal RectangularSectionSinglyReinforced(double b, double h, double A_s, double c_cntr,
-        ConcreteMaterial ConcreteMaterial, RebarMaterial LongitudinalRebarMaterial)
+        ConcreteMaterial ConcreteMaterial, RebarMaterial LongitudinalRebarMaterial, bool hasTies=false)
         {
 
-            CrossSectionRectangularShape section = new CrossSectionRectangularShape(ConcreteMaterial.Concrete, null, b, h);
-            List<RebarPoint> LongitudinalBars = new List<RebarPoint>();
-            this.Section = section;
-           
-            //Rebar thisBar = new Rebar(A_s, LongitudinalRebarMaterial.Material);
-            //RebarPoint point = new RebarPoint(thisBar, new RebarCoordinate() { X = 0, Y = -h / 2.0 + c_cntr });
-            //LongitudinalBars.Add(point);
+            CrossSectionRectangularShape shape = new CrossSectionRectangularShape(ConcreteMaterial.Concrete, null, b, h);
+            base.ConcreteMaterial = ConcreteMaterial; //duplicate save of concrete material into base Dynamo class
 
-            //this.A_tr = A_tr;
-            //this.s = s;
+            List<wosadAci.RebarPoint> LongitudinalBars = new List<wosadAci.RebarPoint>();
 
-            //this.LongitudinalBars = LongitudinalBars;
+                wosadAci.Rebar thisBar = new wosadAci.Rebar(A_s, LongitudinalRebarMaterial.Material);
+                wosadAci.RebarPoint point = new wosadAci.RebarPoint(thisBar, new wosadAci.RebarCoordinate() { X = 0, Y = -h / 2.0 + c_cntr });
+            LongitudinalBars.Add(point);
+
+            wosadAci.IConcreteFlexuralMember fs = new wosadAci14.ConcreteSectionFlexure(shape, LongitudinalBars, new CalcLog());
+            this.FlexuralSection = fs;
         }
 
         /// <summary>

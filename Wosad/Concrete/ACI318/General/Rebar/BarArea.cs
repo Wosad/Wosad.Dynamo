@@ -45,13 +45,14 @@ namespace Concrete.ACI318.General.Reinforcement
         /// </summary>
         /// <param name="RebarSizeId">  Rebar designation (number) indicating the size of  bar </param>
         /// <returns name="A_b">  Area of an individual bar  </returns>
+        /// <returns name="d_b"> Bar diameter </returns>
 
-        [MultiReturn(new[] { "A_b" })]
+        [MultiReturn(new[] { "A_b","d_b" })]
         public static Dictionary<string, object> BarArea(string RebarSizeId)
         {
             //Default values
             double A_b = 0;
-            
+            double d_b = 0;
 
             //Calculation logic:
             RebarDesignation des;
@@ -62,10 +63,12 @@ namespace Concrete.ACI318.General.Reinforcement
             }
             RebarSection sec = new RebarSection(des);
             A_b = sec.Area;
+            d_b = sec.Diameter;
 
             return new Dictionary<string, object>
             {
-                { "A_b", A_b }
+                { "A_b", A_b },
+                { "d_b", d_b }
  
             };
         }
