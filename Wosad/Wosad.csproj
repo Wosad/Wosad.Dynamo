@@ -324,6 +324,11 @@
     <Compile Include="Steel\AISC\Connection\AffectedElements\ConnectedElementStrengthInTension.cs" />
     <Compile Include="Steel\AISC\Connection\AffectedElements\CopedSectionStrengthInFlexure.cs" />
     <Compile Include="Steel\AISC\Connection\BasePlate\EccentricallyLoadedBasePlateMinimumThickness.cs" />
+    <Compile Include="Steel\AISC\Connection\SpecialCase\Groups\Seated.cs" />
+    <Compile Include="Steel\AISC\Connection\SpecialCase\Seated\TriangularSeatStiffenerForces.cs" />
+    <Compile Include="Steel\AISC\Connection\SpecialCase\Seated\TriangularSeatStiffenerPlateThicknessToPrecludeBuckling.cs" />
+    <Compile Include="Steel\AISC\Connection\SpecialCase\Seated\TriangularSeatStiffenerStrength.cs" />
+    <Compile Include="Steel\AISC\Connection\SpecialCase\Seated\WeldStrengthForVerticalLegsOfSeat.cs" />
     <Compile Include="Steel\AISC\Connection\UFM\Groups\UniformForceMethod.cs" />
     <Compile Include="Steel\AISC\Connection\UFM\GussetToBeamConnectionBetaIdeal.cs" />
     <Compile Include="Steel\AISC\Connection\UFM\GussetToColumnConnectionAlphaIdeal.cs" />

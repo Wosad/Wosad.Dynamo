@@ -38,8 +38,8 @@ namespace Concrete.ACI318.Section.OneWayShear
 /// 
 
 
-   
-    //public partial class NonPrestressed 
+
+    //public partial class NonPrestressed
     //{
     //    /// <summary>
     //    ///     One way  shear strength provided by concrete
@@ -47,7 +47,7 @@ namespace Concrete.ACI318.Section.OneWayShear
     //    /// <param name="ConcreteSection">  Reinforced concrete section </param>
     //    /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
     //    /// <param name="h">   Overall thickness, height, or depth of member  </param>
-    //    /// <param name="N_u">   Factored axial force normal to cross section occurring simultaneously with vu or tu; to be taken as  positive for compression and negative for tension  </param>
+    //    /// <param name="N_u">   Factored axial force normal to cross section occurring simultaneously with vu (shear stress) or tu (torsional stress); to be taken as  positive for compression and negative for tension  </param>
     //    /// <param name="rho_w">   Ratio of A_s /( b_w*d) </param>
     //    /// <param name="M_u">   Factored moment at section   </param>
     //    /// <param name="V_u">   Factored shear force at section  </param>
@@ -62,9 +62,9 @@ namespace Concrete.ACI318.Section.OneWayShear
 
     //        //Calculation logic:
 
-    //        ConcreteSectionOneWayShearNonPrestressed s = new ConcreteSectionOneWayShearNonPrestressed(d, ConcreteSection.Section, material.Material, ConcreteSection.A_tr, ConcreteSection.s);
-    //        phiV_c=s.GetConcreteShearStrength();
-            
+    //        //ConcreteSectionOneWayShearNonPrestressed s = new ConcreteSectionOneWayShearNonPrestressed(d, ConcreteSection.Section, material.Material, ConcreteSection.A_tr, ConcreteSection.s);
+    //        //phiV_c = s.GetConcreteShearStrength();
+
     //        return new Dictionary<string, object>
     //        {
     //            { "phiV_c", phiV_c }
