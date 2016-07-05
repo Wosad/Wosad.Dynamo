@@ -30,6 +30,7 @@ using Wosad.Steel.AISC.AISC360v10.Flexure;
 using Wosad.Steel.AISC.SteelEntities;
 using Wosad.Steel.AISC.Interfaces;
 using System;
+using Wosad.Steel.AISC.Steel.Entities;
 
 #endregion
 

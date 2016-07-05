@@ -28,6 +28,7 @@ using Wosad.Common.Section.Interfaces;
 using System;
 using Wosad.Steel.AISC.Entities;
 using Wosad.Steel.AISC.SteelEntities;
+using Wosad.Steel.AISC.Steel.Entities;
 
 #endregion
 

@@ -30,6 +30,7 @@ using Wosad.Common.Entities;
 using Wosad.Common.Section.Interfaces;
 using Wosad.Steel.AISC.SteelEntities;
 using Wosad.Steel.AISC.Interfaces;
+using Wosad.Steel.AISC.Steel.Entities;
 
 #endregion
 

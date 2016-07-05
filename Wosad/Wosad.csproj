@@ -143,8 +143,8 @@
       <HintPath>..\packages\Wosad.Analysis.0.0.6.3\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Common, Version=0.0.6.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.6.5\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.6.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.6.6\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Concrete, Version=0.0.6.3, Culture=neutral, processorArchitecture=MSIL">
@@ -159,8 +159,8 @@
       <HintPath>..\packages\Wosad.Reporting.0.0.1.1\lib\net45\Wosad.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Steel, Version=0.0.6.12, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Steel.0.0.6.12\lib\net45\Wosad.Steel.dll</HintPath>
+    <Reference Include="Wosad.Steel, Version=0.0.6.13, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Steel.0.0.7.1\lib\net45\Wosad.Steel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.WebApi.Models, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">

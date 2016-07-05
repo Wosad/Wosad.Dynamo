@@ -31,6 +31,7 @@ using System;
 using Wosad.Steel.AISC.Interfaces;
 using Wosad.Steel.AISC.SteelEntities;
 using Wosad.Steel.AISC;
+using Wosad.Steel.AISC.Steel.Entities;
 
 #endregion
 
