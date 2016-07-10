@@ -27,7 +27,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace WosadDynamoUI.Views.Loads.ASCE7v10
+namespace WosadDynamoUI.Views.Loads.ASCE7
 {
     public partial class FullGroutedCMU : UserControl
     {

@@ -182,7 +182,7 @@ namespace Wosad.Loads.ASCE7.General
 
         private void SetOccupancyDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7v10/General/BuildingOccupancyTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7/General/BuildingOccupancyTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }

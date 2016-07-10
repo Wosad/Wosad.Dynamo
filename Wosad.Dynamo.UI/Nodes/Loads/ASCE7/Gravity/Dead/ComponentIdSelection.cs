@@ -27,7 +27,7 @@ using Wosad.Dynamo.Common;
 using Wosad.Loads.ASCE7.Entities;
 using System.Xml;
 using System.Windows.Input;
-using WosadDynamoUI.Views.Loads.ASCE7v10;
+using WosadDynamoUI.Views.Loads.ASCE7;
 using GalaSoft.MvvmLight.Command;
 using System.Reflection;
 using Wosad.Dynamo.Common.Infra.TreeItems;
@@ -268,7 +268,7 @@ namespace Wosad.Loads.ASCE7.Gravity.Dead
 
         private void SetComponentDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7v10/Dead/ComponentDeadWeightTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/WosadDynamoUI;component/Views/Loads/ASCE7/Dead/ComponentDeadWeightTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }
@@ -317,7 +317,7 @@ namespace Wosad.Loads.ASCE7.Gravity.Dead
                 Assembly execAssembly = Assembly.GetExecutingAssembly();
                 AssemblyName assemblyName = new AssemblyName(execAssembly.FullName);
                 string execAssemblyName = assemblyName.Name;
-                string typeStr =execAssemblyName +".Views.Loads.ASCE7v10." + selectedComponent.ResourcePath;
+                string typeStr =execAssemblyName +".Views.Loads.ASCE7." + selectedComponent.ResourcePath;
                 try
                 {
                     Type subMenuType = execAssembly.GetType(typeStr);

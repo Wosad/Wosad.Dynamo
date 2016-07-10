@@ -196,7 +196,7 @@ namespace Wosad.Loads.ASCE7.Lateral.Seismic.Building
 
         private void SetComponentDescription()
         {
-            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Loads/ASCE7v10/Lateral/Seismic/SeismicLateralSystemIdTreeData.xml");
+            Uri uri = new Uri("pack://application:,,,/Wosad.Dynamo.UI;component/Loads/ASCE7/Lateral/Seismic/SeismicLateralSystemIdTreeData.xml");
             XmlTreeHelper treeHelper = new XmlTreeHelper();
             treeHelper.ExamineXmlTreeFile(uri, new EvaluateXmlNodeDelegate(FindDescription));
         }

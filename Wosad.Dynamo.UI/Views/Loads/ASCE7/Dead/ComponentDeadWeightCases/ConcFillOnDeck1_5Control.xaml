@@ -6,7 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="WosadDynamoUI.Views.Loads.ASCE7v10.ConcFillOnDeck1_5Control"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="WosadDynamoUI.Views.Loads.ASCE7.ConcFillOnDeck1_5Control"
     mc:Ignorable="d"
     d:DesignHeight="80" d:DesignWidth="400">
     
