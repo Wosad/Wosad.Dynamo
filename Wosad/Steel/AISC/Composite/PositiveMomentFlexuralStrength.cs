@@ -22,6 +22,9 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Wosad.Steel.AISC.AISC360v10.Composite;
+using Analysis.Section;
+using Wosad.Common.Section.Interfaces;
+using System;
 
 #endregion
 
@@ -51,7 +54,7 @@ namespace Steel.AISC.Composite
         /// <returns name="phiM_n"> Moment strength </returns>
 
         [MultiReturn(new[] { "phiM_n" })]
-        public static Dictionary<string, object> PositiveMomentFlexuralStrength(CompositeSteelShape Shape, double b_eff, double h_solid, double h_rib, double F_y, double fc_prime,
+        public static Dictionary<string, object> PositiveMomentFlexuralStrength(CustomProfile Shape, double b_eff, double h_solid, double h_rib, double F_y, double fc_prime,
             double SumQ_n, string Code = "AISC360-10")
         {
             //Default values
@@ -59,8 +62,28 @@ namespace Steel.AISC.Composite
 
 
             //Calculation logic:
-            CompositeBeamSection cs = new CompositeBeamSection(Shape.Section, b_eff, h_solid, h_rib, F_y, fc_prime);
-            phiM_n = cs.GetFlexuralStrength(SumQ_n);
+            if (Shape.Section is ISliceableShapeProvider)
+            {
+                ISliceableShapeProvider prov = Shape.Section as ISliceableShapeProvider;
+                ISliceableSection sec = prov.GetSliceableShape();
+                CompositeBeamSection cs = new CompositeBeamSection(sec, b_eff, h_solid, h_rib, F_y, fc_prime);
+                phiM_n = cs.GetFlexuralStrength(SumQ_n);
+            }
+            else
+            {
+                if (Shape.Section is ISliceableSection)
+                {
+                    ISliceableSection sec = Shape.Section as ISliceableSection;
+                    CompositeBeamSection cs = new CompositeBeamSection(sec, b_eff, h_solid, h_rib, F_y, fc_prime);
+                    phiM_n = cs.GetFlexuralStrength(SumQ_n);
+                }
+                else
+                {
+                    throw new Exception("Shape type not supported. Please provide a shape object of standard geometry");
+                }
+                
+            }
+
 
             return new Dictionary<string, object>
             {

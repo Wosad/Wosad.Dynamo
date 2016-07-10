@@ -143,8 +143,8 @@
       <HintPath>..\packages\Wosad.Analysis.0.0.6.3\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Common, Version=0.0.6.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.6.6\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.7.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Concrete, Version=0.0.6.3, Culture=neutral, processorArchitecture=MSIL">
@@ -410,12 +410,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Analysis\Section\AISC\YAxisProperties.cs" />
-    <Compile Include="Steel\AISC\HSS\BranchPunchingStrength.cs" />
-    <Compile Include="Steel\AISC\HSS\BranchYieldingFromUnevenLoadDistributionStrength.cs" />
-    <Compile Include="Steel\AISC\HSS\ChordSidewallLocalCripplingStrength.cs" />
-    <Compile Include="Steel\AISC\HSS\ChordSidewallLocalYieldingStrength.cs" />
-    <Compile Include="Steel\AISC\HSS\ChordSidewallShearStrength.cs" />
-    <Compile Include="Steel\AISC\HSS\ChordWallPlastificationStrength.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\Groups\CapPlate.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\Groups\TransversePlate.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\Groups\LongitudinalPlate.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\HssCapPlateLocalYieldingOrCripplingOfHss.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\HssToLongitudinalPlateMaximumPlateThicknessForShear.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\HssToLongitudinalPlateWallPlastification.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\HssToTransversePlateLocalCripplingAndYieldingStrengthOfHss.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\HssToTransversePlateLocalPunchingStrengthOfPlate.cs" />
+    <Compile Include="Steel\AISC\HSS\ConcentratedForce\HssToTransversePlateLocalYieldingStrengthOfPlate.cs" />
+    <Compile Include="Steel\AISC\HSS\Truss\BranchPunchingStrength.cs" />
+    <Compile Include="Steel\AISC\HSS\Truss\BranchYieldingFromUnevenLoadDistributionStrength.cs" />
+    <Compile Include="Steel\AISC\HSS\Truss\ChordSidewallLocalCripplingStrength.cs" />
+    <Compile Include="Steel\AISC\HSS\Truss\ChordSidewallLocalYieldingStrength.cs" />
+    <Compile Include="Steel\AISC\HSS\Truss\ChordSidewallShearStrength.cs" />
+    <Compile Include="Steel\AISC\HSS\Truss\ChordWallPlastificationStrength.cs" />
     <Compile Include="Steel\AISC\HSS\Groups\Truss.cs" />
     <Compile Include="Steel\AISC\Shear\Groups\ShearStrength.cs" />
     <Compile Include="Steel\AISC\Shear\ShearStrengthCircular.cs" />
