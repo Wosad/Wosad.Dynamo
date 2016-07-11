@@ -121,7 +121,7 @@ namespace Steel.AISC.HSS.ConcentratedForce
                 else if (HssSection.Section is ISectionTube)
                 {
                     SteelRhsSection sec = new SteelRhsSection(HssSection.Section as ISectionTube, mat);
-                    RhsLongitudinalPlate longitudinalPlateRhs = new RhsLongitudinalPlate(sec, pl, log, IsTensionHss, P_uHss, M_uHss);
+                    RhsLongitudinalPlate longitudinalPlateRhs = new RhsLongitudinalPlate(sec, pl, log, IsTensionHss,90.0, P_uHss, M_uHss);
 
                     //limitState = longitudinalPlateRhs.GetHssYieldingOrCrippling();
                     //phiR_n = limitState.Value;

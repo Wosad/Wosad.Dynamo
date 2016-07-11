@@ -136,7 +136,7 @@ namespace Steel.AISC.HSS.ConcentratedForce
                     SteelRhsSection sec = new SteelRhsSection(HssSection.Section as ISectionTube, mat);
                     if (IsThroughPlate == false)
                     {
-                        RhsLongitudinalPlate longitudinalPlateRhs = new RhsLongitudinalPlate(sec, pl,  log, IsTensionHss, P_uHss, M_uHss);
+                        RhsLongitudinalPlate longitudinalPlateRhs = new RhsLongitudinalPlate(sec, pl,  log, IsTensionHss,theta, P_uHss, M_uHss);
 
                         limitState = longitudinalPlateRhs.GetHssWallPlastificationStrengthUnderAxialLoad();
                         phiR_n = limitState.Value;
