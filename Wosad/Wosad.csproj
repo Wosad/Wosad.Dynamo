@@ -167,6 +167,10 @@
       <HintPath>..\packages\Wosad.WebApi.Models.0.0.1.1\lib\net45\Wosad.WebApi.Models.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Wosad.Wood, Version=0.0.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Wood.0.0.7.1\lib\net45\Wosad.Wood.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis\Beam\Flexure\BeamDeflections.cs" />
@@ -433,6 +437,24 @@
     <Compile Include="Steel\AISC\Tension\Groups\Tension.cs" />
     <Compile Include="Steel\AISC\Tension\Shear lag factor.cs" />
     <Compile Include="Steel\AISC\Tension\TensileStrength.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\ColumnStabilityFactor.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\FlatUseFactor.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\Groups\AdjustmentFactor.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\IncisingFactor.cs" />
+    <Compile Include="Wood\NDS\Design values\Groups\DesignValues.cs" />
+    <Compile Include="Wood\NDS\General\Groups\General.cs" />
+    <Compile Include="Wood\NDS\General\ReferenceValues.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\RepetitiveMemberFactor.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\SizeFactor.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\TemperatureFactor.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\TimeEffectFactor.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\WetServiceFactor.cs" />
+    <Compile Include="Wood\NDS\Design values\AdjustedBendingDesignValue.cs" />
+    <Compile Include="Wood\NDS\Design values\AdjustedCompressionDesignValue.cs" />
+    <Compile Include="Wood\NDS\Design values\AdjustedMinimumModulusOfElasticity.cs" />
+    <Compile Include="Wood\NDS\Design values\AdjustedModulusOfElasticity.cs" />
+    <Compile Include="Wood\NDS\Design values\AdjustedShearDesignValue.cs" />
+    <Compile Include="Wood\NDS\Design values\AdjustedTensionDesignValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concrete\ACI318\Beam\Flexure\" />

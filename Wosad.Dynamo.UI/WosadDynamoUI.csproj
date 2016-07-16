@@ -236,6 +236,10 @@
     <Compile Include="Nodes\Analysis\Section\AISC\AiscShapeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\Connection\BoltDiameterSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\General\RecommendedMaterialSelection.cs" />
+    <Compile Include="Nodes\Wood\NDS\General\LoadCombinationTypeSelection.cs" />
+    <Compile Include="Nodes\Wood\NDS\General\ReferenceDesignValueTypeSelection.cs" />
+    <Compile Include="Nodes\Wood\NDS\General\ServiceMoistureConditionSelection.cs" />
+    <Compile Include="Nodes\Wood\NDS\General\WoodMemberTypeSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Analysis\Beam\Flexure\BeamDeflectionCaseView.xaml.cs">
       <DependentUpon>BeamDeflectionCaseView.xaml</DependentUpon>
@@ -458,6 +462,24 @@
     <Compile Include="Views\Steel\AISC\General\RecommendedMaterialSelectionView.xaml.cs">
       <DependentUpon>RecommendedMaterialSelectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Wood\General\FlatMemberTypeSelectionView.xaml.cs">
+      <DependentUpon>FlatMemberTypeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wood\General\LoadCombinationTypeSelectionView.xaml.cs">
+      <DependentUpon>LoadCombinationTypeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wood\General\ReferenceDesignValueTypeSelectionView.xaml.cs">
+      <DependentUpon>ReferenceDesignValueTypeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wood\General\ServiceMoistureConditionTypeSelectionView.xaml.cs">
+      <DependentUpon>ServiceMoistureConditionTypeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wood\General\WoodMemberTypeSelectionView.xaml.cs">
+      <DependentUpon>WoodMemberTypeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wood\General\WoodSpeciesAndGradeSelectionView.xaml.cs">
+      <DependentUpon>WoodSpeciesAndGradeSelectionView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Loads\ASCE7\General\BuildingOccupancyTreeData.xml" />
@@ -484,6 +506,30 @@
     <Page Include="Common\Themes\ExpressionLightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Wood\General\FlatMemberTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Wood\General\LoadCombinationTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Wood\General\ReferenceDesignValueTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Wood\General\ServiceMoistureConditionTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Wood\General\WoodMemberTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Wood\General\WoodSpeciesAndGradeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Resource Include="Views\Analysis\Beam\Flexure\BeamForceCaseIcons.xaml">
       <SubType>Designer</SubType>
