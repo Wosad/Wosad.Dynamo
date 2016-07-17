@@ -74,6 +74,11 @@ namespace Wood.NDS
                 DimensionalLumber m = new DimensionalLumber();
                 lambda = m.GetTimeEffectFactor(_loadCombinationType, IsConnection, IsTreated);
             }
+            else if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Timber"))
+            {
+                Timber t = new Timber();
+                lambda = t.GetTimeEffectFactor(_loadCombinationType, IsConnection, IsTreated);
+            }
             else
             {
                 throw new Exception("Wood member type not supported.");

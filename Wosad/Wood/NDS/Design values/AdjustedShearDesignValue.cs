@@ -42,16 +42,16 @@ namespace Wood.NDS
         ///     Adjusted shear design value
         /// </summary>
         /// <param name="F_v">  Velocity-based seismic site coefficient at 1.0 second period </param>
-        /// <param name="C_M">  Wet service factor </param>
+        /// <param name="C_M_Fv">  Wet service factor </param>
         /// <param name="C_t">  Temperature factor </param>
-        /// <param name="C_i">  Incising factor for dimension lumber </param>
+        /// <param name="C_i_Fv">  Incising factor for dimension lumber </param>
         /// <param name="lambda">  Time effect factor  </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
         /// <param name="Code">  Identifies the code or standard used for calculations </param>
         /// <returns name="F_v_prime"> Adjusted shear design value parallel to grain (horizontal shear) in a beam  </returns>
 
         [MultiReturn(new[] { "F_v_prime" })]
-        public static Dictionary<string, object> AdjustedShearDesignValue(double F_v,double C_M,double C_t,double C_i,double lambda,
+        public static Dictionary<string, object> AdjustedShearDesignValue(double F_v,double C_M_Fv,double C_t,double C_i_Fv,double lambda,
             string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
@@ -62,7 +62,7 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 DimensionalLumber m = new DimensionalLumber();
-                F_v_prime = m.GetAdjustedShearDesignValue(F_v, C_M, C_t, C_i, lambda);
+                F_v_prime = m.GetAdjustedShearDesignValue(F_v, C_M_Fv, C_t, C_i_Fv, lambda);
             }
             else
             {

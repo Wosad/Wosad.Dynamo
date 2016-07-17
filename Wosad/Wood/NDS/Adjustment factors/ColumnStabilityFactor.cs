@@ -48,9 +48,11 @@ namespace Wood.NDS
         /// <param name="l_e">  Effective unbraced length of column  </param>
         /// <param name="C_M_Fc">  Wet service factor for adjusted compression value </param>
         /// <param name="C_M_E">  Wet service factor for modulus of elasticity E and minimum modulus of elasticity E_min </param>
-        /// <param name="C_t">  Temperature factor </param>
-        /// <param name="C_F">  Size factor </param>
-        /// <param name="C_i">  Incising factor for dimension lumber </param>
+        /// <param name="C_t_Fc"> Temperature factor for adjusted compression value </param>
+        /// <param name="C_t_E">  Temperature factor for modulus of elasticity E and minimum modulus of elasticity E_min </param>
+        /// <param name="C_F_Fc">  Size factor factor for adjusted compression value </param>
+        /// <param name="C_i_Fc">  Incising factor for adjusted compression value </param>
+        /// <param name="C_i_E">  Incising factor for modulus of elasticity E and minimum modulus of elasticity E_min</param>
         /// <param name="C_T">  Buckling stiffness factor for increased chord stiffness relative to axial loads where a 2" x 4" or smaller sawn lumber truss compression chord is subjected to combined flexure and axial compression under dry service condition and  has 3/8" or thicker plywood sheathing nailed to the narrow face of the chord </param>
         /// <param name="lambda">  Time effect factor  </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
@@ -58,8 +60,8 @@ namespace Wood.NDS
         /// <returns name="C_P"> Column stability factor </returns>
 
         [MultiReturn(new[] { "C_P" })]
-        public static Dictionary<string, object> ColumnStabilityFactor(double d_comp,double F_c,double E_min,double l_e,double C_M_Fc,double C_M_E,double C_F,double lambda,
-            double C_t = 1, double C_i = 1, double C_T = 1, string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
+        public static Dictionary<string, object> ColumnStabilityFactor(double d_comp,double F_c,double E_min,double l_e,double C_M_Fc,double C_M_E,double C_F_Fc,double lambda,
+            double C_t_Fc = 1, double C_t_E = 1, double C_i_Fc = 1, double C_i_E = 1, double C_T = 1, string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
             double C_P = 0;
@@ -69,7 +71,12 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 DimensionalLumber m = new DimensionalLumber();
-                C_P = m.GetColumnStabilityFactor(d_comp, F_c, E_min, l_e, C_M_Fc, C_M_E, C_t, C_F, C_i, C_T, lambda);
+                C_P = m.GetColumnStabilityFactor(d_comp, F_c, E_min, l_e, C_M_Fc, C_M_E, C_t_Fc,C_t_E, C_F_Fc, C_i_Fc, C_i_E, C_T, lambda);
+            }
+            else if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Timber"))
+            {
+                Timber t = new Timber();
+                C_P = t.GetColumnStabilityFactor(d_comp, F_c, E_min, l_e, C_M_Fc, C_M_E, C_t_Fc,C_t_E, C_F_Fc, C_i_Fc, C_i_E, C_T, lambda);
             }
             else
 	        {

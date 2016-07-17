@@ -43,15 +43,15 @@ namespace Wood.NDS
         ///     Adjusted modulus of elasticity
         /// </summary>
         /// <param name="E">  Earthquake force  </param>
-        /// <param name="C_M">  Wet service factor </param>
+        /// <param name="C_M_E">  Wet service factor </param>
         /// <param name="C_t">  Temperature factor </param>
-        /// <param name="C_i">  Incising factor for dimension lumber </param>
+        /// <param name="C_i_E">  Incising factor for dimension lumber </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
         /// <param name="Code">  Identifies the code or standard used for calculations </param>
         /// <returns name="E_prime"> Adjusted modulus of elasticity  </returns>
 
         [MultiReturn(new[] { "E_prime" })]
-        public static Dictionary<string, object> AdjustedModulusOfElasticity(double E,double C_M,double C_t,double C_i,
+        public static Dictionary<string, object> AdjustedModulusOfElasticity(double E,double C_M_E,double C_t,double C_i_E,
             string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
@@ -62,7 +62,7 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 DimensionalLumber m = new DimensionalLumber();
-                E_prime = m.GetAdjustedModulusOfElasticity(E, C_M, C_t, C_i);
+                E_prime = m.GetAdjustedModulusOfElasticity(E, C_M_E, C_t, C_i_E);
             }
             else
             {

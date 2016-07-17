@@ -22,6 +22,9 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using System;
+using Wosad.Wood.NDS.NDS2015;
+using ww = Wosad.Wood.NDS.Entities;
+
 
 #endregion
 
@@ -41,32 +44,71 @@ namespace Wood.NDS
     /// <summary>
     ///     Incising factor
     /// </summary>
-    /// <param name="ReferenceDesignValueType">  Identifies the type of value for which adjustment factor is calculated </param>
+        /// <param name="IsIncised">Determines if the member is incised</param>
     /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
     /// <param name="Code">  Identifies the code or standard used for calculations </param>
-    /// <returns name="C_i"> Incising factor for dimension lumber </returns>
+    /// <returns name="C_i_Fb"> Incising factor for adjusted bending value </returns>
+    /// <returns name="C_i_Ft"> Incising factor for adjusted tension value </returns>
+    /// <returns name="C_i_Fv"> Incising factor for adjusted shear value </returns>
+    /// <returns name="C_i_Fc"> Incising factor for adjusted compression value </returns>
+    /// <returns name="C_i_E">  Incising factor for modulus of elasticity E and minimum modulus of elasticity E_min </returns>
 
-        [MultiReturn(new[] { "C_i" })]
-        public static Dictionary<string, object> IncisingFactor(string ReferenceDesignValueType,
+
+
+        [MultiReturn(new[] 
+            {"C_i_Fb",
+             "C_i_Ft",
+             "C_i_Fv",
+             "C_i_Fc",
+             "C_i_E"}
+            )]
+        public static Dictionary<string, object> IncisingFactor(bool IsIncised =false,
              string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
-            double C_i = 0;
 
+            double C_i_Fb=1.0;
+            double C_i_Ft=1.0;
+            double C_i_Fv=1.0;
+            double C_i_Fc=1.0;
+            double C_i_E =1.0;
 
             //Calculation logic:
-            if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
-            {
 
-            }
-            else
+
+            if (IsIncised == true)
             {
-                throw new Exception("Wood member type not supported.");
+                if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
+                {
+                    DimensionalLumber m = new DimensionalLumber();
+                    C_i_Fb = m.GetInsizingFactor(ww.ReferenceDesignValueType.Bending);
+                    C_i_Ft = m.GetInsizingFactor(ww.ReferenceDesignValueType.TensionParallelToGrain);
+                    C_i_Fv = m.GetInsizingFactor(ww.ReferenceDesignValueType.ShearParallelToGrain);
+                    C_i_Fc = m.GetInsizingFactor(ww.ReferenceDesignValueType.CompresionParallelToGrain);
+                    C_i_E = m.GetInsizingFactor(ww.ReferenceDesignValueType.ModulusOfElasticity);
+                }
+                else if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Timber"))
+                {
+                    Timber t = new Timber();
+                    C_i_Fb = t.GetInsizingFactor(ww.ReferenceDesignValueType.Bending);
+                    C_i_Ft = t.GetInsizingFactor(ww.ReferenceDesignValueType.TensionParallelToGrain);
+                    C_i_Fv = t.GetInsizingFactor(ww.ReferenceDesignValueType.ShearParallelToGrain);
+                    C_i_Fc = t.GetInsizingFactor(ww.ReferenceDesignValueType.CompresionParallelToGrain);
+                    C_i_E =  t.GetInsizingFactor(ww.ReferenceDesignValueType.ModulusOfElasticity);
+                }
+                else
+                {
+                    throw new Exception("Wood member type not supported.");
+                } 
             }
 
             return new Dictionary<string, object>
             {
-                { "C_i", C_i }
+                { "C_i_Fb", C_i_Fb }
+                ,{ "C_i_Ft", C_i_Ft }
+                ,{ "C_i_Fv", C_i_Fv }
+                ,{ "C_i_Fc", C_i_Fc }
+                ,{ "C_i_E", C_i_E }
  
             };
         }

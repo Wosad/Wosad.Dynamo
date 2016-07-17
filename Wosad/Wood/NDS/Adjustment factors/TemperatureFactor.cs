@@ -22,7 +22,8 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using System;
-
+using Wosad.Wood.NDS.NDS2015;
+using ww = Wosad.Wood.NDS.Entities;
 #endregion
 
 namespace Wood.NDS
@@ -41,25 +42,65 @@ namespace Wood.NDS
         /// <summary>
         ///     Temperature factor
         /// </summary>
-        /// <param name="ReferenceDesignValueType">  Identifies the type of value for which adjustment factor is calculated </param>
         /// <param name="Temperature">  Service temperature </param>
         /// <param name="ServiceMoistureCondition">  Identifies the type of service moisture conditions for wet service factor </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
         /// <param name="Code">  Identifies the code or standard used for calculations </param>
-        /// <returns name="C_t"> Temperature factor </returns>
+        /// <returns name="C_t_Fb"> Temperature factor for adjusted bending value </returns>
+        /// <returns name="C_t_Ft"> Temperature factor for adjusted tension value </returns>
+        /// <returns name="C_t_Fv"> Temperature factor for adjusted shear value </returns>
+        /// <returns name="C_t_Fc"> Temperature factor for adjusted compression value </returns>
+        /// <returns name="C_t_E">  Temperature factor for modulus of elasticity E and minimum modulus of elasticity E_min </returns>
 
-        [MultiReturn(new[] { "C_t" })]
-        public static Dictionary<string, object> TemperatureFactor(string ReferenceDesignValueType,double Temperature, string ServiceMoistureCondition="Dry",
+
+
+        [MultiReturn(new[] { 
+            
+            "C_t_Fb",
+            "C_t_Ft",
+            "C_t_Fv",
+            "C_t_Fc",
+            "C_t_E"
+
+        })]
+        public static Dictionary<string, object> TemperatureFactor(double Temperature, string ServiceMoistureCondition="Dry",
              string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
-            double C_t = 0;
-
+            double C_t_Fb =1.0;
+            double C_t_Ft =1.0;
+            double C_t_Fv =1.0;
+            double C_t_Fc =1.0;
+            double C_t_E = 1.0;
 
             //Calculation logic:
+
+            
+            ww.ServiceMoistureConditions moistureCondition;
+            bool IsValidInputString = Enum.TryParse(ServiceMoistureCondition, true, out moistureCondition);
+            if (IsValidInputString == false)
+            {
+                throw new Exception("Failed to convert string. Moisture condition string is invalid. Please check input");
+            }
+
+
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
-
+                DimensionalLumber m = new DimensionalLumber();
+                C_t_Fb = m.GetTemperatureFactorCt(ww.ReferenceDesignValueType.Bending, Temperature, moistureCondition);
+                C_t_Ft = m.GetTemperatureFactorCt(ww.ReferenceDesignValueType.TensionParallelToGrain, Temperature, moistureCondition);
+                C_t_Fv = m.GetTemperatureFactorCt(ww.ReferenceDesignValueType.ShearParallelToGrain, Temperature, moistureCondition);
+                C_t_Fc = m.GetTemperatureFactorCt(ww.ReferenceDesignValueType.CompresionParallelToGrain, Temperature, moistureCondition);
+                C_t_E = m.GetTemperatureFactorCt(ww.ReferenceDesignValueType.ModulusOfElasticity, Temperature, moistureCondition);
+            }
+            else if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Timber"))
+            {
+                Timber t = new Timber();
+                C_t_Fb = t.GetTemperatureFactorCt(ww.ReferenceDesignValueType.Bending, Temperature, moistureCondition);
+                C_t_Ft = t.GetTemperatureFactorCt(ww.ReferenceDesignValueType.TensionParallelToGrain, Temperature, moistureCondition);
+                C_t_Fv = t.GetTemperatureFactorCt(ww.ReferenceDesignValueType.ShearParallelToGrain, Temperature, moistureCondition);
+                C_t_Fc = t.GetTemperatureFactorCt(ww.ReferenceDesignValueType.CompresionParallelToGrain, Temperature, moistureCondition);
+                C_t_E =  t.GetTemperatureFactorCt(ww.ReferenceDesignValueType.ModulusOfElasticity, Temperature, moistureCondition);
             }
             else
             {
@@ -68,8 +109,11 @@ namespace Wood.NDS
 
             return new Dictionary<string, object>
             {
-                { "C_t", C_t }
- 
+                { "C_t_Fb", C_t_Fb },
+                { "C_t_Ft", C_t_Ft },
+                { "C_t_Fv", C_t_Fv },
+                { "C_t_Fc", C_t_Fc },
+                { "C_t_E",  C_t_E  } 
             };
         }
 

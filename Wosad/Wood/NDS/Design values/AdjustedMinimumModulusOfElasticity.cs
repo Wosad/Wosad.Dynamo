@@ -45,14 +45,14 @@ namespace Wood.NDS
         /// <param name="E_min">  Reference modulus of elasticity for stability calculations  </param>
         /// <param name="C_M_E">  Wet service factor for modulus of elasticity E and minimum modulus of elasticity E_min </param>
         /// <param name="C_t">  Temperature factor </param>
-        /// <param name="C_i">  Incising factor for dimension lumber </param>
+        /// <param name="C_i_E">  Incising factor for dimension lumber </param>
         /// <param name="C_T">  Buckling stiffness factor for 2 × 4 and smaller dimension lumber in trusses </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
         /// <param name="Code">  Identifies the code or standard used for calculations </param>
         /// <returns name="E_min_prime"> Adjusted modulus of elasticity for stability calculations  </returns>
 
         [MultiReturn(new[] { "E_min_prime" })]
-        public static Dictionary<string, object> AdjustedMinimumModulusOfElasticity(double E_min,double C_M_E,double C_t,double C_i,double C_T,
+        public static Dictionary<string, object> AdjustedMinimumModulusOfElasticity(double E_min,double C_M_E,double C_t,double C_i_E,double C_T,
             string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
@@ -63,7 +63,7 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 DimensionalLumber m = new DimensionalLumber();
-                E_min_prime = m.GetAdjustedMinimumModulusOfElasticityForStability(E_min, C_M_E, C_t, C_i, C_T);
+                E_min_prime = m.GetAdjustedMinimumModulusOfElasticityForStability(E_min, C_M_E, C_t, C_i_E, C_T);
             }
             else
             {

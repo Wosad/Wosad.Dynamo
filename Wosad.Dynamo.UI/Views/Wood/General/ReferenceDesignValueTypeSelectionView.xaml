@@ -19,13 +19,13 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-              <WosadControls:EnumDataElement   EnumString="Bending " Description="Bending" />
-              <WosadControls:EnumDataElement   EnumString="TensionParallelToGrain " Description="Tension parallel to grain" />
-              <WosadControls:EnumDataElement   EnumString="ShearParallelToGrain " Description="Shear parallel to grain" />
-              <WosadControls:EnumDataElement   EnumString="CompresionPerpendicularToGrain " Description="Compresion perpendicular to grain" />
-              <WosadControls:EnumDataElement   EnumString="CompresionParallelToGrain " Description="Compresion parallel to grain" />
-              <WosadControls:EnumDataElement   EnumString="ModulusOfElasticity " Description="Modulus of elasticity" />
-              <WosadControls:EnumDataElement   EnumString="ModulusOfElasticityMin " Description="Minimum modulus of elasticity" />
+              <WosadControls:EnumDataElement   EnumString="Bending" Description="Bending" />
+              <WosadControls:EnumDataElement   EnumString="TensionParallelToGrain" Description="Tension parallel to grain" />
+              <WosadControls:EnumDataElement   EnumString="ShearParallelToGrain" Description="Shear parallel to grain" />
+              <WosadControls:EnumDataElement   EnumString="CompresionPerpendicularToGrain" Description="Compresion perpendicular to grain" />
+              <WosadControls:EnumDataElement   EnumString="CompresionParallelToGrain" Description="Compresion parallel to grain" />
+              <WosadControls:EnumDataElement   EnumString="ModulusOfElasticity" Description="Modulus of elasticity" />
+              <WosadControls:EnumDataElement   EnumString="ModulusOfElasticityMin" Description="Minimum modulus of elasticity" />
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

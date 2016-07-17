@@ -239,6 +239,7 @@
     <Compile Include="Nodes\Wood\NDS\General\LoadCombinationTypeSelection.cs" />
     <Compile Include="Nodes\Wood\NDS\General\ReferenceDesignValueTypeSelection.cs" />
     <Compile Include="Nodes\Wood\NDS\General\ServiceMoistureConditionSelection.cs" />
+    <Compile Include="Nodes\Wood\NDS\General\WoodCommercialGradeSelection.cs" />
     <Compile Include="Nodes\Wood\NDS\General\WoodMemberTypeSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Analysis\Beam\Flexure\BeamDeflectionCaseView.xaml.cs">
@@ -474,6 +475,9 @@
     <Compile Include="Views\Wood\General\ServiceMoistureConditionTypeSelectionView.xaml.cs">
       <DependentUpon>ServiceMoistureConditionTypeSelectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Wood\General\WoodCommercialGradeSelectionView.xaml.cs">
+      <DependentUpon>WoodCommercialGradeSelectionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Wood\General\WoodMemberTypeSelectionView.xaml.cs">
       <DependentUpon>WoodMemberTypeSelectionView.xaml</DependentUpon>
     </Compile>
@@ -520,6 +524,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Wood\General\ServiceMoistureConditionTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Wood\General\WoodCommercialGradeSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -43,17 +43,17 @@ namespace Wood.NDS
         ///     Adjusted tension design value
         /// </summary>
         /// <param name="F_t">  Reference tension design value parallel to grain  </param>
-        /// <param name="C_M">  Wet service factor </param>
+        /// <param name="C_M_Ft">  Wet service factor </param>
         /// <param name="C_t">  Temperature factor </param>
-        /// <param name="C_F">  Size factor </param>
-        /// <param name="C_i">  Incising factor for dimension lumber </param>
+        /// <param name="C_F_Ft">  Size factor </param>
+        /// <param name="C_i_Ft">  Incising factor for dimension lumber </param>
         /// <param name="lambda">  Time effect factor  </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
         /// <param name="Code">  Identifies the code or standard used for calculations </param>
         /// <returns name="F_t_prime"> Adjusted tension design value parallel to grain  </returns>
 
         [MultiReturn(new[] { "F_t_prime" })]
-        public static Dictionary<string, object> AdjustedTensionDesignValue(double F_t,double C_M,double C_t,double C_F,double C_i,double lambda,
+        public static Dictionary<string, object> AdjustedTensionDesignValue(double F_t,double C_M_Ft,double C_t,double C_F_Ft,double C_i_Ft,double lambda,
             string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
@@ -64,7 +64,7 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 DimensionalLumber m = new DimensionalLumber();
-                F_t_prime = m.GetAdjustedShearTensionValue(F_t, C_M, C_t, C_F, C_i, lambda);
+                F_t_prime = m.GetAdjustedTensionValue(F_t, C_M_Ft, C_t, C_F_Ft, C_i_Ft, lambda);
             }
             else
             {

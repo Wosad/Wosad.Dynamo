@@ -42,12 +42,12 @@ namespace Wood.NDS
         ///     Adjusted bending design value
         /// </summary>
         /// <param name="F_b">  Reference bending design value  </param>
-        /// <param name="C_M">  Wet service factor </param>
+        /// <param name="C_M_Fb">  Wet service factor </param>
         /// <param name="C_t">  Temperature factor </param>
         /// <param name="C_L">  Beam stability factor </param>
-        /// <param name="C_F">  Size factor </param>
-        /// <param name="C_fu">  Flat use factor for bending design values </param>
-        /// <param name="C_i">  Incising factor for dimension lumber </param>
+        /// <param name="C_F_Fb">  Size factor </param>
+        /// <param name="C_fu_Fb">  Flat use factor for bending design values </param>
+        /// <param name="C_i_Fb">  Incising factor for dimension lumber </param>
         /// <param name="C_r">  Repetitive-member factor for bending design values </param>
         /// <param name="lambda">  Time effect factor  </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
@@ -55,8 +55,8 @@ namespace Wood.NDS
         /// <returns name="F_b_prime"> Adjusted bending design value  </returns>
 
         [MultiReturn(new[] { "F_b_prime" })]
-        public static Dictionary<string, object> AdjustedBendingDesignValue(double F_b,double C_M,double C_t,double C_L,double C_F,
-            double C_fu, double C_i, double C_r, double lambda, string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
+        public static Dictionary<string, object> AdjustedBendingDesignValue(double F_b,double C_M_Fb,double C_t,double C_L,double C_F_Fb,
+            double C_fu_Fb, double C_i_Fb, double C_r, double lambda, string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
             double F_b_prime = 0;
@@ -66,7 +66,7 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 DimensionalLumber m = new DimensionalLumber();
-                F_b_prime = m.GetAdjustedBendingDesignValue(F_b, C_M, C_t, C_L, C_F, C_fu, C_i, C_r, lambda);
+                F_b_prime = m.GetAdjustedBendingDesignValue(F_b, C_M_Fb, C_t, C_L, C_F_Fb, C_fu_Fb, C_i_Fb, C_r, lambda);
             }
             else
             {

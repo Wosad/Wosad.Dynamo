@@ -19,8 +19,8 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="Wet " Description="Wet" />
-                <WosadControls:EnumDataElement   EnumString="Dry " Description="Dry" />
+                <WosadControls:EnumDataElement   EnumString="Wet" Description="Wet" />
+                <WosadControls:EnumDataElement   EnumString="Dry" Description="Dry" />
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

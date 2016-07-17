@@ -42,10 +42,10 @@ namespace Wood.NDS
         ///     Adjusted compression design value
         /// </summary>
         /// <param name="F_c">  Out-of-plane seismic forces for concrete and masonry walls  </param>
-        /// <param name="C_M">  Wet service factor </param>
+        /// <param name="C_M_fc">  Wet service factor </param>
         /// <param name="C_t">  Temperature factor </param>
-        /// <param name="C_F">  Size factor </param>
-        /// <param name="C_i">  Incising factor for dimension lumber </param>
+        /// <param name="C_F_Fc">  Size factor </param>
+        /// <param name="C_i_Fc">  Incising factor for dimension lumber </param>
         /// <param name="C_P">  Column stability factor </param>
         /// <param name="lambda">  Time effect factor  </param>
         /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
@@ -53,7 +53,7 @@ namespace Wood.NDS
         /// <returns name="F_c_prime"> Adjusted LRFD compression design value parallel to grain  </returns>
 
         [MultiReturn(new[] { "F_c_prime" })]
-        public static Dictionary<string, object> AdjustedCompressionDesignValue(double F_c,double C_M,double C_t,double C_F,double C_i,double C_P,
+        public static Dictionary<string, object> AdjustedCompressionDesignValue(double F_c,double C_M_Fc,double C_t,double C_F_Fc,double C_i_Fc,double C_P,
             double lambda, string WoodMemberType = "SawnDimensionLumber", string Code = "NDS2015")
         {
             //Default values
@@ -64,7 +64,7 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 DimensionalLumber m = new DimensionalLumber();
-                F_c_prime = m.GetAdjustedCompressionDesignValue(F_c, C_M, C_t, C_F, C_i, C_P, lambda);
+                F_c_prime = m.GetAdjustedCompressionDesignValue(F_c, C_M_Fc, C_t, C_F_Fc, C_i_Fc, C_P, lambda);
             }
             else
             {

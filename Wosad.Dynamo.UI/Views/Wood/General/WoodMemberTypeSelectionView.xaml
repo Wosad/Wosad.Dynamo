@@ -19,12 +19,13 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="SawnDimensionLumber " Description="Sawn Dimension Lumber" />
-                <WosadControls:EnumDataElement   EnumString="SawnSouthernPineDimensionLumber " Description="Sawn Southern Pine Dimension Lumber" />
-                <WosadControls:EnumDataElement   EnumString="SawnMechanicallyGradedDimensionLumber " Description="Sawn Mechanically Graded Dimension Lumber" />
-                <WosadControls:EnumDataElement   EnumString="SawnVisuallyGradedTimbers " Description="Sawn Visually Graded Timber" />
-                <WosadControls:EnumDataElement   EnumString="SawnVisuallyGradedDecking " Description="Sawn Visually Graded Decking" />
-                <WosadControls:EnumDataElement   EnumString="SawnNonNorthAmericanVisuallyGradedDimensionLumber " Description="Sawn Non-North American Visually Graded Dimension Lumber" />
+                <WosadControls:EnumDataElement   EnumString="SawnDimensionLumber" Description="Sawn dimension lumber" />
+                <WosadControls:EnumDataElement   EnumString="SawnSouthernPineDimensionLumber" Description="Sawn Southern Pine dimension lumber" />
+                <WosadControls:EnumDataElement   EnumString="SawnMechanicallyGradedDimensionLumber" Description="Sawn mechanically graded dimension lumber" />
+                <WosadControls:EnumDataElement   EnumString="SawnVisuallyGradedTimbers" Description="Sawn visually graded timber" />
+                <WosadControls:EnumDataElement   EnumString="VisuallyGradedBeamOrStringer" Description="Sawn Visually Graded timber beam or stringer" />
+                <WosadControls:EnumDataElement   EnumString="SawnVisuallyGradedDecking" Description="Sawn Visually Graded Decking" />
+                <WosadControls:EnumDataElement   EnumString="SawnNonNorthAmericanVisuallyGradedDimensionLumber" Description="Sawn Non-North American visually graded dimension lumber" />
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>

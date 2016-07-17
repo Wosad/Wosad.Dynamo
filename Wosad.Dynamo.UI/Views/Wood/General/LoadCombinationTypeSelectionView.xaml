@@ -19,13 +19,13 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="DeadLoadOnly " Description="Dead load only" />
-                <WosadControls:EnumDataElement   EnumString="FullLiveLoadStorage " Description="Full load. Storage live load" />
-                <WosadControls:EnumDataElement   EnumString="FullLiveLoad " Description="Full load. Live" />
-                <WosadControls:EnumDataElement   EnumString="FullLiveLoadImpact " Description="Full load. Live load includes impact" />
-                <WosadControls:EnumDataElement   EnumString="FullLiveLoadWithWind " Description="Full load. Live load and wind" />
-                <WosadControls:EnumDataElement   EnumString="FullWind " Description="Full load. Wind" />
-                <WosadControls:EnumDataElement   EnumString="FullEarthquake " Description="Full load. Earthquake" />
+                <WosadControls:EnumDataElement   EnumString="DeadLoadOnly" Description="Dead load only" />
+                <WosadControls:EnumDataElement   EnumString="FullLiveLoadStorage" Description="Full load. Storage live load" />
+                <WosadControls:EnumDataElement   EnumString="FullLiveLoad" Description="Full load. Live" />
+                <WosadControls:EnumDataElement   EnumString="FullLiveLoadImpact" Description="Full load. Live load includes impact" />
+                <WosadControls:EnumDataElement   EnumString="FullLiveLoadWithWind" Description="Full load. Live load and wind" />
+                <WosadControls:EnumDataElement   EnumString="FullWind" Description="Full load. Wind" />
+                <WosadControls:EnumDataElement   EnumString="FullEarthquake" Description="Full load. Earthquake" />
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>
