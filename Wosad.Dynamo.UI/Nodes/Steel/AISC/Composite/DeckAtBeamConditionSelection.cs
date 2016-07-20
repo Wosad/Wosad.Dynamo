@@ -57,7 +57,7 @@ namespace Wosad.Steel.AISC.Composite.Anchor
         private void SetDefaultParameters()
         {
             //ReportEntry="";
-            HeadedAnchorDeckCondition = "Perpendicular";
+            DeckAtBeamCondition = "Perpendicular";
         }
 
 
@@ -88,7 +88,7 @@ namespace Wosad.Steel.AISC.Composite.Anchor
 		/// <value>Identifies whether deck runs parallel or perpendicular to beam or there is no deck</value>
 		public string _HeadedAnchorDeckCondition;
 		
-		public string HeadedAnchorDeckCondition
+		public string DeckAtBeamCondition
 		{
 		    get { return _HeadedAnchorDeckCondition; }
 		    set
@@ -137,7 +137,7 @@ namespace Wosad.Steel.AISC.Composite.Anchor
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("HeadedAnchorDeckCondition", HeadedAnchorDeckCondition);
+            nodeElement.SetAttribute("HeadedAnchorDeckCondition", DeckAtBeamCondition);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Wosad.Steel.AISC.Composite.Anchor
             if (attrib == null)
                 return;
 
-            HeadedAnchorDeckCondition = attrib.Value;
+            DeckAtBeamCondition = attrib.Value;
 
         }
 

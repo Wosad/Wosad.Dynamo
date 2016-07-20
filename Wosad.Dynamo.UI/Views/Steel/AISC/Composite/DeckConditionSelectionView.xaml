@@ -31,6 +31,6 @@
     <Grid x:Name="LayoutRoot">
         <WosadControls:EnumControl  HeaderText="Deck condition:" 
                                     ItemsSource="{StaticResource HeadedAnchorDeckConditionSource}" 
-					DataPath="HeadedAnchorDeckCondition"/>
+					DataPath="DeckAtBeamCondition"/>
     </Grid>
 </UserControl>

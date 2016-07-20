@@ -83,6 +83,26 @@ namespace Analysis.Beam
             theta_2der = function.Get_theta_2();
             theta_3der = function.Get_theta_3();
 
+            #region For debugging calculate the normalized values as in AISC design Guide
+
+             double thetaNorm      ;
+             double theta_1derNorm ;
+             double theta_2derNorm ;
+             double theta_3derNorm ;
+                //FOR TESTING CALCULATE THE SECTION PROPS
+            double a=Math.Sqrt((E*C_w)/(G*J));
+            double la = L / a;
+            
+            #region Case 12
+             thetaNorm     =  theta*(G*J/t)*1/(Math.Pow(a,2));
+             theta_1derNorm=  theta_1der *(G*J/t)*2.0/(a);
+             theta_2derNorm=  theta_2der*G*J/t;
+             theta_3derNorm = theta_3der * G * J / t * a;
+
+
+            #endregion
+            #endregion
+
             return new Dictionary<string, object>
             {
                 { "theta", theta }
