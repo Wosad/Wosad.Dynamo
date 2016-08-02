@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using System.Xml;
 
 
-namespace Wosad.Wood.NDS
+namespace Wosad.Wood.NDS.General
 {
 
     /// <summary>
