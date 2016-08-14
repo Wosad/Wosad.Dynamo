@@ -9,7 +9,7 @@
              xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
              xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="300">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,6 +18,16 @@
 
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
+            <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
+                <WosadControls:EnumDataElement   EnumString="SawnDimensionLumber" Description="Sawn dimension lumber" />
+                <WosadControls:EnumDataElement   EnumString="SawnSouthernPineDimensionLumber" Description="Sawn Southern Pine dimension lumber" />
+                <WosadControls:EnumDataElement   EnumString="SawnMechanicallyGradedDimensionLumber" Description="Sawn mechanically graded dimension lumber" />
+                <WosadControls:EnumDataElement   EnumString="SawnVisuallyGradedTimbers" Description="Sawn visually graded timber" />
+                <WosadControls:EnumDataElement   EnumString="VisuallyGradedBeamOrStringer" Description="Sawn Visually Graded timber beam or stringer" />
+                <WosadControls:EnumDataElement   EnumString="SawnVisuallyGradedDecking" Description="Sawn Visually Graded Decking" />
+                <WosadControls:EnumDataElement   EnumString="SawnNonNorthAmericanVisuallyGradedDimensionLumber" Description="Sawn Non-North American visually graded dimension lumber" />
+            </WosadControls:EnumDataCollection>
+            
             <WosadControls:EnumDataCollection x:Key="ComGradeItemSource" d:IsDataSource="True">
                 <WosadControls:EnumDataElement   EnumString="SelectStructural " Description="SelectStructural" />
                 <WosadControls:EnumDataElement   EnumString="No1 " Description="No1" />
@@ -47,8 +57,28 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <WosadControls:EnumControl  HeaderText="Commercial grade selection" 
+        <!--<WosadControls:EnumControl  HeaderText="Commercial grade selection" 
                                     ItemsSource="{StaticResource ComGradeItemSource}" 
-					DataPath="WoodSpeciesAndGrade"/>
+					DataPath="WoodSpeciesAndGrade"/>-->
+        <StackPanel Margin="0,20,0,0" VerticalAlignment="Top" Background="White" >
+            <WosadControls:EnumControl  HeaderText="Wood member type selection" 
+                                    ItemsSource="{StaticResource SelectionItemSource}" 
+					DataPath="WoodMemberType"/>
+            <TextBlock TextWrapping="Wrap" Text="Wood species:" FontFamily="Segoe UI Light" FontSize="12" HorizontalAlignment="Center"/>
+            <Grid Height="200">
+                <ListBox ItemsSource="{Binding AvailableWoodSpecies}" SelectedItem="{Binding WoodSpeciesId, Mode=TwoWay}" 
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            </Grid>
+            <TextBlock TextWrapping="Wrap" Text="Commercial grades available for selected species:" FontFamily="Segoe UI Light" FontSize="12" HorizontalAlignment="Center"/>
+            <Grid Height="100">
+                <ListBox ItemsSource="{Binding CommercialGrades}" SelectedItem="{Binding CommercialGradeId, Mode=TwoWay}" 
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            </Grid>
+            <TextBlock TextWrapping="Wrap" Text="Size classification available for selected species and grade:" FontFamily="Segoe UI Light" FontSize="12" HorizontalAlignment="Center"/>
+            <Grid Height="40">
+                <ListBox ItemsSource="{Binding SizeClasses}" SelectedItem="{Binding SizeClassId, Mode=TwoWay}" 
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>

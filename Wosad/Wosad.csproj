@@ -139,8 +139,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Wosad.Analysis, Version=0.0.6.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Analysis.0.0.6.3\lib\net45\Wosad.Analysis.dll</HintPath>
+    <Reference Include="Wosad.Analysis, Version=0.0.7.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Analysis.0.0.7.2\lib\net45\Wosad.Analysis.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Common, Version=0.0.7.1, Culture=neutral, processorArchitecture=MSIL">
@@ -167,8 +167,8 @@
       <HintPath>..\packages\Wosad.WebApi.Models.0.0.1.1\lib\net45\Wosad.WebApi.Models.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Wood, Version=0.0.7.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Wood.0.0.7.3\lib\net45\Wosad.Wood.dll</HintPath>
+    <Reference Include="Wosad.Wood, Version=0.0.7.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Wood.0.0.7.4\lib\net45\Wosad.Wood.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

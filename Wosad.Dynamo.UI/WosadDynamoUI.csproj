@@ -236,6 +236,7 @@
     <Compile Include="Nodes\Analysis\Section\AISC\AiscShapeSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\Connection\BoltDiameterSelection.cs" />
     <Compile Include="Nodes\Steel\AISC\General\RecommendedMaterialSelection.cs" />
+    <Compile Include="Nodes\Wood\NDS\General\WoodSpeciesAndGradeSelection.cs" />
     <Compile Include="Nodes\Wood\NDS\General\LoadCombinationTypeSelection.cs" />
     <Compile Include="Nodes\Wood\NDS\General\ReferenceDesignValueTypeSelection.cs" />
     <Compile Include="Nodes\Wood\NDS\General\ServiceMoistureConditionSelection.cs" />
@@ -1108,6 +1109,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Loads\ASCE7\Wind\DirectionalityTreeData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NDS2015Table4A.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
