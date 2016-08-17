@@ -94,11 +94,14 @@ namespace Wosad.Wood.NDS.General
                 {
                     _WoodSpeciesId = value;
                     RaisePropertyChanged("WoodSpeciesId");
+                    UpdateViewForSelectedSpecies();
                     OnNodeModified(true);  
                 }
 
 		    }
 		}
+
+
 		#endregion
 
         #region CommercialGradeIdProperty
@@ -149,7 +152,6 @@ namespace Wosad.Wood.NDS.General
         }
         #endregion
 
-
         #region WoodMemberTypeProperty
 
         /// <summary>
@@ -167,11 +169,14 @@ namespace Wosad.Wood.NDS.General
                 {
                     _WoodMemberType = value;
                     RaisePropertyChanged("WoodMemberType");
+                    SetResourceFileName(_WoodMemberType);
                     OnNodeModified(true);
                 }
 
             }
         }
+
+
         #endregion
 
         #region ReportEntryProperty
@@ -215,13 +220,14 @@ namespace Wosad.Wood.NDS.General
 
         private void SetDefaultParams()
         {
-AvailableWoodSpecies
-WoodSpeciesId
-CommercialGrades
-CommercialGradeId
-SizeClasses
-SizeClassId
-WoodMemberType
+            this.WoodMemberType = "SawnDimensionLumber";
+//AvailableWoodSpecies
+//WoodSpeciesId
+//CommercialGrades
+//CommercialGradeId
+//SizeClasses
+//SizeClassId
+//WoodMemberType
 
         }
 
@@ -232,43 +238,44 @@ WoodMemberType
         #region Display parameters
 
 
+        private string _resourceFileName;
 
-        private void FetchList(string ResourceFileName, string FilterCriteriaString, string ShapeGapString = null)
+        public string ResourceFileName
         {
-            if (FilterCriteriaString != null && ResourceFileName != null)
+            get { return _resourceFileName; }
+            set { _resourceFileName = value; }
+        }
+        
+
+        private void UpdateViewForSelectedSpecies()
+        {
+            throw new NotImplementedException();
+
+            //fetch list for 
+        }
+
+        private void SetResourceFileName(string _WoodMemberType)
+        {
+            //NDS2015Table4A
+
+
+            // parse _WoodMember
+
+            //Set the resource string
+
+
+            throw new NotImplementedException();
+        }
+
+        private ObservableCollection<string> FetchList(string ResourceFileName, string WoodSpecies, WoodValueSelectionCriteria FilterCriteria)
+        {
+
+            ObservableCollection<string> availabilitytList = new ObservableCollection<string>();
+
+
+            if (FilterCriteria != null && ResourceFileName != null)
             {
-
-                if (AvailableWoodSpecies ==null)
-                {
-                    AvailableWoodSpecies = new ObservableCollection<string>();
-                }
-                else
-                {
-                    AvailableWoodSpecies.Clear();
-                }
-                
-
-                //Replace "_" and "I" in the filter criteria
-                string FilterCriteria1 = FilterCriteriaString.Replace("_", "-");
-                string FilterCriteria2 = FilterCriteria1.Replace("I", "/");
-                string FilterCriteria3 = FilterCriteria2.Replace("z", ".");
-                string FilterCriteria = FilterCriteria3.Replace("Angle", "");
-
-                string Gap = null;
-
-                if (ShapeGapString != null)
-                {
-
-                    string Gap1 = ShapeGapString.Replace("_", "-");
-                    string Gap2 = Gap1.Replace("I", "/");
-                    string Gap3 = Gap2.Replace("z", ".");
-                    Gap = Gap3.Replace("Angle", "");
-                }
-
-
-
-                //string UriString = string.Format("pack://application:,,,/Resources/{0}.txt", ResourceFileName);
-                //StreamResourceInfo sri = Application.GetResourceStream(new Uri(UriString));
+           
 
                 string resourceName = string.Format("WosadDynamoUI.Resources.{0}.txt", ResourceFileName);
                 var assembly = Assembly.GetExecutingAssembly();
@@ -276,25 +283,19 @@ WoodMemberType
                 using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {
                     string line;
-                    //using (TextReader tr = new StreamReader(sri.Stream))
                     using (TextReader tr = new StreamReader(stream))
                     {
-                        List<string> AllShapes = new List<string>();
+                        //read full list of reference values
+                        List<string> AllReferenceValues = new List<string>();
                         while ((line = tr.ReadLine()) != null)
                         {
-                            //AvailableWoodSpecies.Add(line);
-                            AllShapes.Add(line);
+                            AllReferenceValues.Add(line);
                         }
 
-                        if (FilterCriteria != null)
-                        {
-                            if (Gap == null) //no shape gap
-                            {
-                                if (FilterCriteria.Contains("Pipe"))
-                                {
-                                    var FilteredList = AllShapes.Where(sh =>
+                                    //Lookup 
+                                    var FilteredList = AllReferenceValues.Where(sh =>
                                     {
-                                        if (sh.Contains(FilterCriteria))
+                                        if (sh.Contains(WoodSpecies))
                                         {
                                             return true;
                                         }
@@ -306,104 +307,45 @@ WoodMemberType
                                     ).ToList();
                                     foreach (var s in FilteredList)
                                     {
-                                        AvailableWoodSpecies.Add(s);
-                                    }
-                                }
-                                else
-                                {
+                                                            string[] Vals = s.Split(',');
+                                        
+                                                    if (Vals.Length == 3)
+                                                    {
+                                                                string listValue; 
+                                                            if (FilterCriteria == WoodValueSelectionCriteria.CommercialGrade)
+                                                            {
+                                                            listValue= (string)Vals[1];
+                                                            }
+                                                            else
+                                                            {
+                                                            listValue= (string)Vals[2];
+                                                            }
+                                                                
+                                                            availabilitytList.Add(listValue);
+                                                    }
+                                        
+                                  }
 
-                                    var FilteredList = AllShapes.Where(sh =>
-                                    {
-                                        string[] subsStr = sh.Split(new string[] { "X" }, StringSplitOptions.None);
-                                        if (subsStr[0] == FilterCriteria)
-                                        {
-                                            return true;
-                                        }
-                                        else
-                                        {
-                                            return false;
-                                        }
-                                        //sh.Contains(FilterCriteria)
-                                    }
-                                         ).ToList();
-                                    foreach (var s in FilteredList)
-                                    {
-                                        AvailableWoodSpecies.Add(s);
-                                    }
-                                }
-                            }
-                            else //if gap is defined
-                            {
-                                var FilteredListWithGap = AllShapes.Where(sh =>
-                                {
-                                    string[] subsStr = sh.Split(new string[] { "X" }, StringSplitOptions.None);
-                                    if (subsStr[0] == FilterCriteria)
-                                    {
-                                        if (subsStr.Length == 3) //no gap is defined
-                                        {
-                                            return false;
-                                        }
-                                        else
-                                        {
-                                            if (subsStr.Length == 4)
-                                            {
-                                                string GapStr = "";
-                                                if (subsStr[3].Contains("SLBB") || subsStr[3].Contains("LLBB"))
-                                                {
-                                                    GapStr = subsStr[3].Substring(0, subsStr[3].Length - 4);
-                                                }
-                                                else
-                                                {
-                                                    GapStr = subsStr[3];
-                                                }
-                                                if (GapStr == Gap)
-                                                {
-                                                    return true;
-                                                }
-                                                else
-                                                {
-                                                    return false;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                return false;
-                                            }
-                                        }
+                        
 
-                                    }
-                                    else
-                                    {
-                                        return false;
-                                    }
-                                    //sh.Contains(FilterCriteria)
-                                }
-                                ).ToList();
-                                foreach (var s in FilteredListWithGap)
-                                {
-                                    AvailableWoodSpecies.Add(s);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            foreach (var s in AllShapes)
-                            {
-                                AvailableWoodSpecies.Add(s);
-                            }
-                        }
                     }
                 }
             }
+
+            return availabilitytList;
         }
 
         #region AvailableWoodSpecies Property
         private ObservableCollection<string> _AvailableWoodSpecies;
         public ObservableCollection<string> AvailableWoodSpecies
         {
-            get { return AvailableWoodSpecies; }
+            get { return _AvailableWoodSpecies; }
             set
             {
+                if (_AvailableWoodSpecies == null)
+                {
+                    _AvailableWoodSpecies = new ObservableCollection<string>();
+                }
                 _AvailableWoodSpecies = value;
                 RaisePropertyChanged("AvailableWoodSpecies");
             }
@@ -415,9 +357,13 @@ WoodMemberType
         private ObservableCollection<string> _CommercialGrades;
         public ObservableCollection<string> CommercialGrades
         {
-            get { return CommercialGrades; }
+            get { return _CommercialGrades; }
             set
             {
+                if (_CommercialGrades == null)
+                {
+                    _CommercialGrades = new ObservableCollection<string>();
+                }
                 _CommercialGrades = value;
                 RaisePropertyChanged("CommercialGrades");
             }
@@ -428,7 +374,12 @@ WoodMemberType
         private ObservableCollection<string> _SizeClasses;
         public ObservableCollection<string> SizeClasses
         {
-            get { return SizeClasses; }
+            get {
+                if (_SizeClasses == null)
+                {
+                    _SizeClasses = new ObservableCollection<string>();
+                }
+                return _SizeClasses; }
             set
             {
                 _SizeClasses = value;
@@ -468,34 +419,16 @@ WoodMemberType
         {
             base.SerializeCore(nodeElement, context);
             
-            nodeElement.SetAttribute("ReportEntry",ReportEntry);
-            nodeElement.SetAttribute("CatalogShapeType",CatalogShapeType);
-            nodeElement.SetAttribute("ShapeTypeSteel",ShapeTypeSteel);
-            nodeElement.SetAttribute("IShapeType",IShapeType);
-            nodeElement.SetAttribute("CShapeType",CShapeType);
-            nodeElement.SetAttribute("TShapeType",TShapeType);
-            nodeElement.SetAttribute("CHSType",CHSType);
-            nodeElement.SetAttribute("LDoubleShapeType",LDoubleShapeType);
-            
-            nodeElement.SetAttribute("AnchorRodType",AnchorRodType);
+            //nodeElement.SetAttribute("ReportEntry",ReportEntry);
+ 
 
-            nodeElement.SetAttribute("WShapeGroup", WShapeGroup);
-            nodeElement.SetAttribute("SShapeGroup", SShapeGroup);
-            nodeElement.SetAttribute("MShapeGroup", MShapeGroup);
-            nodeElement.SetAttribute("CShapeGroup", CShapeGroup);
-            nodeElement.SetAttribute("MCShapeGroup", MCShapeGroup);
-            nodeElement.SetAttribute("WTShapeGroup", WTShapeGroup);
-            nodeElement.SetAttribute("STShapeGroup", STShapeGroup);
-            nodeElement.SetAttribute("LShapeGroup", LShapeGroup);
-            nodeElement.SetAttribute("LDoubleEqualGroup", LDoubleEqualGroup);
-            nodeElement.SetAttribute("LDoubleLLBBGroup", LDoubleLLBBGroup);
-            nodeElement.SetAttribute("LDoubleSLBBGroup", LDoubleSLBBGroup);
-            nodeElement.SetAttribute("RHSShapeGroup", RHSShapeGroup);
-            nodeElement.SetAttribute("CHSShapeGroup", CHSShapeGroup);
-            nodeElement.SetAttribute("PipeGroup", PipeGroup);
-            nodeElement.SetAttribute("LDoubleGapType", LDoubleGapType);
+            nodeElement.SetAttribute("WoodSpeciesId", WoodSpeciesId);
+            nodeElement.SetAttribute("CommercialGradeId", CommercialGradeId);
+            nodeElement.SetAttribute("SizeClassId", SizeClassId);
+            nodeElement.SetAttribute("WoodMemberType", WoodMemberType);
 
-            nodeElement.SetAttribute("SteelShapeId", SteelShapeId);
+
+
         }
 
         /// <summary>
@@ -504,36 +437,11 @@ WoodMemberType
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-        
-            var CatalogShapeType_attrib = nodeElement.Attributes["CatalogShapeType"]; if (CatalogShapeType_attrib != null) { CatalogShapeType = CatalogShapeType_attrib.Value; }
-            var ShapeTypeSteel_attrib = nodeElement.Attributes["ShapeTypeSteel"]; if (ShapeTypeSteel_attrib != null) { ShapeTypeSteel = ShapeTypeSteel_attrib.Value; }
-            var IShapeType_attrib = nodeElement.Attributes["IShapeType"]; if (IShapeType_attrib != null) { IShapeType = IShapeType_attrib.Value; }
-            var CShapeType_attrib = nodeElement.Attributes["CShapeType"]; if (CShapeType_attrib != null) { CShapeType = CShapeType_attrib.Value; }
-            var TShapeType_attrib = nodeElement.Attributes["TShapeType"]; if (TShapeType_attrib != null) { TShapeType = TShapeType_attrib.Value; }
-            var CHSType_attrib = nodeElement.Attributes["CHSType"]; if (CHSType_attrib != null) { CHSType = CHSType_attrib.Value; }
-            var LDoubleShapeType_attrib = nodeElement.Attributes["LDoubleShapeType"]; if (LDoubleShapeType_attrib != null) { LDoubleShapeType = LDoubleShapeType_attrib.Value; }
-            var WShapeGroup_attrib = nodeElement.Attributes["WShapeGroup"]; if (WShapeGroup_attrib != null) { WShapeGroup = WShapeGroup_attrib.Value; }
-            var AnchorRodType_attrib = nodeElement.Attributes["AnchorRodType"]; if (AnchorRodType_attrib != null) { AnchorRodType = AnchorRodType_attrib.Value; }
 
-            
-
-            var SShapeGroup_attrib = nodeElement.Attributes["SShapeGroup"]; if (SShapeGroup_attrib != null)                     { SShapeGroup           = SShapeGroup_attrib.Value; }
-            var MShapeGroup_attrib = nodeElement.Attributes["MShapeGroup"]; if (MShapeGroup_attrib != null)                     { MShapeGroup           = MShapeGroup_attrib.Value; }
-            var CShapeGroup_attrib = nodeElement.Attributes["CShapeGroup"]; if (CShapeGroup_attrib != null)                     { CShapeGroup           = CShapeGroup_attrib.Value; }
-            var MCShapeGroup_attrib = nodeElement.Attributes["MCShapeGroup"]; if (MCShapeGroup_attrib != null)                  { MCShapeGroup          = MCShapeGroup_attrib.Value; }
-            var WTShapeGroup_attrib = nodeElement.Attributes["WTShapeGroup"]; if (WTShapeGroup_attrib != null)                  { WTShapeGroup          = WTShapeGroup_attrib.Value; }
-            var STShapeGroup_attrib = nodeElement.Attributes["STShapeGroup"]; if (STShapeGroup_attrib != null)                  { STShapeGroup          = STShapeGroup_attrib.Value; }
-            var LShapeGroup_attrib = nodeElement.Attributes["LShapeGroup"]; if (LShapeGroup_attrib != null)                     { LShapeGroup           = LShapeGroup_attrib.Value; }
-            var LDoubleEqualGroup_attrib = nodeElement.Attributes["LDoubleEqualGroup"]; if (LDoubleEqualGroup_attrib != null)   { LDoubleEqualGroup     = LDoubleEqualGroup_attrib.Value; }
-            var LDoubleLLBBGroup_attrib = nodeElement.Attributes["LDoubleLLBBGroup"]; if (LDoubleLLBBGroup_attrib != null)      { LDoubleLLBBGroup      = LDoubleLLBBGroup_attrib.Value; }
-            var LDoubleSLBBGroup_attrib = nodeElement.Attributes["LDoubleSLBBGroup"]; if (LDoubleSLBBGroup_attrib != null)      { LDoubleSLBBGroup      = LDoubleSLBBGroup_attrib.Value; }
-            var RHSShapeGroup_attrib = nodeElement.Attributes["RHSShapeGroup"]; if (RHSShapeGroup_attrib != null)               { RHSShapeGroup         = RHSShapeGroup_attrib.Value; }
-            var CHSShapeGroup_attrib = nodeElement.Attributes["CHSShapeGroup"]; if (CHSShapeGroup_attrib != null)               { CHSShapeGroup         = CHSShapeGroup_attrib.Value; }
-            var PipeGroup_attrib = nodeElement.Attributes["PipeGroup"]; if (PipeGroup_attrib != null)                           { PipeGroup             = PipeGroup_attrib.Value; }
-            var LDoubleGapType_attrib = nodeElement.Attributes["LDoubleGapType"]; if (LDoubleGapType_attrib != null)            { LDoubleGapType        = LDoubleGapType_attrib.Value; }
-
-
-            var SteelShapeId_attrib = nodeElement.Attributes["SteelShapeId"]; if (SteelShapeId_attrib != null) { SteelShapeId = SteelShapeId_attrib.Value; }
+            var WoodSpeciesId_attrib = nodeElement.Attributes["WoodSpeciesId"]; if (WoodSpeciesId_attrib != null) { WoodSpeciesId = WoodSpeciesId_attrib.Value; }
+            var CommercialGradeId_attrib = nodeElement.Attributes["CommercialGradeId"]; if (CommercialGradeId_attrib != null) { CommercialGradeId = CommercialGradeId_attrib.Value; }
+            var SizeClassId_attrib = nodeElement.Attributes["SizeClassId"]; if (SizeClassId_attrib != null) { SizeClassId = SizeClassId_attrib.Value; }
+            var WoodMemberType_attrib = nodeElement.Attributes["WoodMemberType"]; if (WoodMemberType_attrib != null) { WoodMemberType = WoodMemberType_attrib.Value; }
 
         }
 
@@ -552,7 +460,7 @@ WoodMemberType
             {
                 base.CustomizeView(model, nodeView);
 
-                AiscShapeSelectionView control = new AiscShapeSelectionView();
+                WoodSpeciesAndGradeSelectionView control = new WoodSpeciesAndGradeSelectionView();
                 control.DataContext = model;
                 
                
@@ -562,4 +470,11 @@ WoodMemberType
 
         }
     }
+
+    public enum WoodValueSelectionCriteria
+    {
+        CommercialGrade,
+        SizeClassification
+    }
+
 }
