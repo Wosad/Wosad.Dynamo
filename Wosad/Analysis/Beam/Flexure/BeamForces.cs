@@ -58,7 +58,7 @@ namespace Analysis.Beam
         /// <returns name="M_min"> Maximum negative moment </returns>
         /// <returns name="V_max"> Maximum shear (absolute value) </returns>
         /// <returns name="M_x"> Moment at location X </returns>
-        /// <returns name="V_x"> Shear at loaction X </returns>
+        /// <returns name="V_x"> Shear at location X </returns>
 
         [MultiReturn(new[] { "M_max","M_min","V_max","M_x","V_x" })]
         public static Dictionary<string, object> BeamForces(string BeamForcesCaseId, double L,double X=0,double P=0,double M=0,double w=0,double a_load=0,double b_load=0,double c_load=0,double P1=0,double P2=0,double M1=0,double M2=0)

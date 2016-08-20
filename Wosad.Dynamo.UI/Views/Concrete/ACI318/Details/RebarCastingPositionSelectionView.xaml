@@ -1,7 +1,7 @@
 <!--
 	Copyright (C) 2015 Wosad Inc
 -->
-<UserControl x:Class="Wosad.Concrete.ACI318_14.Details.RebarSpliceTypeView"
+<UserControl x:Class="Wosad.Concrete.ACI318.Details.RebarCastingPositionSelectionView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,16 +19,15 @@
             <WosadConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
             <WosadControls:EnumDataCollection x:Key="SelectionItemSource" d:IsDataSource="True">
-                <WosadControls:EnumDataElement   EnumString="Case1" Description="Case1" />
-                <WosadControls:EnumDataElement   EnumString="Case2" Description="Case2"/>
-                <WosadControls:EnumDataElement   EnumString="Case3" Description="Case3" />
+                <WosadControls:EnumDataElement   EnumString="Top" Description="Top" />
+                <WosadControls:EnumDataElement   EnumString="Other" Description="Other"/>
             </WosadControls:EnumDataCollection>
 
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
-        <WosadControls:EnumControl  HeaderText="Case selection" 
+        <WosadControls:EnumControl  HeaderText="Rebar casting position" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
-					DataPath="RebarSpliceType"/>
+					DataPath="RebarCastingPosition"/>
     </Grid>
 </UserControl>

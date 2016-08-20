@@ -28,7 +28,8 @@ using Concrete.ACI318.General.Reinforcement;
 
 #endregion
 
-namespace Concrete.ACI318.Section.OneWayShear
+namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
+
 {
 
 /// <summary>

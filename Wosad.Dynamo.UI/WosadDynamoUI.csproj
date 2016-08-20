@@ -184,6 +184,8 @@
     <Compile Include="Nodes\Analysis\Beam\Torsion\BeamTorsionCaseSelection.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Nodes\Concrete\ACI318\Details\CoatingTypeSelection.cs" />
+    <Compile Include="Nodes\Concrete\ACI318\Details\RebarCastingPositionSelection.cs" />
     <Compile Include="Nodes\Concrete\ACI318\General\Reinforcement\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -252,7 +254,13 @@
     <Compile Include="Views\Analysis\Beam\Torsion\BeamTorsionCaseView.xaml.cs">
       <DependentUpon>BeamTorsionCaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml.cs">
+    <Compile Include="Views\Concrete\ACI318\Details\CoatingTypeSelectionView.xaml.cs">
+      <DependentUpon>CoatingTypeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Concrete\ACI318\Details\RebarCastingPositionSelectionView.xaml.cs">
+      <DependentUpon>RebarCastingPositionSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Concrete\ACI318\General\Rebar\RebarSizeSelectionView.xaml.cs">
       <DependentUpon>RebarSizeSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\General\Flexure\AngleOrientationView.xaml.cs">
@@ -512,6 +520,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Concrete\ACI318\Details\CoatingTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Concrete\ACI318\Details\RebarCastingPositionSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Wood\General\FlatMemberTypeSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -560,7 +576,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Concrete\ACI318_14\General\Rebar\RebarSizeSelectionView.xaml">
+    <Page Include="Views\Concrete\ACI318\General\Rebar\RebarSizeSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -967,21 +983,19 @@
   <ItemGroup>
     <Folder Include="Nodes\Concrete\ACI318\Compression\SectionStrength\" />
     <Folder Include="Nodes\Concrete\ACI318\Compression\Stability\" />
-    <Folder Include="Nodes\Concrete\ACI318\Details\" />
     <Folder Include="Nodes\Concrete\ACI318\Flexure\" />
     <Folder Include="Nodes\Concrete\ACI318\General\Material\" />
     <Folder Include="Nodes\Concrete\ACI318\ShearAndTorsion\OneWay\" />
     <Folder Include="Nodes\Concrete\ACI318\ShearAndTorsion\Torsion\" />
     <Folder Include="Nodes\Concrete\ACI318\ShearAndTorsion\TwoWay\" />
     <Folder Include="Nodes\Steel\AISC\Flexure\" />
-    <Folder Include="Views\Concrete\ACI318_14\Compression\SectionStrength\" />
-    <Folder Include="Views\Concrete\ACI318_14\Compression\Stability\" />
-    <Folder Include="Views\Concrete\ACI318_14\Details\" />
-    <Folder Include="Views\Concrete\ACI318_14\Flexure\" />
-    <Folder Include="Views\Concrete\ACI318_14\General\Material\" />
-    <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\OneWay\" />
-    <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\Torsion\" />
-    <Folder Include="Views\Concrete\ACI318_14\ShearAndTorsion\TwoWay\" />
+    <Folder Include="Views\Concrete\ACI318\Compression\SectionStrength\" />
+    <Folder Include="Views\Concrete\ACI318\Compression\Stability\" />
+    <Folder Include="Views\Concrete\ACI318\Flexure\" />
+    <Folder Include="Views\Concrete\ACI318\General\Material\" />
+    <Folder Include="Views\Concrete\ACI318\ShearAndTorsion\OneWay\" />
+    <Folder Include="Views\Concrete\ACI318\ShearAndTorsion\Torsion\" />
+    <Folder Include="Views\Concrete\ACI318\ShearAndTorsion\TwoWay\" />
     <Folder Include="Views\Loads\ASCE7\Snow\" />
   </ItemGroup>
   <ItemGroup>

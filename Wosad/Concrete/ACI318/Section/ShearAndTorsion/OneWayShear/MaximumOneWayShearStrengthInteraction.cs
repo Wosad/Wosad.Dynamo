@@ -24,7 +24,8 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Concrete.ACI318_14.Section.ShearAndTorsion
+namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
+
 {
 
 /// <summary>
