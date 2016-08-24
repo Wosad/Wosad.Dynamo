@@ -228,7 +228,9 @@
     <Compile Include="Concrete\ACI318\Details\CompressionLapSpliceLength.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Concrete\ACI318\Details\Groups\DevelopmentLength.cs" />
+    <Compile Include="Concrete\ACI318\Details\Groups\DevelopmentLength.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Concrete\ACI318\Details\Groups\LapSplice.cs" />
     <Compile Include="Concrete\ACI318\Details\StandardHookTensionDevelopmentLength.cs">
       <SubType>Code</SubType>
