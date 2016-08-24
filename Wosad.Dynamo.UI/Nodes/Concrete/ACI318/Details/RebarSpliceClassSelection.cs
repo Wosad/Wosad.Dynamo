@@ -25,31 +25,30 @@ using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
-using Dynamo.Graph.Nodes;
 using System.Xml;
 using Dynamo.Graph;
-using System.Windows;
+using Dynamo.Graph.Nodes;
 
 
 namespace Wosad.Concrete.ACI318.Details.General
 {
 
     /// <summary>
-    ///Rebar coating type  
+    ///Rebar splice class  
     /// </summary>
 
-    [NodeName("Rebar coating type")]
+    [NodeName("Rebar splice class")]
     [NodeCategory("Wosad.Concrete.ACI318.Details.General")]
-    [NodeDescription("Rebar coating type")]
+    [NodeDescription("Rebar splice class")]
     [IsDesignScriptCompatible]
-    public class CoatingTypeSelection : UiNodeBase
+    public class RebarSpliceClassSelection : UiNodeBase
     {
 
-        public CoatingTypeSelection()
+        public RebarSpliceClassSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("RebarCoatingType", "Type of rebar surface coating (epoxy coated or black)"));
+            OutPortData.Add(new PortData("RebarSpliceClass", "Identifies if splice is class A or class B"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
@@ -58,7 +57,7 @@ namespace Wosad.Concrete.ACI318.Details.General
         private void SetDefaultParameters()
         {
             //ReportEntry="";
-            RebarCoatingType = "Uncoated";
+            RebarSpliceClass = "B";
         }
 
 
@@ -80,21 +79,21 @@ namespace Wosad.Concrete.ACI318.Details.General
 
         #region OutputProperties
 
-		#region RebarCoatingTypeProperty
+		#region RebarSpliceClassProperty
 		
 		/// <summary>
-		/// RebarCoatingType property
+		/// RebarSpliceClass property
 		/// </summary>
-		/// <value>Type of rebar surface coating (epoxy coated or black)</value>
-		public string _RebarCoatingType;
+		/// <value>Identifies if splice is class A or class B</value>
+		public string _RebarSpliceClass;
 		
-		public string RebarCoatingType
+		public string RebarSpliceClass
 		{
-		    get { return _RebarCoatingType; }
+		    get { return _RebarSpliceClass; }
 		    set
 		    {
-		        _RebarCoatingType = value;
-		        RaisePropertyChanged("RebarCoatingType");
+		        _RebarSpliceClass = value;
+		        RaisePropertyChanged("RebarSpliceClass");
 		        OnNodeModified();
 		    }
 		}
@@ -138,7 +137,7 @@ namespace Wosad.Concrete.ACI318.Details.General
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("RebarCoatingType", RebarCoatingType);
+            nodeElement.SetAttribute("RebarSpliceClass", RebarSpliceClass);
         }
 
         /// <summary>
@@ -147,33 +146,36 @@ namespace Wosad.Concrete.ACI318.Details.General
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["RebarCoatingType"];
+            var attrib = nodeElement.Attributes["RebarSpliceClass"];
             if (attrib == null)
                 return;
            
-            RebarCoatingType = attrib.Value;
+            RebarSpliceClass = attrib.Value;
             //SetComponentDescription();
 
         }
 
 
+
+
         #endregion
+
 
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class CoatingTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<CoatingTypeSelection>
+        public class RebarSpliceClassSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<RebarSpliceClassSelection>
         {
-            public void CustomizeView(CoatingTypeSelection model, NodeView nodeView)
+            public void CustomizeView(RebarSpliceClassSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                CoatingTypeSelectionView control = new CoatingTypeSelectionView();
+                RebarSpliceClassSelectionView control = new RebarSpliceClassSelectionView();
                 control.DataContext = model;
                 
-               
+                
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }

@@ -28,28 +28,27 @@ using Dynamo.Nodes;
 using Dynamo.Graph.Nodes;
 using System.Xml;
 using Dynamo.Graph;
-using System.Windows;
 
 
 namespace Wosad.Concrete.ACI318.Details.General
 {
 
     /// <summary>
-    ///Rebar coating type  
+    ///Rebar hook type  
     /// </summary>
 
-    [NodeName("Rebar coating type")]
+    [NodeName("Rebar hook type")]
     [NodeCategory("Wosad.Concrete.ACI318.Details.General")]
-    [NodeDescription("Rebar coating type")]
+    [NodeDescription("Rebar hook type")]
     [IsDesignScriptCompatible]
-    public class CoatingTypeSelection : UiNodeBase
+    public class HookTypeSelection : UiNodeBase
     {
 
-        public CoatingTypeSelection()
+        public HookTypeSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("RebarCoatingType", "Type of rebar surface coating (epoxy coated or black)"));
+            OutPortData.Add(new PortData("HookType", "Identifies rebar hook configuration (90-degree versus 180-degree)"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
@@ -58,7 +57,7 @@ namespace Wosad.Concrete.ACI318.Details.General
         private void SetDefaultParameters()
         {
             //ReportEntry="";
-            RebarCoatingType = "Uncoated";
+            HookType = "Hook90";
         }
 
 
@@ -80,21 +79,21 @@ namespace Wosad.Concrete.ACI318.Details.General
 
         #region OutputProperties
 
-		#region RebarCoatingTypeProperty
+		#region HookTypeProperty
 		
 		/// <summary>
-		/// RebarCoatingType property
+		/// HookType property
 		/// </summary>
-		/// <value>Type of rebar surface coating (epoxy coated or black)</value>
-		public string _RebarCoatingType;
+		/// <value>Identifies rebar hook configuration (90-degree versus 180-degree)</value>
+		public string _HookType;
 		
-		public string RebarCoatingType
+		public string HookType
 		{
-		    get { return _RebarCoatingType; }
+		    get { return _HookType; }
 		    set
 		    {
-		        _RebarCoatingType = value;
-		        RaisePropertyChanged("RebarCoatingType");
+		        _HookType = value;
+		        RaisePropertyChanged("HookType");
 		        OnNodeModified();
 		    }
 		}
@@ -138,7 +137,7 @@ namespace Wosad.Concrete.ACI318.Details.General
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("RebarCoatingType", RebarCoatingType);
+            nodeElement.SetAttribute("HookType", HookType);
         }
 
         /// <summary>
@@ -147,11 +146,11 @@ namespace Wosad.Concrete.ACI318.Details.General
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["RebarCoatingType"];
+            var attrib = nodeElement.Attributes["HookType"];
             if (attrib == null)
                 return;
            
-            RebarCoatingType = attrib.Value;
+            HookType = attrib.Value;
             //SetComponentDescription();
 
         }
@@ -160,20 +159,23 @@ namespace Wosad.Concrete.ACI318.Details.General
         #endregion
 
 
+
+
+
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class CoatingTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<CoatingTypeSelection>
+        public class HookTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<HookTypeSelection>
         {
-            public void CustomizeView(CoatingTypeSelection model, NodeView nodeView)
+            public void CustomizeView(HookTypeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                CoatingTypeSelectionView control = new CoatingTypeSelectionView();
+                HookTypeSelectionView control = new HookTypeSelectionView();
                 control.DataContext = model;
                 
-               
+                
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }

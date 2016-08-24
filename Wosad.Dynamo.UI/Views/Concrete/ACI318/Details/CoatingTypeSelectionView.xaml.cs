@@ -30,7 +30,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wosad.Concrete.ACI318.Details
+namespace Wosad.Concrete.ACI318.Details.General
 {
     /// <summary>
     /// Interaction logic for Wosad.Concrete.ACI318.Details.CoatingTypeSelectionView.xaml

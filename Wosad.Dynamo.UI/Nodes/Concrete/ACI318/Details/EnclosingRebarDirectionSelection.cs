@@ -25,31 +25,30 @@ using ProtoCore.AST.AssociativeAST;
 using Wosad.Common.CalculationLogger;
 using Wosad.Dynamo.Common;
 using Dynamo.Nodes;
-using Dynamo.Graph.Nodes;
-using System.Xml;
 using Dynamo.Graph;
-using System.Windows;
+using System.Xml;
+using Dynamo.Graph.Nodes;
 
 
 namespace Wosad.Concrete.ACI318.Details.General
 {
 
     /// <summary>
-    ///Rebar coating type  
+    ///Enclosing rebar direction  
     /// </summary>
 
-    [NodeName("Rebar coating type")]
+    [NodeName("Enclosing rebar direction")]
     [NodeCategory("Wosad.Concrete.ACI318.Details.General")]
-    [NodeDescription("Rebar coating type")]
+    [NodeDescription("Enclosing rebar direction")]
     [IsDesignScriptCompatible]
-    public class CoatingTypeSelection : UiNodeBase
+    public class EnclosingRebarDirectionSelection : UiNodeBase
     {
 
-        public CoatingTypeSelection()
+        public EnclosingRebarDirectionSelection()
         {
             
             //OutPortData.Add(new PortData("ReportEntry", "Calculation log entries (for reporting)"));
-            OutPortData.Add(new PortData("RebarCoatingType", "Type of rebar surface coating (epoxy coated or black)"));
+            OutPortData.Add(new PortData("EnclosingRebarDirection", "Indicates if enclosing reinforcement is perpendicular or parallel to bar"));
             RegisterAllPorts();
             SetDefaultParameters();
             //PropertyChanged += NodePropertyChanged;
@@ -58,7 +57,7 @@ namespace Wosad.Concrete.ACI318.Details.General
         private void SetDefaultParameters()
         {
             //ReportEntry="";
-            RebarCoatingType = "Uncoated";
+            this.EnclosingRebarDirection = "Perpendicular";
         }
 
 
@@ -80,21 +79,21 @@ namespace Wosad.Concrete.ACI318.Details.General
 
         #region OutputProperties
 
-		#region RebarCoatingTypeProperty
+		#region EnclosingRebarDirectionProperty
 		
 		/// <summary>
-		/// RebarCoatingType property
+		/// EnclosingRebarDirection property
 		/// </summary>
-		/// <value>Type of rebar surface coating (epoxy coated or black)</value>
-		public string _RebarCoatingType;
+		/// <value>Indicates if enclosing reinforcement is perpendicular or parallel to bar</value>
+		public string _EnclosingRebarDirection;
 		
-		public string RebarCoatingType
+		public string EnclosingRebarDirection
 		{
-		    get { return _RebarCoatingType; }
+		    get { return _EnclosingRebarDirection; }
 		    set
 		    {
-		        _RebarCoatingType = value;
-		        RaisePropertyChanged("RebarCoatingType");
+		        _EnclosingRebarDirection = value;
+		        RaisePropertyChanged("EnclosingRebarDirection");
 		        OnNodeModified();
 		    }
 		}
@@ -138,7 +137,7 @@ namespace Wosad.Concrete.ACI318.Details.General
         protected override void SerializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.SerializeCore(nodeElement, context);
-            nodeElement.SetAttribute("RebarCoatingType", RebarCoatingType);
+            nodeElement.SetAttribute("EnclosingRebarDirection", EnclosingRebarDirection);
         }
 
         /// <summary>
@@ -147,33 +146,36 @@ namespace Wosad.Concrete.ACI318.Details.General
         protected override void DeserializeCore(XmlElement nodeElement, SaveContext context)
         {
             base.DeserializeCore(nodeElement, context);
-            var attrib = nodeElement.Attributes["RebarCoatingType"];
+            var attrib = nodeElement.Attributes["EnclosingRebarDirection"];
             if (attrib == null)
                 return;
            
-            RebarCoatingType = attrib.Value;
+            EnclosingRebarDirection = attrib.Value;
             //SetComponentDescription();
 
         }
 
 
+
         #endregion
+
+
 
 
         /// <summary>
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
-        public class CoatingTypeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<CoatingTypeSelection>
+        public class EnclosingRebarDirectionSelectionViewCustomization : UiNodeBaseViewCustomization,
+            INodeViewCustomization<EnclosingRebarDirectionSelection>
         {
-            public void CustomizeView(CoatingTypeSelection model, NodeView nodeView)
+            public void CustomizeView(EnclosingRebarDirectionSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
-                CoatingTypeSelectionView control = new CoatingTypeSelectionView();
+                EnclosingRebarDirectionSelectionView control = new EnclosingRebarDirectionSelectionView();
                 control.DataContext = model;
                 
-               
+                
                 nodeView.inputGrid.Children.Add(control);
                 base.CustomizeView(model, nodeView);
             }

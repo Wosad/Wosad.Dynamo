@@ -28,7 +28,7 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
 {
 
 /// <summary>
-///     Arbitrary punching shear perimeter
+///     Rectilinear punching shear perimeter
 ///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
 /// </summary>
 /// 
@@ -38,13 +38,19 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
     public partial class TwoWayShear 
     {
 /// <summary>
-///     Arbitrary punching shear perimeter
+///     Rectilinear punching shear perimeter
 /// </summary>
-        
+        /// <param name="ColumnLocationCase">  Indicates the location and type of punching perimeter for two-way shear calculations (interior, edge, corner) </param>
+/// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
+/// <param name="c_1">   Dimension of rectangular or equivalent rectangular  column, capital, or bracket measured in the direction of the span for which moments are being determined  </param>
+/// <param name="c_2">   Dimension of rectangular or equivalent rectangular  column, capital, or bracket measured in the direction perpendicular to c1  </param>
+/// <param name="b_1">   Dimension of the critical section bo measured in the  direction of the span for which moments are determined  </param>
+/// <param name="b_2">   Dimension of the critical section bo measured in the  direction perpendicular to b1  </param>
+
         /// <returns name="PunchingShearPerimeter"> Punching shear (two-way shear) perimeter object. Create the object using input parameters first </returns>
 
         [MultiReturn(new[] { "PunchingShearPerimeter" })]
-        public static Dictionary<string, object> ArbitraryPunchingShearPerimeter()
+        public static Dictionary<string, object> RectilinearPunchingShearPerimeter(string ColumnLocationCase,double d,double c_1,double c_2,double b_1,double b_2)
         {
             //Default values
             PunchingShearPerimeter PunchingShearPerimeter = 
@@ -61,14 +67,14 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
         }
 
 
-        //internal TwoWayShear ()
+        //internal TwoWayShear (string ColumnLocationCase,double d,double c_1,double c_2,double b_1,double b_2)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static TwoWayShear  ByInputParameters()
+        //public static TwoWayShear  ByInputParameters(string ColumnLocationCase,double d,double c_1,double c_2,double b_1,double b_2)
         //{
-        //    return new TwoWayShear();
+        //    return new TwoWayShear(ColumnLocationCase ,d ,c_1 ,c_2 ,b_1 ,b_2 );
         //}
 
     }

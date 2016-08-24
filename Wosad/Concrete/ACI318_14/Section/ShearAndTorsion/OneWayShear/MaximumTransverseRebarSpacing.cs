@@ -28,28 +28,29 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
 {
 
 /// <summary>
-///     Total two way shear stress
+///     Maximum transverse rebar spacing
 ///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class TwoWayShear 
+    public partial class OneWayShear 
     {
 /// <summary>
-///     Total two way shear stress
+///     Maximum transverse rebar spacing
 /// </summary>
-        /// <param name="v_uc">   Maximum factored two-way shear stress due to effects of concentricload calculated  at the perimeter of a given critical section  </param>
-/// <param name="v_um">   Maximum factored two-way shear stress due to effects of moment calculated  at the perimeter of a given critical section  </param>
+        /// <param name="b_w">   Web width or diameter of circular section  </param>
+/// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
+/// <param name="f_c_prime">   Specified compressive strength of concrete  </param>
 
-        /// <returns name="v_u">  Maximum factored two-way shear stress calculated  around the perimeter of a given critical section  </returns>
+        /// <returns name="s_max">  Maximum center-to-center spacing of  transverse reinforcement </returns>
 
-        [MultiReturn(new[] { "v_u" })]
-        public static Dictionary<string, object> TotalTwoWayShearStress(double v_uc,double v_um)
+        [MultiReturn(new[] { "s_max" })]
+        public static Dictionary<string, object> MaximumTransverseRebarSpacing(double b_w,double d,double f_c_prime)
         {
             //Default values
-            double v_u = 0;
+             s_max = 
 
 
             //Calculation logic:
@@ -57,20 +58,20 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
 
             return new Dictionary<string, object>
             {
-                { "v_u", v_u }
+                { "s_max", s_max }
  
             };
         }
 
 
-        //internal TwoWayShear (double v_uc,double v_um)
+        //internal OneWayShear (double b_w,double d,double f_c_prime)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static TwoWayShear  ByInputParameters(double v_uc,double v_um)
+        //public static OneWayShear  ByInputParameters(double b_w,double d,double f_c_prime)
         //{
-        //    return new TwoWayShear(v_uc ,v_um );
+        //    return new OneWayShear(b_w ,d ,f_c_prime );
         //}
 
     }

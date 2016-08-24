@@ -28,47 +28,49 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
 {
 
 /// <summary>
-///     Shear friction strength
+///     Two way shear  stress from concentric  load
 ///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class OneWayShear 
+    public partial class TwoWayShear 
     {
 /// <summary>
-///     Shear friction strength
+///     Two way shear  stress from concentric  load
 /// </summary>
-        /// <param name="ShearFrictionContactSurface">  Indicates contact surface condition used to calculate coefficient of friction </param>
-/// <param name="A_vf">   Area of shear-friction reinforcement  </param>
-/// <param name="f_y">   Specified yield strength for nonprestressed reinforcement  </param>
+        /// <param name="V_u">   Factored shear force at section  </param>
+/// <param name="PunchingShearPerimeter">  Punching shear (two-way shear) perimeter object. Create the object using input parameters first </param>
 
-        
-        [MultiReturn(new[] {  })]
-        public static Dictionary<string, object> ShearFrictionStrength(string ShearFrictionContactSurface,double A_vf,double f_y)
+        /// <returns name="v_u">  Maximum factored two-way shear stress calculated  around the perimeter of a given critical section  </returns>
+
+        [MultiReturn(new[] { "v_u" })]
+        public static Dictionary<string, object> TwoWayShearStressFromConcentricLoad(double V_u,PunchingShearPerimeter PunchingShearPerimeter)
         {
             //Default values
-            
+            double v_u = 0;
+
 
             //Calculation logic:
 
 
             return new Dictionary<string, object>
             {
-                 
+                { "v_u", v_u }
+ 
             };
         }
 
 
-        //internal OneWayShear (string ShearFrictionContactSurface,double A_vf,double f_y)
+        //internal TwoWayShear (double V_u,PunchingShearPerimeter PunchingShearPerimeter)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static OneWayShear  ByInputParameters(string ShearFrictionContactSurface,double A_vf,double f_y)
+        //public static TwoWayShear  ByInputParameters(double V_u,PunchingShearPerimeter PunchingShearPerimeter)
         //{
-        //    return new OneWayShear(ShearFrictionContactSurface ,A_vf ,f_y );
+        //    return new TwoWayShear(V_u ,PunchingShearPerimeter );
         //}
 
     }

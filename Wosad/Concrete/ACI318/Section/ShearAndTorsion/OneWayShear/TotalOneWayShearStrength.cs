@@ -24,15 +24,14 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Concrete.ACI318.Section.OneWayShear
+namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
 {
 
 /// <summary>
 ///     Total one way  shear strength
-///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
+///     Category:   Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
 /// </summary>
 /// 
-
 
 
     public partial class NonPrestressed 
@@ -42,25 +41,24 @@ namespace Concrete.ACI318.Section.OneWayShear
         /// </summary>
         /// <param name="phiV_c">   Design shear strength provided by concrete  </param>
         /// <param name="phiV_s">   Design shear strength provided by shear reinforcement  </param>
-        /// <param name="Code"> Applicable version of code/standard</param>
-        /// <returns name="phiV_n">  Design shear strength  </returns>
+        /// <returns name="phiV_n">  Total shear strength provided by reinforced concte section  </returns>
 
-        [MultiReturn(new[] { "phiV_n" })]
-        public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c, double phiV_s, string Code = "ACI318-14")
+
+        [MultiReturn(new[] { "phiV_s" } )]
+        public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c,double phiV_s)
         {
             //Default values
-            
+
+            double phiV_n = 0;
 
             //Calculation logic:
-            double phiV_n = phiV_c + phiV_s;
+            phiV_n = phiV_c + phiV_s; 
 
             return new Dictionary<string, object>
             {
-                  { "phiV_n", phiV_n }
+                 { "phiV_n", phiV_n }
             };
         }
-
-
 
 
     }

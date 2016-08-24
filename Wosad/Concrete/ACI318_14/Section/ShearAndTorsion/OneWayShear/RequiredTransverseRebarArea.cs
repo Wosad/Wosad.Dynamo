@@ -28,7 +28,7 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
 {
 
 /// <summary>
-///     Required one way shear reinforcement
+///     Required transverse rebar area
 ///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
 /// </summary>
 /// 
@@ -38,19 +38,20 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
     public partial class OneWayShear 
     {
 /// <summary>
-///     Required one way shear reinforcement
+///     Required transverse rebar area
 /// </summary>
-        /// <param name="V_u">   Factored shear force at section  </param>
+        /// <param name="TransverseReinforcementCase">  Determines the arrangement of transverse reinforcement </param>
+/// <param name="V_u">   Factored shear force at section  </param>
 /// <param name="phiV_c">   Design shear strength provided by concrete  </param>
 /// <param name="s">   Center-to-center spacing of items, such as longitudinal reinforcement, transverse reinforcement,  tendons, or anchors  </param>
 
-        /// <returns name="A_v">  Area of shear reinforcement within spacing s  </returns>
+        /// <returns name="A_b">  Area of an individual bar or wire  </returns>
 
-        [MultiReturn(new[] { "A_v" })]
-        public static Dictionary<string, object> RequiredOneWayShearReinforcement(double V_u,double phiV_c,double s)
+        [MultiReturn(new[] { "A_b" })]
+        public static Dictionary<string, object> RequiredTransverseRebarArea(string TransverseReinforcementCase,double V_u,double phiV_c,double s)
         {
             //Default values
-            double A_v = 0;
+            double A_b = 0;
 
 
             //Calculation logic:
@@ -58,20 +59,20 @@ namespace Concrete.ACI318_14.Section.ShearAndTorsion
 
             return new Dictionary<string, object>
             {
-                { "A_v", A_v }
+                { "A_b", A_b }
  
             };
         }
 
 
-        //internal OneWayShear (double V_u,double phiV_c,double s)
+        //internal OneWayShear (string TransverseReinforcementCase,double V_u,double phiV_c,double s)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static OneWayShear  ByInputParameters(double V_u,double phiV_c,double s)
+        //public static OneWayShear  ByInputParameters(string TransverseReinforcementCase,double V_u,double phiV_c,double s)
         //{
-        //    return new OneWayShear(V_u ,phiV_c ,s );
+        //    return new OneWayShear(TransverseReinforcementCase ,V_u ,phiV_c ,s );
         //}
 
     }

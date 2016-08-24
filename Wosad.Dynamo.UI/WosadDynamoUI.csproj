@@ -152,7 +152,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="Wosad.Common, Version=0.0.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.7.1\lib\net45\Wosad.Common.dll</HintPath>
+      <HintPath>..\packages\Wosad.Common.0.0.8.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
@@ -185,7 +185,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Nodes\Concrete\ACI318\Details\CoatingTypeSelection.cs" />
+    <Compile Include="Nodes\Concrete\ACI318\Details\EnclosingRebarDirectionSelection.cs" />
+    <Compile Include="Nodes\Concrete\ACI318\Details\HookTypeSelection.cs" />
     <Compile Include="Nodes\Concrete\ACI318\Details\RebarCastingPositionSelection.cs" />
+    <Compile Include="Nodes\Concrete\ACI318\Details\RebarSpliceClassSelection.cs" />
     <Compile Include="Nodes\Concrete\ACI318\General\Reinforcement\RebarSizeSelection.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -257,8 +260,17 @@
     <Compile Include="Views\Concrete\ACI318\Details\CoatingTypeSelectionView.xaml.cs">
       <DependentUpon>CoatingTypeSelectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Concrete\ACI318\Details\EnclosingRebarDirectionSelectionView.xaml.cs">
+      <DependentUpon>EnclosingRebarDirectionSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Concrete\ACI318\Details\HookTypeSelectionView.xaml.cs">
+      <DependentUpon>HookTypeSelectionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Concrete\ACI318\Details\RebarCastingPositionSelectionView.xaml.cs">
       <DependentUpon>RebarCastingPositionSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Concrete\ACI318\Details\RebarSpliceClassSelectionView.xaml.cs">
+      <DependentUpon>RebarSpliceClassSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Concrete\ACI318\General\Rebar\RebarSizeSelectionView.xaml.cs">
       <DependentUpon>RebarSizeSelectionView.xaml</DependentUpon>
@@ -524,7 +536,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Concrete\ACI318\Details\EnclosingRebarDirectionSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Concrete\ACI318\Details\HookTypeSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Concrete\ACI318\Details\RebarCastingPositionSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Concrete\ACI318\Details\RebarSpliceClassSelectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

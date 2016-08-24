@@ -144,11 +144,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Common, Version=0.0.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.7.1\lib\net45\Wosad.Common.dll</HintPath>
+      <HintPath>..\packages\Wosad.Common.0.0.8.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Concrete, Version=0.0.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Concrete.0.0.8.1\lib\net45\Wosad.Concrete.dll</HintPath>
+    <Reference Include="Wosad.Concrete, Version=0.0.8.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Concrete.0.0.8.2\lib\net45\Wosad.Concrete.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
@@ -222,6 +222,21 @@
     <Compile Include="Analysis\Section\SectionTypes\CustomProfile.cs" />
     <Compile Include="Analysis\Section\SectionTypes\CustomProfileProperties.cs" />
     <Compile Include="Analysis\Section\SectionTypes\SectionRectangular.cs" />
+    <Compile Include="Concrete\ACI318\Details\CompressionDevelopmentLength.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concrete\ACI318\Details\CompressionLapSpliceLength.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concrete\ACI318\Details\Groups\DevelopmentLength.cs" />
+    <Compile Include="Concrete\ACI318\Details\Groups\LapSplice.cs" />
+    <Compile Include="Concrete\ACI318\Details\StandardHookTensionDevelopmentLength.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concrete\ACI318\Details\StraightBarTensionDevelopmentLengthBasic.cs" />
+    <Compile Include="Concrete\ACI318\Details\StraightBarTensionDevelopmentLengthDetailed.cs" />
+    <Compile Include="Concrete\ACI318\Details\StraightBarTensionLapSpliceLengthBasic.cs" />
+    <Compile Include="Concrete\ACI318\Details\StraightBarTensionLapSpliceLengthDetailed.cs" />
     <Compile Include="Concrete\ACI318\General\Rebar\EffectiveDepthToLongitudinalRebar.cs" />
     <Compile Include="Concrete\ACI318\General\Rebar\RebarMaterialProperties.cs" />
     <Compile Include="Concrete\ACI318\General\Rebar\RebarPointByArea.cs" />
@@ -461,7 +476,6 @@
   <ItemGroup>
     <Folder Include="Concrete\ACI318\Beam\Flexure\" />
     <Folder Include="Concrete\ACI318\Beam\ShearAndTorsion\OneWayShear\" />
-    <Folder Include="Concrete\ACI318\Details\" />
     <Folder Include="Concrete\ACI318\Section\ShearAndTorsion\Torsion\" />
     <Folder Include="Concrete\ACI318\Section\ShearAndTorsion\TwoWay\" />
     <Folder Include="Loads\ASCE7\Gravity\Ice\" />

@@ -21,61 +21,58 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
-using Concrete.ACI318.General;
 using Wosad.Concrete.ACI318_14;
-using Concrete.ACI318.General;
-using Concrete.ACI318.General.Reinforcement;
+using Wosad.Concrete.ACI;
 
 #endregion
 
 namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
-
 {
 
 /// <summary>
 ///     One way concrete shear strength
-///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
+///     Category:   Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
 /// </summary>
 /// 
 
 
+    public partial class NonPrestressed 
+    {
+/// <summary>
+///     One way  shear strength provided by concrete
+/// </summary>
+/// <param name="b_w">  Web width </param>
+/// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
+/// <param name="h">   Overall thickness, height, or depth of member  </param>
+/// <param name="N_u">   Factored axial force normal to cross section occurring simultaneously with vu or tu; to be taken as  positive for compression and negative for tension  </param>
+/// <param name="rho_w">   Ratio of A_s /( b_w*d) </param>
+/// <param name="M_u">   Factored moment at section   </param>
+/// <param name="V_u">   Factored shear force at section  </param>
+        /// <returns name="phiV_c">  Design shear strength provided by concrete  </returns>
 
-    //public partial class NonPrestressed
-    //{
-    //    /// <summary>
-    //    ///     One way  shear strength provided by concrete
-    //    /// </summary>
-    //    /// <param name="ConcreteSection">  Reinforced concrete section </param>
-    //    /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
-    //    /// <param name="h">   Overall thickness, height, or depth of member  </param>
-    //    /// <param name="N_u">   Factored axial force normal to cross section occurring simultaneously with vu (shear stress) or tu (torsional stress); to be taken as  positive for compression and negative for tension  </param>
-    //    /// <param name="rho_w">   Ratio of A_s /( b_w*d) </param>
-    //    /// <param name="M_u">   Factored moment at section   </param>
-    //    /// <param name="V_u">   Factored shear force at section  </param>
-    //    /// <returns name="phiV_c">  Design shear strength provided by concrete  </returns>
-
-    //    [MultiReturn(new[] { "phiV_c" })]
-    //    public static Dictionary<string, object> OneWayShearStrengthProvidedByConcrete(ConcreteSection ConcreteSection, RebarMaterial material, double d, double h, double N_u, double rho_w = 0, double M_u = 0, double V_u = 0)
-    //    {
-    //        //Default values
-    //        double phiV_c = 0;
+        [MultiReturn(new[] { "phiV_c" })]
+        public static Dictionary<string, object> OneWayShearStrengthProvidedByConcrete(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial,
+            double b_w, double d, double h, double N_u=0.0, double rho_w=0.0, double M_u=0.0, double V_u=0.0)
+        {
+            //Default values
+            double phiV_c = 0;
 
 
-    //        //Calculation logic:
+            //Calculation logic:
+            IConcreteMaterial mat = ConcreteMaterial.Concrete;
+            CrossSectionRectangularShape shape = new CrossSectionRectangularShape(mat,null, b_w, h);
+            ConcreteSectionOneWayShearNonPrestressed section = new ConcreteSectionOneWayShearNonPrestressed(d,shape);
+            phiV_c = section.GetConcreteShearStrength(N_u, rho_w, M_u, V_u)/1000.0; //default ACI units are psi. Convert to ksi, consistent with Dynamo nodes
 
-    //        //ConcreteSectionOneWayShearNonPrestressed s = new ConcreteSectionOneWayShearNonPrestressed(d, ConcreteSection.Section, material.Material, ConcreteSection.A_tr, ConcreteSection.s);
-    //        //phiV_c = s.GetConcreteShearStrength();
-
-    //        return new Dictionary<string, object>
-    //        {
-    //            { "phiV_c", phiV_c }
+            return new Dictionary<string, object>
+            {
+                { "phiV_c", phiV_c }
  
-    //        };
-    //    }
+            };
+        }
 
 
-
-    //}
+    }
 }
 
 

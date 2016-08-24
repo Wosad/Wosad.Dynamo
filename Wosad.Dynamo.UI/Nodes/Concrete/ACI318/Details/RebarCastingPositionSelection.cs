@@ -30,7 +30,7 @@ using Dynamo.Graph;
 using System.Xml;
 
 
-namespace Wosad.Concrete.ACI318.Details
+namespace Wosad.Concrete.ACI318.Details.General
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Wosad.Concrete.ACI318.Details
     /// </summary>
 
     [NodeName("Rebar casting position")]
-    [NodeCategory("Wosad.Concrete.ACI318.Details")]
+    [NodeCategory("Wosad.Concrete.ACI318.Details.General")]
     [NodeDescription("Rebar casting position")]
     [IsDesignScriptCompatible]
     public class RebarCastingPositionSelection : UiNodeBase

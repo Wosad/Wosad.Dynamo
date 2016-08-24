@@ -1,5 +1,5 @@
 #region Copyright
-   /*Copyright (C) 2015 Wosad Inc
+/*Copyright (C) 2015 Wosad Inc
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
    limitations under the License.
    */
 #endregion
- 
+
 #region
 
 using Autodesk.DesignScript.Runtime;
@@ -25,23 +25,24 @@ using Dynamo.Graph.Nodes;
 
 #endregion
 
-namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
+namespace Concrete.ACI318.Details
 {
 
 
-    public partial class NonPrestressed 
+    [IsDesignScriptCompatible]
+    public partial class LapSplice
     {
 
 
-    [IsDesignScriptCompatible]
-        internal NonPrestressed()
+
+        internal LapSplice()
         {
 
         }
         [IsVisibleInDynamoLibrary(false)]
-        public static NonPrestressed ByInputParameters()
+        public static LapSplice ByInputParameters()
         {
-            return new NonPrestressed();
+            return new LapSplice();
         }
 
     }

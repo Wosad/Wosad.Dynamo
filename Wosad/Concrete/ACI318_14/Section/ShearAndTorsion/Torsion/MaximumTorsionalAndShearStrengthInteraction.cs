@@ -24,32 +24,35 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
-
+namespace Concrete.ACI318_14.Section.ShearAndTorsion
 {
 
 /// <summary>
-///     Maximum one way shear strength interaction
+///     Maximum torsional and shear strength interaction
 ///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class OneWayShear 
+    public partial class Torsion 
     {
 /// <summary>
-///     Maximum one way shear strength interaction
+///     Maximum torsional and shear strength interaction
 /// </summary>
-        /// <param name="phiV_c">   Design shear strength provided by concrete  </param>
+        /// <param name="V_u">   Factored shear force at section  </param>
+/// <param name="T_u">   Factored torsional moment at section   </param>
+/// <param name="V_c">   Nominal shear strength provided by concrete  </param>
 /// <param name="b_w">   Web width or diameter of circular section  </param>
 /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
+/// <param name="A_oh">   Area enclosed by centerline of the outermost closed  transverse torsional reinforcement  </param>
+/// <param name="p_h">   Perimeter of centerline of outermost closed transverse torsional reinforcement  </param>
 /// <param name="f_c_prime">   Specified compressive strength of concrete  </param>
 
         /// <returns name="InteractionRatio"> Interaction ratio indicating demand to capacity for a given criterion. Values over 1.0 indicate failure to meet one ore more criteria </returns>
 
         [MultiReturn(new[] { "InteractionRatio" })]
-        public static Dictionary<string, object> MaximumOneWayShearStrengthInteraction(double phiV_c,double b_w,double d,double f_c_prime)
+        public static Dictionary<string, object> MaximumTorsionalAndShearStrengthInteraction(double V_u,double T_u,double V_c,double b_w,double d,double A_oh,double p_h,double f_c_prime)
         {
             //Default values
             double InteractionRatio = 0;
@@ -66,14 +69,14 @@ namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
         }
 
 
-        //internal OneWayShear (double phiV_c,double b_w,double d,double f_c_prime)
+        //internal Torsion (double V_u,double T_u,double V_c,double b_w,double d,double A_oh,double p_h,double f_c_prime)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static OneWayShear  ByInputParameters(double phiV_c,double b_w,double d,double f_c_prime)
+        //public static Torsion  ByInputParameters(double V_u,double T_u,double V_c,double b_w,double d,double A_oh,double p_h,double f_c_prime)
         //{
-        //    return new OneWayShear(phiV_c ,b_w ,d ,f_c_prime );
+        //    return new Torsion(V_u ,T_u ,V_c ,b_w ,d ,A_oh ,p_h ,f_c_prime );
         //}
 
     }

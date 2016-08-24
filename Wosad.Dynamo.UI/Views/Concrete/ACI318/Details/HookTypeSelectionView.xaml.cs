@@ -33,11 +33,11 @@ using System.Windows.Shapes;
 namespace Wosad.Concrete.ACI318.Details.General
 {
     /// <summary>
-    /// Interaction logic for Wosad.Concrete.ACI318.Details.RebarCastingPositionSelectionView.xaml
+    /// Interaction logic for Wosad.Concrete.ACI318.Details.HookTypeSelectionView.xaml
     /// </summary>
-    public partial class RebarCastingPositionSelectionView: UserControl
+    public partial class HookTypeSelectionView: UserControl
     {
-        public RebarCastingPositionSelectionView()
+        public HookTypeSelectionView()
         {
             InitializeComponent();
         }

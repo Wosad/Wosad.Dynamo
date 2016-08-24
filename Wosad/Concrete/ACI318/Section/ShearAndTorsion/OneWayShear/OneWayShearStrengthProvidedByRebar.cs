@@ -25,31 +25,28 @@ using Dynamo.Nodes;
 #endregion
 
 namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
-
 {
 
 /// <summary>
 ///     One way rebar shear strength
-///     Category:   Concrete.ACI318_14.Section.ShearAndTorsion
+///     Category:   Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
 /// </summary>
 /// 
 
 
-
     public partial class NonPrestressed 
     {
-        /// <summary>
-        ///     One way  shear strength provided by rebar
-        /// </summary>
+/// <summary>
+///     One way  shear strength provided by rebar
+/// </summary>
         /// <param name="A_v">   Area of shear reinforcement within spacing s  </param>
-        /// <param name="f_yt">   Specified yield strength of transverse reinforcement  </param>
-        /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
-        /// <param name="s">   Center-to-center spacing of items, such as longitudinal reinforcement, transverse reinforcement,  tendons, or anchors  </param>
-        /// <param name="Code"> Applicable version of code/standard</param>
+/// <param name="f_yt">   Specified yield strength of transverse reinforcement  </param>
+/// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
+/// <param name="s">   Center-to-center spacing of items, such as longitudinal reinforcement, transverse reinforcement,  tendons, or anchors  </param>
         /// <returns name="phiV_s">  Design shear strength provided by shear reinforcement  </returns>
 
         [MultiReturn(new[] { "phiV_s" })]
-        public static Dictionary<string, object> OneWayShearStrengthProvidedByRebar(double A_v, double f_yt, double d, double s, string Code = "ACI318-14")
+        public static Dictionary<string, object> OneWayShearStrengthProvidedByRebar(double A_v,double f_yt,double d,double s)
         {
             //Default values
             double phiV_s = 0;
@@ -64,6 +61,17 @@ namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
  
             };
         }
+
+
+        //internal NonPrestressed (double A_v,double f_yt,double d,double s)
+        //{
+
+        //}
+        //[IsVisibleInDynamoLibrary(false)]
+        //public static NonPrestressed  ByInputParameters(double A_v,double f_yt,double d,double s)
+        //{
+        //    return new NonPrestressed(A_v ,f_yt ,d ,s );
+        //}
 
     }
 }
