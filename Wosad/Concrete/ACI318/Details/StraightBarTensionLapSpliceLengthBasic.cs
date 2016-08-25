@@ -22,6 +22,10 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Concrete.ACI318.General.Reinforcement;
+using Wosad.Concrete.ACI;
+using Wosad.Common.CalculationLogger;
+using Wosad.Concrete.ACI318_14;
+using System;
 
 #endregion
 
@@ -41,7 +45,8 @@ namespace Concrete.ACI318.Details
         ///     Tension lap splice length (basic)
         /// </summary>
         /// <param name="ConcreteMaterial">  Concrete material object used to extract material properties, create the object using input parameters first </param>
-        /// <param name="d_b">   Nominal diameter of bar, wire, or prestressing  strand  </param>
+        /// <param name="d_b1">   Nominal diameter of first bar </param>
+        /// <param name="d_b2">   Nominal diameter of second bar </param>
         /// <param name="RebarMaterial">   Reinforcement material </param>
         /// <param name="RebarSpliceClass">  Identifies if splice is class A or class B </param>
         /// <param name="RebarCoatingType">  Type of rebar surface coating (epoxy coated or black) </param>
@@ -52,7 +57,7 @@ namespace Concrete.ACI318.Details
         /// <returns name="l_st">  Tension lap splice length  </returns>
 
         [MultiReturn(new[] { "l_st" })]
-        public static Dictionary<string, object> StraightBarTensionLapSpliceLengthBasic(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
+        public static Dictionary<string, object> StraightBarTensionLapSpliceLengthBasic(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b1, double d_b2,
             RebarMaterial RebarMaterial, string RebarSpliceClass, string RebarCoatingType, string RebarCastingPosition, double ExcessRebarRatio, bool MeetsRebarSpacingAndEdgeDistance, bool HasMinimumTransverseReinforcement)
         {
             //Default values
@@ -60,7 +65,42 @@ namespace Concrete.ACI318.Details
 
 
             //Calculation logic:
+            IRebarMaterial mat = RebarMaterial.Material;
 
+            bool IsEpoxyCoated = false;
+            switch (RebarCoatingType)
+            {
+                case "Uncoated": IsEpoxyCoated = false; break;
+                case "EpoxyCoated": IsEpoxyCoated = true; break;
+
+                default: throw new Exception("Unrecognized rebar coating. Please check string input"); break;
+            }
+
+            Rebar rebar1 = new Rebar(d_b1, IsEpoxyCoated, mat);
+            Rebar rebar2 = new Rebar(d_b2, IsEpoxyCoated, mat);
+
+
+            bool IsTopRebar = false;
+            switch (RebarCastingPosition)
+            {
+                case "Other": IsTopRebar = false; break;
+                case "Top": IsTopRebar = true; break;
+
+                default: throw new Exception("Unrecognized rebar casting position. Please check string input"); break;
+            }
+
+            TensionLapSpliceClass _RebarSpliceClass;
+            bool IsValidRebarSpliceClass = Enum.TryParse(RebarSpliceClass, true, out _RebarSpliceClass);
+            if (IsValidRebarSpliceClass == false)
+            {
+                throw new Exception("Failed to convert string. RebarSpliceClass not recognzed (A and B are acceptable inputs). Please check input");
+            }
+
+
+            CalcLog log = new CalcLog();
+
+            TensionLapSplice d = new TensionLapSplice(ConcreteMaterial.Concrete, rebar1, rebar2, MeetsRebarSpacingAndEdgeDistance, HasMinimumTransverseReinforcement, IsTopRebar, _RebarSpliceClass,log);
+            l_st = d.Length;
 
             return new Dictionary<string, object>
             {

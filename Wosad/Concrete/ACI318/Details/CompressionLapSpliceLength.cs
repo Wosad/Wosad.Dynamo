@@ -22,6 +22,7 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Concrete.ACI318.General.Reinforcement;
+using Wosad.Concrete.ACI;
 
 #endregion
 
@@ -55,7 +56,8 @@ namespace Concrete.ACI318.Details
 
 
             //Calculation logic:
-
+            IRebarMaterial mat = RebarMaterial.Material;
+            Rebar rebar = new Rebar(d_b, false, mat);
 
             return new Dictionary<string, object>
             {

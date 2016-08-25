@@ -22,6 +22,8 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Concrete.ACI318.General.Reinforcement;
+using Wosad.Concrete.ACI318_14;
+using Wosad.Concrete.ACI;
 
 #endregion
 
@@ -48,14 +50,17 @@ namespace Concrete.ACI318.Details
 
         [MultiReturn(new[] { "l_dc" })]
         public static Dictionary<string, object> CompressionDevelopmentLength(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
-            RebarMaterial RebarMaterial, bool HasConfiningReinforcement)
+            RebarMaterial RebarMaterial, bool HasConfiningReinforcement=false)
         {
             //Default values
             double l_dc = 0;
 
 
             //Calculation logic:
-
+            IRebarMaterial mat = RebarMaterial.Material;
+            Rebar rebar = new Rebar(d_b, false, mat);
+            DevelopmentCompression cd = new DevelopmentCompression(ConcreteMaterial.Concrete, rebar, log);
+            l_dc = cd.Length;
 
             return new Dictionary<string, object>
             {

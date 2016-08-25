@@ -22,6 +22,9 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using Concrete.ACI318.General.Reinforcement;
+using Wosad.Concrete.ACI318_14;
+using Wosad.Concrete.ACI;
+using Wosad.Common.CalculationLogger;
 
 #endregion
 
@@ -61,6 +64,13 @@ namespace Concrete.ACI318.Details
 
             //Calculation logic:
 
+            IRebarMaterial mat = RebarMaterial.Material;
+            Rebar rebar = new Rebar(d_b, false, mat);
+
+            CalcLog log = new CalcLog();
+
+            StandardHookInTension hook = new StandardHookInTension(ConcreteMaterial.Concrete, rebar, log);
+            l_dh = hook.GetDevelopmentLength()
 
             return new Dictionary<string, object>
             {
