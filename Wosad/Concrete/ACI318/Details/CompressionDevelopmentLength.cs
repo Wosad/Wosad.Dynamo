@@ -24,6 +24,7 @@ using Dynamo.Nodes;
 using Concrete.ACI318.General.Reinforcement;
 using Wosad.Concrete.ACI318_14;
 using Wosad.Concrete.ACI;
+using Wosad.Common.CalculationLogger;
 
 #endregion
 
@@ -59,6 +60,8 @@ namespace Concrete.ACI318.Details
             //Calculation logic:
             IRebarMaterial mat = RebarMaterial.Material;
             Rebar rebar = new Rebar(d_b, false, mat);
+
+            CalcLog log = new CalcLog();
             DevelopmentCompression cd = new DevelopmentCompression(ConcreteMaterial.Concrete, rebar, log);
             l_dc = cd.Length;
 

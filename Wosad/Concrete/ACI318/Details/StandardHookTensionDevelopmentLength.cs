@@ -69,8 +69,8 @@ namespace Concrete.ACI318.Details
 
             CalcLog log = new CalcLog();
 
-            StandardHookInTension hook = new StandardHookInTension(ConcreteMaterial.Concrete, rebar, log);
-            l_dh = hook.GetDevelopmentLength()
+            //StandardHookInTension hook = new StandardHookInTension(ConcreteMaterial.Concrete, rebar, log);
+            //l_dh = hook.GetDevelopmentLength()
 
             return new Dictionary<string, object>
             {

@@ -9,7 +9,7 @@
              xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
              xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="450">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -56,7 +56,7 @@
 
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Width="450">
         <!--<WosadControls:EnumControl  HeaderText="Commercial grade selection" 
                                     ItemsSource="{StaticResource ComGradeItemSource}" 
 					DataPath="WoodSpeciesAndGrade"/>-->

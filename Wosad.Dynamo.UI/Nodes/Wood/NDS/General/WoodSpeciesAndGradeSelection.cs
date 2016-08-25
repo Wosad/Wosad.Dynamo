@@ -40,16 +40,16 @@ namespace Wosad.Wood.NDS.General
 {
 
     /// <summary>
-    ///Selection of species commercial grade and size class from NDS reference values
+    ///Selection of species, commercial grade and size class for determining NDS reference values
     /// </summary>
-    [NodeName("Wood member type")]
+    [NodeName("Wood species and grade")]
     [NodeCategory("Wosad.Wood.NDS.General")]
-    [NodeDescription("Wood member type")]
+    [NodeDescription("Wood species and grade")]
     [IsDesignScriptCompatible]
-    public class AiscShapeSelection : UiNodeBase
+    public class WoodSpeciesAndGradeSelection : UiNodeBase
     {
 
-        public AiscShapeSelection()
+        public WoodSpeciesAndGradeSelection()
         {
             
             
@@ -221,13 +221,10 @@ namespace Wosad.Wood.NDS.General
         private void SetDefaultParams()
         {
             this.WoodMemberType = "SawnDimensionLumber";
-//AvailableWoodSpecies
-//WoodSpeciesId
-//CommercialGrades
-//CommercialGradeId
-//SizeClasses
-//SizeClassId
-//WoodMemberType
+            this.WoodSpeciesId     = "DOUGLAS FIR-LARCH";
+            this.CommercialGradeId = "Stud";
+            this.SizeClassId       = "2 in. and wider";
+
 
         }
 
@@ -249,7 +246,7 @@ namespace Wosad.Wood.NDS.General
 
         private void UpdateViewForSelectedSpecies()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
 
             //fetch list for 
         }
@@ -264,7 +261,7 @@ namespace Wosad.Wood.NDS.General
             //Set the resource string
 
 
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
 
         private ObservableCollection<string> FetchList(string ResourceFileName, string WoodSpecies, WoodValueSelectionCriteria FilterCriteria)
@@ -454,9 +451,9 @@ namespace Wosad.Wood.NDS.General
         ///Customization of WPF view in Dynamo UI      
         /// </summary>
         public class AiscShapeSelectionViewCustomization : UiNodeBaseViewCustomization,
-            INodeViewCustomization<AiscShapeSelection>
+            INodeViewCustomization<WoodSpeciesAndGradeSelection>
         {
-            public void CustomizeView(AiscShapeSelection model, NodeView nodeView)
+            public void CustomizeView(WoodSpeciesAndGradeSelection model, NodeView nodeView)
             {
                 base.CustomizeView(model, nodeView);
 
