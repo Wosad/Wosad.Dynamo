@@ -21,6 +21,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
+using Wosad.Concrete.ACI318_14;
 
 #endregion
 
@@ -40,20 +41,22 @@ namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
 ///     One way  shear strength provided by rebar
 /// </summary>
         /// <param name="A_v">   Area of shear reinforcement within spacing s  </param>
-/// <param name="f_yt">   Specified yield strength of transverse reinforcement  </param>
+        /// <param name="TransverseRebarMaterial">Rebar material for transverse bars</param>
 /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
 /// <param name="s">   Center-to-center spacing of items, such as longitudinal reinforcement, transverse reinforcement,  tendons, or anchors  </param>
         /// <returns name="phiV_s">  Design shear strength provided by shear reinforcement  </returns>
 
         [MultiReturn(new[] { "phiV_s" })]
-        public static Dictionary<string, object> OneWayShearStrengthProvidedByRebar(double A_v,double f_yt,double d,double s)
+        public static Dictionary<string, object> OneWayShearStrengthProvidedByRebar(double A_v, Concrete.ACI318.General.Reinforcement.RebarMaterial TransverseRebarMaterial, 
+            double d, double s)
         {
             //Default values
             double phiV_s = 0;
 
 
             //Calculation logic:
-
+            OneWayShearReinforcedSectionNonPrestressed section = new OneWayShearReinforcedSectionNonPrestressed(d, TransverseRebarMaterial.Material, A_v, s);
+            phiV_s = section.GetSteelShearStrength() / 1000.0; //default ACI units are psi. Convert to ksi, consistent with Dynamo nodes
 
             return new Dictionary<string, object>
             {
