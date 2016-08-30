@@ -26,13 +26,12 @@ using Wosad.Concrete.ACI;
 using Concrete.ACI318.General;
 using Wosad.Common.Section.Interfaces;
 using System;
-using Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes;
 using wosadAci = Wosad.Concrete.ACI;
 using Dynamo.Graph.Nodes;
 
 #endregion
 
-namespace Concrete.ACI318.Section.FlexureAndAxialForce
+namespace Concrete.ACI318.Section //.FlexureAndAxialForce
 {
 
 /// <summary>
@@ -45,10 +44,10 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce
 
 
     [IsDesignScriptCompatible]
-    public partial class Flexure 
+    public partial class FlexureAndAxialForce 
     {
 
-        internal Flexure()
+        internal FlexureAndAxialForce()
         {
 
         }

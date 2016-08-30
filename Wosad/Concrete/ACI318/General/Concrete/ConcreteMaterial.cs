@@ -60,12 +60,12 @@ namespace Concrete.ACI318.General.Concrete
         ///     Concrete material
         /// </summary>
         /// <param name="f_c_prime">   Specified compressive strength of concrete  </param>
-        /// <param name="ConcreteMaterialWeight">  Type of concrete by weight (normalweight vs. lightweight) </param>
+        /// <param name="ConcreteMaterialWeightType">  Type of concrete by weight (normalweight vs. lightweight) </param>
         /// <returns name="ConcreteMaterial"> Concrete material object used to extract material properties, create the object using input parameters first </returns>
         
-        public static ConcreteMaterial  ByStrengthAndWeight(double f_c_prime,string ConcreteMaterialWeight="Normalweight")
+        public static ConcreteMaterial  ByStrengthAndWeightType(double f_c_prime,string ConcreteMaterialWeightType="Normalweight")
         {
-            return new ConcreteMaterial(f_c_prime, ConcreteMaterialWeight);
+            return new ConcreteMaterial(f_c_prime, ConcreteMaterialWeightType);
         }
 
          [IsVisibleInDynamoLibrary(false)]

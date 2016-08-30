@@ -32,7 +32,7 @@ using Wosad.Common.CalculationLogger;
 
 #endregion
 
-namespace Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes
+namespace Concrete.ACI318.Section.SectionTypes
 {
 
 /// <summary>

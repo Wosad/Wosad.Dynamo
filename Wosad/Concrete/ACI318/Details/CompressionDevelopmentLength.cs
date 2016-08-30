@@ -32,7 +32,7 @@ namespace Concrete.ACI318.Details
 {
 
 /// <summary>
-///     Compression development length
+///     Compression development length (Basic)
 ///     Category:   Concrete.ACI318.Details
 /// </summary>
 /// 
@@ -41,7 +41,7 @@ namespace Concrete.ACI318.Details
     public partial class DevelopmentLength 
     {
         /// <summary>
-        ///     Compression development length
+        ///     Compression development length (Basic)
         /// </summary>
         /// <param name="ConcreteMaterial">  Concrete material object used to extract material properties, create the object using input parameters first </param>
         /// <param name="d_b">   Nominal diameter of bar, wire, or prestressing  strand  </param>
@@ -50,7 +50,7 @@ namespace Concrete.ACI318.Details
         /// <returns name="l_dc">  Development length in compression of deformed  bars and deformed wire  </returns>
 
         [MultiReturn(new[] { "l_dc" })]
-        public static Dictionary<string, object> CompressionDevelopmentLength(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
+        public static Dictionary<string, object> CompressionDevelopmentLengthBasic(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
             RebarMaterial RebarMaterial, bool HasConfiningReinforcement=false)
         {
             //Default values
@@ -62,7 +62,7 @@ namespace Concrete.ACI318.Details
             Rebar rebar = new Rebar(d_b, false, mat);
 
             CalcLog log = new CalcLog();
-            DevelopmentCompression cd = new DevelopmentCompression(ConcreteMaterial.Concrete, rebar, log);
+            DevelopmentCompression cd = new DevelopmentCompression(ConcreteMaterial.Concrete, rebar, log, HasConfiningReinforcement);
             l_dc = cd.Length;
 
             return new Dictionary<string, object>

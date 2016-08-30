@@ -32,7 +32,7 @@ namespace Concrete.ACI318.Details
 {
 
 /// <summary>
-///     Headed bar tension development length
+///     Headed bar tension development length (Basic)
 ///     Category:   Concrete.ACI318.Details
 /// </summary>
 /// 
@@ -41,7 +41,7 @@ namespace Concrete.ACI318.Details
     public partial class DevelopmentLength
     {
         /// <summary>
-        ///     Standard hook tension development length
+        ///     Standard hook tension development length (Basic)
         /// </summary>
         /// <param name="ConcreteMaterial">  Concrete material object used to extract material properties, create the object using input parameters first </param>
         /// <param name="d_b">   Nominal diameter of bar, wire, or prestressing  strand  </param>
@@ -55,7 +55,7 @@ namespace Concrete.ACI318.Details
         /// <returns name="l_dh">  Development length in tension of deformed bar or  deformed wire with a standard hook, measured  from outside end of hook, point of tangency, toward  critical section  </returns>
 
         [MultiReturn(new[] { "l_dh" })]
-        public static Dictionary<string, object> StandardHookTensionDevelopmentLength(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
+        public static Dictionary<string, object> StandardHookTensionDevelopmentLengthBasic(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
             RebarMaterial RebarMaterial, string HookType, string RebarCoatingType, double ExcessRebarRatio, double c_side, double c_extension, string EnclosingRebarDirection)
         {
             //Default values

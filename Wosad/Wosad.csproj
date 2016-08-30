@@ -147,8 +147,8 @@
       <HintPath>..\packages\Wosad.Common.0.0.8.1\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Concrete, Version=0.0.8.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Concrete.0.0.8.2\lib\net45\Wosad.Concrete.dll</HintPath>
+    <Reference Include="Wosad.Concrete, Version=0.0.8.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Concrete.0.0.8.4\lib\net45\Wosad.Concrete.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
@@ -232,7 +232,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Concrete\ACI318\Details\Groups\LapSplice.cs" />
-    <Compile Include="Concrete\ACI318\Details\StandardHookTensionDevelopmentLength.cs">
+    <Compile Include="Concrete\ACI318\Details\StandardHookTensionDevelopmentLengthBasic.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Concrete\ACI318\Details\StraightBarTensionDevelopmentLengthBasic.cs" />
@@ -254,6 +254,7 @@
     <Compile Include="Concrete\ACI318\Section\FlexureAndAxial\SectionTypes\RectangularSectionSinglyReinforced.cs" />
     <Compile Include="Concrete\ACI318\Section\FlexureAndAxial\SectionTypes\Groups\ConcreteFlexureAndAxiaSection.cs" />
     <Compile Include="Concrete\ACI318\Section\ShearAndTorsion\OneWayShear\Groups\NonPrestressed.cs" />
+    <Compile Include="Concrete\ACI318\Section\ShearAndTorsion\OneWayShear\UpperLimitOnShearStrength.cs" />
     <Compile Include="Concrete\ACI318\Section\ShearAndTorsion\OneWayShear\OneWayShearStrengthProvidedByConcrete.cs" />
     <Compile Include="Concrete\ACI318\Section\ShearAndTorsion\OneWayShear\OneWayShearStrengthProvidedByRebar.cs" />
     <Compile Include="Concrete\ACI318\Section\ShearAndTorsion\OneWayShear\TotalOneWayShearStrength.cs" />

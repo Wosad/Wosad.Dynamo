@@ -26,12 +26,12 @@ using Wosad.Concrete.ACI;
 using Concrete.ACI318.General;
 using Wosad.Common.Section.Interfaces;
 using System;
-using Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes;
+using Concrete.ACI318.Section.SectionTypes;
 using wosadAci = Wosad.Concrete.ACI;
 
 #endregion
 
-namespace Concrete.ACI318.Section.FlexureAndAxialForce
+namespace Concrete.ACI318.Section //.FlexureAndAxialForce
 {
 
 /// <summary>
@@ -41,7 +41,7 @@ namespace Concrete.ACI318.Section.FlexureAndAxialForce
 /// 
 
 
-    public partial class Flexure
+    public partial class FlexureAndAxialForce
     {
         /// <summary>
         ///     Section flexural strength

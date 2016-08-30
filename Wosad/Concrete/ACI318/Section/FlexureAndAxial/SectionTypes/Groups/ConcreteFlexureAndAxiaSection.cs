@@ -31,7 +31,7 @@ using wosadAci = Wosad.Concrete.ACI;
 
 #endregion
 
-namespace Concrete.ACI318.Section.FlexureAndAxialForce.SectionTypes
+namespace Concrete.ACI318.Section.SectionTypes
 {
 
   [IsVisibleInDynamoLibrary(false)]
