@@ -55,13 +55,13 @@ namespace Concrete.ACI318.Details
         /// <param name="A_tr">   Total cross-sectional area of all transverse reinforcement within spacing s that crosses the potential  plane of splitting through the reinforcement being  developed  </param>
         /// <param name="s_tr">  Transverse reinforcement spacing </param>
         /// <param name="n">   Number of items, such as, bars, wires, monostrand  anchorage devices, anchors, or shearhead arms </param>
-
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="l_st">  Tension lap splice length  </returns>
 
         [MultiReturn(new[] { "l_st" })]
         public static Dictionary<string, object> StraightBarTensionLapSpliceLengthDetailed(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b1, double d_b2,
             RebarMaterial RebarMaterial, string RebarSpliceClass, string RebarCoatingType, string RebarCastingPosition, double s_clear, double c_c,
-            double A_tr, double s_tr, double n)
+            double A_tr, double s_tr, double n, string Code = "ACI318-14")
         {
             //Default values
             double l_st = 0;

@@ -52,11 +52,12 @@ namespace Concrete.ACI318.Details
         /// <param name="c_side">  Reinforcement side clear cover </param>
         /// <param name="c_extension">  Reinforcement standard hook clear cover for bar extension </param>
         /// <param name="EnclosingRebarDirection">  Indicates if enclosing reinforcement is perpendicular or parallel to bar </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="l_dh">  Development length in tension of deformed bar or  deformed wire with a standard hook, measured  from outside end of hook, point of tangency, toward  critical section  </returns>
 
         [MultiReturn(new[] { "l_dh" })]
         public static Dictionary<string, object> StandardHookTensionDevelopmentLengthBasic(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
-            RebarMaterial RebarMaterial, string HookType, string RebarCoatingType, double ExcessRebarRatio, double c_side, double c_extension, string EnclosingRebarDirection)
+            RebarMaterial RebarMaterial, string HookType, string RebarCoatingType, double ExcessRebarRatio, double c_side, double c_extension, string EnclosingRebarDirection, string Code = "ACI318-14")
         {
             //Default values
             double l_dh = 0;

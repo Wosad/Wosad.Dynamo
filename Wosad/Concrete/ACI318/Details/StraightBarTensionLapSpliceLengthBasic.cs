@@ -54,11 +54,13 @@ namespace Concrete.ACI318.Details
         /// <param name="ExcessRebarRatio">  Indicates the ration of areas of required reinforcement and provided renforcement. This value must be less than 1 </param>
         /// <param name="MeetsRebarSpacingAndEdgeDistance">  Identifies if clear spacing of bars being developed or lap spliced is at least 2d_b and clear cover at least d_b </param>
         /// <param name="HasMinimumTransverseReinforcement">  Identifies if member meets minimum code requirements for transverse reinforcement. Many current practical construction cases use spacing and cover values along with confining reinforcement, such as stirrups or ties,that result in a value of (cb + Ktr)/db of at least 1.5. See ACI 318-04 section 25.4.2.2  </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="l_st">  Tension lap splice length  </returns>
 
         [MultiReturn(new[] { "l_st" })]
         public static Dictionary<string, object> StraightBarTensionLapSpliceLengthBasic(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b1, double d_b2,
-            RebarMaterial RebarMaterial, string RebarSpliceClass, string RebarCoatingType, string RebarCastingPosition, double ExcessRebarRatio, bool MeetsRebarSpacingAndEdgeDistance, bool HasMinimumTransverseReinforcement)
+            RebarMaterial RebarMaterial, string RebarSpliceClass, string RebarCoatingType, string RebarCastingPosition, double ExcessRebarRatio,
+            bool MeetsRebarSpacingAndEdgeDistance, bool HasMinimumTransverseReinforcement, string Code = "ACI318-14")
         {
             //Default values
             double l_st = 0;

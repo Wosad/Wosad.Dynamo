@@ -55,12 +55,13 @@ namespace Concrete.ACI318.Details
         /// <param name="A_tr">   Total cross-sectional area of all transverse reinforcement within spacing s that crosses the potential  plane of splitting through the reinforcement being  developed  </param>
         /// <param name="s_tr">  Transverse reinforcement spacing </param>
         /// <param name="n">   Number of items, such as, bars, wires, monostrand  anchorage devices, anchors, or shearhead arms </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
        /// <returns name="l_d">  Development length in tension of deformed bar,  deformed wire, plain and deformed welded wire  reinforcement, or pretensioned strand  </returns>
 
         [MultiReturn(new[] { "l_d" })]
         public static Dictionary<string, object> StraightBarTensionDevelopmentLengthDetailed(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b, 
             RebarMaterial RebarMaterial, string RebarCoatingType, string RebarCastingPosition, double ExcessRebarRatio, double s_clear, double c_c,
-            double A_tr, double s_tr, double n)
+            double A_tr, double s_tr, double n, string Code = "ACI318-14")
         {
             //Default values
             double l_d = 0;

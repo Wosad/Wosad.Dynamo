@@ -151,8 +151,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Wosad.Common, Version=0.0.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Common.0.0.8.1\lib\net45\Wosad.Common.dll</HintPath>
+    <Reference Include="Wosad.Common, Version=0.0.8.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Common.0.0.8.2\lib\net45\Wosad.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Loads, Version=0.0.6.1, Culture=neutral, processorArchitecture=MSIL">
@@ -1149,7 +1149,9 @@
     <Resource Include="Views\Loads\ASCE7\Wind\DirectionalityTreeData.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NDS2015Table4A.txt" />
+    <EmbeddedResource Include="Resources\NDS2015Table4A.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -42,11 +42,13 @@ namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
         /// <param name="phiV_c">   Design shear strength provided by concrete  </param>
         /// <param name="phiV_s">   Design shear strength provided by shear reinforcement  </param>
         /// <param name="CheckUpperLimit"> Indicates if upper limit per ACI is checked </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="phiV_n">  Total shear strength provided by reinforced concte section  </returns>
 
 
+
         [MultiReturn(new[] { "phiV_s" } )]
-        public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c,double phiV_s, bool CheckUpperLimit=true)
+        public static Dictionary<string, object> TotalOneWayShearStrength(double phiV_c, double phiV_s, bool CheckUpperLimit = true, string Code = "ACI318-14")
         {
             //Default values
 

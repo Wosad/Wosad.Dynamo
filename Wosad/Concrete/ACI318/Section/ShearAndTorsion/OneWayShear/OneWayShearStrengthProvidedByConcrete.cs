@@ -38,21 +38,22 @@ namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
 
     public partial class NonPrestressed 
     {
-/// <summary>
-///     One way  shear strength provided by concrete
-/// </summary>
-/// <param name="b_w">  Web width </param>
-/// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
-/// <param name="h">   Overall thickness, height, or depth of member  </param>
-/// <param name="N_u">   Factored axial force normal to cross section occurring simultaneously with vu or tu; to be taken as  positive for compression and negative for tension  </param>
-/// <param name="rho_w">   Ratio of A_s /( b_w*d) </param>
-/// <param name="M_u">   Factored moment at section   </param>
-/// <param name="V_u">   Factored shear force at section  </param>
+        /// <summary>
+        ///     One way  shear strength provided by concrete
+        /// </summary>
+        /// <param name="b_w">  Web width </param>
+        /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
+        /// <param name="h">   Overall thickness, height, or depth of member  </param>
+        /// <param name="N_u">   Factored axial force normal to cross section occurring simultaneously with vu or tu; to be taken as  positive for compression and negative for tension  </param>
+        /// <param name="rho_w">   Ratio of A_s /( b_w*d) </param>
+        /// <param name="M_u">   Factored moment at section   </param>
+        /// <param name="V_u">   Factored shear force at section  </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="phiV_c">  Design shear strength provided by concrete  </returns>
 
         [MultiReturn(new[] { "phiV_c" })]
         public static Dictionary<string, object> OneWayShearStrengthProvidedByConcrete(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial,
-            double b_w, double d, double h, double N_u=0.0, double rho_w=0.0, double M_u=0.0, double V_u=0.0)
+            double b_w, double d, double h, double N_u = 0.0, double rho_w = 0.0, double M_u = 0.0, double V_u = 0.0, string Code = "ACI318-14")
         {
             //Default values
             double phiV_c = 0;

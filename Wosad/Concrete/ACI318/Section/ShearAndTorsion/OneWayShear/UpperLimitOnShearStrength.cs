@@ -44,12 +44,13 @@ namespace Concrete.ACI318.Section.ShearAndTorsion.OneWayShear
         /// <param name="ConcreteMaterial">Concrete material </param>
         /// <param name="b_w">  Web width </param>
         /// <param name="d">   Distance from extreme compression fiber to centroid  of longitudinal tension reinforcement  </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <param name="phiV_c">  Design shear strength provided by concrete  </returns>
         /// <returns name="phiV_nMax">  Upper limit on total shear strength of member </returns>
 
         [MultiReturn(new[] { "phiV_nMax" })]
         public static Dictionary<string, object> UpperLimitOnShearStrength(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial,
-            double b_w, double d, double phiV_c)
+            double b_w, double d, double phiV_c, string Code = "ACI318-14")
         {
             //Default values
             double phiV_nMax = 0;

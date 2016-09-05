@@ -9,7 +9,7 @@
              xmlns:WosadConverters="clr-namespace:Wosad.Dynamo.Common.Infra.Converters" 
              xmlns:WosadControls="clr-namespace:Wosad.Dynamo.Common.Infra" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="450">
+             d:DesignHeight="600" d:DesignWidth="320">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -56,21 +56,21 @@
 
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid x:Name="LayoutRoot" Width="450">
+    <Grid x:Name="LayoutRoot" Width="320">
         <!--<WosadControls:EnumControl  HeaderText="Commercial grade selection" 
                                     ItemsSource="{StaticResource ComGradeItemSource}" 
 					DataPath="WoodSpeciesAndGrade"/>-->
         <StackPanel Margin="0,20,0,0" VerticalAlignment="Top" Background="White" >
-            <WosadControls:EnumControl  HeaderText="Wood member type selection" 
+            <WosadControls:EnumControl  HeaderText="Wood member type:" 
                                     ItemsSource="{StaticResource SelectionItemSource}" 
 					DataPath="WoodMemberType"/>
             <TextBlock TextWrapping="Wrap" Text="Wood species:" FontFamily="Segoe UI Light" FontSize="12" HorizontalAlignment="Center"/>
-            <Grid Height="200">
+            <Grid Height="160">
                 <ListBox ItemsSource="{Binding AvailableWoodSpecies}" SelectedItem="{Binding WoodSpeciesId, Mode=TwoWay}" 
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" />
             </Grid>
             <TextBlock TextWrapping="Wrap" Text="Commercial grades available for selected species:" FontFamily="Segoe UI Light" FontSize="12" HorizontalAlignment="Center"/>
-            <Grid Height="100">
+            <Grid Height="80">
                 <ListBox ItemsSource="{Binding CommercialGrades}" SelectedItem="{Binding CommercialGradeId, Mode=TwoWay}" 
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" />
             </Grid>

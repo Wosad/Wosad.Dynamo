@@ -59,8 +59,22 @@ namespace Wosad.Wood.NDS.General
             OutPortData.Add(new PortData("SizeClassId", "Wood species size classification for reference value selection"));
             OutPortData.Add(new PortData("WoodMemberType", "Wood member type"));
             RegisterAllPorts();
+            this.WoodMemberType = "SawnDimensionLumber"; //initial member type assignment to get species list
             SetDefaultParams();
             //PropertyChanged += NodePropertyChanged;
+        }
+
+        private void PopulateSpeciesList()
+        {
+            if (WoodMemberType == "SawnDimensionLumber")
+            {
+                AvailableWoodSpecies = FetchSpeciesList(ResourceFileName);
+            }
+            else
+            {
+                ClearAllAvailableData();
+            }
+            
         }
 
 
@@ -121,6 +135,7 @@ namespace Wosad.Wood.NDS.General
                 {
                     _CommercialGradeId = value;
                     RaisePropertyChanged("CommercialGradeId");
+                    UpdateViewForSelectedGrade();
                     OnNodeModified(true);
                 }
 
@@ -170,6 +185,7 @@ namespace Wosad.Wood.NDS.General
                     _WoodMemberType = value;
                     RaisePropertyChanged("WoodMemberType");
                     SetResourceFileName(_WoodMemberType);
+                    PopulateSpeciesList();
                     OnNodeModified(true);
                 }
 
@@ -220,11 +236,9 @@ namespace Wosad.Wood.NDS.General
 
         private void SetDefaultParams()
         {
-            this.WoodMemberType = "SawnDimensionLumber";
+            //this.WoodMemberType = "SawnDimensionLumber";
             this.WoodSpeciesId     = "DOUGLAS FIR-LARCH";
             this.CommercialGradeId = "Stud";
-            this.SizeClassId       = "2 in. and wider";
-
 
         }
 
@@ -246,37 +260,62 @@ namespace Wosad.Wood.NDS.General
 
         private void UpdateViewForSelectedSpecies()
         {
-            //throw new NotImplementedException();
+            CommercialGrades = FetchCommercialGradeList(ResourceFileName, WoodSpeciesId);
+            if (CommercialGrades.Contains(CommercialGradeId))
+            {
+                //Leave grade untouched
+            }
+            else
+            {
+                if (CommercialGrades.Contains("Stud"))
+                {
+                    CommercialGradeId = "Stud";
+                }
+                else
+                {
+                    CommercialGradeId = CommercialGrades[4];
+                }
+            }
+        }
 
-            //fetch list for 
+        private void UpdateViewForSelectedGrade()
+        {
+            SizeClasses = FetchSizeClassList(ResourceFileName, WoodSpeciesId, CommercialGradeId);
+            if (SizeClasses.Contains(SizeClassId))
+            {
+                //can keep current size class
+            }
+            else
+            {
+                SizeClassId = SizeClasses[0];
+            }
         }
 
         private void SetResourceFileName(string _WoodMemberType)
         {
             //NDS2015Table4A
+            if (WoodMemberType == "SawnDimensionLumber")
+            {
+                ResourceFileName = "NDS2015Table4A";
+            }
+            else
+            {
+                ResourceFileName = null;
+            }
 
-
-            // parse _WoodMember
-
-            //Set the resource string
-
-
-           // throw new NotImplementedException();
         }
-
-        private ObservableCollection<string> FetchList(string ResourceFileName, string WoodSpecies, WoodValueSelectionCriteria FilterCriteria)
+        private ObservableCollection<string> FetchSpeciesList(string ResourceFileName)
         {
 
-            ObservableCollection<string> availabilitytList = new ObservableCollection<string>();
+            IEnumerable<string> distValues = null;
 
 
-            if (FilterCriteria != null && ResourceFileName != null)
+            if (ResourceFileName != null)
             {
-           
 
                 string resourceName = string.Format("WosadDynamoUI.Resources.{0}.txt", ResourceFileName);
                 var assembly = Assembly.GetExecutingAssembly();
-   
+
                 using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {
                     string line;
@@ -289,46 +328,119 @@ namespace Wosad.Wood.NDS.General
                             AllReferenceValues.Add(line);
                         }
 
-                                    //Lookup 
-                                    var FilteredList = AllReferenceValues.Where(sh =>
+                         distValues = AllReferenceValues.Select(
+                            v => 
+                                {
+                                    string[] Vals = v.Split(',');
+                                    if (Vals.Length > 1)
                                     {
-                                        if (sh.Contains(WoodSpecies))
-                                        {
-                                            return true;
-                                        }
-                                        else
-                                        {
-                                            return false;
-                                        }
+                                        return Vals[0];
                                     }
-                                    ).ToList();
-                                    foreach (var s in FilteredList)
+                                    else
                                     {
-                                                            string[] Vals = s.Split(',');
-                                        
-                                                    if (Vals.Length == 3)
-                                                    {
-                                                                string listValue; 
-                                                            if (FilterCriteria == WoodValueSelectionCriteria.CommercialGrade)
-                                                            {
-                                                            listValue= (string)Vals[1];
-                                                            }
-                                                            else
-                                                            {
-                                                            listValue= (string)Vals[2];
-                                                            }
-                                                                
-                                                            availabilitytList.Add(listValue);
-                                                    }
-                                        
-                                  }
+                                        return null;
+                                    }
+	                        }
+                            ).Distinct();
 
-                        
 
                     }
                 }
             }
 
+            ObservableCollection<string> availabilitytList = new ObservableCollection<string>(distValues);
+            return availabilitytList; 
+        }
+
+        private ObservableCollection<string> FetchCommercialGradeList(string ResourceFileName, string WoodSpecies)
+        {
+
+            //ObservableCollection<string> availabilitytList = new ObservableCollection<string>();
+
+            List<string> filteredList = new List<string>();
+
+            if ( ResourceFileName != null)
+            {
+
+                string resourceName = string.Format("WosadDynamoUI.Resources.{0}.txt", ResourceFileName);
+                var assembly = Assembly.GetExecutingAssembly();
+
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                {
+                    string line;
+                    using (TextReader tr = new StreamReader(stream))
+                    {
+                        //read full list of reference values
+                        List<string> AllReferenceValues = new List<string>();
+                        while ((line = tr.ReadLine()) != null)
+                        {
+                            AllReferenceValues.Add(line);
+                        }
+
+                        //Lookup 
+
+                        foreach (var sh in AllReferenceValues)
+                        {
+
+
+                            string[] Vals = sh.Split(',');
+                            if (Vals.Length == 3)
+                            {
+                                if (Vals[0] == WoodSpecies)
+                                {
+                                           filteredList.Add( (string)Vals[1]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            ObservableCollection<string>  availabilitytList = new ObservableCollection<string>(filteredList.Distinct());
+            return availabilitytList;
+        }
+
+        private ObservableCollection<string> FetchSizeClassList(string ResourceFileName, string WoodSpecies, string CommercialGradeId)
+        {
+
+            List<string> filteredList = new List<string>();
+
+            if ( ResourceFileName != null)
+            {
+
+                string resourceName = string.Format("WosadDynamoUI.Resources.{0}.txt", ResourceFileName);
+                var assembly = Assembly.GetExecutingAssembly();
+
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                {
+                    string line;
+                    using (TextReader tr = new StreamReader(stream))
+                    {
+                        //read full list of reference values
+                        List<string> AllReferenceValues = new List<string>();
+                        while ((line = tr.ReadLine()) != null)
+                        {
+                            AllReferenceValues.Add(line);
+                        }
+
+                        //Lookup 
+
+                        foreach (var sh in AllReferenceValues)
+                        {
+
+
+                            string[] Vals = sh.Split(',');
+                            if (Vals.Length == 3)
+                            {
+                                if (Vals[0] == WoodSpecies && Vals[1] == CommercialGradeId)
+                                {
+                                        filteredList.Add((string)Vals[2]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            ObservableCollection<string> availabilitytList = new ObservableCollection<string>(filteredList.Distinct());
             return availabilitytList;
         }
 
@@ -399,8 +511,9 @@ namespace Wosad.Wood.NDS.General
         private void ClearAllAvailableData()
         {
 
-
-
+            AvailableWoodSpecies = null;
+            CommercialGrades = null;
+            SizeClasses = null;
         }
 
 
@@ -468,10 +581,6 @@ namespace Wosad.Wood.NDS.General
         }
     }
 
-    public enum WoodValueSelectionCriteria
-    {
-        CommercialGrade,
-        SizeClassification
-    }
+
 
 }

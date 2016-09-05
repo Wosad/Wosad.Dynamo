@@ -38,18 +38,19 @@ namespace Concrete.ACI318.Details
 
     public partial class LapSplice 
     {
-/// <summary>
-///     Compression lap splice length
-/// </summary>
+        /// <summary>
+        ///     Compression lap splice length
+        /// </summary>
         /// <param name="ConcreteMaterial">  Concrete material object used to extract material properties, create the object using input parameters first </param>
-/// <param name="d_b">   Nominal diameter of bar, wire, or prestressing  strand  </param>
+        /// <param name="d_b">   Nominal diameter of bar, wire, or prestressing  strand  </param>
         /// <param name="RebarMaterial">   Reinforcement material </param>
-/// <param name="HasConfiningReinforcement">  Indicates if  closely spaced ties  per ACI code section 25.4.3.2  at or near the bend portion of a hooked bar or per 25.4.9.3  at the compression splice are present </param>
+        /// <param name="HasConfiningReinforcement">  Indicates if  closely spaced ties  per ACI code section 25.4.3.2  at or near the bend portion of a hooked bar or per 25.4.9.3  at the compression splice are present </param>
+        /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="l_sc">  Compression lap splice length  </returns>
 
         [MultiReturn(new[] { "l_sc" })]
         public static Dictionary<string, object> CompressionLapSpliceLength(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
-            RebarMaterial RebarMaterial, bool HasConfiningReinforcement)
+            RebarMaterial RebarMaterial, bool HasConfiningReinforcement = false, string Code = "ACI318-14")
         {
             //Default values
             double l_sc = 0;
