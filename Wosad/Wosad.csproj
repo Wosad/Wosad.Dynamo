@@ -168,7 +168,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Wosad.Wood, Version=0.0.9.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Wood.0.0.9.1\lib\net45\Wosad.Wood.dll</HintPath>
+      <HintPath>..\packages\Wosad.Wood.0.0.9.2\lib\net45\Wosad.Wood.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
