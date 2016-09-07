@@ -22,6 +22,8 @@ using Dynamo.Models;
 using System.Collections.Generic;
 using Dynamo.Nodes;
 using System;
+using Wosad.Common.CalculationLogger;
+using Wosad.Wood.NDS.NDS2015.Material;
 
 #endregion
 
@@ -43,6 +45,7 @@ namespace Wood.NDS
     /// </summary>
     /// <param name="WooodSpecies">  Identifies  wood species </param>
     /// <param name="WoodCommercialGrade">  Identifies commercial grade of wood being considered </param>
+    /// <param name="WoodSizeClassification">Wood member size classification, per NDS Supplement reference tables</param>
     /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
     /// <param name="Code">  Identifies the code or standard used for calculations </param>
     /// <returns name="F_b"> Reference bending design value  </returns>
@@ -52,9 +55,11 @@ namespace Wood.NDS
     /// <returns name="E"> Modulus of elasticity  </returns>
     /// <returns name="E_min"> Reference modulus of elasticity for stability calculations  </returns>
     /// <returns name="F_cPerp"> Reference compression design value perpendicular to grain  </returns>
+    /// <returns name="G"> Specific gravity of wood or a wood-based member  </returns>
 
-        [MultiReturn(new[] { "F_b","F_c","F_t","F_v","E","E_min","F_cPerp" })]
-        public static Dictionary<string, object> ReferenceValues(string WooodSpecies,string WoodCommercialGrade,string WoodMemberType,
+        [MultiReturn(new[] { "F_b","F_c","F_t","F_v","E","E_min","F_cPerp","G" })]
+        public static Dictionary<string, object> ReferenceValues(string WooodSpecies, string WoodCommercialGrade, string WoodSizeClassification="2 in. & wider",
+            string WoodMemberType = "SawnDimensionLumber",
             string Code = "NDS2015")
         {
             //Default values
@@ -65,12 +70,23 @@ namespace Wood.NDS
             double E = 0;
             double E_min = 0;
             double F_cPerp = 0;
-
+            double G = 0.0;
 
             //Calculation logic:
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
+                CalcLog log = new CalcLog();
+                VisuallyGradedDimensionLumber dl = new VisuallyGradedDimensionLumber(WooodSpecies,
+                    WoodCommercialGrade, WoodSizeClassification, log);
 
+                F_b = dl.F_b;
+                F_c = dl.F_cParal;
+                F_t = dl.F_t;
+                F_v = dl.F_v;
+                E = dl.E;
+                E_min = dl.E_min;
+                F_cPerp = dl.F_cPerp;
+                G = dl.G;
             }
             else
             {
@@ -86,7 +102,7 @@ namespace Wood.NDS
             ,{ "E", E }
             ,{ "E_min", E_min }
             ,{ "F_cPerp", F_cPerp }
- 
+            ,{ "G", G }
                         };
                     }
 

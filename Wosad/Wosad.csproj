@@ -167,8 +167,8 @@
       <HintPath>..\packages\Wosad.WebApi.Models.0.0.1.1\lib\net45\Wosad.WebApi.Models.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Wood, Version=0.0.7.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Wood.0.0.7.4\lib\net45\Wosad.Wood.dll</HintPath>
+    <Reference Include="Wosad.Wood, Version=0.0.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Wood.0.0.9.1\lib\net45\Wosad.Wood.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
