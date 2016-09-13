@@ -167,8 +167,8 @@
       <HintPath>..\packages\Wosad.WebApi.Models.0.0.1.1\lib\net45\Wosad.WebApi.Models.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Wosad.Wood, Version=0.0.9.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wosad.Wood.0.0.9.2\lib\net45\Wosad.Wood.dll</HintPath>
+    <Reference Include="Wosad.Wood, Version=0.0.9.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wosad.Wood.0.0.9.3\lib\net45\Wosad.Wood.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -455,6 +455,7 @@
     <Compile Include="Steel\AISC\Tension\Groups\Tension.cs" />
     <Compile Include="Steel\AISC\Tension\Shear lag factor.cs" />
     <Compile Include="Steel\AISC\Tension\TensileStrength.cs" />
+    <Compile Include="Wood\NDS\Adjustment factors\BeamStabilityFactor.cs" />
     <Compile Include="Wood\NDS\Adjustment factors\ColumnStabilityFactor.cs" />
     <Compile Include="Wood\NDS\Adjustment factors\FlatUseFactor.cs">
       <SubType>Code</SubType>

@@ -43,7 +43,7 @@ namespace Wood.NDS
         ///     Column stability factor
         /// </summary>
         /// <param name="d_comp">  Cross-sectional dimension of rectangular column associated with axis of column buckling  </param>
-        /// <param name="F_c">  Out-of-plane seismic forces for concrete and masonry walls  </param>
+        /// <param name="F_c">  Reference compression design value parallel to grain   </param>
         /// <param name="E_min">  Reference modulus of elasticity for stability calculations  </param>
         /// <param name="l_e">  Effective unbraced length of column  </param>
         /// <param name="C_M_Fc">  Wet service factor for adjusted compression value </param>
