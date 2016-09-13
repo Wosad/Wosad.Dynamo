@@ -43,10 +43,10 @@ namespace Wood.NDS
     /// <summary>
     ///     ReferenceValues
     /// </summary>
-    /// <param name="WooodSpecies">  Identifies  wood species </param>
-    /// <param name="WoodCommercialGrade">  Identifies commercial grade of wood being considered </param>
-    /// <param name="WoodSizeClassification">Wood member size classification, per NDS Supplement reference tables</param>
-    /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
+        /// <param name="WoodSpeciesId">  Identifies  wood species </param>
+        /// <param name="CommercialGradeId">  Identifies commercial grade of wood being considered </param>
+        /// <param name="SizeClassId">Wood member size classification, per NDS Supplement reference tables</param>
+        /// <param name="WoodMemberType">  Distinguishes between dimensional lumber, timber,glulam etc. </param>
     /// <param name="Code">  Identifies the code or standard used for calculations </param>
     /// <returns name="F_b"> Reference bending design value  </returns>
     /// <returns name="F_c"> Out-of-plane seismic forces for concrete and masonry walls  </returns>
@@ -58,7 +58,7 @@ namespace Wood.NDS
     /// <returns name="G"> Specific gravity of wood or a wood-based member  </returns>
 
         [MultiReturn(new[] { "F_b","F_c","F_t","F_v","E","E_min","F_cPerp","G" })]
-        public static Dictionary<string, object> ReferenceValues(string WooodSpecies, string WoodCommercialGrade, string WoodSizeClassification="2 in. & wider",
+        public static Dictionary<string, object> ReferenceValues(string WoodSpeciesId, string CommercialGradeId, string SizeClassId="2 in. & wider",
             string WoodMemberType = "SawnDimensionLumber",
             string Code = "NDS2015")
         {
@@ -76,16 +76,16 @@ namespace Wood.NDS
             if (WoodMemberType.Contains("Sawn") && WoodMemberType.Contains("Lumber"))
             {
                 CalcLog log = new CalcLog();
-                VisuallyGradedDimensionLumber dl = new VisuallyGradedDimensionLumber(WooodSpecies,
-                    WoodCommercialGrade, WoodSizeClassification, log);
+                VisuallyGradedDimensionLumber dl = new VisuallyGradedDimensionLumber(WoodSpeciesId,
+                    CommercialGradeId, SizeClassId, log);
 
-                F_b = dl.F_b;
-                F_c = dl.F_cParal;
-                F_t = dl.F_t;
-                F_v = dl.F_v;
-                E = dl.E;
-                E_min = dl.E_min;
-                F_cPerp = dl.F_cPerp;
+                F_b = dl.F_b/1000.0; //All Dynamo nodes use ksi units by default
+                F_c = dl.F_cParal / 1000.0; //All Dynamo nodes use ksi units by default
+                F_t = dl.F_t / 1000.0; //All Dynamo nodes use ksi units by default
+                F_v = dl.F_v / 1000.0; //All Dynamo nodes use ksi units by default
+                E = dl.E / 1000.0; //All Dynamo nodes use ksi units by default
+                E_min = dl.E_min / 1000.0; //All Dynamo nodes use ksi units by default
+                F_cPerp = dl.F_cPerp / 1000.0; //All Dynamo nodes use ksi units by default
                 G = dl.G;
             }
             else
