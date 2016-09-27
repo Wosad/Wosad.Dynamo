@@ -24,33 +24,32 @@ using Dynamo.Nodes;
 
 #endregion
 
-namespace Concrete.ACI318_14.General.Rebar
+namespace Wood.NDS
 {
 
 /// <summary>
-///     Rebar cover to group centroid
-///     Category:   Concrete.ACI318_14.General.Rebar
+///     Bearing  area factor
+///     Category:   Wood.NDS
 /// </summary>
 /// 
 
 
     [IsDesignScriptCompatible]
-    public partial class Rebar 
+    public partial class AdjustmentFactor 
     {
 /// <summary>
-///     Rebar cover to group centroid
+///     Bearing  area factor
 /// </summary>
-        /// <param name="RebarSizeId">  Rebar designation (number) indicating the size of the bar </param>
-/// <param name="s_clear">  Clear spacing between bars </param>
-/// <param name="c_c">   Clear cover of reinforcement  </param>
+        /// <param name="l_b">  Bearing length measured parallel to grain, in.  </param>
+/// <param name="IsMemberEnd">  Identifies if area under consideration is at the member end </param>
 
-        /// <returns name="c_cntr"> Concrete cover to rebar centroid </returns>
+        /// <returns name="C_b"> Bearing area factor </returns>
 
-        [MultiReturn(new[] { "c_cntr" })]
-        public static Dictionary<string, object> RebarSizeSelection(string RebarSizeId,double s_clear,double c_c)
+        [MultiReturn(new[] { "C_b" })]
+        public static Dictionary<string, object> BearingAreaFactor(double l_b,bool IsMemberEnd)
         {
             //Default values
-            double c_cntr = 0;
+            double C_b = 0;
 
 
             //Calculation logic:
@@ -58,20 +57,20 @@ namespace Concrete.ACI318_14.General.Rebar
 
             return new Dictionary<string, object>
             {
-                { "c_cntr", c_cntr }
+                { "C_b", C_b }
  
             };
         }
 
 
-        //internal Rebar (string RebarSizeId,double s_clear,double c_c)
+        //internal AdjustmentFactor (double l_b,bool IsMemberEnd)
         //{
 
         //}
         //[IsVisibleInDynamoLibrary(false)]
-        //public static Rebar  ByInputParameters(string RebarSizeId,double s_clear,double c_c)
+        //public static AdjustmentFactor  ByInputParameters(double l_b,bool IsMemberEnd)
         //{
-        //    return new Rebar(RebarSizeId ,s_clear ,c_c );
+        //    return new AdjustmentFactor(l_b ,IsMemberEnd );
         //}
 
     }

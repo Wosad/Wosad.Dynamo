@@ -47,22 +47,29 @@ namespace Concrete.ACI318.Details
         /// <param name="ConcreteMaterial">  Concrete material object used to extract material properties, create the object using input parameters first </param>
         /// <param name="d_b">   Nominal diameter of bar, wire, or prestressing  strand  </param>
         /// <param name="RebarMaterial">   Reinforcement material </param>
-        /// <param name="ExcessRebarRatio">  Indicates the ration of areas of required reinforcement and provided renforcement. This value must be less than 1 </param>
+        /// <param name="HookType">  Identifies rebar hook configuration (90-degree versus 180-degree) </param>
         /// <param name="RebarCoatingType">  Type of rebar surface coating (epoxy coated or black) </param>
+        /// <param name="ExcessRebarRatio">  Indicates the ration of areas of required reinforcement and provided renforcement. This value must be less than 1 </param>
+        /// <param name="c_side">  Reinforcement side clear cover </param>
+        /// <param name="c_extension">  Reinforcement standard hook clear cover for bar extension </param>
+        /// <param name="EnclosingRebarDirection">  Indicates if enclosing reinforcement is perpendicular or parallel to bar </param>
+        /// <param name="s_enclosing">Spacing of enclosing reinforcement</param>
         /// <param name="Code"> Applicable version of code/standard</param>
         /// <returns name="l_dh">  Development length in tension of deformed bar or  deformed wire with a standard hook, measured  from outside end of hook, point of tangency, toward  critical section  </returns>
 
         [MultiReturn(new[] { "l_dh" })]
         public static Dictionary<string, object> StandardHookTensionDevelopmentLengthBasic(Concrete.ACI318.General.Concrete.ConcreteMaterial ConcreteMaterial, double d_b,
-            RebarMaterial RebarMaterial,  double ExcessRebarRatio = 1.0, string RebarCoatingType = "Uncoated",string Code = "ACI318-14")
+            RebarMaterial RebarMaterial, string HookType, string RebarCoatingType, double ExcessRebarRatio, double c_side, double c_extension, string EnclosingRebarDirection, 
+            double s_enclosing, string Code = "ACI318-14")
         {
             //Default values
             double l_dh = 0;
-
+                                                                                                                                                                
 
             //Calculation logic:
 
             IRebarMaterial mat = RebarMaterial.Material;
+
             bool IsEpoxyCoated = true;
 
             if (RebarCoatingType.ToLower() == "uncoated")
@@ -77,12 +84,37 @@ namespace Concrete.ACI318.Details
             {
                 throw new Exception("Unrecognized rebar coating string.");
             }
+
             Rebar rebar = new Rebar(d_b, IsEpoxyCoated, mat);
 
             CalcLog log = new CalcLog();
 
             StandardHookInTension hook = new StandardHookInTension(ConcreteMaterial.Concrete, rebar, log, ExcessRebarRatio);
-            l_dh = hook.GetDevelopmentLength();
+            
+            HookType _HookType;
+            bool IsValidHookTypeString = Enum.TryParse(HookType, true, out _HookType);
+            if (IsValidHookTypeString == false)
+            {
+                throw new Exception("Failed to convert string. Check HookType string. Please check input");
+            }
+
+
+            bool enclosingRebarIsPerpendicular = false;
+            if (EnclosingRebarDirection.ToLower()=="perpendicular")
+            {
+                enclosingRebarIsPerpendicular = true;
+            }
+            else if (EnclosingRebarDirection.ToLower() == "parallel")
+            {
+                enclosingRebarIsPerpendicular = false;
+            }
+            else
+	        {
+                throw new Exception("Failed to convert string. Check EnclosingRebarDirection string. Please check input");
+	        }
+
+
+            l_dh = hook.GetDevelopmentLength(_HookType, c_side, c_extension, enclosingRebarIsPerpendicular,s_enclosing);
 
             return new Dictionary<string, object>
             {
