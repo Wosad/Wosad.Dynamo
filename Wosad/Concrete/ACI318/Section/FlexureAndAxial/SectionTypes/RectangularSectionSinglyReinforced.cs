@@ -74,7 +74,7 @@ namespace Concrete.ACI318.Section.SectionTypes
         }
 
         /// <summary>
-         /// Rectangular section singly reinforced
+         /// Rectangular section singly reinforced (Use where ConcreteSection type is required)
         /// </summary>
          /// <param name="b">Width of compression face of member</param>
          /// <param name="h">Overall thickness, height, or depth of member</param>

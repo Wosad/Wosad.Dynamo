@@ -1,5 +1,5 @@
 //#region Copyright
-//   /*Copyright (C) 2015 Wosad Inc
+///*Copyright (C) 2015 Wosad Inc
 
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 //   limitations under the License.
 //   */
 //#endregion
- 
+
 //#region
 
 //using Autodesk.DesignScript.Runtime;
@@ -35,29 +35,29 @@
 //namespace Concrete.ACI318.Section.SectionTypes
 //{
 
-///// <summary>
-/////   Rectangular section singly reinforced
-/////   Category:   Concrete.ACI318_14.General
-///// </summary>
- 
+//    /// <summary>
+//    ///   Rectangular section singly reinforced
+//    ///   Category:   Concrete.ACI318_14.General
+//    /// </summary>
+
 
 
 //    [IsDesignScriptCompatible]
 //    public partial class RectangularSectionSinglyReinforced : ConcreteFlexureAndAxiaSection
 //    {
 
-//            //Default values
-//            double b;
-//            double h;
-//            double A_s;
-//            double c_cntr;
-//            ConcreteMaterial ConcreteMaterial;
-//            RebarMaterial LongitudinalRebarMaterial;
-//            RebarMaterial TransverseRebarMaterial;
+//        //Default values
+//        double b;
+//        double h;
+//        double A_s;
+//        double c_cntr;
+//        ConcreteMaterial ConcreteMaterial;
+//        RebarMaterial LongitudinalRebarMaterial;
+//        RebarMaterial TransverseRebarMaterial;
 
-//         [IsVisibleInDynamoLibrary(false)]
-//            internal RectangularSectionSinglyReinforced(double b, double h, double A_sTop, double A_sBot, double A_sLeft, double A_sRight,
-//             double c_cntr, ConcreteMaterial ConcreteMaterial, RebarMaterial LongitudinalRebarMaterial, bool hasTies=false)
+//        [IsVisibleInDynamoLibrary(false)]
+//        internal RectangularSectionSinglyReinforced(double b, double h, double A_sTop, double A_sBot, double A_sLeft, double A_sRight,
+//         double c_cntr, ConcreteMaterial ConcreteMaterial, RebarMaterial LongitudinalRebarMaterial, bool hasTies = false)
 //        {
 
 //            CrossSectionRectangularShape shape = new CrossSectionRectangularShape(ConcreteMaterial.Concrete, null, b, h);
@@ -65,27 +65,27 @@
 
 //            List<wosadAci.RebarPoint> LongitudinalBars = new List<wosadAci.RebarPoint>();
 
-//                wosadAci.Rebar thisBar = new wosadAci.Rebar(A_s, LongitudinalRebarMaterial.Material);
-//                wosadAci.RebarPoint point = new wosadAci.RebarPoint(thisBar, new wosadAci.RebarCoordinate() { X = 0, Y = -h / 2.0 + c_cntr });
-//            LongitudinalBars.Add(point);
+//            //wosadAci.Rebar thisBar = new wosadAci.Rebar(A_s, LongitudinalRebarMaterial.Material);
+//            //wosadAci.RebarPoint point = new wosadAci.RebarPoint(thisBar, new wosadAci.RebarCoordinate() { X = 0, Y = -h / 2.0 + c_cntr });
+//            //LongitudinalBars.Add(point);
 
 //            wosadAci.IConcreteFlexuralMember fs = new wosadAci14.ConcreteSectionFlexure(shape, LongitudinalBars, new CalcLog());
 //            this.FlexuralSection = fs;
 //        }
 
 //        /// <summary>
-//         /// Rectangular section singly reinforced
+//        /// Rectangular section singly reinforced
 //        /// </summary>
-//         /// <param name="b">Width of compression face of member</param>
-//         /// <param name="h">Overall thickness, height, or depth of member</param>
-//         /// <param name="A_s">Area of nonprestressed longitudinal tension reinforcement</param>
-//         /// <param name="c_cntr">Concrete cover to tension rebar centroid</param>
-//         /// <param name="ConcreteMaterial">Concrete material</param>
-//         /// <param name="LongitudinalRebarMaterial">Rebar material for longitudinal bars</param>
-//         /// <returns name="RectangularSectionSinglyReinforced">  Section [OBJECT] </returns>
+//        /// <param name="b">Width of compression face of member</param>
+//        /// <param name="h">Overall thickness, height, or depth of member</param>
+//        /// <param name="A_s">Area of nonprestressed longitudinal tension reinforcement</param>
+//        /// <param name="c_cntr">Concrete cover to tension rebar centroid</param>
+//        /// <param name="ConcreteMaterial">Concrete material</param>
+//        /// <param name="LongitudinalRebarMaterial">Rebar material for longitudinal bars</param>
+//        /// <returns name="RectangularSectionSinglyReinforced">  Section [OBJECT] </returns>
 
 //        public static RectangularSectionSinglyReinforced ByWidthHeigthAndReinforcementArea(double b, double h, double A_s, double c_cntr,
-//            ConcreteMaterial ConcreteMaterial,RebarMaterial LongitudinalRebarMaterial)
+//            ConcreteMaterial ConcreteMaterial, RebarMaterial LongitudinalRebarMaterial)
 //        {
 //            return new RectangularSectionSinglyReinforced(b, h, A_s, c_cntr, ConcreteMaterial, LongitudinalRebarMaterial);
 //        }
